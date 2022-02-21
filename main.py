@@ -18,7 +18,7 @@ class SchoolManegmentSystem(tk.Tk):
     def __init__(self):
         tk.Tk.__init__(self)
         self._frame = None
-        self.switch_frame(SplashScreen)
+        self.switch_frame(TeacherView)
 
     # this_funtion_is_for_change
     # the frame == window of the app
@@ -822,6 +822,25 @@ class TeacherView(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
         self.columns = ('ID', 'First name', 'Last name', 'Age', 'Phone Number', 'Gender', 'Subjects')
+        self.teacher_recodes = ttk.Treeview(height=30, columns=self.columns)
+
+        self.teacher_recodes.heading("ID", text="ID")
+        self.teacher_recodes.heading("ID", text="First name")
+        self.teacher_recodes.heading("ID", text="Last name")
+        self.teacher_recodes.heading("ID", text="Age")
+        self.teacher_recodes.heading("ID", text="Phone Number")
+        self.teacher_recodes.heading("ID", text="Subjects")
+
+        self.teacher_recodes['show'] = 'headings'
+
+        self.teacher_recodes.column("ID", width=50)
+        self.teacher_recodes.column("ID", width=50)
+        self.teacher_recodes.column("ID", width=50)
+        self.teacher_recodes.column("ID", width=50)
+        self.teacher_recodes.column("ID", width=50)
+        self.teacher_recodes.column("ID", width=50)
+        self.teacher_recodes.place(anchor='nw', x='0', y='0')
+
         self.configure(height='200', width='200')
         self.place(anchor='nw', x='0', y='0')
 
