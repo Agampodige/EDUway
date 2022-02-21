@@ -18,7 +18,7 @@ class SchoolManegmentSystem(tk.Tk):
     def __init__(self):
         tk.Tk.__init__(self)
         self._frame = None
-        self.switch_frame(TeacherView)
+        self.switch_frame(SplashScreen)
 
     # this_funtion_is_for_change
     # the frame == window of the app
@@ -50,7 +50,7 @@ class SplashScreen(tk.Frame):
         # it_will_return_you_to_log_in_page
         self.splash_button = tk.Button(self)
         try:
-            self.img_splash = tk.PhotoImage(file='../tkinter/Test_2/Proxlight_Designer_Export/splash.png')
+            self.img_splash = tk.PhotoImage(file='splash.png')
         except Exception as e:
             print(e)
             messagebox.showerror("Image Missing", "splash.png is missing")
@@ -86,7 +86,7 @@ class LogInPage(tk.Frame):
         self.backg = tk.Label(self)
 
         try:
-            self.img_background = tk.PhotoImage(file='../tkinter/Test_2/Proxlight_Designer_Export/background.png')
+            self.img_background = tk.PhotoImage(file='background.png')
         except Exception as e:
             print(e)
             messagebox.showerror("Image Missing", "backfround.png is missing")
@@ -131,7 +131,7 @@ class LogInPage(tk.Frame):
         self.input_field_bg = tk.Label(self)
 
         try:
-            self.img_img_textBox0 = tk.PhotoImage(file='../tkinter/Test_2/Proxlight_Designer_Export/img_textBox0.png')
+            self.img_img_textBox0 = tk.PhotoImage(file='img_textBox0.png')
         except Exception as e:
             print(e)
             messagebox.showerror("Image Missing", "img_textBox0.png is missing")
@@ -167,7 +167,7 @@ class LogInPage(tk.Frame):
         self.login_button = tk.Button(self)
 
         try:
-            self.img_img0 = tk.PhotoImage(file='../tkinter/Test_2/Proxlight_Designer_Export/img0.png')
+            self.img_img0 = tk.PhotoImage(file='img0.png')
         except Exception as e:
             print(e)
             messagebox.showerror("Image Missing", "img0.png is missing")
@@ -216,7 +216,7 @@ class LogInPage(tk.Frame):
                                         y='190')
         self.close_button = tk.Button(self)
         try:
-            self.img_img4 = tk.PhotoImage(file='../tkinter/Test_2/Proxlight_Designer_Export/img4.png')
+            self.img_img4 = tk.PhotoImage(file='img4.png')
         except Exception as e:
             print(e)
             messagebox.showerror("Image Missing", "img4.png is missing")
@@ -244,7 +244,7 @@ class LogInPage(tk.Frame):
         # this_clear_button_is_for_clear_All_input_fields
         self.clear_btton = tk.Button(self)
         try:
-            self.img_img1 = tk.PhotoImage(file='../tkinter/Test_2/Proxlight_Designer_Export/img1.png')
+            self.img_img1 = tk.PhotoImage(file='img1.png')
         except Exception as e:
             print(e)
             messagebox.showerror("Image Missing", "img1.png is missing")
@@ -270,7 +270,7 @@ class LogInPage(tk.Frame):
         # this_Button_is for Change_the_color_Theme
         self.theme_change_button = tk.Button(self)
         try:
-            self.img_img3 = tk.PhotoImage(file='../tkinter/Test_2/Proxlight_Designer_Export/img3.png')
+            self.img_img3 = tk.PhotoImage(file='img3.png')
         except Exception as e:
             messagebox.showerror("Image Missing", "img3.png is missing")
 
@@ -344,7 +344,7 @@ class LogInPage(tk.Frame):
         if self.backg["background"] == "#1f1f1f":
             self.backg.configure(background='#ffffff')
             try:
-                self.img_img3 = tk.PhotoImage(file="../tkinter/Test_2/Proxlight_Designer_Export/icons8-sun-31.png")
+                self.img_img3 = tk.PhotoImage(file="icons8-sun-31.png")
             except Exception as e:
                 print(e)
                 messagebox.showerror("Image Missing", "icons8-sun-31.png is missing")
@@ -356,7 +356,7 @@ class LogInPage(tk.Frame):
         elif self.backg["background"] == "#ffffff":
             self.backg.configure(background='#1f1f1f')
 
-            self.img_img3 = tk.PhotoImage(file="../tkinter/Test_2/Proxlight_Designer_Export/img3.png")
+            self.img_img3 = tk.PhotoImage(file="img3.png")
             self.theme_change_button.configure(image=self.img_img3)
 
 
@@ -378,7 +378,7 @@ class Home(tk.Frame):
         # home_background_image_As_Lable
         self.home_backg = tk.Label(self)
         try:
-            self.img_home_bg = tk.PhotoImage(file='../tkinter/Test_2/Proxlight_Designer_Export/home_bg.png')
+            self.img_home_bg = tk.PhotoImage(file='home_bg.png')
         except Exception as e:
             print(e)
             messagebox.showerror("File Missing", "home_bg.png is missing")
@@ -392,7 +392,7 @@ class Home(tk.Frame):
         self.home_button = tk.Button(self)
 
         try:
-            self.img_home_button = tk.PhotoImage(file='../tkinter/Test_2/Proxlight_Designer_Export/home_button.png')
+            self.img_home_button = tk.PhotoImage(file='home_button.png')
         except Exception as e:
             print(e)
             messagebox.showerror("File Missing", "home_button.png is missing")
@@ -419,7 +419,7 @@ class Home(tk.Frame):
         self.search_button = tk.Button(self)
 
         try:
-            self.img_search_button = tk.PhotoImage(file='../tkinter/Test_2/Proxlight_Designer_Export/search_button.png')
+            self.img_search_button = tk.PhotoImage(file='search_button.png')
         except Exception as e:
             print(e)
             messagebox.showerror("File Missing", "search_button.png is missing")
@@ -471,7 +471,7 @@ class Home(tk.Frame):
         #                                  image=self.img_news_poto)
         # self.home_image_button.place(anchor='nw', height='220', width='220', y='295'
         try:
-            self.img_img4 = tk.PhotoImage(file='../tkinter/Test_2/Proxlight_Designer_Export/img4.png')
+            self.img_img4 = tk.PhotoImage(file='img4.png')
         except Exception as e:
             print(e)
             messagebox.showerror("File Missing", "img_img4 is missing")
@@ -511,7 +511,7 @@ class Home(tk.Frame):
         # this is the frame indide bla bla need to distry befor bla bla
         self.home_window_search_frame = tk.Frame(self)
         try:
-            self.img_home_button = tk.PhotoImage(file='../tkinter/Test_2/Proxlight_Designer_Export/home_button_out.png')
+            self.img_home_button = tk.PhotoImage(file='home_button_out.png')
             self.home_button.configure(image=self.img_home_button)
         except Exception as e:
             print(e)
@@ -728,7 +728,7 @@ class TeacherRegistation(tk.Frame):
                                       y='400')
 
         try:
-            self.img_img4 = tk.PhotoImage(file='../tkinter/Test_2/Proxlight_Designer_Export/img4.png')
+            self.img_img4 = tk.PhotoImage(file='img4.png')
         except Exception as e:
             print(e)
             messagebox.showerror("File Missing", "img_img4.png is missing")
@@ -832,7 +832,6 @@ if __name__ == "__main__":
     app.title("EDUWAY")
     app.eval('tk::PlaceWindow . center')
     app.attributes('-topmost', True)
-    app.iconbitmap('icons8-school-24.png')
     # app.resizable(False, False)
     # app.overrideredirect(True)
     app.mainloop()
