@@ -18,7 +18,7 @@ class SchoolManegmentSystem(tk.Tk):
     def __init__(self):
         tk.Tk.__init__(self)
         self._frame = None
-        self.switch_frame(TeacherView)
+        self.switch_frame(SplashScreen)
 
     # this_funtion_is_for_change
     # the frame == window of the app
@@ -640,7 +640,8 @@ class TeacherHome(tk.Frame):
                           y='15')
         self.view = tk.Button(self)
         self.view.configure(borderwidth='0',
-                            text='viwe')
+                            text='viwe',
+                            command=lambda: master.switch_frame(TeacherView))
         self.view.place(anchor='nw',
                         height='150',
                         width='150',
@@ -819,6 +820,7 @@ class TeacherRegistation(tk.Frame):
                                     self.clearTeacherRegistation()
                                     self.connetc.close()
                                     self.conn.close()
+                                    self.master.switch_frame(TeacherView)
 
     def clearTeacherRegistation(self):
         self.first_name_entry.delete(0, 'end')
@@ -869,14 +871,13 @@ class TeacherView(tk.Frame):
         self.connetc = self.conn.cursor()
         self.connetc.execute("SELECT * FROM teacher")
         self.recodes = self.connetc.fetchall()
-        print(self.recodes)
         global count
 
         count = 0
 
         for record in self.recodes:
             self.teacher_recodes.insert(parent="", index='end', iid=count, values=(
-                record[6], record[0], record[1], record[3],"0"+str(record[2]), record[4], record[5]))
+                record[6], record[0], record[1], record[3], "0" + str(record[2]), record[4], record[5]))
             count += 1
 
         self.connetc.close()
