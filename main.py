@@ -1,3 +1,4 @@
+from ast import Global
 import sys
 from tkinter import messagebox
 import tkinter.ttk as ttk
@@ -13,12 +14,13 @@ import mysql.connector
 
 background_color = '#1f1f1f'
 
+TeacherRegistationTheme = "#121212"
 
 class SchoolManegmentSystem(tk.Tk):
     def __init__(self):
         tk.Tk.__init__(self)
         self._frame = None
-        self.switch_frame(SplashScreen)
+        self.switch_frame(TeacherRegistation)
 
     # this_funtion_is_for_change
     # the frame == window of the app
@@ -926,12 +928,152 @@ class TeacherRegistation(tk.Frame):
         self.back_page_img_button.configure(image=self.img_BackPageIMG)
         self.back_page_img_button.place(anchor='nw', x='15', y='15')
 
+        self.teacher_registation_theme_change_button = tk.Button(self)
+        self.img_DarkThemeimg = tk.PhotoImage(file='DarkThemeimg.png')
+        self.teacher_registation_theme_change_button.configure(activebackground='#121212',
+                                                               activeforeground='#121212',
+                                                               background='#121212',
+                                                               borderwidth='0',
+                                                               command=self.changeTeacherRegistationTheme)
+        self.teacher_registation_theme_change_button.configure(image=self.img_DarkThemeimg,
+                                                               text='button2')
+        self.teacher_registation_theme_change_button.place(anchor='nw',
+                                                           x='60',
+                                                           y='10')
+
+
         self.configure(background='#121212',
                        borderwidth='0',
                        height='515',
                        width='791')
         self.pack(fill='both',
                   side='top')
+
+
+
+    def changeTeacherRegistationTheme(self):
+        try:
+            self.img_DarkThemeimg = tk.PhotoImage(file='DarkThemeimg.png')
+        except Exception as e:
+            print(e)
+            messagebox.showerror("File Missing", "DarkThemeimg.png IS Missing")
+
+        try:
+            self.img_lightThemeimg = tk.PhotoImage(file='LightThemeimg.png')
+        except Exception as e:
+            print(e)
+            messagebox.showerror("File Missing", "LightThemeimg.png IS Missing")
+        if self.back_page_img_button["background"] == "#121212":
+            self.teacherRegistationBGColor = "#ffffff"
+            self.teacherRegistationFGColor = "#000000"
+            self.configure(background=self.teacherRegistationBGColor)
+            self.element_img_label.configure(background=self.teacherRegistationBGColor,
+                                             foreground=self.teacherRegistationFGColor)
+            self.First_name_Entry_bg_label.configure(background=self.teacherRegistationBGColor,
+                                                     foreground=self.teacherRegistationFGColor)
+            self.Last_name_Entry_bg_label.configure(background=self.teacherRegistationBGColor,
+                                                    foreground=self.teacherRegistationFGColor)
+            self.age_Entry_bg_label.configure(background=self.teacherRegistationBGColor,
+                                              foreground=self.teacherRegistationFGColor)
+            self.phone_number_Entry_bg_label.configure(background=self.teacherRegistationBGColor,
+                                                       foreground=self.teacherRegistationFGColor)
+            self.phone_number_Entry_bg_label.configure(background=self.teacherRegistationBGColor,
+                                                       foreground=self.teacherRegistationFGColor)
+            self.gender_Entry_bg_label.configure(background=self.teacherRegistationBGColor,
+                                                 foreground=self.teacherRegistationFGColor)
+            self.subject_Entry_bg_label.configure(background=self.teacherRegistationBGColor,
+                                                  foreground=self.teacherRegistationFGColor)
+            self.first_name_entry.configure(background=self.teacherRegistationBGColor,
+                                            foreground=self.teacherRegistationFGColor)
+            self.first_name_label.configure(background=self.teacherRegistationBGColor,
+                                            foreground=self.teacherRegistationFGColor)
+            self.last_name_entry.configure(background=self.teacherRegistationBGColor,
+                                           foreground=self.teacherRegistationFGColor)
+            self.last_name_label.configure(background=self.teacherRegistationBGColor,
+                                           foreground=self.teacherRegistationFGColor)
+            self.phone_number_entry.configure(background=self.teacherRegistationBGColor,
+                                              foreground=self.teacherRegistationFGColor)
+            self.phone_number_label.configure(background=self.teacherRegistationBGColor,
+                                              foreground=self.teacherRegistationFGColor)
+            self.age_entry.configure(background=self.teacherRegistationBGColor,
+                                     foreground=self.teacherRegistationFGColor)
+            self.age_label.configure(background=self.teacherRegistationBGColor,
+                                     foreground=self.teacherRegistationFGColor)
+            self.gender_entry.configure(background=self.teacherRegistationBGColor,
+                                        foreground=self.teacherRegistationFGColor)
+            self.gender_label.configure(background=self.teacherRegistationBGColor,
+                                        foreground=self.teacherRegistationFGColor)
+            self.subject_entry.configure(background=self.teacherRegistationBGColor,
+                                         foreground=self.teacherRegistationFGColor)
+            self.subects_label.configure(background=self.teacherRegistationBGColor,
+                                         foreground=self.teacherRegistationFGColor)
+            self.add_teachet_button.configure(background=self.teacherRegistationBGColor,
+                                              foreground=self.teacherRegistationFGColor,
+                                              activebackground=self.teacherRegistationBGColor,
+                                              activeforeground=self.teacherRegistationBGColor)
+            self.Teacher_registation_close_button.configure(background=self.teacherRegistationBGColor,
+                                                            foreground=self.teacherRegistationFGColor)
+            self.Register_Teacher_label.configure(background=self.teacherRegistationBGColor,
+                                                  foreground=self.teacherRegistationFGColor)
+            self.back_page_img_button.configure(background=self.teacherRegistationBGColor,
+                                                foreground=self.teacherRegistationFGColor,
+                                                activebackground=self.teacherRegistationBGColor,
+                                                activeforeground=self.teacherRegistationBGColor)
+            self.teacher_registation_theme_change_button.configure(background=self.teacherRegistationBGColor,
+                                                                   foreground=self.teacherRegistationFGColor,
+                                                                   activebackground=self.teacherRegistationBGColor,
+                                                                   activeforeground=self.teacherRegistationBGColor,
+                                                                   image=self.img_lightThemeimg)
+        else:
+            self.DteacherRegistationBGColor = "#121212"
+            self.DteacherRegistationFGColor = "#ffffff"
+            self.configure(background=self.DteacherRegistationBGColor)
+            self.element_img_label.configure(background=self.DteacherRegistationBGColor,
+                                             foreground=self.DteacherRegistationFGColor)
+            self.First_name_Entry_bg_label.configure(background=self.DteacherRegistationBGColor,
+                                                     foreground=self.DteacherRegistationFGColor)
+            self.Last_name_Entry_bg_label.configure(background=self.DteacherRegistationBGColor,
+                                                    foreground=self.DteacherRegistationFGColor)
+            self.age_Entry_bg_label.configure(background=self.DteacherRegistationBGColor,
+                                              foreground=self.DteacherRegistationFGColor)
+            self.phone_number_Entry_bg_label.configure(background=self.DteacherRegistationBGColor,
+                                                       foreground=self.DteacherRegistationFGColor)
+            self.phone_number_Entry_bg_label.configure(background=self.DteacherRegistationBGColor,
+                                                       foreground=self.DteacherRegistationFGColor)
+            self.gender_Entry_bg_label.configure(background=self.DteacherRegistationBGColor,
+                                                 foreground=self.DteacherRegistationFGColor)
+            self.subject_Entry_bg_label.configure(background=self.DteacherRegistationBGColor,
+                                                  foreground=self.DteacherRegistationFGColor)
+            self.first_name_label.configure(background=self.DteacherRegistationBGColor,
+                                            foreground=self.DteacherRegistationFGColor)
+            self.last_name_label.configure(background=self.DteacherRegistationBGColor,
+                                           foreground=self.DteacherRegistationFGColor)
+            self.phone_number_label.configure(background=self.DteacherRegistationBGColor,
+                                              foreground=self.DteacherRegistationFGColor)
+            self.age_label.configure(background=self.DteacherRegistationBGColor,
+                                     foreground=self.DteacherRegistationFGColor)
+            self.gender_label.configure(background=self.DteacherRegistationBGColor,
+                                        foreground=self.DteacherRegistationFGColor)
+            self.subects_label.configure(background=self.DteacherRegistationBGColor,
+                                         foreground=self.DteacherRegistationFGColor)
+            self.add_teachet_button.configure(background=self.DteacherRegistationBGColor,
+                                              foreground=self.DteacherRegistationFGColor,
+                                              activebackground=self.DteacherRegistationBGColor,
+                                              activeforeground=self.DteacherRegistationBGColor)
+            self.Teacher_registation_close_button.configure(background=self.DteacherRegistationBGColor,
+                                                            foreground=self.DteacherRegistationFGColor)
+            self.Register_Teacher_label.configure(background=self.DteacherRegistationBGColor,
+                                                  foreground=self.DteacherRegistationFGColor)
+            self.back_page_img_button.configure(background=self.DteacherRegistationBGColor,
+                                                foreground=self.DteacherRegistationFGColor)
+            self.teacher_registation_theme_change_button.configure(background=self.DteacherRegistationBGColor,
+                                                                   foreground=self.DteacherRegistationFGColor,
+                                                                   activebackground=self.DteacherRegistationBGColor,
+                                                                   activeforeground=self.DteacherRegistationBGColor,
+                                                                   image=self.img_DarkThemeimg)
+
+
+
 
 
     def goBackToTeacherHome(self):
