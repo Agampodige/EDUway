@@ -902,7 +902,7 @@ if __name__ == "__main__":
     app.eval('tk::PlaceWindow . center')
     app.attributes('-topmost', True)
     app.resizable(False, False)
-    # app.overrideredirect(True)
+    app.overrideredirect(True)
     app.mainloop()
 # @^^^^^^^  ^o^
 
