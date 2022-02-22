@@ -18,7 +18,7 @@ class SchoolManegmentSystem(tk.Tk):
     def __init__(self):
         tk.Tk.__init__(self)
         self._frame = None
-        self.switch_frame(TeacherRegistation)
+        self.switch_frame(TeacherView)
 
     # this_funtion_is_for_change
     # the frame == window of the app
@@ -862,8 +862,27 @@ class TeacherView(tk.Frame):
         self.teacher_recodes.column("Subjects", width=200)
 
         # Add data
+        self.conn = mysql.connector.connect(host="localhost", user="root",
+                                            password="",
+                                            database="eduway_test_1")
 
-        self.teacher_recodes.insert()
+        self.connetc = self.conn.cursor()
+        self.connetc.execute("SELECT * FROM teacher")
+        self.recodes = self.connetc.fetchall()
+        print(self.recodes)
+        global count
+
+        count = 0
+
+        for record in self.recodes:
+            self.teacher_recodes.insert(parent="", index='end', iid=count, values=(
+                record[6], record[0], record[1], record[3],"0"+str(record[2]), record[4], record[5]))
+            count += 1
+
+        self.connetc.close()
+        self.conn.close()
+
+        # self.teacher_recodes.insert()
 
         self.teacher_recodes.place(anchor='nw', x='0', y='0')
 
