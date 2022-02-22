@@ -18,7 +18,7 @@ class SchoolManegmentSystem(tk.Tk):
     def __init__(self):
         tk.Tk.__init__(self)
         self._frame = None
-        self.switch_frame(TeacherRegistation)
+        self.switch_frame(SplashScreen)
 
     # this_funtion_is_for_change
     # the frame == window of the app
@@ -270,7 +270,7 @@ class LogInPage(tk.Frame):
         # this_Button_is for Change_the_color_Theme
         self.theme_change_button = tk.Button(self)
         try:
-            self.img_img3 = tk.PhotoImage(file='img3.png')
+            self.img_img3 = tk.PhotoImage(file='LightThemeimg.png')
         except Exception as e:
             messagebox.showerror("Image Missing", "img3.png is missing")
 
@@ -344,10 +344,10 @@ class LogInPage(tk.Frame):
         if self.backg["background"] == "#1f1f1f":
             self.backg.configure(background='#ffffff')
             try:
-                self.img_img3 = tk.PhotoImage(file="icons8-sun-31.png")
+                self.img_img3 = tk.PhotoImage(file="LightThemeimg.png")
             except Exception as e:
                 print(e)
-                messagebox.showerror("Image Missing", "icons8-sun-31.png is missing")
+                messagebox.showerror("Image Missing", "LightThemeimg.png is missing")
             try:
                 self.theme_change_button.configure(image=self.img_img3)
             except Exception as e:
@@ -356,7 +356,12 @@ class LogInPage(tk.Frame):
         elif self.backg["background"] == "#ffffff":
             self.backg.configure(background='#1f1f1f')
 
-            self.img_img3 = tk.PhotoImage(file="img3.png")
+            try:
+                self.img_img3 = tk.PhotoImage(file="DarkThemeimg.png")
+            except Exception as e:
+                print(e)
+                messagebox.showerror("Image Missing", "DarkThemeimg.png is missing")
+
             self.theme_change_button.configure(image=self.img_img3)
 
 
@@ -684,7 +689,7 @@ class TeacherRegistation(tk.Frame):
 
         try:
             self.img_TeacherRegiusterEntery = tk.PhotoImage(file='TeacherRegiusterEntery.png')
-        except Exception as  e:
+        except Exception as e:
             messagebox.showerror("TeacherAddButton.png Missing")
             print(e)
 
@@ -719,7 +724,6 @@ class TeacherRegistation(tk.Frame):
                                                x='386',
                                                y='290')
 
-
         self.gender_Entry_bg_label = tk.Label(self)
         self.gender_Entry_bg_label.configure(background='#121212',
                                              borderwidth='0',
@@ -727,7 +731,6 @@ class TeacherRegistation(tk.Frame):
         self.gender_Entry_bg_label.place(anchor='nw',
                                          x='386',
                                          y='340')
-
 
         self.subject_Entry_bg_label = tk.Label(self)
         self.subject_Entry_bg_label.configure(background='#121212',
@@ -740,14 +743,13 @@ class TeacherRegistation(tk.Frame):
         self.first_name_entry = tk.Entry(self)
         self.first_name_entry.configure(borderwidth='0')
         self.first_name_entry.configure(font='{Poppins} 10 {bold}',
-                                         insertwidth='1',
-                                         relief='flat')
+                                        insertwidth='1',
+                                        relief='flat')
         self.first_name_entry.place(anchor='nw',
                                     height='24',
                                     width='229',
                                     x='395',
                                     y='149')
-
 
         self.first_name_label = tk.Label(self)
         self.first_name_label.configure(background='#121212',
@@ -758,18 +760,16 @@ class TeacherRegistation(tk.Frame):
                                     x='166',
                                     y='146')
 
-
         self.last_name_entry = tk.Entry(self)
         self.last_name_entry.configure(borderwidth='0')
         self.last_name_entry.configure(font='{Poppins} 10 {bold}',
-                                        insertwidth='1',
-                                        relief='flat')
+                                       insertwidth='1',
+                                       relief='flat')
         self.last_name_entry.place(anchor='nw',
                                    height='24',
                                    width='229',
                                    x='397',
                                    y='199')
-
 
         self.last_name_label = tk.Label(self)
         self.last_name_label.configure(background='#121212',
@@ -777,9 +777,8 @@ class TeacherRegistation(tk.Frame):
                                        foreground='#ffffff',
                                        text='Last Name')
         self.last_name_label.place(anchor='nw',
-                                     x='166',
-                                     y='198')
-
+                                   x='166',
+                                   y='198')
 
         self.phone_number_entry = tk.Entry(self)
         self.phone_number_entry.configure(borderwidth='0')
@@ -792,7 +791,6 @@ class TeacherRegistation(tk.Frame):
                                       x='397',
                                       y='293')
 
-
         self.phone_number_label = tk.Label(self)
         self.phone_number_label.configure(background='#121212',
                                           font='{Poppins} 17 {bold}',
@@ -801,7 +799,6 @@ class TeacherRegistation(tk.Frame):
         self.phone_number_label.place(anchor='nw',
                                       x='166',
                                       y='289')
-
 
         self.age_entry = tk.Entry(self)
         self.age_entry.configure(borderwidth='0')
@@ -814,7 +811,6 @@ class TeacherRegistation(tk.Frame):
                              x='395',
                              y='249')
 
-
         self.age_label = tk.Label(self)
         self.age_label.configure(background='#121212',
                                  font='{Poppins} 17 {bold}',
@@ -823,7 +819,6 @@ class TeacherRegistation(tk.Frame):
         self.age_label.place(anchor='nw',
                              x='166',
                              y='239')
-
 
         self.gender_label = tk.Label(self)
         self.gender_label.configure(background='#121212',
@@ -834,18 +829,16 @@ class TeacherRegistation(tk.Frame):
                                 x='166',
                                 y='331')
 
-
         self.gender_entry = tk.Entry(self)
         self.gender_entry.configure(borderwidth="0")
         self.gender_entry.configure(font='{Poppins} 10 {bold}',
-                                 insertwidth='1',
-                                 relief='flat')
+                                    insertwidth='1',
+                                    relief='flat')
         self.gender_entry.place(anchor='nw',
                                 height='24',
                                 width='229',
                                 x='395',
                                 y='343')
-
 
         self.subects_label = tk.Label(self)
         self.subects_label.configure(background='#121212',
@@ -855,7 +848,6 @@ class TeacherRegistation(tk.Frame):
         self.subects_label.place(anchor='nw',
                                  x='166',
                                  y='389')
-
 
         self.subject_entry = tk.Entry(self)
         self.subject_entry.configure(borderwidth="0")
@@ -886,9 +878,6 @@ class TeacherRegistation(tk.Frame):
                                       x='412',
                                       y='448')
 
-
-
-
         try:
             self.img_img4 = tk.PhotoImage(file='img4.png')
         except Exception as e:
@@ -910,12 +899,43 @@ class TeacherRegistation(tk.Frame):
         self.Teacher_registation_close_button.place(anchor='nw',
                                                     x='760',
                                                     y='8')
+
+        self.Register_Teacher_label = tk.Label(self)
+        self.Register_Teacher_label.configure(background='#121212',
+                                              borderwidth='0',
+                                              font='{Poppins} 28 {bold}',
+                                              foreground='#ffffff')
+        self.Register_Teacher_label.configure(text='Register Teacher')
+        self.Register_Teacher_label.place(anchor='nw',
+                                          x='274',
+                                          y='28')
+
+        self.back_page_img_button = tk.Button(self)
+
+        try:
+            self.img_BackPageIMG = tk.PhotoImage(file='BackPageIMG.png')
+        except Exception as e :
+            print(e)
+            messagebox.showerror("File Missing", "BackPageIMG.png is missing")
+
+        self.back_page_img_button.configure(activebackground='#121212',
+                                            activeforeground='#121212',
+                                            background='#121212',
+                                            borderwidth='0',
+                                            command=self.goBackToTeacherHome)
+        self.back_page_img_button.configure(image=self.img_BackPageIMG)
+        self.back_page_img_button.place(anchor='nw', x='15', y='15')
+
         self.configure(background='#121212',
                        borderwidth='0',
                        height='515',
                        width='791')
         self.pack(fill='both',
                   side='top')
+
+
+    def goBackToTeacherHome(self):
+        self.master.switch_frame(TeacherHome)
 
     def clickAdd(self):
         global first_name, last_name, phone_number, age, gender, subjects
@@ -1068,4 +1088,3 @@ if __name__ == "__main__":
     app.overrideredirect(True)
     app.mainloop()
 # @^^^^^^^  ^o^
-
