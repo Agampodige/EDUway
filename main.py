@@ -905,3 +905,4 @@ if __name__ == "__main__":
     # app.overrideredirect(True)
     app.mainloop()
 # @^^^^^^^  ^o^
+
