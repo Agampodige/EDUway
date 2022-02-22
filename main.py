@@ -16,6 +16,7 @@ background_color = '#1f1f1f'
 
 TeacherRegistationTheme = "#121212"
 
+
 class SchoolManegmentSystem(tk.Tk):
     def __init__(self):
         tk.Tk.__init__(self)
@@ -916,7 +917,7 @@ class TeacherRegistation(tk.Frame):
 
         try:
             self.img_BackPageIMG = tk.PhotoImage(file='BackPageIMG.png')
-        except Exception as e :
+        except Exception as e:
             print(e)
             messagebox.showerror("File Missing", "BackPageIMG.png is missing")
 
@@ -940,16 +941,12 @@ class TeacherRegistation(tk.Frame):
         self.teacher_registation_theme_change_button.place(anchor='nw',
                                                            x='60',
                                                            y='10')
-
-
         self.configure(background='#121212',
                        borderwidth='0',
                        height='515',
                        width='791')
         self.pack(fill='both',
                   side='top')
-
-
 
     def changeTeacherRegistationTheme(self):
         try:
@@ -1071,10 +1068,6 @@ class TeacherRegistation(tk.Frame):
                                                                    activebackground=self.DteacherRegistationBGColor,
                                                                    activeforeground=self.DteacherRegistationBGColor,
                                                                    image=self.img_DarkThemeimg)
-
-
-
-
 
     def goBackToTeacherHome(self):
         self.master.switch_frame(TeacherHome)
