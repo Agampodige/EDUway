@@ -821,28 +821,39 @@ class TeacherRegistation(tk.Frame):
 class TeacherView(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
-        self.columns = ('ID', 'First name', 'Last name', 'Age', 'Phone Number', 'Gender', 'Subjects')
-        self.teacher_recodes = ttk.Treeview(height=30, columns=self.columns)
+        self.columns = ('ID',
+                        'First name',
+                        'Last name',
+                        'Age',
+                        'Phone Number',
+                        'Gender',
+                        'Subjects')
+        self.teacher_recodes = ttk.Treeview(height=75, columns=self.columns)
 
         self.teacher_recodes.heading("ID", text="ID")
-        self.teacher_recodes.heading("ID", text="First name")
-        self.teacher_recodes.heading("ID", text="Last name")
-        self.teacher_recodes.heading("ID", text="Age")
-        self.teacher_recodes.heading("ID", text="Phone Number")
-        self.teacher_recodes.heading("ID", text="Subjects")
+        self.teacher_recodes.heading("First name", text="First name")
+        self.teacher_recodes.heading("Last name", text="Last name")
+        self.teacher_recodes.heading("Age", text="Age")
+        self.teacher_recodes.heading("Phone Number", text="Phone Number")
+        self.teacher_recodes.heading("Gender", text="Gender")
+        self.teacher_recodes.heading("Subjects", text="Subjects")
 
         self.teacher_recodes['show'] = 'headings'
 
         self.teacher_recodes.column("ID", width=50)
-        self.teacher_recodes.column("ID", width=50)
-        self.teacher_recodes.column("ID", width=50)
-        self.teacher_recodes.column("ID", width=50)
-        self.teacher_recodes.column("ID", width=50)
-        self.teacher_recodes.column("ID", width=50)
+        self.teacher_recodes.column("First name", width=150)
+        self.teacher_recodes.column("Last name", width=130)
+        self.teacher_recodes.column("Age", width=50)
+        self.teacher_recodes.column("Phone Number", width=150)
+        self.teacher_recodes.column("Gender", width=50)
+        self.teacher_recodes.column("Subjects", width=200)
         self.teacher_recodes.place(anchor='nw', x='0', y='0')
-
-        self.configure(height='200', width='200')
-        self.place(anchor='nw', x='0', y='0')
+        self.configure(background='#121212',
+                       height='515',
+                       width='791')
+        self.place(anchor='nw',
+                   x='0',
+                   y='0')
 
 
 # run_the_app_in_Hr_____VVVVVVVVVVV@
@@ -851,7 +862,7 @@ if __name__ == "__main__":
     app.title("EDUWAY")
     app.eval('tk::PlaceWindow . center')
     app.attributes('-topmost', True)
-    # app.resizable(False, False)
+    app.resizable(False, False)
     # app.overrideredirect(True)
     app.mainloop()
 # @^^^^^^^  ^o^
