@@ -863,7 +863,7 @@ class TeacherView(tk.Frame):
 
         # Add data
 
-        # self.teacher_recodes.insert()
+        self.teacher_recodes.insert()
 
         self.teacher_recodes.place(anchor='nw', x='0', y='0')
 
