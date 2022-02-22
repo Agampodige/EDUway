@@ -18,7 +18,7 @@ class SchoolManegmentSystem(tk.Tk):
     def __init__(self):
         tk.Tk.__init__(self)
         self._frame = None
-        self.switch_frame(SplashScreen)
+        self.switch_frame(TeacherRegistation)
 
     # this_funtion_is_for_change
     # the frame == window of the app
