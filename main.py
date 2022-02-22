@@ -18,7 +18,7 @@ class SchoolManegmentSystem(tk.Tk):
     def __init__(self):
         tk.Tk.__init__(self)
         self._frame = None
-        self.switch_frame(TeacherView)
+        self.switch_frame(TeacherRegistation)
 
     # this_funtion_is_for_change
     # the frame == window of the app
@@ -770,9 +770,13 @@ class TeacherRegistation(tk.Frame):
             if len(first_name) > 50:
                 messagebox.showerror("First Name Error", "Your Name Is Too Long")
             else:
+                first_name.capitalize()
+
                 if len(second_name) > 50:
                     messagebox.showerror("Second Name Error", "Your Name Is Too Long")
                 else:
+
+                    second_name.capitalize()
                     if len(phone_number) != 10:
                         messagebox.showerror("Phone Number Error", "You Can Add Only 10 Digit number")
                     else:
@@ -781,31 +785,40 @@ class TeacherRegistation(tk.Frame):
                         except Exception as e:
                             messagebox.showerror("Type Error", "You Can Only Type Numbers For Phone Number ")
                             print(e)
-
-                        if len(age) > 2:
-                            messagebox.showerror("Age Error", "You Can Only Type Two Numbers For Age ")
+                        if int(phone_number[0]) != 0:
+                            messagebox.showerror("Type Error", "This is Not Phone Number")
                         else:
-                            genderIndex = ['male', "Male", "female", "Female", "m", "M", "F", "f"]
-                            if gender not in genderIndex:
-                                messagebox.showerror("Age Error", "You Can Add Only Type Male or Female ")
+                            if len(age) > 2:
+                                messagebox.showerror("Age Error", "You Can Only Type Two Numbers For Age ")
                             else:
+                                genderIndex = ['male', "Male", "female", "Female", "m", "M", "F", "f"]
+                                if gender not in genderIndex:
+                                    messagebox.showerror("Age Error", "You Can Add Only Type Male or Female ")
+                                else:
+                                    if gender == "m" or gender == "male":
+                                        gender = "Male"
+                                    else:
+                                        gender = "Female"
 
-                                self.conn = mysql.connector.connect(host="localhost", user="root",
-                                                                    password="",
-                                                                    database="eduway_test_1")
-                                int(phone_number)
-                                int(age)
-                                self.connetc = self.conn.cursor()
+                                    self.conn = mysql.connector.connect(host="localhost", user="root",
+                                                                        password="",
+                                                                        database="eduway_test_1")
+                                    int(phone_number)
+                                    int(age)
+                                    self.connetc = self.conn.cursor()
 
-                                self.connetc.execute(
-                                    "INSERT INTO teacher (FirstName, LAstName, PhoneNumber, Age, Gender, Subjects) VALUES (%s,%s,%s,%s,%s,%s)",
-                                    (str(first_name), str(second_name), int(phone_number), int(age), str(gender),
-                                     str(subjects)))
-                                self.conn.commit()
+                                    self.connetc.execute(
+                                        "CREATE TABLE IF NOT EXISTS teacher (id INT AUTO_INCREMENT PRIMARY KEY, FirstName VARCHAR(50), LAstName VARCHAR(50), PhoneNumber INT(50), Age INT(2), Gender VARCHAR(50) ,Subjects VARCHAR(255) )")
+                                    self.connetc.execute(
+                                        "INSERT INTO  teacher (FirstName, LAstName, PhoneNumber, Age, Gender, Subjects) VALUES (%s,%s,%s,%s,%s,%s)",
+                                        (str(first_name.capitalize()), str(second_name.capitalize()),
+                                         0 + int(phone_number), int(age), str(gender.capitalize()),
+                                         str(subjects.capitalize())))
+                                    self.conn.commit()
 
-                                self.clearTeacherRegistation()
-                                self.connetc.close()
-                                self.conn.close()
+                                    self.clearTeacherRegistation()
+                                    self.connetc.close()
+                                    self.conn.close()
 
     def clearTeacherRegistation(self):
         self.first_name_entry.delete(0, 'end')
@@ -847,7 +860,13 @@ class TeacherView(tk.Frame):
         self.teacher_recodes.column("Phone Number", width=150)
         self.teacher_recodes.column("Gender", width=50)
         self.teacher_recodes.column("Subjects", width=200)
+
+        # Add data
+
+        # self.teacher_recodes.insert()
+
         self.teacher_recodes.place(anchor='nw', x='0', y='0')
+
         self.configure(background='#121212',
                        height='515',
                        width='791')
