@@ -667,6 +667,49 @@ class TeacherHome(tk.Frame):
 class TeacherRegistation(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
+        self.First_name_Entry_bg_label = tk.Label(self)
+        self.img_TeacherRegiusterEntery = tk.PhotoImage(file='TeacherRegiusterEntery.png')
+        self.First_name_Entry_bg_label.configure(background='#121212',
+                                                 borderwidth='0',
+                                                 image=self.img_TeacherRegiusterEntery)
+        self.First_name_Entry_bg_label.place(anchor='nw',
+                                             x='386',
+                                             y='146')
+        self.Last_name_Entry_bg_label = tk.Label(self)
+        self.Last_name_Entry_bg_label.configure(background='#121212',
+                                                borderwidth='0',
+                                                image=self.img_TeacherRegiusterEntery)
+        self.Last_name_Entry_bg_label.place(anchor='nw',
+                                            x='386',
+                                            y='196')
+        self.age_Entry_bg_label = tk.Label(self)
+        self.age_Entry_bg_label.configure(background='#121212',
+                                          borderwidth='0',
+                                          image=self.img_TeacherRegiusterEntery)
+        self.age_Entry_bg_label.place(anchor='nw',
+                                      x='386',
+                                      y='246')
+        self.phone_number_Entry_bg_label = tk.Label(self)
+        self.phone_number_Entry_bg_label.configure(background='#121212',
+                                                   borderwidth='0',
+                                                   image=self.img_TeacherRegiusterEntery)
+        self.phone_number_Entry_bg_label.place(anchor='nw',
+                                               x='386',
+                                               y='290')
+        self.gender_Entry_bg_label = tk.Label(self)
+        self.gender_Entry_bg_label.configure(background='#121212',
+                                             borderwidth='0',
+                                             image=self.img_TeacherRegiusterEntery)
+        self.gender_Entry_bg_label.place(anchor='nw',
+                                         x='386',
+                                         y='340')
+        self.subject_Entry_bg_label = tk.Label(self)
+        self.subject_Entry_bg_label.configure(background='#121212',
+                                              borderwidth='0',
+                                              image=self.img_TeacherRegiusterEntery)
+        self.subject_Entry_bg_label.place(anchor='nw',
+                                          x='386',
+                                          y='390')
         self.first_name_entry = tk.Entry(self)
         self.first_name_entry.place(anchor='nw',
                                     x='250',
@@ -820,7 +863,7 @@ class TeacherRegistation(tk.Frame):
                                     self.clearTeacherRegistation()
                                     self.connetc.close()
                                     self.conn.close()
-                                    self.master.switch_frame(TeacherView)
+                                    # self.master.switch_frame(TeacherView)
 
     def clearTeacherRegistation(self):
         self.first_name_entry.delete(0, 'end')
