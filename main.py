@@ -668,13 +668,33 @@ class TeacherRegistation(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
         self.First_name_Entry_bg_label = tk.Label(self)
-        self.img_TeacherRegiusterEntery = tk.PhotoImage(file='TeacherRegiusterEntery.png')
+        self.element_img_label = tk.Label(self)
+
+        try:
+            self.img_Element_1_img_label = tk.PhotoImage(file='Element_1_img_label.png')
+        except Exception as e:
+            messagebox.showerror("Element_1_img_label.png' Missing")
+            print(e)
+
+        self.element_img_label.configure(background='#121212',
+                                         image=self.img_Element_1_img_label)
+        self.element_img_label.place(anchor='nw',
+                                     x='431',
+                                     y='322')
+
+        try:
+            self.img_TeacherRegiusterEntery = tk.PhotoImage(file='TeacherRegiusterEntery.png')
+        except Exception as  e:
+            messagebox.showerror("TeacherAddButton.png Missing")
+            print(e)
+
         self.First_name_Entry_bg_label.configure(background='#121212',
                                                  borderwidth='0',
                                                  image=self.img_TeacherRegiusterEntery)
         self.First_name_Entry_bg_label.place(anchor='nw',
                                              x='386',
                                              y='146')
+
         self.Last_name_Entry_bg_label = tk.Label(self)
         self.Last_name_Entry_bg_label.configure(background='#121212',
                                                 borderwidth='0',
@@ -682,6 +702,7 @@ class TeacherRegistation(tk.Frame):
         self.Last_name_Entry_bg_label.place(anchor='nw',
                                             x='386',
                                             y='196')
+
         self.age_Entry_bg_label = tk.Label(self)
         self.age_Entry_bg_label.configure(background='#121212',
                                           borderwidth='0',
@@ -689,6 +710,7 @@ class TeacherRegistation(tk.Frame):
         self.age_Entry_bg_label.place(anchor='nw',
                                       x='386',
                                       y='246')
+
         self.phone_number_Entry_bg_label = tk.Label(self)
         self.phone_number_Entry_bg_label.configure(background='#121212',
                                                    borderwidth='0',
@@ -696,6 +718,8 @@ class TeacherRegistation(tk.Frame):
         self.phone_number_Entry_bg_label.place(anchor='nw',
                                                x='386',
                                                y='290')
+
+
         self.gender_Entry_bg_label = tk.Label(self)
         self.gender_Entry_bg_label.configure(background='#121212',
                                              borderwidth='0',
@@ -703,6 +727,8 @@ class TeacherRegistation(tk.Frame):
         self.gender_Entry_bg_label.place(anchor='nw',
                                          x='386',
                                          y='340')
+
+
         self.subject_Entry_bg_label = tk.Label(self)
         self.subject_Entry_bg_label.configure(background='#121212',
                                               borderwidth='0',
@@ -710,66 +736,158 @@ class TeacherRegistation(tk.Frame):
         self.subject_Entry_bg_label.place(anchor='nw',
                                           x='386',
                                           y='390')
+
         self.first_name_entry = tk.Entry(self)
+        self.first_name_entry.configure(borderwidth='0')
+        self.first_name_entry.configure(font='{Poppins} 10 {bold}',
+                                         insertwidth='1',
+                                         relief='flat')
         self.first_name_entry.place(anchor='nw',
-                                    x='250',
-                                    y='50')
+                                    height='24',
+                                    width='229',
+                                    x='395',
+                                    y='149')
+
+
         self.first_name_label = tk.Label(self)
-        self.first_name_label.configure(text='First name')
+        self.first_name_label.configure(background='#121212',
+                                        font='{Poppins} 17 {bold}',
+                                        foreground='#ffffff',
+                                        text='First Name')
         self.first_name_label.place(anchor='nw',
-                                    x='175',
-                                    y='50')
-        self.second_name_entry = tk.Entry(self)
-        self.second_name_entry.place(anchor='nw',
-                                     x='260',
-                                     y='100')
-        self.second_name_label = tk.Label(self)
-        self.second_name_label.configure(text='Second name')
-        self.second_name_label.place(anchor='nw',
-                                     x='175',
-                                     y='100')
+                                    x='166',
+                                    y='146')
+
+
+        self.last_name_entry = tk.Entry(self)
+        self.last_name_entry.configure(borderwidth='0')
+        self.last_name_entry.configure(font='{Poppins} 10 {bold}',
+                                        insertwidth='1',
+                                        relief='flat')
+        self.last_name_entry.place(anchor='nw',
+                                   height='24',
+                                   width='229',
+                                   x='397',
+                                   y='199')
+
+
+        self.last_name_label = tk.Label(self)
+        self.last_name_label.configure(background='#121212',
+                                       font='{Poppins} 17 {bold}',
+                                       foreground='#ffffff',
+                                       text='Last Name')
+        self.last_name_label.place(anchor='nw',
+                                     x='166',
+                                     y='198')
+
+
         self.phone_number_entry = tk.Entry(self)
+        self.phone_number_entry.configure(borderwidth='0')
+        self.phone_number_entry.configure(font='{Poppins} 10 {bold}',
+                                          insertwidth='1',
+                                          relief='flat')
         self.phone_number_entry.place(anchor='nw',
-                                      x='260',
-                                      y='150')
+                                      height='24',
+                                      width='229',
+                                      x='397',
+                                      y='293')
+
+
         self.phone_number_label = tk.Label(self)
-        self.phone_number_label.configure(text='phone number')
+        self.phone_number_label.configure(background='#121212',
+                                          font='{Poppins} 17 {bold}',
+                                          foreground='#ffffff',
+                                          text='Phone number')
         self.phone_number_label.place(anchor='nw',
-                                      x='150',
-                                      y='150')
+                                      x='166',
+                                      y='289')
+
+
         self.age_entry = tk.Entry(self)
+        self.age_entry.configure(borderwidth='0')
+        self.age_entry.configure(font='{Poppins} 10 {bold}',
+                                 insertwidth='1',
+                                 relief='flat')
         self.age_entry.place(anchor='nw',
-                             x='260',
-                             y='200')
+                             height='24',
+                             width='229',
+                             x='395',
+                             y='249')
+
+
         self.age_label = tk.Label(self)
-        self.age_label.configure(text='age')
+        self.age_label.configure(background='#121212',
+                                 font='{Poppins} 17 {bold}',
+                                 foreground='#ffffff',
+                                 text='Age')
         self.age_label.place(anchor='nw',
-                             x='150',
-                             y='200')
+                             x='166',
+                             y='239')
+
+
         self.gender_label = tk.Label(self)
-        self.gender_label.configure(text='gender')
+        self.gender_label.configure(background='#121212',
+                                    font='{Poppins} 17 {bold}',
+                                    foreground='#ffffff',
+                                    text='Gender')
         self.gender_label.place(anchor='nw',
-                                x='150',
-                                y='250')
+                                x='166',
+                                y='331')
+
+
         self.gender_entry = tk.Entry(self)
+        self.gender_entry.configure(borderwidth="0")
+        self.gender_entry.configure(font='{Poppins} 10 {bold}',
+                                 insertwidth='1',
+                                 relief='flat')
         self.gender_entry.place(anchor='nw',
-                                x='260',
-                                y='250')
+                                height='24',
+                                width='229',
+                                x='395',
+                                y='343')
+
+
         self.subects_label = tk.Label(self)
-        self.subects_label.configure(text='Subject')
+        self.subects_label.configure(background='#121212',
+                                     font='{Poppins} 17 {bold}',
+                                     foreground='#ffffff',
+                                     text='Subject')
         self.subects_label.place(anchor='nw',
-                                 x='150',
-                                 y='300')
+                                 x='166',
+                                 y='389')
+
+
         self.subject_entry = tk.Entry(self)
+        self.subject_entry.configure(borderwidth="0")
+        self.subject_entry.configure(font='{Poppins} 10 {bold}',
+                                     insertwidth='1',
+                                     relief='flat')
         self.subject_entry.place(anchor='nw',
-                                 x='260',
-                                 y='300')
+                                 height='24',
+                                 width='229',
+                                 x='395',
+                                 y='393')
+
+        try:
+            self.img_TeacherAddButton = tk.PhotoImage(file='TeacherAddButton.png')
+        except Exception as e:
+            messagebox.showerror("TeacherAddButton.png Missing")
+            print(e)
+
         self.add_teachet_button = tk.Button(self)
-        self.add_teachet_button.configure(text='Add teacher',
+        self.add_teachet_button.configure(background='#121212',
+                                          activebackground='#121212',
+                                          activeforeground='#121212',
+                                          borderwidth='0',
+                                          image=self.img_TeacherAddButton,
+                                          relief='flat',
                                           command=self.clickAdd)
         self.add_teachet_button.place(anchor='nw',
-                                      x='200',
-                                      y='400')
+                                      x='412',
+                                      y='448')
+
+
+
 
         try:
             self.img_img4 = tk.PhotoImage(file='img4.png')
@@ -800,15 +918,15 @@ class TeacherRegistation(tk.Frame):
                   side='top')
 
     def clickAdd(self):
-        global first_name, second_name, phone_number, age, gender, subjects
+        global first_name, last_name, phone_number, age, gender, subjects
         first_name = self.first_name_entry.get()
-        second_name = self.second_name_entry.get()
+        last_name = self.last_name_entry.get()
         phone_number = self.phone_number_entry.get()
         age = self.age_entry.get()
         gender = self.gender_entry.get()
         subjects = self.subject_entry.get()
 
-        if first_name == "" or second_name == "" or phone_number == "" or age == "" or gender == "" or subjects == "":
+        if first_name == "" or last_name == "" or phone_number == "" or age == "" or gender == "" or subjects == "":
             messagebox.showerror("insert status", "All Fields Are Required")
         else:
             if len(first_name) > 50:
@@ -816,59 +934,61 @@ class TeacherRegistation(tk.Frame):
             else:
                 first_name.capitalize()
 
-                if len(second_name) > 50:
+                if len(last_name) > 50:
                     messagebox.showerror("Second Name Error", "Your Name Is Too Long")
                 else:
-
-                    second_name.capitalize()
-                    if len(phone_number) != 10:
-                        messagebox.showerror("Phone Number Error", "You Can Add Only 10 Digit number")
+                    last_name.capitalize()
+                    if first_name == last_name:
+                        messagebox.showerror("Copied Name Error", "Your First Name And Secont Name Is Duplicated")
                     else:
-                        try:
-                            int(phone_number)
-                        except Exception as e:
-                            messagebox.showerror("Type Error", "You Can Only Type Numbers For Phone Number ")
-                            print(e)
-                        if int(phone_number[0]) != 0:
-                            messagebox.showerror("Type Error", "This is Not Phone Number")
+                        if len(phone_number) != 10:
+                            messagebox.showerror("Phone Number Error", "You Can Add Only 10 Digit number")
                         else:
-                            if len(age) > 2:
-                                messagebox.showerror("Age Error", "You Can Only Type Two Numbers For Age ")
+                            try:
+                                int(phone_number)
+                            except Exception as e:
+                                messagebox.showerror("Type Error", "You Can Only Type Numbers For Phone Number ")
+                                print(e)
+                            if int(phone_number[0]) != 0:
+                                messagebox.showerror("Type Error", "This is Not Phone Number")
                             else:
-                                genderIndex = ['male', "Male", "female", "Female", "m", "M", "F", "f"]
-                                if gender not in genderIndex:
-                                    messagebox.showerror("Age Error", "You Can Add Only Type Male or Female ")
+                                if len(age) > 2:
+                                    messagebox.showerror("Age Error", "You Can Only Type Two Numbers For Age ")
                                 else:
-                                    if gender == "m" or gender == "male":
-                                        gender = "Male"
+                                    genderIndex = ['male', "Male", "female", "Female", "m", "M", "F", "f"]
+                                    if gender not in genderIndex:
+                                        messagebox.showerror("Age Error", "You Can Add Only Type Male or Female ")
                                     else:
-                                        gender = "Female"
+                                        if gender == "m" or gender == "male":
+                                            gender = "Male"
+                                        else:
+                                            gender = "Female"
 
-                                    self.conn = mysql.connector.connect(host="localhost", user="root",
-                                                                        password="",
-                                                                        database="eduway_test_1")
-                                    int(phone_number)
-                                    int(age)
-                                    self.connetc = self.conn.cursor()
+                                        self.conn = mysql.connector.connect(host="localhost", user="root",
+                                                                            password="",
+                                                                            database="eduway_test_1")
+                                        int(phone_number)
+                                        int(age)
+                                        self.connetc = self.conn.cursor()
 
-                                    self.connetc.execute(
-                                        "CREATE TABLE IF NOT EXISTS teacher (id INT AUTO_INCREMENT PRIMARY KEY, FirstName VARCHAR(50), LAstName VARCHAR(50), PhoneNumber INT(50), Age INT(2), Gender VARCHAR(50) ,Subjects VARCHAR(255) )")
-                                    self.connetc.execute(
-                                        "INSERT INTO  teacher (FirstName, LAstName, PhoneNumber, Age, Gender, Subjects) VALUES (%s,%s,%s,%s,%s,%s)",
-                                        (str(first_name.capitalize()), str(second_name.capitalize()),
-                                         0 + int(phone_number), int(age), str(gender.capitalize()),
-                                         str(subjects.capitalize())))
-                                    self.conn.commit()
+                                        self.connetc.execute(
+                                            "CREATE TABLE IF NOT EXISTS teacher (id INT AUTO_INCREMENT PRIMARY KEY, FirstName VARCHAR(50), LAstName VARCHAR(50), PhoneNumber INT(50), Age INT(2), Gender VARCHAR(50) ,Subjects VARCHAR(255) )")
+                                        self.connetc.execute(
+                                            "INSERT INTO  teacher (FirstName, LAstName, PhoneNumber, Age, Gender, Subjects) VALUES (%s,%s,%s,%s,%s,%s)",
+                                            (str(first_name.capitalize()), str(last_name.capitalize()),
+                                             0 + int(phone_number), int(age), str(gender.capitalize()),
+                                             str(subjects.capitalize())))
+                                        self.conn.commit()
 
-                                    self.clearTeacherRegistation()
-                                    self.connetc.close()
-                                    self.conn.close()
-                                    # self.master.switch_frame(TeacherView)
+                                        self.clearTeacherRegistation()
+                                        self.connetc.close()
+                                        self.conn.close()
+                                        # self.master.switch_frame(TeacherView)
 
     def clearTeacherRegistation(self):
         self.first_name_entry.delete(0, 'end')
         self.subject_entry.delete(0, 'end')
-        self.second_name_entry.delete(0, 'end')
+        self.last_name_entry.delete(0, 'end')
         self.gender_entry.delete(0, 'end')
         self.age_entry.delete(0, 'end')
         self.phone_number_entry.delete(0, 'end')
