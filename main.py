@@ -451,19 +451,19 @@ class Home(tk.Frame):
                                  y='98')
 
         # setting_button to return to setting page
-        self.setting_button = tk.Button(self)
-        self.setting_button.configure(activebackground='#000000',
+        self.student_button = tk.Button(self)
+        self.student_button.configure(activebackground='#000000',
                                       activeforeground='#000000',
                                       borderwidth='0',
                                       cursor='hand2')
-        self.setting_button.configure(default='normal',
+        self.student_button.configure(default='normal',
                                       highlightcolor='#000000',
                                       highlightthickness='0',
                                       image=self.img_search_button)
-        self.setting_button.configure(overrelief='flat',
+        self.student_button.configure(overrelief='flat',
                                       relief='flat',
                                       takefocus=True)
-        self.setting_button.place(anchor='nw',
+        self.student_button.place(anchor='nw',
                                   height='48',
                                   width='220',
                                   x='0',
@@ -560,61 +560,61 @@ class Home(tk.Frame):
         # self.home_image_button_news_2_img = tk.PhotoImage(file="news_poto_2.png")
         # self.home_image_button.configure(image=self.home_image_button_news_2_img)
 
-        if bool(self.home_window_index_frame.winfo_exists()):
-            self.home_window_index_frame.destroy()
-        print(bool(self.home_window_index_frame.winfo_exists()))
+        # if bool(self.home_window_index_frame.winfo_exists()):
+        #     self.home_window_index_frame.destroy()
+        # print(bool(self.home_window_index_frame.winfo_exists()))
 
-    def onClickHome(self):
-        self.home_window_index_frame = tk.Frame(self)
-        self.test_btn_1 = tk.Button(self.home_window_index_frame)
-        self.test_btn_1.configure(borderwidth='0',
-                                  text='button6')
-        self.test_btn_1.place(anchor='nw',
-                              x='0', y='0')
-        self.home_window_index_frame.configure(background='#121212',
-                                               borderwidth='0',
-                                               height='200',
-                                               width='200')
-        self.home_window_index_frame.place(anchor='nw',
-                                           height='515',
-                                           width='571',
-                                           x='220')
-
-        self.home__close_button = tk.Button(self)
-        self.home__close_button.configure(activebackground='#121212',
-                                          activeforeground='#121212',
-                                          background='#121212',
-                                          borderwidth='0')
-        self.home__close_button.configure(cursor='hand2',
-                                          foreground='#121212',
-                                          highlightbackground='#121212',
-                                          highlightcolor='#121212')
-        self.home__close_button.configure(highlightthickness='1',
-                                          image=self.img_img4,
-                                          relief='flat',
-                                          command=self.master.on_close)
-        self.home__close_button.place(anchor='nw',
-                                      x='760',
-                                      y='8')
-        self.configure(height='515',
-                       width='791')
-        self.pack(side='top')
-
-        # app.overrideredirect(False)
-        # app.wm_state('iconic')
-
-        # try:
-        #     self.home_image_button.configure(image=self.img_news_poto)
-        # except Exception as e:
-        #     print(e)
-
-        try:
-            if bool(self.home_window_search_frame.winfo_exists()):
-                self.home_window_search_frame.destroy()
-                # print(bool(self.home_window_search_frame.winfo_exists()))
-                print("hoo")
-        except Exception as e:
-            print(e)
+    # def onClickHome(self):
+    #     self.home_window_index_frame = tk.Frame(self)
+    #     self.test_btn_1 = tk.Button(self.home_window_index_frame)
+    #     self.test_btn_1.configure(borderwidth='0',
+    #                               text='button6')
+    #     self.test_btn_1.place(anchor='nw',
+    #                           x='0', y='0')
+    #     self.home_window_index_frame.configure(background='#121212',
+    #                                            borderwidth='0',
+    #                                            height='200',
+    #                                            width='200')
+    #     self.home_window_index_frame.place(anchor='nw',
+    #                                        height='515',
+    #                                        width='571',
+    #                                        x='220')
+    #
+    #     self.home__close_button = tk.Button(self)
+    #     self.home__close_button.configure(activebackground='#121212',
+    #                                       activeforeground='#121212',
+    #                                       background='#121212',
+    #                                       borderwidth='0')
+    #     self.home__close_button.configure(cursor='hand2',
+    #                                       foreground='#121212',
+    #                                       highlightbackground='#121212',
+    #                                       highlightcolor='#121212')
+    #     self.home__close_button.configure(highlightthickness='1',
+    #                                       image=self.img_img4,
+    #                                       relief='flat',
+    #                                       command=self.master.on_close)
+    #     self.home__close_button.place(anchor='nw',
+    #                                   x='760',
+    #                                   y='8')
+    #     self.configure(height='515',
+    #                    width='791')
+    #     self.pack(side='top')
+    #
+    #     # app.overrideredirect(False)
+    #     # app.wm_state('iconic')
+    #
+    #     # try:
+    #     #     self.home_image_button.configure(image=self.img_news_poto)
+    #     # except Exception as e:
+    #     #     print(e)
+    #
+    #     try:
+    #         if bool(self.home_window_search_frame.winfo_exists()):
+    #             self.home_window_search_frame.destroy()
+    #             # print(bool(self.home_window_search_frame.winfo_exists()))
+    #             print("hoo")
+    #     except Exception as e:
+    #         print(e)
 
         # if bool(self.home_window_search_frame.winfo_exists()):
         #     self.home_window_search_frame.destroy()
@@ -645,23 +645,38 @@ class TeacherHome(tk.Frame):
         self.Element_2_IMG_label.configure(image=self.img_ElementIMG2Label, text='label1')
         self.Element_2_IMG_label.place(anchor='nw', y='296')
 
-        self.register = tk.Button(self)
-        self.register.configure(borderwidth='0',
-                                text='register',
-                                command=lambda: master.switch_frame(TeacherRegistation))
-        self.register.place(anchor='nw',
-                            height='150',
-                            width='150',
-                            x='15',
-                            y='15')
-        self.update = tk.Button(self)
-        self.update.configure(borderwidth='0',
-                              text='Update')
-        self.update.place(anchor='nw',
-                          height='150',
-                          width='150',
-                          x='315',
-                          y='15')
+        try:
+            self.img_TeacherHomeAddButton = tk.PhotoImage(file='TeacherHomeAddButton.png')
+        except Exception as e:
+            print(e)
+            messagebox.showerror("File Missing", "TeacherHomeAddButton.png is missing")
+
+        self.register_button = tk.Button(self)
+        self.register_button.configure(borderwidth='0',
+                                       background="#121212",
+                                       activeforeground="#121212",
+                                       activebackground="#121212",
+                                       image=self.img_TeacherHomeAddButton,
+                                       command=lambda: master.switch_frame(TeacherRegistation))
+        self.register_button.place(anchor='nw',
+                                   x='196',
+                                   y='111')
+
+        try:
+            self.img_TeacherHomeUpdateButton = tk.PhotoImage(file='TeacherHomeUpdateButton.png')
+        except Exception as e:
+            print(e)
+            messagebox.showerror("File Missing", "TeacherHomeView Button.png is missing")
+
+        self.update_button = tk.Button(self)
+        self.update_button.configure(borderwidth='0',
+                                     background="#121212",
+                                     activeforeground="#121212",
+                                     activebackground="#121212",
+                                     image=self.img_TeacherHomeUpdateButton)
+        self.update_button.place(anchor='nw',
+                                 x='441',
+                                 y='111')
 
         try:
             self.img_TeacherHomeViewButton = tk.PhotoImage(file='TeacherHomeView Button.png')
@@ -669,17 +684,16 @@ class TeacherHome(tk.Frame):
             print(e)
             messagebox.showerror("File Missing", "TeacherHomeView Button.png is missing")
 
-
-        self.view = tk.Button(self)
-        self.view.configure(borderwidth='0',
-                            activebackground="#121212",
-                            activeforeground="#121212",
-                            background="#121212",
-                            image=self.img_TeacherHomeViewButton,
-                            command=lambda: master.switch_frame(TeacherView))
-        self.view.place(anchor='nw',
-                        x='196',
-                        y='317')
+        self.view_button = tk.Button(self)
+        self.view_button.configure(borderwidth='0',
+                                   activebackground="#121212",
+                                   activeforeground="#121212",
+                                   background="#121212",
+                                   image=self.img_TeacherHomeViewButton,
+                                   command=lambda: master.switch_frame(TeacherView))
+        self.view_button.place(anchor='nw',
+                               x='196',
+                               y='317')
 
         try:
             self.img_TeacherHomeRemoveButton = tk.PhotoImage(file='TeacherHomeRemoveButton.png')
@@ -696,6 +710,76 @@ class TeacherHome(tk.Frame):
         self.Delete_button.place(anchor='nw',
                                  x='441',
                                  y='317')
+
+        self.Manege_Teacher_label = tk.Label(self)
+        self.Manege_Teacher_label.configure(background='#121212',
+                                            borderwidth='0',
+                                            font='{Poppins} 25 {bold}',
+                                            foreground='#ffffff')
+        self.Manege_Teacher_label.configure(text='Manege Teacher')
+        self.Manege_Teacher_label.place(anchor='nw',
+                                        x='274',
+                                        y='28')
+        try:
+            self.img_img4 = tk.PhotoImage(file='img4.png')
+        except Exception as e:
+            print(e)
+            messagebox.showerror("File Missing", "img_img4.png is missing")
+
+        self.Teacher_Manege_close_button = tk.Button(self)
+        self.Teacher_Manege_close_button.configure(activebackground='#121212',
+                                                   activeforeground='#121212',
+                                                   background='#121212',
+                                                   borderwidth='0')
+        self.Teacher_Manege_close_button.configure(cursor='hand2',
+                                                   foreground='#121212',
+                                                   highlightbackground='#121212',
+                                                   highlightcolor='#121212')
+        self.Teacher_Manege_close_button.configure(highlightthickness='1',
+                                                   image=self.img_img4,
+                                                   relief='flat',
+                                                   command=self.master.on_close)
+        self.Teacher_Manege_close_button.place(anchor='nw',
+                                               x='760',
+                                               y='8')
+
+        self.teacher_Manege_theme_change_button = tk.Button(self)
+
+        try:
+            self.img_DarkThemeimg = tk.PhotoImage(file='DarkThemeimg.png')
+        except Exception as e:
+            messagebox.showerror("DarkThemeimg.png Missing")
+            print(e)
+
+        self.teacher_Manege_theme_change_button.configure(activebackground='#121212',
+                                                          activeforeground='#121212',
+                                                          background='#121212',
+                                                          borderwidth='0',
+                                                          command=self.changeTeacherHomeTheme)
+        self.teacher_Manege_theme_change_button.configure(image=self.img_DarkThemeimg,
+                                                          text='button2')
+        self.teacher_Manege_theme_change_button.place(anchor='nw',
+                                                      x='60',
+                                                      y='10')
+
+        self.Teacher_home_back_page_img_button = tk.Button(self)
+
+        try:
+            self.img_BackPageIMG = tk.PhotoImage(file='BackPageIMG.png')
+        except Exception as e:
+            print(e)
+            messagebox.showerror("File Missing", "BackPageIMG.png is missing")
+
+        self.Teacher_home_back_page_img_button.configure(activebackground='#121212',
+                                                         activeforeground='#121212',
+                                                         background='#121212',
+                                                         borderwidth='0',
+                                                         command=self.goHome)
+        self.Teacher_home_back_page_img_button.configure(image=self.img_BackPageIMG)
+        self.Teacher_home_back_page_img_button.place(anchor='nw',
+                                                     x='15',
+                                                     y='15')
+
         self.configure(background='#121212',
                        height='515',
                        takefocus=False,
@@ -703,6 +787,103 @@ class TeacherHome(tk.Frame):
         self.place(anchor='nw',
                    x='0',
                    y='0')
+
+    def changeTeacherHomeTheme(self):
+        if self["background"] == "#121212":
+            TeacherHomeBGColor = "#ffffff"
+            TeacherHomeFGColor = "#000000"
+
+            try:
+                self.img_DarkThemeimg = tk.PhotoImage(file='DarkThemeimg.png')
+            except Exception as e:
+                print(e)
+                messagebox.showerror("File Missing", "DarkThemeimg.png IS Missing")
+
+            try:
+                self.img_lightThemeimg = tk.PhotoImage(file='LightThemeimg.png')
+            except Exception as e:
+                print(e)
+                messagebox.showerror("File Missing", "LightThemeimg.png IS Missing")
+
+            self.configure(background=TeacherHomeBGColor)
+            self.register_button.configure(background=TeacherHomeBGColor,
+                                           foreground=TeacherHomeBGColor,
+                                           activebackground=TeacherHomeBGColor,
+                                           activeforeground=TeacherHomeBGColor)
+            self.Element_2_IMG_label.configure(background=TeacherHomeBGColor,
+                                               foreground=TeacherHomeFGColor)
+            self.update_button.configure(background=TeacherHomeBGColor,
+                                         foreground=TeacherHomeBGColor,
+                                         activebackground=TeacherHomeBGColor,
+                                         activeforeground=TeacherHomeBGColor)
+            self.view_button.configure(background=TeacherHomeBGColor,
+                                       foreground=TeacherHomeBGColor,
+                                       activebackground=TeacherHomeBGColor,
+                                       activeforeground=TeacherHomeBGColor)
+            self.Delete_button.configure(background=TeacherHomeBGColor,
+                                         foreground=TeacherHomeBGColor,
+                                         activebackground=TeacherHomeBGColor,
+                                         activeforeground=TeacherHomeBGColor)
+            self.Manege_Teacher_label.configure(background=TeacherHomeBGColor,
+                                                foreground=TeacherHomeFGColor,
+                                                activebackground=TeacherHomeBGColor,
+                                                activeforeground=TeacherHomeBGColor)
+            self.Teacher_Manege_close_button.configure(background=TeacherHomeBGColor,
+                                                       foreground=TeacherHomeBGColor,
+                                                       activebackground=TeacherHomeBGColor,
+                                                       activeforeground=TeacherHomeBGColor)
+            self.teacher_Manege_theme_change_button.configure(background=TeacherHomeBGColor,
+                                                              foreground=TeacherHomeBGColor,
+                                                              activebackground=TeacherHomeBGColor,
+                                                              activeforeground=TeacherHomeBGColor,
+                                                              image=self.img_lightThemeimg)
+            self.Teacher_home_back_page_img_button.configure(background=TeacherHomeBGColor,
+                                                             foreground=TeacherHomeBGColor,
+                                                             activebackground=TeacherHomeBGColor,
+                                                             activeforeground=TeacherHomeBGColor, )
+        else:
+            DTeacherHomeBGColor = "#121212"
+            DTeacherHomeFGColor = "#ffffff"
+
+            self.configure(background=DTeacherHomeBGColor)
+            self.register_button.configure(background=DTeacherHomeBGColor,
+                                           foreground=DTeacherHomeBGColor,
+                                           activebackground=DTeacherHomeBGColor,
+                                           activeforeground=DTeacherHomeBGColor)
+            self.Element_2_IMG_label.configure(background=DTeacherHomeBGColor,
+                                               foreground=DTeacherHomeFGColor)
+            self.update_button.configure(background=DTeacherHomeBGColor,
+                                         foreground=DTeacherHomeBGColor,
+                                         activebackground=DTeacherHomeBGColor,
+                                         activeforeground=DTeacherHomeBGColor)
+            self.view_button.configure(background=DTeacherHomeBGColor,
+                                       foreground=DTeacherHomeBGColor,
+                                       activebackground=DTeacherHomeBGColor,
+                                       activeforeground=DTeacherHomeBGColor)
+            self.Delete_button.configure(background=DTeacherHomeBGColor,
+                                         foreground=DTeacherHomeBGColor,
+                                         activebackground=DTeacherHomeBGColor,
+                                         activeforeground=DTeacherHomeBGColor)
+            self.Manege_Teacher_label.configure(background=DTeacherHomeBGColor,
+                                                foreground=DTeacherHomeFGColor,
+                                                activebackground=DTeacherHomeBGColor,
+                                                activeforeground=DTeacherHomeBGColor)
+            self.Teacher_Manege_close_button.configure(background=DTeacherHomeBGColor,
+                                                       foreground=DTeacherHomeBGColor,
+                                                       activebackground=DTeacherHomeBGColor,
+                                                       activeforeground=DTeacherHomeBGColor)
+            self.teacher_Manege_theme_change_button.configure(background=DTeacherHomeBGColor,
+                                                              foreground=DTeacherHomeBGColor,
+                                                              activebackground=DTeacherHomeBGColor,
+                                                              activeforeground=DTeacherHomeBGColor,
+                                                              image=self.img_DarkThemeimg)
+            self.Teacher_home_back_page_img_button.configure(background=DTeacherHomeBGColor,
+                                                             foreground=DTeacherHomeBGColor,
+                                                             activebackground=DTeacherHomeBGColor,
+                                                             activeforeground=DTeacherHomeBGColor, )
+
+    def goHome(self):
+        self.master.switch_frame(Home)
 
 
 class TeacherRegistation(tk.Frame):
@@ -963,11 +1144,19 @@ class TeacherRegistation(tk.Frame):
         self.back_page_img_button.place(anchor='nw', x='15', y='15')
 
         self.teacher_registation_theme_change_button = tk.Button(self)
-        self.img_DarkThemeimg = tk.PhotoImage(file='DarkThemeimg.png')
+
+        try:
+            self.img_DarkThemeimg = tk.PhotoImage(file='DarkThemeimg.png')
+        except Exception as e:
+            print(e)
+            messagebox.showerror("File Missing", "DarkThemeimg.png is missing")
+
         self.teacher_registation_theme_change_button.configure(activebackground='#121212',
                                                                activeforeground='#121212',
                                                                background='#121212',
                                                                borderwidth='0',
+                                                               relief="flat",
+                                                               overrelief="flat",
                                                                command=self.changeTeacherRegistationTheme)
         self.teacher_registation_theme_change_button.configure(image=self.img_DarkThemeimg,
                                                                text='button2')
@@ -993,6 +1182,7 @@ class TeacherRegistation(tk.Frame):
         except Exception as e:
             print(e)
             messagebox.showerror("File Missing", "LightThemeimg.png IS Missing")
+
         if self.back_page_img_button["background"] == "#121212":
             self.teacherRegistationBGColor = "#ffffff"
             self.teacherRegistationFGColor = "#000000"
