@@ -21,7 +21,7 @@ class SchoolManegmentSystem(tk.Tk):
     def __init__(self):
         tk.Tk.__init__(self)
         self._frame = None
-        self.switch_frame(TeacherRegistation)
+        self.switch_frame(SplashScreen)
 
     # this_funtion_is_for_change
     # the frame == window of the app
@@ -564,50 +564,50 @@ class Home(tk.Frame):
         #     self.home_window_index_frame.destroy()
         # print(bool(self.home_window_index_frame.winfo_exists()))
 
-    # def onClickHome(self):
-    #     self.home_window_index_frame = tk.Frame(self)
-    #     self.test_btn_1 = tk.Button(self.home_window_index_frame)
-    #     self.test_btn_1.configure(borderwidth='0',
-    #                               text='button6')
-    #     self.test_btn_1.place(anchor='nw',
-    #                           x='0', y='0')
-    #     self.home_window_index_frame.configure(background='#121212',
-    #                                            borderwidth='0',
-    #                                            height='200',
-    #                                            width='200')
-    #     self.home_window_index_frame.place(anchor='nw',
-    #                                        height='515',
-    #                                        width='571',
-    #                                        x='220')
-    #
-    #     self.home__close_button = tk.Button(self)
-    #     self.home__close_button.configure(activebackground='#121212',
-    #                                       activeforeground='#121212',
-    #                                       background='#121212',
-    #                                       borderwidth='0')
-    #     self.home__close_button.configure(cursor='hand2',
-    #                                       foreground='#121212',
-    #                                       highlightbackground='#121212',
-    #                                       highlightcolor='#121212')
-    #     self.home__close_button.configure(highlightthickness='1',
-    #                                       image=self.img_img4,
-    #                                       relief='flat',
-    #                                       command=self.master.on_close)
-    #     self.home__close_button.place(anchor='nw',
-    #                                   x='760',
-    #                                   y='8')
-    #     self.configure(height='515',
-    #                    width='791')
-    #     self.pack(side='top')
-    #
-    #     # app.overrideredirect(False)
-    #     # app.wm_state('iconic')
-    #
-    #     # try:
-    #     #     self.home_image_button.configure(image=self.img_news_poto)
-    #     # except Exception as e:
-    #     #     print(e)
-    #
+    def onClickHome(self):
+        self.home_window_index_frame = tk.Frame(self)
+        self.test_btn_1 = tk.Button(self.home_window_index_frame)
+        self.test_btn_1.configure(borderwidth='0',
+                                  text='button6')
+        self.test_btn_1.place(anchor='nw',
+                              x='0', y='0')
+        self.home_window_index_frame.configure(background='#121212',
+                                               borderwidth='0',
+                                               height='200',
+                                               width='200')
+        self.home_window_index_frame.place(anchor='nw',
+                                           height='515',
+                                           width='571',
+                                           x='220')
+
+        self.home__close_button = tk.Button(self)
+        self.home__close_button.configure(activebackground='#121212',
+                                          activeforeground='#121212',
+                                          background='#121212',
+                                          borderwidth='0')
+        self.home__close_button.configure(cursor='hand2',
+                                          foreground='#121212',
+                                          highlightbackground='#121212',
+                                          highlightcolor='#121212')
+        self.home__close_button.configure(highlightthickness='1',
+                                          image=self.img_img4,
+                                          relief='flat',
+                                          command=self.master.on_close)
+        self.home__close_button.place(anchor='nw',
+                                      x='760',
+                                      y='8')
+        self.configure(height='515',
+                       width='791')
+        self.pack(side='top')
+
+        # app.overrideredirect(False)
+        # app.wm_state('iconic')
+
+        # try:
+        #     self.home_image_button.configure(image=self.img_news_poto)
+        # except Exception as e:
+        #     print(e)
+
     #     try:
     #         if bool(self.home_window_search_frame.winfo_exists()):
     #             self.home_window_search_frame.destroy()
@@ -716,7 +716,7 @@ class TeacherHome(tk.Frame):
                                             borderwidth='0',
                                             font='{Poppins} 25 {bold}',
                                             foreground='#ffffff')
-        self.Manege_Teacher_label.configure(text='Manege Teacher')
+        self.Manege_Teacher_label.configure(text='Manage Teacher')
         self.Manege_Teacher_label.place(anchor='nw',
                                         x='274',
                                         y='28')
@@ -756,8 +756,7 @@ class TeacherHome(tk.Frame):
                                                           background='#121212',
                                                           borderwidth='0',
                                                           command=self.changeTeacherHomeTheme)
-        self.teacher_Manege_theme_change_button.configure(image=self.img_DarkThemeimg,
-                                                          text='button2')
+        self.teacher_Manege_theme_change_button.configure(image=self.img_DarkThemeimg)
         self.teacher_Manege_theme_change_button.place(anchor='nw',
                                                       x='60',
                                                       y='10')
