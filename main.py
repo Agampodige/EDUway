@@ -629,6 +629,22 @@ class Home(tk.Frame):
 class TeacherHome(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
+
+        self.Element_2_IMG_label = tk.Label(self)
+
+        try:
+            self.img_ElementIMG2Label = tk.PhotoImage(file='ElementIMG2Label.png')
+        except Exception as e:
+            print(e)
+            messagebox.showerror("File Missing", "ElementIMG2Label.png is missing")
+
+        self.Element_2_IMG_label.configure(activebackground='#121212',
+                                           activeforeground='#121212',
+                                           background='#121212',
+                                           borderwidth='0')
+        self.Element_2_IMG_label.configure(image=self.img_ElementIMG2Label, text='label1')
+        self.Element_2_IMG_label.place(anchor='nw', y='296')
+
         self.register = tk.Button(self)
         self.register.configure(borderwidth='0',
                                 text='register',
@@ -646,23 +662,40 @@ class TeacherHome(tk.Frame):
                           width='150',
                           x='315',
                           y='15')
+
+        try:
+            self.img_TeacherHomeViewButton = tk.PhotoImage(file='TeacherHomeView Button.png')
+        except Exception as e:
+            print(e)
+            messagebox.showerror("File Missing", "TeacherHomeView Button.png is missing")
+
+
         self.view = tk.Button(self)
         self.view.configure(borderwidth='0',
-                            text='viwe',
+                            activebackground="#121212",
+                            activeforeground="#121212",
+                            background="#121212",
+                            image=self.img_TeacherHomeViewButton,
                             command=lambda: master.switch_frame(TeacherView))
         self.view.place(anchor='nw',
-                        height='150',
-                        width='150',
-                        x='315',
-                        y='312')
-        self.Delete = tk.Button(self)
-        self.Delete.configure(borderwidth='0',
-                              text='Delete')
-        self.Delete.place(anchor='nw',
-                          height='150',
-                          width='150',
-                          x='15',
-                          y='315')
+                        x='196',
+                        y='317')
+
+        try:
+            self.img_TeacherHomeRemoveButton = tk.PhotoImage(file='TeacherHomeRemoveButton.png')
+        except Exception as e:
+            print(e)
+            messagebox.showerror("File Missing", "TeacherHomeRemoveButton.png is missing")
+
+        self.Delete_button = tk.Button(self)
+        self.Delete_button.configure(borderwidth='0',
+                                     image=self.img_TeacherHomeRemoveButton,
+                                     activeforeground="#121212",
+                                     activebackground="#121212",
+                                     background="#121212")
+        self.Delete_button.place(anchor='nw',
+                                 x='441',
+                                 y='317')
         self.configure(background='#121212',
                        height='515',
                        takefocus=False,
