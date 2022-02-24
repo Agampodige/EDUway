@@ -1,6 +1,6 @@
 from ast import Global
 import sys
-from tkinter import messagebox
+from tkinter import RIGHT, Y, Scrollbar, messagebox
 import tkinter.ttk as ttk
 
 if sys.version_info[0] == 2:
@@ -21,7 +21,7 @@ class SchoolManegmentSystem(tk.Tk):
     def __init__(self):
         tk.Tk.__init__(self)
         self._frame = None
-        self.switch_frame(SplashScreen)
+        self.switch_frame(TeacherView)
 
     # this_funtion_is_for_change
     # the frame == window of the app
@@ -714,7 +714,7 @@ class TeacherHome(tk.Frame):
         self.Manege_Teacher_label = tk.Label(self)
         self.Manege_Teacher_label.configure(background='#121212',
                                             borderwidth='0',
-                                            font='{Poppins} 25 {bold}',
+                                            font='{Poppins} 28 {bold}',
                                             foreground='#ffffff')
         self.Manege_Teacher_label.configure(text='Manage Teacher')
         self.Manege_Teacher_label.place(anchor='nw',
@@ -1182,6 +1182,7 @@ class TeacherRegistation(tk.Frame):
             print(e)
             messagebox.showerror("File Missing", "LightThemeimg.png IS Missing")
 
+
         if self.back_page_img_button["background"] == "#121212":
             self.teacherRegistationBGColor = "#ffffff"
             self.teacherRegistationFGColor = "#000000"
@@ -1376,6 +1377,14 @@ class TeacherRegistation(tk.Frame):
 class TeacherView(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
+        self.sty = ttk.Style()
+        self.sty.theme_use()
+        self.sty.configure('Treeview', rowheight=45)
+        self.sty.map('Treeview', background= [('selected','#3B3B3B')])
+        self.sty.configure("Vertical.TScrollbar",
+                           background="#000000", darkcolor="#000000", lightcolor="#000000",
+                           troughcolor="gray", bordercolor="gray", arrowcolor="white")
+        self.teacher_recodes_scroll = ttk.Scrollbar(self)
         self.columns = ('ID',
                         'First name',
                         'Last name',
@@ -1383,7 +1392,7 @@ class TeacherView(tk.Frame):
                         'Phone Number',
                         'Gender',
                         'Subjects')
-        self.teacher_recodes = ttk.Treeview(height=75, columns=self.columns)
+        self.teacher_recodes = ttk.Treeview(height=9, columns=self.columns, yscrollcommand=self.teacher_recodes_scroll.set)
 
         self.teacher_recodes.heading("ID", text="ID")
         self.teacher_recodes.heading("First name", text="First name")
@@ -1414,10 +1423,12 @@ class TeacherView(tk.Frame):
         global count
 
         count = 0
-
+        teacherViewBackgroundcolorone = "#121212"
+        self.teacher_recodes.tag_configure("oneColor" , background="#121212" , font='{Poppins} 8 {bold}',foreground="#c2c2c2")
         for record in self.recodes:
+
             self.teacher_recodes.insert(parent="", index='end', iid=count, values=(
-                record[6], record[0], record[1], record[3], "0" + str(record[2]), record[4], record[5]))
+                record[6], record[0], record[1], record[3], "0" + str(record[2]), record[4], record[5]) , tags=("oneColor"))
             count += 1
 
         self.connetc.close()
@@ -1425,14 +1436,18 @@ class TeacherView(tk.Frame):
 
         # self.teacher_recodes.insert()
 
-        self.teacher_recodes.place(anchor='nw', x='0', y='0')
-
+        self.teacher_recodes.place(anchor='nw', x='17', y='75')
+        self.teacher_recodes_scroll.configure(command=self.teacher_recodes.yview)
+        self.teacher_recodes_scroll.configure( orient='vertical', )
+        self.teacher_recodes_scroll.place(anchor='nw', height='440', x='0', y='75')
         self.configure(background='#121212',
                        height='515',
                        width='791')
+                   
         self.place(anchor='nw',
                    x='0',
                    y='0')
+                   
 
 
 # run_the_app_in_Hr_____VVVVVVVVVVV@
