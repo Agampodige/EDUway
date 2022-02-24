@@ -35,11 +35,9 @@ class SchoolManegmentSystem(tk.Tk):
     def on_close(self):
         if messagebox.askokcancel("Quit", "Do you want to quit?"):
             self.quit()
+            app.quit()
+            app.destroy()
 
-    def minimize_window(self):
-        if app.overrideredirect(True):
-            app.overrideredirect(False)
-            app.wm_state('iconic')
 
 
 # this_is_the_Splash_Screen_of_this
@@ -129,7 +127,7 @@ class LogInPage(tk.Frame):
         self.usernamelabel.place(anchor='nw',
                                  x='380',
                                  y='160')
-
+    
         ## This_is_a_normal_lable_to_show_the_background_of_Entry_box
         self.input_field_bg = tk.Label(self)
 
@@ -240,9 +238,10 @@ class LogInPage(tk.Frame):
         self.close_button.configure(overrelief='flat',
                                     relief='flat',
                                     command=self.master.on_close)
-        self.close_button.place(anchor='nw',
-                                x='730',
-                                y='15')
+        if app.overrideredirect(True):
+            self.close_button.place(anchor='nw',
+                                    x='730',
+                                    y='15')
 
         # this_clear_button_is_for_clear_All_input_fields
         self.clear_btton = tk.Button(self)
@@ -411,7 +410,6 @@ class Home(tk.Frame):
                                            activebackground="#121212",
                                            activeforeground="#121212",
                                            command=lambda: master.switch_frame(TeacherHome))
-
         self.home_teacher_button.place(x="130",
                                        y="280")
 
@@ -553,9 +551,10 @@ class TeacherHome(tk.Frame):
                                                    image=self.img_img4,
                                                    relief='flat',
                                                    command=self.master.on_close)
+        
         self.Teacher_Manege_close_button.place(anchor='nw',
-                                               x='760',
-                                               y='8')
+                                            x='760',
+                                            y='8')
 
         self.teacher_Manege_theme_change_button = tk.Button(self)
 
@@ -1474,10 +1473,10 @@ class TeacherView(tk.Frame):
             self.sty.map('Treeview', background=[('selected', '#3B3B3B'), ('focus', '#212121')])
             self.teacher_recodes.tag_configure("secondColor", background=DTeacherViewBackgroundColor,
                                                font='{Poppins} 8 {bold}',
-                                               foreground="c2c2c2")
+                                               foreground="#c2c2c2")
             self.teacher_recodes.tag_configure("oneColor", background="#0a0a0a",
                                                font='{Poppins} 8 {bold}',
-                                               foreground="c2c2c2")
+                                               foreground="#c2c2c2")
             # self.teacher_view_theme_change_button
             self.teacher_home_back_page_img_button.configure(background=DTeacherViewBackgroundColor,
                                                              foreground=DTeacherViewForegroundColor)
