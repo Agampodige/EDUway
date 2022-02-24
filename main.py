@@ -380,15 +380,64 @@ class LogInPage(tk.Frame):
 # remember_ths
 
 # this is the home page of 
+# this window is return after the Splash Screen
 class Home(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
+        try:
+            self.img_Home_Banner = tk.PhotoImage(file='HomeBanner.png')
+        except Exception as e:
+            print(e)
+            messagebox.showerror("File Missing", "HomeBanner.png")
+
+        self.home_banner_label = tk.Label(self)
+        self.home_banner_label.configure(image=self.img_Home_Banner, background="#121212")
+        self.home_banner_label.place(x="0",
+                                     y="0",
+                                     relx="-0.078",
+                                     rely="-0.13")
+
+        try:
+            self.img_Home_Teacher = tk.PhotoImage(file='HomeTeacher.png')
+        except Exception as e:
+            print(e)
+            messagebox.showerror("File Missing", "HomeTeacher.png")
+
+        self.home_teacher_button = tk.Button(self)
+        self.home_teacher_button.configure(image=self.img_Home_Teacher,
+                                           background="#121212",
+                                           borderwidth="0",
+                                           relief="flat",
+                                           activebackground="#121212",
+                                           activeforeground="#121212",
+                                           command=lambda: master.switch_frame(TeacherHome))
+        self.home_teacher_button.place(x="130",
+                                       y="280")
+
+        try:
+            self.img_Home_Student = tk.PhotoImage(file='HomeStudent.png')
+        except Exception as e:
+            print(e)
+            messagebox.showerror("File Missing", "HomeStudent.png is missing")
+
+        self.home_Student_button = tk.Button(self)
+        self.home_Student_button.configure(image=self.img_Home_Student,
+                                           background="#121212",
+                                           borderwidth="0",
+                                           relief="flat",
+                                           activebackground="#121212",
+                                           activeforeground="#121212")
+        self.home_Student_button.place(x="319",
+                                       y="280")
+
 
         self.configure(background='#121212',
                        height='515',
                        takefocus=False,
                        width='791')
-        self.place(x="0" , y="0")
+        self.place(x="0",
+                   y="0")
+
 
 class TeacherHome(tk.Frame):
     def __init__(self, master):
@@ -1139,8 +1188,8 @@ class TeacherRegistation(tk.Frame):
         # ============================================Need to return the view page===============================================#
 
 
-#This Is The Teacher View
-#You Can Watch All Deatail About All Teachers
+# This Is The Teacher View
+# You Can Watch All Deatail About All Teachers
 class TeacherView(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
@@ -1452,6 +1501,7 @@ class TeacherView(tk.Frame):
             self.teacher_view_theme_change_button.configure(background=DTeacherViewBackgroundColor,
                                                             foreground=DTeacherViewForegroundColor,
                                                             image=self.img_DarkThemeimg)
+
 
 # run_the_app_in_Hr_____VVVVVVVVVVV@
 if __name__ == "__main__":
