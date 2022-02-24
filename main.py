@@ -1038,7 +1038,7 @@ class StudentRegistation(tk.Frame):
                                      foreground=self.StudentRegistationFGColor)
             self.Student_age_label.configure(background=self.StudentRegistationBGColor,
                                      foreground=self.StudentRegistationFGColor)
-            self.Student_gender_entry.configure(background=self.StudentRegistationBGColor,
+            self.Student_Admission_Number_entry.configure(background=self.StudentRegistationBGColor,
                                         foreground=self.StudentRegistationFGColor)
             self.Student_gender_label.configure(background=self.StudentRegistationBGColor,
                                         foreground=self.StudentRegistationFGColor)
@@ -1079,7 +1079,7 @@ class StudentRegistation(tk.Frame):
                                                        foreground=self.DStudentRegistationFGColor)
             self.Student_phone_number_Entry_bg_label.configure(background=self.DStudentRegistationBGColor,
                                                        foreground=self.DStudentRegistationFGColor)
-            self.Student_gender_Entry_bg_label.configure(background=self.DStudentRegistationBGColor,
+            self.Student_Admission_Number_entry.configure(background=self.DStudentRegistationBGColor,
                                                  foreground=self.DStudentRegistationFGColor)
             self.Student_subject_Entry_bg_label.configure(background=self.DStudentRegistationBGColor,
                                                   foreground=self.DStudentRegistationFGColor)
@@ -1115,12 +1115,12 @@ class StudentRegistation(tk.Frame):
         self.master.switch_frame(TeacherHome)
 
     def clickAdd(self):
-        global Student_first_name, Student_last_name, Student_phone_number, Student_age, Student_gender, Student_subjects
+        global Student_first_name, Student_last_name, Student_phone_number, Student_age, Student_Admission_Number, Student_subjects
         Student_first_name = self.Student_first_name_entry.get()
         Student_last_name = self.Student_last_name_entry.get()
         Student_phone_number = self.Student_phone_number_entry.get()
         Student_age = self.Student_age_entry.get()
-        Student_gender = self.gender_entry.get()
+        Student_Admission_Number = self.Student_Admission_Number_entry.get()
         Student_subjects = self.Student_subject_entry.get()
 
         if Student_first_name == "" or Student_last_name == "" or Student_phone_number == "" or Student_age == "" or Student_gender == "" or Student_subjects == "":
@@ -1152,8 +1152,7 @@ class StudentRegistation(tk.Frame):
                                 if len(Student_age) > 2:
                                     messagebox.showerror("Age Error", "You Can Only Type Two Numbers For Age ")
                                 else:
-                                    Student_genderIndex = ['male', "Male", "female", "Female", "m", "M", "F", "f"]
-                                    if Student_gender not in Student_genderIndex:
+                                    if Student_gender not in Student_gender:
                                         messagebox.showerror("Age Error", "You Can Add Only Type Male or Female ")
                                     else:
                                         if Student_gender == "m" or gender == "male":
@@ -1169,9 +1168,9 @@ class StudentRegistation(tk.Frame):
                                         self.connetc = self.conn.cursor()
 
                                         self.connetc.execute(
-                                            "CREATE TABLE IF NOT EXISTS teacher (id INT AUTO_INCREMENT PRIMARY KEY, FirstName VARCHAR(50), LAstName VARCHAR(50), PhoneNumber INT(50), Age INT(2), Gender VARCHAR(50) ,Subjects VARCHAR(255) )")
+                                            "CREATE TABLE IF NOT EXISTS Student (id INT AUTO_INCREMENT PRIMARY KEY, FirstName VARCHAR(50), LAstName VARCHAR(50), PhoneNumber INT(50), Age INT(2), Gender VARCHAR(50) ,Subjects VARCHAR(255) )")
                                         self.connetc.execute(
-                                            "INSERT INTO  teacher (FirstName, LAstName, PhoneNumber, Age, Gender, Subjects) VALUES (%s,%s,%s,%s,%s,%s)",
+                                            "INSERT INTO  Student (FirstName, LAstName, PhoneNumber, Age, Gender, Subjects) VALUES (%s,%s,%s,%s,%s,%s)",
                                             (str(Student_first_name.capitalize()), str(Student_last_name.capitalize()),
                                              0 + int(Student_phone_number), int(Student_age), str(Student_gender.capitalize()),
                                              str(Student_subjects.capitalize())))
