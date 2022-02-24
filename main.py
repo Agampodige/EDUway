@@ -1599,11 +1599,94 @@ class TeacherView(tk.Frame):
         self.master.switch_frame(TeacherHome)
 
     def changeTeacherViewTheme(self):
-        print("Work")
+
+        try:
+            self.img_DarkThemeimg = tk.PhotoImage(file='DarkThemeimg.png')
+        except Exception as e:
+            print(e)
+            messagebox.showerror("File Missing", "DarkThemeimg.png IS Missing")
+
+        try:
+            self.img_lightThemeimg = tk.PhotoImage(file='LightThemeimg.png')
+        except Exception as e:
+            print(e)
+            messagebox.showerror("File Missing", "LightThemeimg.png IS Missing")
+
         if self["background"] == "#121212":
-            pass
+            TeacherViewBackgroundColor = "#ffffff"
+            TeacherViewForegroundColor = "#000000"
+
+            self.configure(background=TeacherViewBackgroundColor)
+            self.sty.map('Treeview', background=[('selected', '#4d4d4d'), ('focus', '#212121')])
+            self.teacher_recodes.tag_configure("secondColor", background=TeacherViewBackgroundColor,
+                                               font='{Poppins} 8 {bold}',
+                                               foreground=TeacherViewForegroundColor)
+            self.teacher_recodes.tag_configure("oneColor", background="#e6e6e6",
+                                               font='{Poppins} 8 {bold}',
+                                               foreground=TeacherViewForegroundColor)
+            # self.teacher_view_theme_change_button  
+            self.teacher_home_back_page_img_button.configure(background=TeacherViewBackgroundColor,
+                                                             foreground=TeacherViewForegroundColor)
+            self.Teacher_view_close_button.configure(background=TeacherViewBackgroundColor,
+                                                     foreground=TeacherViewForegroundColor)
+            self.View_Teacher_label.configure(background=TeacherViewBackgroundColor,
+                                              foreground=TeacherViewForegroundColor)
+            self.Teacher_ID_label.configure(background=TeacherViewBackgroundColor,
+                                            foreground=TeacherViewForegroundColor)
+            self.Teacher_First_Name_label.configure(background=TeacherViewBackgroundColor,
+                                                    foreground=TeacherViewForegroundColor)
+            self.Teacher_Second_Name_label.configure(background=TeacherViewBackgroundColor,
+                                                     foreground=TeacherViewForegroundColor)
+            self.Teacher_Age_label.configure(background=TeacherViewBackgroundColor,
+                                             foreground=TeacherViewForegroundColor)
+            self.Teacher_Phone_Number_label.configure(background=TeacherViewBackgroundColor,
+                                                      foreground=TeacherViewForegroundColor)
+            self.Teacher_Gender_label.configure(background=TeacherViewBackgroundColor,
+                                                foreground=TeacherViewForegroundColor)
+            self.Teacher_Main_Subject_label.configure(background=TeacherViewBackgroundColor,
+                                                      foreground=TeacherViewForegroundColor)
+            self.teacher_view_theme_change_button.configure(background=TeacherViewBackgroundColor,
+                                                            foreground=TeacherViewForegroundColor,
+                                                            image=self.img_lightThemeimg)
+        else:
+            DTeacherViewBackgroundColor = "#121212"
+            DTeacherViewForegroundColor = "#ffffff"
+
+            self.configure(background=DTeacherViewBackgroundColor)
+            self.sty.map('Treeview', background=[('selected', '#3B3B3B'), ('focus', '#212121')])
+            self.teacher_recodes.tag_configure("secondColor", background=DTeacherViewBackgroundColor,
+                                               font='{Poppins} 8 {bold}',
+                                               foreground="c2c2c2")
+            self.teacher_recodes.tag_configure("oneColor", background="#0a0a0a",
+                                               font='{Poppins} 8 {bold}',
+                                               foreground="c2c2c2")
+            # self.teacher_view_theme_change_button
+            self.teacher_home_back_page_img_button.configure(background=DTeacherViewBackgroundColor,
+                                                             foreground=DTeacherViewForegroundColor)
+            self.Teacher_view_close_button.configure(background=DTeacherViewBackgroundColor,
+                                                     foreground=DTeacherViewForegroundColor)
+            self.View_Teacher_label.configure(background=DTeacherViewBackgroundColor,
+                                              foreground=DTeacherViewForegroundColor)
+            self.Teacher_ID_label.configure(background=DTeacherViewBackgroundColor,
+                                            foreground=DTeacherViewForegroundColor)
+            self.Teacher_First_Name_label.configure(background=DTeacherViewBackgroundColor,
+                                                    foreground=DTeacherViewForegroundColor)
+            self.Teacher_Second_Name_label.configure(background=DTeacherViewBackgroundColor,
+                                                     foreground=DTeacherViewForegroundColor)
+            self.Teacher_Age_label.configure(background=DTeacherViewBackgroundColor,
+                                             foreground=DTeacherViewForegroundColor)
+            self.Teacher_Phone_Number_label.configure(background=DTeacherViewBackgroundColor,
+                                                      foreground=DTeacherViewForegroundColor)
+            self.Teacher_Gender_label.configure(background=DTeacherViewBackgroundColor,
+                                                foreground=DTeacherViewForegroundColor)
+            self.Teacher_Main_Subject_label.configure(background=DTeacherViewBackgroundColor,
+                                                      foreground=DTeacherViewForegroundColor)
+            self.teacher_view_theme_change_button.configure(background=DTeacherViewBackgroundColor,
+                                                            foreground=DTeacherViewForegroundColor,
+                                                            image=self.img_DarkThemeimg)
 
 
+                                                            
 # run_the_app_in_Hr_____VVVVVVVVVVV@
 if __name__ == "__main__":
     app = SchoolManegmentSystem()
