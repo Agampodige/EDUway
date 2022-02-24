@@ -21,7 +21,7 @@ class SchoolManegmentSystem(tk.Tk):
     def __init__(self):
         tk.Tk.__init__(self)
         self._frame = None
-        self.switch_frame(TeacherView)
+        self.switch_frame(Home)
 
     # this_funtion_is_for_change
     # the frame == window of the app
@@ -379,252 +379,16 @@ class LogInPage(tk.Frame):
 #                   command=lambda: master.switch_frame(StartPage)).pack()
 # remember_ths
 
-# this is the home page of SchoolManegment system
+# this is the home page of 
 class Home(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
-        # home_background_image_As_Lable
-        self.home_backg = tk.Label(self)
-        try:
-            self.img_home_bg = tk.PhotoImage(file='home_bg.png')
-        except Exception as e:
-            print(e)
-            messagebox.showerror("File Missing", "home_bg.png is missing")
 
-        self.home_backg.configure(borderwidth='0',
-                                  image=self.img_home_bg,
-                                  text='label1')
-        self.home_backg.pack(side='top')
-
-        # home_button_to_return_ro_home_page
-        self.home_button = tk.Button(self)
-
-        try:
-            self.img_home_button = tk.PhotoImage(file='home_button.png')
-        except Exception as e:
-            print(e)
-            messagebox.showerror("File Missing", "home_button.png is missing")
-
-        self.home_button.configure(activebackground='#000000',
-                                   activeforeground='#000000',
-                                   background="#000000",
-                                   borderwidth='0',
-                                   cursor='hand2')
-        self.home_button.configure(default='normal',
-                                   highlightcolor='#000000',
-                                   highlightthickness='0',
-                                   image=self.img_home_button)
-        self.home_button.configure(overrelief='flat',
-                                   relief='flat',
-                                   takefocus=True,
-                                   command=self.onClickHome)
-        self.home_button.place(anchor='nw',
-                               height='48',
-                               width='220',
-                               x='0', y='50')
-
-        # search_button to return to search page
-        self.search_button = tk.Button(self)
-
-        try:
-            self.img_search_button = tk.PhotoImage(file='search_button.png')
-        except Exception as e:
-            print(e)
-            messagebox.showerror("File Missing", "search_button.png is missing")
-
-        self.search_button.configure(activebackground='#000000',
-                                     activeforeground='#000000',
-                                     borderwidth='0',
-                                     cursor='hand2')
-        self.search_button.configure(default='normal',
-                                     highlightcolor='#000000',
-                                     highlightthickness='0',
-                                     image=self.img_search_button,
-                                     command=lambda: master.switch_frame(TeacherHome))
-        self.search_button.configure(overrelief='flat',
-                                     relief='flat',
-                                     takefocus=True)
-        self.search_button.place(anchor='nw',
-                                 height='48',
-                                 width='220',
-                                 x='0',
-                                 y='98')
-
-        # setting_button to return to setting page
-        self.student_button = tk.Button(self)
-        self.student_button.configure(activebackground='#000000',
-                                      activeforeground='#000000',
-                                      borderwidth='0',
-                                      cursor='hand2')
-        self.student_button.configure(default='normal',
-                                      highlightcolor='#000000',
-                                      highlightthickness='0',
-                                      image=self.img_search_button)
-        self.student_button.configure(overrelief='flat',
-                                      relief='flat',
-                                      takefocus=True)
-        self.student_button.place(anchor='nw',
-                                  height='48',
-                                  width='220',
-                                  x='0',
-                                  y='146')
-
-        # home_image_button to show_about_NEWS_of_the_School
-        # and_add_good_ui_and_ux
-        # self.home_image_button = tk.Button(self)
-        # self.img_news_poto = tk.PhotoImage(file='news_poto.png')
-        # self.home_image_button.configure(activebackground='#000000', activeforeground='#000000', background='#000000',
-        #                                  borderwidth='0')
-        # self.home_image_button.configure(cursor='hand2', highlightcolor='#000000', highlightthickness='0',
-        #                                  image=self.img_news_poto)
-        # self.home_image_button.place(anchor='nw', height='220', width='220', y='295'
-        try:
-            self.img_img4 = tk.PhotoImage(file='img4.png')
-        except Exception as e:
-            print(e)
-            messagebox.showerror("File Missing", "img_img4 is missing")
-
-        # window_frame
-        self.home_window_index_frame = tk.Frame(self)
-        self.home_window_index_frame.configure(background='#121212',
-                                               height='200',
-                                               width='200')
-        self.home_window_index_frame.place(anchor='nw',
-                                           height='515',
-                                           width='571',
-                                           x='220')
-
-        # home_page_close_button_vvvvv_v@
-        self.home_close_button = tk.Button(self)
-        self.home_close_button.configure(activebackground='#121212',
-                                         activeforeground='#121212',
-                                         background='#121212',
-                                         borderwidth='0')
-        self.home_close_button.configure(cursor='hand2', foreground='#121212',
-                                         highlightbackground='#121212',
-                                         highlightcolor='#121212')
-        self.home_close_button.configure(highlightthickness='1',
-                                         image=self.img_img4,
-                                         relief='flat',
-                                         command=self.master.on_close)
-        self.home_close_button.place(anchor='nw',
-                                     x='760',
-                                     y='8')
-        # self.home_close_button.lift()
-        # @home_page_close_button^^^^_^
-        self.onClickHome()
-
-    # Todo_make_a_frame_to_bla_bla
-    def onClickSearch(self):
-        # this is the frame indide bla bla need to distry befor bla bla
-        self.home_window_search_frame = tk.Frame(self)
-        try:
-            self.img_home_button = tk.PhotoImage(file='home_button_out.png')
-            self.home_button.configure(image=self.img_home_button)
-        except Exception as e:
-            print(e)
-            messagebox.showerror("File Missing", "home_button_out.png is missing")
-
-        self.test_btn_2 = tk.Button(self.home_window_search_frame)
-        self.test_btn_2.configure(borderwidth='0',
-                                  text='button6')
-        self.test_btn_2.place(anchor='nw',
-                              x='50',
-                              y='0')
-        self.home_window_search_frame.configure(background='#121212',
-                                                borderwidth='0',
-                                                height='200',
-                                                width='200')
-        self.home_window_search_frame.place(anchor='nw',
-                                            height='515',
-                                            width='571',
-                                            x='220')
-
-        # home_search_close_button
-        self.home_search_close_button = tk.Button(self)
-        self.home_search_close_button.configure(activebackground='#121212',
-                                                activeforeground='#121212',
-                                                background='#121212',
-                                                borderwidth='0')
-        self.home_search_close_button.configure(cursor='hand2',
-                                                foreground='#121212',
-                                                highlightbackground='#121212',
-                                                highlightcolor='#121212')
-        self.home_search_close_button.configure(highlightthickness='1',
-                                                image=self.img_img4,
-                                                relief='flat',
-                                                command=self.master.on_close)
-        self.home_search_close_button.place(anchor='nw',
-                                            x='760',
-                                            y='8')
-        # self.home_image_button_news_2_img = tk.PhotoImage(file="news_poto_2.png")
-        # self.home_image_button.configure(image=self.home_image_button_news_2_img)
-
-        # if bool(self.home_window_index_frame.winfo_exists()):
-        #     self.home_window_index_frame.destroy()
-        # print(bool(self.home_window_index_frame.winfo_exists()))
-
-    def onClickHome(self):
-        self.home_window_index_frame = tk.Frame(self)
-        self.test_btn_1 = tk.Button(self.home_window_index_frame)
-        self.test_btn_1.configure(borderwidth='0',
-                                  text='button6')
-        self.test_btn_1.place(anchor='nw',
-                              x='0', y='0')
-        self.home_window_index_frame.configure(background='#121212',
-                                               borderwidth='0',
-                                               height='200',
-                                               width='200')
-        self.home_window_index_frame.place(anchor='nw',
-                                           height='515',
-                                           width='571',
-                                           x='220')
-
-        self.home__close_button = tk.Button(self)
-        self.home__close_button.configure(activebackground='#121212',
-                                          activeforeground='#121212',
-                                          background='#121212',
-                                          borderwidth='0')
-        self.home__close_button.configure(cursor='hand2',
-                                          foreground='#121212',
-                                          highlightbackground='#121212',
-                                          highlightcolor='#121212')
-        self.home__close_button.configure(highlightthickness='1',
-                                          image=self.img_img4,
-                                          relief='flat',
-                                          command=self.master.on_close)
-        self.home__close_button.place(anchor='nw',
-                                      x='760',
-                                      y='8')
-        self.configure(height='515',
+        self.configure(background='#121212',
+                       height='515',
+                       takefocus=False,
                        width='791')
-        self.pack(side='top')
-
-        # app.overrideredirect(False)
-        # app.wm_state('iconic')
-
-        # try:
-        #     self.home_image_button.configure(image=self.img_news_poto)
-        # except Exception as e:
-        #     print(e)
-
-    #     try:
-    #         if bool(self.home_window_search_frame.winfo_exists()):
-    #             self.home_window_search_frame.destroy()
-    #             # print(bool(self.home_window_search_frame.winfo_exists()))
-    #             print("hoo")
-    #     except Exception as e:
-    #         print(e)
-
-    # if bool(self.home_window_search_frame.winfo_exists()):
-    #     self.home_window_search_frame.destroy()
-    # print(bool(self.home_window_search_frame.winfo_exists()))
-
-    # self.home_window_search_frame.pack_forget()
-
-    def onClickSetting(self):
-        pass
-
+        self.place(x="0" , y="0")
 
 class TeacherHome(tk.Frame):
     def __init__(self, master):
@@ -885,6 +649,8 @@ class TeacherHome(tk.Frame):
         self.master.switch_frame(Home)
 
 
+# This is the Teacher RegisTation 
+# You Can Add Data To Database Frome This Frame 
 class TeacherRegistation(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
@@ -1373,6 +1139,8 @@ class TeacherRegistation(tk.Frame):
         # ============================================Need to return the view page===============================================#
 
 
+#This Is The Teacher View
+#You Can Watch All Deatail About All Teachers
 class TeacherView(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
@@ -1685,8 +1453,6 @@ class TeacherView(tk.Frame):
                                                             foreground=DTeacherViewForegroundColor,
                                                             image=self.img_DarkThemeimg)
 
-
-                                                            
 # run_the_app_in_Hr_____VVVVVVVVVVV@
 if __name__ == "__main__":
     app = SchoolManegmentSystem()
