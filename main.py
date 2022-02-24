@@ -411,6 +411,7 @@ class Home(tk.Frame):
                                            activebackground="#121212",
                                            activeforeground="#121212",
                                            command=lambda: master.switch_frame(TeacherHome))
+
         self.home_teacher_button.place(x="130",
                                        y="280")
 
