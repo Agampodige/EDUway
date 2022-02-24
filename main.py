@@ -1377,9 +1377,8 @@ class TeacherView(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
         self.sty = ttk.Style()
-        self.sty.theme_use()
         self.sty.configure('Treeview', rowheight=46)
-        self.sty.map('Treeview', background=[('selected', '#3B3B3B')])
+        self.sty.map('Treeview', background=[('selected', '#3B3B3B') , ('focus','#212121')])
         self.sty.configure("Vertical.TScrollbar",
                            background="#000000", darkcolor="#000000", lightcolor="#000000",
                            troughcolor="gray", bordercolor="gray", arrowcolor="white")
@@ -1391,7 +1390,7 @@ class TeacherView(tk.Frame):
                         'Phone Number',
                         'Gender',
                         'Subjects')
-        self.teacher_recodes = ttk.Treeview(height=8, columns=self.columns,
+        self.teacher_recodes = ttk.Treeview(height=8, columns=self.columns, show="tree",
                                             yscrollcommand=self.teacher_recodes_scroll.set)
 
         # self.teacher_recodes.heading("ID", text="ID")
@@ -1402,7 +1401,6 @@ class TeacherView(tk.Frame):
         # self.teacher_recodes.heading("Gender", text="Gender")
         # self.teacher_recodes.heading("Subjects", text="Subjects")
 
-        self.teacher_recodes['show'] = 'headings'
 
         self.teacher_recodes.column("ID", width=50)
         self.teacher_recodes.column("First name", width=150)
@@ -1423,13 +1421,23 @@ class TeacherView(tk.Frame):
         global count
 
         count = 0
-        teacherViewBackgroundcolorone = "#121212"
-        self.teacher_recodes.tag_configure("oneColor", background="#121212", font='{Poppins} 8 {bold}',
-                                           foreground="#c2c2c2")
+        self.teacher_recodes.tag_configure("oneColor", background="#121212",
+                                                 font='{Poppins} 8 {bold}',
+                                                foreground="#c2c2c2")
+        
+        self.teacher_recodes.tag_configure("secondColor", background="#0a0a0a",
+                                                 font='{Poppins} 8 {bold}',
+                                                foreground="#c2c2c2")
+                                                
         for record in self.recodes:
-            self.teacher_recodes.insert(parent="", index='end', iid=count, values=(
-                record[6], record[0], record[1], record[3], "0" + str(record[2]), record[4], record[5]),
-                                        tags=("oneColor"))
+            if count % 2 == 0:
+                self.teacher_recodes.insert(parent="", index='end', iid=count, values=(
+                    record[6], record[0], record[1], record[3], "0" + str(record[2]), record[4], record[5]),
+                                            tags=("oneColor"))
+            else:
+                self.teacher_recodes.insert(parent="", index='end', iid=count, values=(
+                    record[6], record[0], record[1], record[3], "0" + str(record[2]), record[4], record[5]),
+                                            tags=("secondColor"))
             count += 1
 
         self.connetc.close()
@@ -1437,10 +1445,10 @@ class TeacherView(tk.Frame):
 
         # self.teacher_recodes.insert()
 
-        self.teacher_recodes.place(anchor='nw', x='0', y='120')
+        self.teacher_recodes.place(anchor='nw', x='0', y='146', relx="-0.24" ,bordermode='ignore')
         self.teacher_recodes_scroll.configure(command=self.teacher_recodes.yview)
         self.teacher_recodes_scroll.configure(orient='vertical', )
-        self.teacher_recodes_scroll.place(anchor='nw', height='44', x='0', y='120')
+        self.teacher_recodes_scroll.place(anchor='nw', height='44', x='0', y='150')
 
         self.teacher_view_theme_change_button = tk.Button(self)
 
