@@ -21,7 +21,7 @@ class SchoolManegmentSystem(tk.Tk):
     def __init__(self):
         tk.Tk.__init__(self)
         self._frame = None
-        self.switch_frame(Home)
+        self.switch_frame(SplashScreen)
 
     # this_funtion_is_for_change
     # the frame == window of the app
@@ -237,10 +237,9 @@ class LogInPage(tk.Frame):
         self.close_button.configure(overrelief='flat',
                                     relief='flat',
                                     command=self.master.on_close)
-        if app.overrideredirect(True):
-            self.close_button.place(anchor='nw',
-                                    x='730',
-                                    y='15')
+        self.close_button.place(anchor='nw',
+                                x='730',
+                                y='15')
 
         # this_clear_button_is_for_clear_All_input_fields
         self.clear_btton = tk.Button(self)
@@ -518,7 +517,7 @@ class StudeHome(tk.Frame):
                                            activeforeground="#121212",
                                            background="#121212",
                                            image=self.img_TeacherHomeViewButton,
-                                           command=lambda: master.switch_frame(TeacherView))
+                                           command=lambda: master.switch_frame(StudentView))
         self.Student_view_button.place(anchor='nw',
                                        x='196',
                                        y='317')
@@ -738,6 +737,13 @@ class StudentRegistation(tk.Frame):
             messagebox.showerror("TeacherAddButton.png Missing")
             print(e)
 
+        self.Student_Admission_Number_Entry_bg_label = tk.Label(self)
+        self.Student_Admission_Number_Entry_bg_label.configure(background='#121212',
+                                                               borderwidth='0',
+                                                               image=self.img_TeacherRegiusterEntery)
+        self.Student_Admission_Number_Entry_bg_label.place(anchor='nw',
+                                                           x='386',
+                                                           y='340')
         self.Student_First_name_Entry_bg_label.configure(background='#121212',
                                                          borderwidth='0',
                                                          image=self.img_TeacherRegiusterEntery)
@@ -769,13 +775,13 @@ class StudentRegistation(tk.Frame):
                                                        x='386',
                                                        y='290')
 
-        self.Student_Admission_Number_Entry_bg_label = tk.Label(self)
-        self.Student_Admission_Number_Entry_bg_label.configure(background='#121212',
-                                                               borderwidth='0',
-                                                               image=self.img_TeacherRegiusterEntery)
-        self.Student_Admission_Number_Entry_bg_label.place(anchor='nw',
-                                                           x='386',
-                                                           y='390')
+        self.Student_Subject_Entry_bg_label = tk.Label(self)
+        self.Student_Subject_Entry_bg_label.configure(background='#121212',
+                                                      borderwidth='0',
+                                                      image=self.img_TeacherRegiusterEntery)
+        self.Student_Subject_Entry_bg_label.place(anchor='nw',
+                                                  x='386',
+                                                  y='390')
 
         self.Student_first_name_entry = tk.Entry(self)
         self.Student_first_name_entry.configure(borderwidth='0')
@@ -881,7 +887,7 @@ class StudentRegistation(tk.Frame):
         self.Student_subects_label.configure(background='#121212',
                                              font='{Poppins} 17 {bold}',
                                              foreground='#ffffff',
-                                             text='Subject')
+                                             text='Main Subject')
         self.Student_subects_label.place(anchor='nw',
                                          x='166',
                                          y='389')
@@ -959,7 +965,7 @@ class StudentRegistation(tk.Frame):
                                                     activeforeground='#121212',
                                                     background='#121212',
                                                     borderwidth='0',
-                                                    command=self.goBackToTeacherHome)
+                                                    command=self.goBackToStudentHome)
         self.Student_back_page_img_button.configure(image=self.img_BackPageIMG)
         self.Student_back_page_img_button.place(anchor='nw', x='15', y='15')
 
@@ -977,7 +983,7 @@ class StudentRegistation(tk.Frame):
                                                                borderwidth='0',
                                                                relief="flat",
                                                                overrelief="flat",
-                                                               command=self.changeTeacherRegistationTheme)
+                                                               command=self.changeStudentRegistationTheme)
         self.Student_registation_theme_change_button.configure(image=self.img_DarkThemeimg,
                                                                text='button2')
         self.Student_registation_theme_change_button.place(anchor='nw',
@@ -990,7 +996,7 @@ class StudentRegistation(tk.Frame):
         self.pack(fill='both',
                   side='top')
 
-    def changeTeacherRegistationTheme(self):
+    def changeStudentRegistationTheme(self):
         try:
             self.img_DarkThemeimg = tk.PhotoImage(file='DarkThemeimg.png')
         except Exception as e:
@@ -1019,12 +1025,24 @@ class StudentRegistation(tk.Frame):
                                                                foreground=self.StudentRegistationFGColor)
             self.Student_phone_number_Entry_bg_label.configure(background=self.StudentRegistationBGColor,
                                                                foreground=self.StudentRegistationFGColor)
-            self.gender_Entry_bg_label.configure(background=self.StudentRegistationBGColor,
-                                                 foreground=self.StudentRegistationFGColor)
-            self.Student_subject_Entry_bg_label.configure(background=self.StudentRegistationBGColor,
+            self.Student_Admission_Number_label.configure(background=self.StudentRegistationBGColor,
                                                           foreground=self.StudentRegistationFGColor)
+            self.Student_subects_label.configure(background=self.StudentRegistationBGColor,
+                                                 foreground=self.StudentRegistationFGColor)
             self.Student_first_name_entry.configure(background=self.StudentRegistationBGColor,
                                                     foreground=self.StudentRegistationFGColor)
+            self.Student_Admission_Number_Entry_bg_label.configure(background=self.StudentRegistationBGColor,
+                                                                   foreground=self.StudentRegistationFGColor)
+            self.Student_First_name_Entry_bg_label.configure(background=self.StudentRegistationBGColor,
+                                                             foreground=self.StudentRegistationFGColor)
+            self.Student_Last_name_Entry_bg_label.configure(background=self.StudentRegistationBGColor,
+                                                            foreground=self.StudentRegistationFGColor)
+            self.Student_age_Entry_bg_label.configure(background=self.StudentRegistationBGColor,
+                                                      foreground=self.StudentRegistationFGColor)
+            self.Student_phone_number_Entry_bg_label.configure(background=self.StudentRegistationBGColor,
+                                                               foreground=self.StudentRegistationFGColor)
+            self.Student_Subject_Entry_bg_label.configure(background=self.StudentRegistationBGColor,
+                                                          foreground=self.StudentRegistationFGColor)
             self.Student_first_name_label.configure(background=self.StudentRegistationBGColor,
                                                     foreground=self.StudentRegistationFGColor)
             self.Student_last_name_entry.configure(background=self.StudentRegistationBGColor,
@@ -1041,8 +1059,8 @@ class StudentRegistation(tk.Frame):
                                              foreground=self.StudentRegistationFGColor)
             self.Student_Admission_Number_entry.configure(background=self.StudentRegistationBGColor,
                                                           foreground=self.StudentRegistationFGColor)
-            self.Student_gender_label.configure(background=self.StudentRegistationBGColor,
-                                                foreground=self.StudentRegistationFGColor)
+            self.Student_Admission_Number_label.configure(background=self.StudentRegistationBGColor,
+                                                          foreground=self.StudentRegistationFGColor)
             self.Student_subject_entry.configure(background=self.StudentRegistationBGColor,
                                                  foreground=self.StudentRegistationFGColor)
             self.Student_subects_label.configure(background=self.StudentRegistationBGColor,
@@ -1051,8 +1069,12 @@ class StudentRegistation(tk.Frame):
                                               foreground=self.StudentRegistationFGColor,
                                               activebackground=self.StudentRegistationBGColor,
                                               activeforeground=self.StudentRegistationBGColor)
+            self.Student_Subject_Entry_bg_label.configure(background=self.StudentRegistationBGColor,
+                                                          foreground=self.StudentRegistationFGColor)
             self.Student_registation_close_button.configure(background=self.StudentRegistationBGColor,
                                                             foreground=self.StudentRegistationFGColor)
+            self.Student_phone_number_Entry_bg_label.configure(background=self.StudentRegistationBGColor,
+                                                               foreground=self.StudentRegistationFGColor)
             self.Register_Student_label.configure(background=self.StudentRegistationBGColor,
                                                   foreground=self.StudentRegistationFGColor)
             self.Student_back_page_img_button.configure(background=self.StudentRegistationBGColor,
@@ -1078,11 +1100,7 @@ class StudentRegistation(tk.Frame):
                                                       foreground=self.DStudentRegistationFGColor)
             self.Student_phone_number_Entry_bg_label.configure(background=self.DStudentRegistationBGColor,
                                                                foreground=self.DStudentRegistationFGColor)
-            self.Student_phone_number_Entry_bg_label.configure(background=self.DStudentRegistationBGColor,
-                                                               foreground=self.DStudentRegistationFGColor)
-            self.Student_Admission_Number_entry.configure(background=self.DStudentRegistationBGColor,
-                                                          foreground=self.DStudentRegistationFGColor)
-            self.Student_subject_Entry_bg_label.configure(background=self.DStudentRegistationBGColor,
+            self.Student_Subject_Entry_bg_label.configure(background=self.DStudentRegistationBGColor,
                                                           foreground=self.DStudentRegistationFGColor)
             self.Student_first_name_label.configure(background=self.DStudentRegistationBGColor,
                                                     foreground=self.DStudentRegistationFGColor)
@@ -1092,8 +1110,8 @@ class StudentRegistation(tk.Frame):
                                                       foreground=self.DStudentRegistationFGColor)
             self.Student_age_label.configure(background=self.DStudentRegistationBGColor,
                                              foreground=self.DStudentRegistationFGColor)
-            self.Student_gender_label.configure(background=self.DStudentRegistationBGColor,
-                                                foreground=self.DStudentRegistationFGColor)
+            self.Student_Admission_Number_label.configure(background=self.DStudentRegistationBGColor,
+                                                          foreground=self.DStudentRegistationFGColor)
             self.Student_subects_label.configure(background=self.DStudentRegistationBGColor,
                                                  foreground=self.DStudentRegistationFGColor)
             self.add_Student_button.configure(background=self.DStudentRegistationBGColor,
@@ -1106,14 +1124,26 @@ class StudentRegistation(tk.Frame):
                                                   foreground=self.DStudentRegistationFGColor)
             self.Student_back_page_img_button.configure(background=self.DStudentRegistationBGColor,
                                                         foreground=self.DStudentRegistationFGColor)
+            self.Student_Admission_Number_Entry_bg_label.configure(background=self.DStudentRegistationBGColor,
+                                                                   foreground=self.DStudentRegistationFGColor)
+            self.Student_First_name_Entry_bg_label.configure(background=self.DStudentRegistationBGColor,
+                                                             foreground=self.DStudentRegistationFGColor)
+            self.Student_Last_name_Entry_bg_label.configure(background=self.DStudentRegistationBGColor,
+                                                            foreground=self.DStudentRegistationFGColor)
+            self.Student_age_Entry_bg_label.configure(background=self.DStudentRegistationBGColor,
+                                                      foreground=self.DStudentRegistationFGColor)
+            self.Student_phone_number_Entry_bg_label.configure(background=self.DStudentRegistationBGColor,
+                                                               foreground=self.DStudentRegistationFGColor)
+            self.Student_Subject_Entry_bg_label.configure(background=self.DStudentRegistationBGColor,
+                                                          foreground=self.DStudentRegistationFGColor)
             self.Student_registation_theme_change_button.configure(background=self.DStudentRegistationBGColor,
                                                                    foreground=self.DStudentRegistationFGColor,
                                                                    activebackground=self.DStudentRegistationBGColor,
                                                                    activeforeground=self.DStudentRegistationBGColor,
                                                                    image=self.img_DarkThemeimg)
 
-    def goBackToTeacherHome(self):
-        self.master.switch_frame(TeacherHome)
+    def goBackToStudentHome(self):
+        self.master.switch_frame(StudeHome)
 
     def clickAdd(self):
         global Student_first_name, Student_last_name, Student_phone_number, Student_age, Student_Admission_Number, Student_subjects
@@ -1143,10 +1173,16 @@ class StudentRegistation(tk.Frame):
                             messagebox.showerror("Phone Number Error", "You Can Add Only 10 Digit number")
                         else:
                             try:
+                                int(Student_Admission_Number)
+                            except Exception as e:
+                                messagebox.showerror("Type Error", "You Can Only Type Numbers For Admission Number ")
+                                print(e)
+                            try:
                                 int(Student_phone_number)
                             except Exception as e:
                                 messagebox.showerror("Type Error", "You Can Only Type Numbers For Phone Number ")
                                 print(e)
+
                             if int(Student_phone_number[0]) != 0:
                                 messagebox.showerror("Type Error", "This is Not Phone Number")
                             else:
@@ -1622,7 +1658,7 @@ class TeacherRegistation(tk.Frame):
         self.subects_label.configure(background='#121212',
                                      font='{Poppins} 17 {bold}',
                                      foreground='#ffffff',
-                                     text='Subject')
+                                     text='MaIn Subject')
         self.subects_label.place(anchor='nw',
                                  x='166',
                                  y='389')
@@ -1902,27 +1938,62 @@ class TeacherRegistation(tk.Frame):
                                             gender = "Male"
                                         else:
                                             gender = "Female"
+                                        AllSubjects = ['Sinhala', 'SINHALA', 'Sin', 'sin',
+                                                       'Tamil', 'tamil', 'tam', 'Tam',
+                                                       'English', 'english', "En", 'en',
+                                                       'Mathematics', 'mathematics', "MATHEMATICS", "math", 'Math',
+                                                       'MATH',
+                                                       "Health", 'HEALTH', "HEAL", "health",
+                                                       "Geography", 'geography', 'GEOGRAPHY', 'geo', "Geo", "GEO",
+                                                       'French', "french", 'FRENCH',
+                                                       'Spanish', 'SPANISH', "spanish",
+                                                       'Computer Science', 'computer science', 'COMPUTER SCIENCE',
+                                                       'Art', 'ART', 'art',
+                                                       'Band', 'band', 'BAND',
+                                                       'Choir', "choir", 'CHOIR',
+                                                       'Drama', "drama", "DRAMA",
+                                                       "Sports", "SPORTS", "sports",
+                                                       'Science', 'science', "SCIENCE",
+                                                       'History','history','HISTORY',
+                                                       'Chess','CHESS','chess',
+                                                       "music", 'Music', 'MUSIC',
+                                                       "ict", 'ICT',"Ict",
+                                                       'Japan', 'japan', 'JAPAN',
+                                                       'China', 'china', 'CHINA',
+                                                       'Accounting', 'accounting', 'ACCOUNTING',
+                                                       'Latin', 'lathin','LATHIN',
+                                                       'Greek', 'greek' , "GREEK",
+                                                       'Herbrew', 'HERBREW', "herbrew",
+                                                       'Zoology', "ZOOLOGY", "zoology",
+                                                       ]
 
-                                        self.conn = mysql.connector.connect(host="localhost", user="root",
-                                                                            password="",
-                                                                            database="eduway_test_1")
-                                        int(phone_number)
-                                        int(age)
-                                        self.connetc = self.conn.cursor()
+                                        subject_list = subjects.split(",")
 
-                                        self.connetc.execute(
-                                            "CREATE TABLE IF NOT EXISTS teacher (id INT AUTO_INCREMENT PRIMARY KEY, FirstName VARCHAR(50), LAstName VARCHAR(50), PhoneNumber INT(50), Age INT(2), Gender VARCHAR(50) ,Subjects VARCHAR(255) )")
-                                        self.connetc.execute(
-                                            "INSERT INTO  teacher (FirstName, LAstName, PhoneNumber, Age, Gender, Subjects) VALUES (%s,%s,%s,%s,%s,%s)",
-                                            (str(first_name.capitalize()), str(last_name.capitalize()),
-                                             0 + int(phone_number), int(age), str(gender.capitalize()),
-                                             str(subjects.capitalize())))
-                                        self.conn.commit()
+                                        checkSubject = all(item in AllSubjects for item in subjects.split(","))
+                                        if checkSubject is False:
+                                            messagebox.showerror("Subject Error", "You Can Add Only Subjects ")
+                                        else:
 
-                                        self.clearTeacherRegistation()
-                                        self.connetc.close()
-                                        self.conn.close()
-                                        # self.master.switch_frame(TeacherView)
+                                            self.conn = mysql.connector.connect(host="localhost", user="root",
+                                                                                password="",
+                                                                                database="eduway_test_1")
+                                            int(phone_number)
+                                            int(age)
+                                            self.connetc = self.conn.cursor()
+
+                                            self.connetc.execute(
+                                                "CREATE TABLE IF NOT EXISTS teacher (id INT AUTO_INCREMENT PRIMARY KEY, FirstName VARCHAR(50), LAstName VARCHAR(50), PhoneNumber INT(50), Age INT(2), Gender VARCHAR(50) ,Subjects VARCHAR(255) )")
+                                            self.connetc.execute(
+                                                "INSERT INTO  teacher (FirstName, LAstName, PhoneNumber, Age, Gender, Subjects) VALUES (%s,%s,%s,%s,%s,%s)",
+                                                (str(first_name.capitalize()), str(last_name.capitalize()),
+                                                 0 + int(phone_number), int(age), str(gender.capitalize()),
+                                                 str(subjects.capitalize())))
+                                            self.conn.commit()
+
+                                            self.clearTeacherRegistation()
+                                            self.connetc.close()
+                                            self.conn.close()
+                                            # self.master.switch_frame(TeacherView)
 
     def clearTeacherRegistation(self):
         self.first_name_entry.delete(0, 'end')
@@ -1935,13 +2006,326 @@ class TeacherRegistation(tk.Frame):
         # ============================================Need to return the view page===============================================#
 
 
+class StudentView(tk.Frame):
+    def __init__(self, master):
+        tk.Frame.__init__(self, master)
+        self.sty = ttk.Style()
+        self.sty.configure('Treeview', rowheight=46, fieldbackground="#000000")
+        self.sty.map('Treeview', background=[('selected', '#3B3B3B'), ('focus', '#212121')])
+        self.sty.configure("Vertical.TScrollbar",
+                           background="#000000", darkcolor="#000000", lightcolor="#000000",
+                           troughcolor="gray", bordercolor="gray", arrowcolor="#000000")
+        self.Student_recodes_scroll = ttk.Scrollbar(self)
+        self.columns = ('ID',
+                        'First name',
+                        'Last name',
+                        'Age',
+                        'Phone Number',
+                        'AdmissionNo',
+                        'Subjects')
+        self.Student_recodes = ttk.Treeview(height=8, columns=self.columns, show="tree",
+                                            yscrollcommand=self.Student_recodes_scroll.set)
+
+        # self.Student_recodes.heading("ID", text="ID")
+        # self.Student_recodes.heading("First name", text="First name")
+        # self.Student_recodes.heading("Last name", text="Last name")
+        # self.Student_recodes.heading("Age", text="Age")
+        # self.Student_recodes.heading("Phone Number", text="Phone Number")
+        # self.Student_recodes.heading("Gender", text="Gender")
+        # self.Student_recodes.heading("Subjects", text="Subjects")
+
+        self.Student_recodes.column("ID", width=50)
+        self.Student_recodes.column("First name", width=150)
+        self.Student_recodes.column("Last name", width=130)
+        self.Student_recodes.column("Age", width=50)
+        self.Student_recodes.column("Phone Number", width=130)
+        self.Student_recodes.column("AdmissionNo", width=100)
+        self.Student_recodes.column("Subjects", width=220)
+
+        # Add data
+        self.conn = mysql.connector.connect(host="localhost", user="root",
+                                            password="",
+                                            database="eduway_test_1")
+
+        self.connetc = self.conn.cursor()
+        self.connetc.execute("SELECT * FROM Student")
+        self.recodes = self.connetc.fetchall()
+        global count
+
+        count = 0
+        self.Student_recodes.tag_configure("oneColorStudent", background="#121212",
+                                           font='{Poppins} 8 {bold}',
+                                           foreground="#c2c2c2")
+
+        self.Student_recodes.tag_configure("secondColorStudent", background="#0a0a0a",
+                                           font='{Poppins} 8 {bold}',
+                                           foreground="#c2c2c2")
+
+        for record in self.recodes:
+            if count % 2 == 0:
+                self.Student_recodes.insert(parent="", index='end', iid=count, values=(
+                    record[0], record[1], record[2], record[4], "0" + str(record[3]), record[5], record[6]),
+                                            tags=("oneColorStudent"))
+            else:
+                self.Student_recodes.insert(parent="", index='end', iid=count, values=(
+                    record[0], record[1], record[2], record[4], "0" + str(record[3]), record[5], record[6]),
+                                            tags=("secondColorStudent"))
+            count += 1
+
+        self.connetc.close()
+        self.conn.close()
+
+        # self.Student_recodes.insert()
+
+        self.Student_recodes.place(anchor='nw', x='0', y='146', relx="-0.24", bordermode='ignore')
+        self.Student_recodes_scroll.configure(command=self.Student_recodes.yview)
+        self.Student_recodes_scroll.configure(orient='vertical', )
+        self.Student_recodes_scroll.place(anchor='nw', height='44', x='0', y='150')
+
+        self.Student_view_theme_change_button = tk.Button(self)
+
+        try:
+            self.img_DarkThemeimg = tk.PhotoImage(file='DarkThemeimg.png')
+        except Exception as e:
+            print(e)
+            messagebox.showerror("File Missing", "DarkThemeimg.png is missing")
+
+        self.Student_view_theme_change_button.configure(activebackground='#121212',
+                                                        activeforeground='#121212',
+                                                        background='#121212',
+                                                        borderwidth='0',
+                                                        relief="flat",
+                                                        overrelief="flat")
+        self.Student_view_theme_change_button.configure(image=self.img_DarkThemeimg,
+                                                        text='button2',
+                                                        command=self.changeStudentViewTheme)
+        self.Student_view_theme_change_button.place(anchor='nw',
+                                                    x='60',
+                                                    y='10')
+
+        self.Student_home_back_page_img_button = tk.Button(self)
+
+        try:
+            self.img_BackPageIMG = tk.PhotoImage(file='BackPageIMG.png')
+        except Exception as e:
+            print(e)
+            messagebox.showerror("File Missing", "BackPageIMG.png is missing")
+
+        self.Student_home_back_page_img_button.configure(activebackground='#121212',
+                                                         activeforeground='#121212',
+                                                         background='#121212',
+                                                         borderwidth='0',
+                                                         command=self.goBackToStudentHome)
+        self.Student_home_back_page_img_button.configure(image=self.img_BackPageIMG)
+        self.Student_home_back_page_img_button.place(anchor='nw', x='15', y='15')
+
+        try:
+            self.img_img4 = tk.PhotoImage(file='img4.png')
+        except Exception as e:
+            print(e)
+            messagebox.showerror("File Missing", "img_img4.png is missing")
+        self.Student_view_close_button = tk.Button(self)
+        self.Student_view_close_button.configure(activebackground='#121212',
+                                                 activeforeground='#121212',
+                                                 background='#121212',
+                                                 borderwidth='0')
+        self.Student_view_close_button.configure(cursor='hand2',
+                                                 foreground='#121212',
+                                                 highlightbackground='#121212',
+                                                 highlightcolor='#121212')
+        self.Student_view_close_button.configure(highlightthickness='1',
+                                                 image=self.img_img4,
+                                                 relief='flat',
+                                                 command=self.master.on_close)
+        self.Student_view_close_button.place(anchor='nw',
+                                             x='760',
+                                             y='8')
+        self.View_Student_label = tk.Label(self)
+        self.View_Student_label.configure(background='#121212',
+                                          borderwidth='0',
+                                          font='{Poppins} 28 {bold}',
+                                          foreground='#ffffff')
+        self.View_Student_label.configure(text='View Student')
+        self.View_Student_label.place(anchor='nw',
+                                      x='274',
+                                      y='28')
+
+        self.Student_ID_label = tk.Label(self)
+        self.Student_ID_label.configure(background='#121212',
+                                        borderwidth='0',
+                                        font='{Poppins} 10 {bold}',
+                                        foreground='#ffffff')
+        self.Student_ID_label.configure(text='ID')
+        self.Student_ID_label.place(anchor='nw',
+                                    x='16',
+                                    y='115')
+
+        self.Student_First_Name_label = tk.Label(self)
+        self.Student_First_Name_label.configure(background='#121212',
+                                                borderwidth='0',
+                                                font='{Poppins} 10 {bold}',
+                                                foreground='#ffffff')
+        self.Student_First_Name_label.configure(text='First Name')
+        self.Student_First_Name_label.place(anchor='nw',
+                                            x='55',
+                                            y='115')
+
+        self.Student_Second_Name_label = tk.Label(self)
+        self.Student_Second_Name_label.configure(background='#121212',
+                                                 borderwidth='0',
+                                                 font='{Poppins} 10 {bold}',
+                                                 foreground='#ffffff')
+        self.Student_Second_Name_label.configure(text='Last Name')
+        self.Student_Second_Name_label.place(anchor='nw',
+                                             x='210',
+                                             y='115')
+
+        self.Student_Age_label = tk.Label(self)
+        self.Student_Age_label.configure(background='#121212',
+                                         borderwidth='0',
+                                         font='{Poppins} 10 {bold}',
+                                         foreground='#ffffff')
+        self.Student_Age_label.configure(text='Age')
+        self.Student_Age_label.place(anchor='nw',
+                                     x='340',
+                                     y='115')
+
+        self.Student_Phone_Number_label = tk.Label(self)
+        self.Student_Phone_Number_label.configure(background='#121212',
+                                                  borderwidth='0',
+                                                  font='{Poppins} 10 {bold}',
+                                                  foreground='#ffffff')
+        self.Student_Phone_Number_label.configure(text='Phone Number')
+        self.Student_Phone_Number_label.place(anchor='nw',
+                                              x='390',
+                                              y='115')
+
+        self.Student_Admission_Number_label = tk.Label(self)
+        self.Student_Admission_Number_label.configure(background='#121212',
+                                                      borderwidth='0',
+                                                      font='{Poppins} 10 {bold}',
+                                                      foreground='#ffffff')
+        self.Student_Admission_Number_label.configure(text='AdmissionNO')
+        self.Student_Admission_Number_label.place(anchor='nw',
+                                                  x='520',
+                                                  y='115')
+
+        self.Student_Main_Subject_label = tk.Label(self)
+        self.Student_Main_Subject_label.configure(background='#121212',
+                                                  borderwidth='0',
+                                                  font='{Poppins} 10 {bold}',
+                                                  foreground='#ffffff')
+        self.Student_Main_Subject_label.configure(text='Main Subject')
+        self.Student_Main_Subject_label.place(anchor='nw',
+                                              x='625',
+                                              y='115')
+
+        self.configure(background='#121212',
+                       height='515',
+                       width='791')
+
+        self.place(anchor='nw',
+                   x='0',
+                   y='0')
+
+    def goBackToStudentHome(self):
+        self.master.switch_frame(StudeHome)
+
+    def changeStudentViewTheme(self):
+
+        try:
+            self.img_DarkThemeimg = tk.PhotoImage(file='DarkThemeimg.png')
+        except Exception as e:
+            print(e)
+            messagebox.showerror("File Missing", "DarkThemeimg.png IS Missing")
+
+        try:
+            self.img_lightThemeimg = tk.PhotoImage(file='LightThemeimg.png')
+        except Exception as e:
+            print(e)
+            messagebox.showerror("File Missing", "LightThemeimg.png IS Missing")
+
+        if self["background"] == "#121212":
+            StudentViewBackgroundColor = "#ffffff"
+            StudentViewForegroundColor = "#000000"
+
+            self.configure(background=StudentViewBackgroundColor)
+            self.sty.map('Treeview', background=[('selected', '#4d4d4d'), ('focus', '#212121')])
+            self.Student_recodes.tag_configure("secondColorStudent", background=StudentViewBackgroundColor,
+                                               font='{Poppins} 8 {bold}',
+                                               foreground=StudentViewForegroundColor)
+            self.Student_recodes.tag_configure("oneColorStudent", background="#e6e6e6",
+                                               font='{Poppins} 8 {bold}',
+                                               foreground=StudentViewForegroundColor)
+            # self.Student_view_theme_change_button  
+            self.Student_home_back_page_img_button.configure(background=StudentViewBackgroundColor,
+                                                             foreground=StudentViewForegroundColor)
+            self.Student_view_close_button.configure(background=StudentViewBackgroundColor,
+                                                     foreground=StudentViewForegroundColor)
+            self.View_Student_label.configure(background=StudentViewBackgroundColor,
+                                              foreground=StudentViewForegroundColor)
+            self.Student_ID_label.configure(background=StudentViewBackgroundColor,
+                                            foreground=StudentViewForegroundColor)
+            self.Student_First_Name_label.configure(background=StudentViewBackgroundColor,
+                                                    foreground=StudentViewForegroundColor)
+            self.Student_Second_Name_label.configure(background=StudentViewBackgroundColor,
+                                                     foreground=StudentViewForegroundColor)
+            self.Student_Age_label.configure(background=StudentViewBackgroundColor,
+                                             foreground=StudentViewForegroundColor)
+            self.Student_Phone_Number_label.configure(background=StudentViewBackgroundColor,
+                                                      foreground=StudentViewForegroundColor)
+            self.Student_Admission_Number_label.configure(background=StudentViewBackgroundColor,
+                                                          foreground=StudentViewForegroundColor)
+            self.Student_Main_Subject_label.configure(background=StudentViewBackgroundColor,
+                                                      foreground=StudentViewForegroundColor)
+            self.Student_view_theme_change_button.configure(background=StudentViewBackgroundColor,
+                                                            foreground=StudentViewForegroundColor,
+                                                            image=self.img_lightThemeimg)
+        else:
+            DStudentViewBackgroundColor = "#121212"
+            DStudentViewForegroundColor = "#ffffff"
+
+            self.configure(background=DStudentViewBackgroundColor)
+            self.sty.map('Treeview', background=[('selected', '#3B3B3B'), ('focus', '#212121')])
+            self.Student_recodes.tag_configure("secondColorStudent", background=DStudentViewBackgroundColor,
+                                               font='{Poppins} 8 {bold}',
+                                               foreground="#c2c2c2")
+            self.Student_recodes.tag_configure("oneColorStudent", background="#0a0a0a",
+                                               font='{Poppins} 8 {bold}',
+                                               foreground="#c2c2c2")
+            # self.Student_view_theme_change_button
+            self.Student_home_back_page_img_button.configure(background=DStudentViewBackgroundColor,
+                                                             foreground=DStudentViewForegroundColor)
+            self.Student_view_close_button.configure(background=DStudentViewBackgroundColor,
+                                                     foreground=DStudentViewForegroundColor)
+            self.View_Student_label.configure(background=DStudentViewBackgroundColor,
+                                              foreground=DStudentViewForegroundColor)
+            self.Student_ID_label.configure(background=DStudentViewBackgroundColor,
+                                            foreground=DStudentViewForegroundColor)
+            self.Student_First_Name_label.configure(background=DStudentViewBackgroundColor,
+                                                    foreground=DStudentViewForegroundColor)
+            self.Student_Second_Name_label.configure(background=DStudentViewBackgroundColor,
+                                                     foreground=DStudentViewForegroundColor)
+            self.Student_Age_label.configure(background=DStudentViewBackgroundColor,
+                                             foreground=DStudentViewForegroundColor)
+            self.Student_Phone_Number_label.configure(background=DStudentViewBackgroundColor,
+                                                      foreground=DStudentViewForegroundColor)
+            self.Student_Admission_Number_label.configure(background=DStudentViewBackgroundColor,
+                                                          foreground=DStudentViewForegroundColor)
+            self.Student_Main_Subject_label.configure(background=DStudentViewBackgroundColor,
+                                                      foreground=DStudentViewForegroundColor)
+            self.Student_view_theme_change_button.configure(background=DStudentViewBackgroundColor,
+                                                            foreground=DStudentViewForegroundColor,
+                                                            image=self.img_DarkThemeimg)
+
+
 # This Is The Teacher View
 # You Can Watch All Deatail About All Teachers
 class TeacherView(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
         self.sty = ttk.Style()
-        self.sty.configure('Treeview', rowheight=46, fieldbackground = "#000000")
+        self.sty.configure('Treeview', rowheight=46, fieldbackground="#000000")
         self.sty.map('Treeview', background=[('selected', '#3B3B3B'), ('focus', '#212121')])
         self.sty.configure("Vertical.TScrollbar",
                            background="#000000", darkcolor="#000000", lightcolor="#000000",
@@ -1995,11 +2379,11 @@ class TeacherView(tk.Frame):
         for record in self.recodes:
             if count % 2 == 0:
                 self.teacher_recodes.insert(parent="", index='end', iid=count, values=(
-                    record[6], record[0], record[1], record[3], "0" + str(record[2]), record[4], record[5]),
+                    record[0], record[1], record[2], record[4], "0" + str(record[3]), record[5], record[6]),
                                             tags=("oneColor"))
             else:
                 self.teacher_recodes.insert(parent="", index='end', iid=count, values=(
-                    record[6], record[0], record[1], record[3], "0" + str(record[2]), record[4], record[5]),
+                    record[0], record[1], record[2], record[4], "0" + str(record[3]), record[5], record[6]),
                                             tags=("secondColor"))
             count += 1
 
