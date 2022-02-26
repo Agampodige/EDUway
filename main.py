@@ -1246,9 +1246,15 @@ class TeacherUpdate(tk.Frame):
             messagebox.showerror("TeacherAddButton.png Missing")
             print(e)
 
+        try:
+            self.img_TeacheridbgEntery = tk.PhotoImage(file='Update_id_bg_IMG.png')
+        except Exception as e:
+            messagebox.showerror("TeacherAddButton.png Missing")
+            print(e)
+
         self.Update_Id_bg_label.configure(background='#121212',
                                           borderwidth='0',
-                                          image=self.img_TeacherRegiusterEntery)
+                                          image=self.img_TeacheridbgEntery)
         self.Update_Id_bg_label.place(anchor='nw',
                                       x='386',
                                       y='100')
@@ -1307,7 +1313,7 @@ class TeacherUpdate(tk.Frame):
                                        relief='flat')
         self.Update_Id_entry.place(anchor='nw',
                                    height='24',
-                                   width='229',
+                                   width='120',
                                    x='395',
                                    y='103  ')
 
@@ -1441,9 +1447,9 @@ class TeacherUpdate(tk.Frame):
                                         y='393')
 
         try:
-            self.img_TeacherAddButton = tk.PhotoImage(file='TeacherAddButton.png')
+            self.img_TeacherUpdateButton = tk.PhotoImage(file='Update_Teacher_Btn_img.png')
         except Exception as e:
-            messagebox.showerror("TeacherAddButton.png Missing")
+            messagebox.showerror("Update_Teacher_Btn_img.png Missing")
             print(e)
 
         self.Update_Update_teachet_button = tk.Button(self)
@@ -1451,12 +1457,32 @@ class TeacherUpdate(tk.Frame):
                                                     activebackground='#121212',
                                                     activeforeground='#121212',
                                                     borderwidth='0',
-                                                    image=self.img_TeacherAddButton,
+                                                    image=self.img_TeacherUpdateButton,
                                                     relief='flat',
                                                     command=self.clickUpdate)
         self.Update_Update_teachet_button.place(anchor='nw',
                                                 x='412',
                                                 y='448')
+
+
+        try:
+            self.img_TeacherGoButton = tk.PhotoImage(file='Update_Go_button_img.png')
+        except Exception as e:
+            messagebox.showerror("Update_Go_button_img.png Missing")
+            print(e)
+
+        self.Update_Update_Go_button = tk.Button(self)
+        self.Update_Update_Go_button.configure(background='#121212',
+                                                    activebackground='#121212',
+                                                    activeforeground='#121212',
+                                                    borderwidth='0',
+                                                    image=self.img_TeacherGoButton,
+                                                    relief='flat',
+                                                    command=self.clickGo)
+        self.Update_Update_Go_button.place(anchor='nw',
+                                                x='527',
+                                                y='95')
+                                                
 
         try:
             self.img_img4 = tk.PhotoImage(file='img4.png')
@@ -1532,7 +1558,10 @@ class TeacherUpdate(tk.Frame):
                        width='791')
         self.pack(fill='both',
                   side='top')
+    def clickGo(self):
+        pass
 
+    
     def changeTeacherUpdateTheme(self):
         try:
             self.img_DarkThemeimg = tk.PhotoImage(file='DarkThemeimg.png')
