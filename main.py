@@ -3207,7 +3207,7 @@ class TeacherView(tk.Frame):
                                                             foreground=DTeacherViewForegroundColor,
                                                             image=self.img_DarkThemeimg)
 
-
+                              
 # run_the_app_in_Hr_____VVVVVVVVVVV@
 if __name__ == "__main__":
     app = SchoolManegmentSystem()
