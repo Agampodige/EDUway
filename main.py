@@ -21,7 +21,7 @@ class SchoolManegmentSystem(tk.Tk):
     def __init__(self):
         tk.Tk.__init__(self)
         self._frame = None
-        self.switch_frame(TeacherUpdate)
+        self.switch_frame(SplashScreen)
 
     # this_funtion_is_for_change
     # the frame == window of the app
@@ -711,6 +711,19 @@ class StudeHome(tk.Frame):
 
     def goHome(self):
         self.master.switch_frame(Home)
+
+
+class TeacherDelete(tk.Frame):
+    def __init__(self, master):
+        tk.Frame.__init__(self, master)
+
+        self.configure(background='#121212',
+                       height='515',
+                       takefocus=False,
+                       width='791')
+        self.place(anchor='nw',
+                   x='0',
+                   y='0')
 
 
 class StudentRegistation(tk.Frame):
@@ -1930,7 +1943,8 @@ class TeacherHome(tk.Frame):
                                      image=self.img_TeacherHomeRemoveButton,
                                      activeforeground="#121212",
                                      activebackground="#121212",
-                                     background="#121212")
+                                     background="#121212",
+                                     command=lambda: master.switch_frame(TeacherDelete))
         self.Delete_button.place(anchor='nw',
                                  x='441',
                                  y='317')
