@@ -21,7 +21,7 @@ class SchoolManegmentSystem(tk.Tk):
     def __init__(self):
         tk.Tk.__init__(self)
         self._frame = None
-        self.switch_frame(SplashScreen)
+        self.switch_frame(TeacherUpdate)
 
     # this_funtion_is_for_change
     # the frame == window of the app
@@ -1221,6 +1221,551 @@ class StudentRegistation(tk.Frame):
         self.Student_phone_number_entry.delete(0, 'end')
 
 
+class TeacherUpdate(tk.Frame):
+    def __init__(self, master):
+        tk.Frame.__init__(self, master)
+        self.Update_First_name_Entry_bg_label = tk.Label(self)
+        self.Update_Id_bg_label = tk.Label(self)
+        self.Update_element_img_label = tk.Label(self)
+
+        try:
+            self.img_Element_1_img_label = tk.PhotoImage(file='Element_1_img_label.png')
+        except Exception as e:
+            messagebox.showerror("Element_1_img_label.png' Missing")
+            print(e)
+
+        self.Update_element_img_label.configure(background='#121212',
+                                                image=self.img_Element_1_img_label)
+        self.Update_element_img_label.place(anchor='nw',
+                                            x='431',
+                                            y='322')
+
+        try:
+            self.img_TeacherRegiusterEntery = tk.PhotoImage(file='TeacherRegiusterEntery.png')
+        except Exception as e:
+            messagebox.showerror("TeacherAddButton.png Missing")
+            print(e)
+
+        self.Update_Id_bg_label.configure(background='#121212',
+                                          borderwidth='0',
+                                          image=self.img_TeacherRegiusterEntery)
+        self.Update_Id_bg_label.place(anchor='nw',
+                                      x='386',
+                                      y='100')
+
+        self.Update_First_name_Entry_bg_label.configure(background='#121212',
+                                                        borderwidth='0',
+                                                        image=self.img_TeacherRegiusterEntery)
+        self.Update_First_name_Entry_bg_label.place(anchor='nw',
+                                                    x='386',
+                                                    y='146')
+
+        self.Update_Last_name_Entry_bg_label = tk.Label(self)
+        self.Update_Last_name_Entry_bg_label.configure(background='#121212',
+                                                       borderwidth='0',
+                                                       image=self.img_TeacherRegiusterEntery)
+        self.Update_Last_name_Entry_bg_label.place(anchor='nw',
+                                                   x='386',
+                                                   y='196')
+
+        self.Update_age_Entry_bg_label = tk.Label(self)
+        self.Update_age_Entry_bg_label.configure(background='#121212',
+                                                 borderwidth='0',
+                                                 image=self.img_TeacherRegiusterEntery)
+        self.Update_age_Entry_bg_label.place(anchor='nw',
+                                             x='386',
+                                             y='246')
+
+        self.Update_phone_number_Entry_bg_label = tk.Label(self)
+        self.Update_phone_number_Entry_bg_label.configure(background='#121212',
+                                                          borderwidth='0',
+                                                          image=self.img_TeacherRegiusterEntery)
+        self.Update_phone_number_Entry_bg_label.place(anchor='nw',
+                                                      x='386',
+                                                      y='290')
+
+        self.Update_gender_Entry_bg_label = tk.Label(self)
+        self.Update_gender_Entry_bg_label.configure(background='#121212',
+                                                    borderwidth='0',
+                                                    image=self.img_TeacherRegiusterEntery)
+        self.Update_gender_Entry_bg_label.place(anchor='nw',
+                                                x='386',
+                                                y='340')
+
+        self.Update_subject_Entry_bg_label = tk.Label(self)
+        self.Update_subject_Entry_bg_label.configure(background='#121212',
+                                                     borderwidth='0',
+                                                     image=self.img_TeacherRegiusterEntery)
+        self.Update_subject_Entry_bg_label.place(anchor='nw',
+                                                 x='386',
+                                                 y='390')
+
+        self.Update_Id_entry = tk.Entry(self)
+        self.Update_Id_entry.configure(borderwidth='0')
+        self.Update_Id_entry.configure(font='{Poppins} 10 {bold}',
+                                       insertwidth='1',
+                                       relief='flat')
+        self.Update_Id_entry.place(anchor='nw',
+                                   height='24',
+                                   width='229',
+                                   x='395',
+                                   y='103  ')
+
+        self.Update_Id_label = tk.Label(self)
+        self.Update_Id_label.configure(background='#121212',
+                                       font='{Poppins} 17 {bold}',
+                                       foreground='#ffffff',
+                                       text='ChangeID')
+        self.Update_Id_label.place(anchor='nw',
+                                   x='166',
+                                   y='96')
+
+        self.Update_first_name_entry = tk.Entry(self)
+        self.Update_first_name_entry.configure(borderwidth='0')
+        self.Update_first_name_entry.configure(font='{Poppins} 10 {bold}',
+                                               insertwidth='1',
+                                               relief='flat')
+        self.Update_first_name_entry.place(anchor='nw',
+                                           height='24',
+                                           width='229',
+                                           x='395',
+                                           y='149')
+
+        self.Update_first_name_label = tk.Label(self)
+        self.Update_first_name_label.configure(background='#121212',
+                                               font='{Poppins} 17 {bold}',
+                                               foreground='#ffffff',
+                                               text='First Name')
+        self.Update_first_name_label.place(anchor='nw',
+                                           x='166',
+                                           y='146')
+
+        self.Update_last_name_entry = tk.Entry(self)
+        self.Update_last_name_entry.configure(borderwidth='0')
+        self.Update_last_name_entry.configure(font='{Poppins} 10 {bold}',
+                                              insertwidth='1',
+                                              relief='flat')
+        self.Update_last_name_entry.place(anchor='nw',
+                                          height='24',
+                                          width='229',
+                                          x='397',
+                                          y='199')
+
+        self.Update_last_name_label = tk.Label(self)
+        self.Update_last_name_label.configure(background='#121212',
+                                              font='{Poppins} 17 {bold}',
+                                              foreground='#ffffff',
+                                              text='Last Name')
+        self.Update_last_name_label.place(anchor='nw',
+                                          x='166',
+                                          y='198')
+
+        self.Update_phone_number_entry = tk.Entry(self)
+        self.Update_phone_number_entry.configure(borderwidth='0')
+        self.Update_phone_number_entry.configure(font='{Poppins} 10 {bold}',
+                                                 insertwidth='1',
+                                                 relief='flat')
+        self.Update_phone_number_entry.place(anchor='nw',
+                                             height='24',
+                                             width='229',
+                                             x='397',
+                                             y='293')
+
+        self.Update_phone_number_label = tk.Label(self)
+        self.Update_phone_number_label.configure(background='#121212',
+                                                 font='{Poppins} 17 {bold}',
+                                                 foreground='#ffffff',
+                                                 text='Phone number')
+        self.Update_phone_number_label.place(anchor='nw',
+                                             x='166',
+                                             y='289')
+
+        self.Update_age_entry = tk.Entry(self)
+        self.Update_age_entry.configure(borderwidth='0')
+        self.Update_age_entry.configure(font='{Poppins} 10 {bold}',
+                                        insertwidth='1',
+                                        relief='flat')
+        self.Update_age_entry.place(anchor='nw',
+                                    height='24',
+                                    width='229',
+                                    x='395',
+                                    y='249')
+
+        self.Update_age_label = tk.Label(self)
+        self.Update_age_label.configure(background='#121212',
+                                        font='{Poppins} 17 {bold}',
+                                        foreground='#ffffff',
+                                        text='Age')
+        self.Update_age_label.place(anchor='nw',
+                                    x='166',
+                                    y='239')
+
+        self.Update_gender_label = tk.Label(self)
+        self.Update_gender_label.configure(background='#121212',
+                                           font='{Poppins} 17 {bold}',
+                                           foreground='#ffffff',
+                                           text='Gender')
+        self.Update_gender_label.place(anchor='nw',
+                                       x='166',
+                                       y='331')
+
+        self.Update_gender_entry = tk.Entry(self)
+        self.Update_gender_entry.configure(borderwidth="0")
+        self.Update_gender_entry.configure(font='{Poppins} 10 {bold}',
+                                           insertwidth='1',
+                                           relief='flat')
+        self.Update_gender_entry.place(anchor='nw',
+                                       height='24',
+                                       width='229',
+                                       x='395',
+                                       y='343')
+
+        self.Update_subects_label = tk.Label(self)
+        self.Update_subects_label.configure(background='#121212',
+                                            font='{Poppins} 17 {bold}',
+                                            foreground='#ffffff',
+                                            text='MaIn Subject')
+        self.Update_subects_label.place(anchor='nw',
+                                        x='166',
+                                        y='389')
+
+        self.Update_subject_entry = tk.Entry(self)
+        self.Update_subject_entry.configure(borderwidth="0")
+        self.Update_subject_entry.configure(font='{Poppins} 10 {bold}',
+                                            insertwidth='1',
+                                            relief='flat')
+        self.Update_subject_entry.place(anchor='nw',
+                                        height='24',
+                                        width='229',
+                                        x='395',
+                                        y='393')
+
+        try:
+            self.img_TeacherAddButton = tk.PhotoImage(file='TeacherAddButton.png')
+        except Exception as e:
+            messagebox.showerror("TeacherAddButton.png Missing")
+            print(e)
+
+        self.Update_Update_teachet_button = tk.Button(self)
+        self.Update_Update_teachet_button.configure(background='#121212',
+                                                    activebackground='#121212',
+                                                    activeforeground='#121212',
+                                                    borderwidth='0',
+                                                    image=self.img_TeacherAddButton,
+                                                    relief='flat',
+                                                    command=self.clickUpdate)
+        self.Update_Update_teachet_button.place(anchor='nw',
+                                                x='412',
+                                                y='448')
+
+        try:
+            self.img_img4 = tk.PhotoImage(file='img4.png')
+        except Exception as e:
+            print(e)
+            messagebox.showerror("File Missing", "img_img4.png is missing")
+        self.Update_Teacher_registation_close_button = tk.Button(self)
+        self.Update_Teacher_registation_close_button.configure(activebackground='#121212',
+                                                               activeforeground='#121212',
+                                                               background='#121212',
+                                                               borderwidth='0')
+        self.Update_Teacher_registation_close_button.configure(cursor='hand2',
+                                                               foreground='#121212',
+                                                               highlightbackground='#121212',
+                                                               highlightcolor='#121212')
+        self.Update_Teacher_registation_close_button.configure(highlightthickness='1',
+                                                               image=self.img_img4,
+                                                               relief='flat',
+                                                               command=self.master.on_close)
+        self.Update_Teacher_registation_close_button.place(anchor='nw',
+                                                           x='760',
+                                                           y='8')
+
+        self.Update_Teacher_label = tk.Label(self)
+        self.Update_Teacher_label.configure(background='#121212',
+                                            borderwidth='0',
+                                            font='{Poppins} 28 {bold}',
+                                            foreground='#ffffff')
+        self.Update_Teacher_label.configure(text='Update Teacher')
+        self.Update_Teacher_label.place(anchor='nw',
+                                        x='274',
+                                        y='28')
+
+        self.Update_back_page_img_button = tk.Button(self)
+
+        try:
+            self.img_BackPageIMG = tk.PhotoImage(file='BackPageIMG.png')
+        except Exception as e:
+            print(e)
+            messagebox.showerror("File Missing", "BackPageIMG.png is missing")
+
+        self.Update_back_page_img_button.configure(activebackground='#121212',
+                                                   activeforeground='#121212',
+                                                   background='#121212',
+                                                   borderwidth='0',
+                                                   command=self.goBackToTeacherHome)
+        self.Update_back_page_img_button.configure(image=self.img_BackPageIMG)
+        self.Update_back_page_img_button.place(anchor='nw', x='15', y='15')
+
+        self.Update_teacher_registation_theme_change_button = tk.Button(self)
+
+        try:
+            self.img_DarkThemeimg = tk.PhotoImage(file='DarkThemeimg.png')
+        except Exception as e:
+            print(e)
+            messagebox.showerror("File Missing", "DarkThemeimg.png is missing")
+
+        self.Update_teacher_registation_theme_change_button.configure(activebackground='#121212',
+                                                                      activeforeground='#121212',
+                                                                      background='#121212',
+                                                                      borderwidth='0',
+                                                                      relief="flat",
+                                                                      overrelief="flat",
+                                                                      command=self.changeTeacherUpdateTheme)
+        self.Update_teacher_registation_theme_change_button.configure(image=self.img_DarkThemeimg,
+                                                                      text='button2')
+        self.Update_teacher_registation_theme_change_button.place(anchor='nw',
+                                                                  x='60',
+                                                                  y='10')
+        self.configure(background='#121212',
+                       borderwidth='0',
+                       height='515',
+                       width='791')
+        self.pack(fill='both',
+                  side='top')
+
+    def changeTeacherUpdateTheme(self):
+        try:
+            self.img_DarkThemeimg = tk.PhotoImage(file='DarkThemeimg.png')
+        except Exception as e:
+            print(e)
+            messagebox.showerror("File Missing", "DarkThemeimg.png IS Missing")
+
+        try:
+            self.img_lightThemeimg = tk.PhotoImage(file='LightThemeimg.png')
+        except Exception as e:
+            print(e)
+            messagebox.showerror("File Missing", "LightThemeimg.png IS Missing")
+
+        if self.Update_back_page_img_button["background"] == "#121212":
+            self.Update_teacherRegistationBGColor = "#ffffff"
+            self.Update_teacherRegistationFGColor = "#000000"
+            self.configure(background=self.Update_teacherRegistationBGColor)
+            self.Update_element_img_label.configure(background=self.Update_teacherRegistationBGColor,
+                                                    foreground=self.Update_teacherRegistationFGColor)
+            self.Update_First_name_Entry_bg_label.configure(background=self.Update_teacherRegistationBGColor,
+                                                            foreground=self.Update_teacherRegistationFGColor)
+            self.Update_Last_name_Entry_bg_label.configure(background=self.Update_teacherRegistationBGColor,
+                                                           foreground=self.Update_teacherRegistationFGColor)
+            self.Update_age_Entry_bg_label.configure(background=self.Update_teacherRegistationBGColor,
+                                                     foreground=self.Update_teacherRegistationFGColor)
+            self.Update_phone_number_Entry_bg_label.configure(background=self.Update_teacherRegistationBGColor,
+                                                              foreground=self.Update_teacherRegistationFGColor)
+            self.Update_phone_number_Entry_bg_label.configure(background=self.Update_teacherRegistationBGColor,
+                                                              foreground=self.Update_teacherRegistationFGColor)
+            self.Update_gender_Entry_bg_label.configure(background=self.Update_teacherRegistationBGColor,
+                                                        foreground=self.Update_teacherRegistationFGColor)
+            self.Update_subject_Entry_bg_label.configure(background=self.Update_teacherRegistationBGColor,
+                                                         foreground=self.Update_teacherRegistationFGColor)
+            self.Update_first_name_entry.configure(background=self.Update_teacherRegistationBGColor,
+                                                   foreground=self.Update_teacherRegistationFGColor)
+            self.Update_first_name_label.configure(background=self.Update_teacherRegistationBGColor,
+                                                   foreground=self.Update_teacherRegistationFGColor)
+            self.Update_last_name_entry.configure(background=self.Update_teacherRegistationBGColor,
+                                                  foreground=self.Update_teacherRegistationFGColor)
+            self.Update_last_name_label.configure(background=self.Update_teacherRegistationBGColor,
+                                                  foreground=self.Update_teacherRegistationFGColor)
+            self.Update_phone_number_entry.configure(background=self.Update_teacherRegistationBGColor,
+                                                     foreground=self.Update_teacherRegistationFGColor)
+            self.Update_phone_number_label.configure(background=self.Update_teacherRegistationBGColor,
+                                                     foreground=self.Update_teacherRegistationFGColor)
+            self.Update_age_entry.configure(background=self.Update_teacherRegistationBGColor,
+                                            foreground=self.Update_teacherRegistationFGColor)
+            self.Update_age_label.configure(background=self.Update_teacherRegistationBGColor,
+                                            foreground=self.Update_teacherRegistationFGColor)
+            self.Update_gender_entry.configure(background=self.Update_teacherRegistationBGColor,
+                                               foreground=self.Update_teacherRegistationFGColor)
+            self.Update_gender_label.configure(background=self.Update_teacherRegistationBGColor,
+                                               foreground=self.Update_teacherRegistationFGColor)
+            self.Update_subject_entry.configure(background=self.Update_teacherRegistationBGColor,
+                                                foreground=self.Update_teacherRegistationFGColor)
+            self.Update_subects_label.configure(background=self.Update_teacherRegistationBGColor,
+                                                foreground=self.Update_teacherRegistationFGColor)
+            self.Update_Update_teachet_button.configure(background=self.Update_teacherRegistationBGColor,
+                                                        foreground=self.Update_teacherRegistationFGColor,
+                                                        activebackground=self.Update_teacherRegistationBGColor,
+                                                        activeforeground=self.Update_teacherRegistationBGColor)
+            self.Update_Teacher_registation_close_button.configure(background=self.Update_teacherRegistationBGColor,
+                                                                   foreground=self.Update_teacherRegistationFGColor)
+            self.Update_Teacher_label.configure(background=self.Update_teacherRegistationBGColor,
+                                                foreground=self.Update_teacherRegistationFGColor)
+            self.Update_back_page_img_button.configure(background=self.Update_teacherRegistationBGColor,
+                                                       foreground=self.Update_teacherRegistationFGColor,
+                                                       activebackground=self.Update_teacherRegistationBGColor,
+                                                       activeforeground=self.Update_teacherRegistationBGColor)
+            self.Update_teacher_registation_theme_change_button.configure(
+                background=self.Update_teacherRegistationBGColor,
+                foreground=self.Update_teacherRegistationFGColor,
+                activebackground=self.Update_teacherRegistationBGColor,
+                activeforeground=self.Update_teacherRegistationBGColor,
+                image=self.img_lightThemeimg)
+        else:
+            self.Update_DteacherRegistationBGColor = "#121212"
+            self.Update_DteacherRegistationFGColor = "#ffffff"
+            self.configure(background=self.Update_DteacherRegistationBGColor)
+            self.Update_element_img_label.configure(background=self.Update_DteacherRegistationBGColor,
+                                                    foreground=self.Update_DteacherRegistationFGColor)
+            self.Update_First_name_Entry_bg_label.configure(background=self.Update_DteacherRegistationBGColor,
+                                                            foreground=self.Update_DteacherRegistationFGColor)
+            self.Update_Last_name_Entry_bg_label.configure(background=self.Update_DteacherRegistationBGColor,
+                                                           foreground=self.Update_DteacherRegistationFGColor)
+            self.Update_age_Entry_bg_label.configure(background=self.Update_DteacherRegistationBGColor,
+                                                     foreground=self.Update_DteacherRegistationFGColor)
+            self.Update_phone_number_Entry_bg_label.configure(background=self.Update_DteacherRegistationBGColor,
+                                                              foreground=self.Update_DteacherRegistationFGColor)
+            self.Update_phone_number_Entry_bg_label.configure(background=self.Update_DteacherRegistationBGColor,
+                                                              foreground=self.Update_DteacherRegistationFGColor)
+            self.Update_gender_Entry_bg_label.configure(background=self.Update_DteacherRegistationBGColor,
+                                                        foreground=self.Update_DteacherRegistationFGColor)
+            self.Update_subject_Entry_bg_label.configure(background=self.Update_DteacherRegistationBGColor,
+                                                         foreground=self.Update_DteacherRegistationFGColor)
+            self.Update_first_name_label.configure(background=self.Update_DteacherRegistationBGColor,
+                                                   foreground=self.Update_DteacherRegistationFGColor)
+            self.Update_last_name_label.configure(background=self.Update_DteacherRegistationBGColor,
+                                                  foreground=self.Update_DteacherRegistationFGColor)
+            self.Update_phone_number_label.configure(background=self.Update_DteacherRegistationBGColor,
+                                                     foreground=self.Update_DteacherRegistationFGColor)
+            self.Update_age_label.configure(background=self.Update_DteacherRegistationBGColor,
+                                            foreground=self.Update_DteacherRegistationFGColor)
+            self.Update_gender_label.configure(background=self.Update_DteacherRegistationBGColor,
+                                               foreground=self.Update_DteacherRegistationFGColor)
+            self.Update_subects_label.configure(background=self.Update_DteacherRegistationBGColor,
+                                                foreground=self.Update_DteacherRegistationFGColor)
+            self.Update_Update_teachet_button.configure(background=self.Update_DteacherRegistationBGColor,
+                                                        foreground=self.Update_DteacherRegistationFGColor,
+                                                        activebackground=self.Update_DteacherRegistationBGColor,
+                                                        activeforeground=self.Update_DteacherRegistationBGColor)
+            self.Update_Teacher_registation_close_button.configure(background=self.Update_DteacherRegistationBGColor,
+                                                                   foreground=self.Update_DteacherRegistationFGColor)
+            self.Update_Teacher_label.configure(background=self.Update_DteacherRegistationBGColor,
+                                                foreground=self.Update_DteacherRegistationFGColor)
+            self.Update_back_page_img_button.configure(background=self.Update_DteacherRegistationBGColor,
+                                                       foreground=self.Update_DteacherRegistationFGColor)
+            self.Update_teacher_registation_theme_change_button.configure(
+                background=self.Update_DteacherRegistationBGColor,
+                foreground=self.Update_DteacherRegistationFGColor,
+                activebackground=self.Update_DteacherRegistationBGColor,
+                activeforeground=self.Update_DteacherRegistationBGColor,
+                image=self.img_DarkThemeimg)
+
+    def goBackToTeacherHome(self):
+        self.master.switch_frame(TeacherHome)
+
+    def clickUpdate(self):
+        global Update_first_name, Update_last_name, Update_phone_number, Update_age, Update_gender, Update_subjects
+        Update_first_name = self.Update_first_name_entry.get()
+        Update_last_name = self.Update_last_name_entry.get()
+        Update_phone_number = self.Update_phone_number_entry.get()
+        Update_age = self.Update_age_entry.get()
+        Update_gender = self.Update_gender_entry.get()
+        Update_subjects = self.Update_subject_entry.get()
+
+        if Update_first_name == "" or Update_last_name == "" or Update_phone_number == "" or Update_age == "" or Update_gender == "" or Update_subjects == "":
+            messagebox.showerror("insert status", "All Fields Are Required")
+        else:
+            if len(Update_first_name) > 50:
+                messagebox.showerror("First Name Error", "Your Name Is Too Long")
+            else:
+                Update_first_name.capitalize()
+
+                if len(Update_last_name) > 50:
+                    messagebox.showerror("Second Name Error", "Your Name Is Too Long")
+                else:
+                    Update_last_name.capitalize()
+                    if Update_first_name == Update_last_name:
+                        messagebox.showerror("Copied Name Error", "Your First Name And Secont Name Is Duplicated")
+                    else:
+                        if len(Update_phone_number) != 10:
+                            messagebox.showerror("Phone Number Error", "You Can Add Only 10 Digit number")
+                        else:
+                            try:
+                                int(Update_phone_number)
+                            except Exception as e:
+                                messagebox.showerror("Type Error", "You Can Only Type Numbers For Phone Number ")
+                                print(e)
+                            if int(Update_phone_number[0]) != 0:
+                                messagebox.showerror("Type Error", "This is Not Phone Number")
+                            else:
+                                if len(Update_age) > 2:
+                                    messagebox.showerror("Age Error", "You Can Only Type Two Numbers For Age ")
+                                else:
+                                    genderIndex = ['male', "Male", "female", "Female", "m", "M", "F", "f"]
+                                    if Update_gender not in genderIndex:
+                                        messagebox.showerror("Age Error", "You Can Add Only Type Male or Female ")
+                                    else:
+                                        if Update_gender == "m" or Update_gender == "male":
+                                            Update_gender = "Male"
+                                        else:
+                                            Update_gender = "Female"
+                                        AllSubjects = ['Sinhala', 'SINHALA', 'Sin', 'sin',
+                                                       'Tamil', 'tamil', 'tam', 'Tam',
+                                                       'English', 'english', "En", 'en',
+                                                       'Mathematics', 'mathematics', "MATHEMATICS", "math", 'Math',
+                                                       'MATH',
+                                                       "Health", 'HEALTH', "HEAL", "health",
+                                                       "Geography", 'geography', 'GEOGRAPHY', 'geo', "Geo", "GEO",
+                                                       'French', "french", 'FRENCH',
+                                                       'Spanish', 'SPANISH', "spanish",
+                                                       'Computer Science', 'computer science', 'COMPUTER SCIENCE',
+                                                       'Art', 'ART', 'art',
+                                                       'Band', 'band', 'BAND',
+                                                       'Choir', "choir", 'CHOIR',
+                                                       'Drama', "drama", "DRAMA",
+                                                       "Sports", "SPORTS", "sports",
+                                                       'Science', 'science', "SCIENCE",
+                                                       'History', 'history', 'HISTORY',
+                                                       'Chess', 'CHESS', 'chess',
+                                                       "music", 'Music', 'MUSIC',
+                                                       "ict", 'ICT', "Ict",
+                                                       'Japan', 'japan', 'JAPAN',
+                                                       'China', 'china', 'CHINA',
+                                                       'Accounting', 'accounting', 'ACCOUNTING',
+                                                       'Latin', 'latin', 'LATIN',
+                                                       'Greek', 'greek', "GREEK",
+                                                       'Hebrew', 'HEBREW', "hebrew",
+                                                       'Zoology', "ZOOLOGY", "zoology",
+                                                       ]
+
+                                        subject_list = Update_subjects.split(",")
+
+                                        checkSubject = all(item in AllSubjects for item in Update_subjects.split(","))
+                                        if checkSubject is False:
+                                            messagebox.showerror("Subject Error", "You Can Add Only Subjects ")
+                                        else:
+
+                                            self.conn = mysql.connector.connect(host="localhost", user="root",
+                                                                                password="",
+                                                                                database="eduway_test_1")
+                                            int(Update_phone_number)
+                                            int(Update_age)
+                                            self.connetc = self.conn.cursor()
+                                            self.connetc.execute(
+                                                "UPDATE teacher SET FirstName={Update_name}.,LAstName='value-3',PhoneNumber='0779012714',Age='14',Gender='m',Subjects='Sinhala' WHERE id=1")
+                                            self.conn.commit()
+
+                                            self.clearTeacherRegistation()
+                                            self.connetc.close()
+                                            self.conn.close()
+                                            # self.master.switch_frame(TeacherView)
+
+    def clearTeacherRegistation(self):
+        self.Update_first_name_entry.delete(0, 'end')
+        self.Update_subject_entry.delete(0, 'end')
+        self.Update_last_name_entry.delete(0, 'end')
+        self.Update_gender_entry.delete(0, 'end')
+        self.Update_age_entry.delete(0, 'end')
+        self.Update_phone_number_entry.delete(0, 'end')
+
+
 class TeacherHome(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
@@ -1268,7 +1813,8 @@ class TeacherHome(tk.Frame):
                                      background="#121212",
                                      activeforeground="#121212",
                                      activebackground="#121212",
-                                     image=self.img_TeacherHomeUpdateButton)
+                                     image=self.img_TeacherHomeUpdateButton,
+                                     command=lambda: master.switch_frame(TeacherUpdate))
         self.update_button.place(anchor='nw',
                                  x='441',
                                  y='111')
@@ -2005,6 +2551,7 @@ class TeacherRegistation(tk.Frame):
 
         # ============================================Need to return the view page===============================================#
 
+
 class StudetnUpdate(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
@@ -2031,9 +2578,6 @@ class StudetnUpdate(tk.Frame):
         print(self.recodes)
         self.connetc.close()
         self.conn.close()
-
-
-    
 
 
 class StudentView(tk.Frame):
