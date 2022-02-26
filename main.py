@@ -1464,7 +1464,6 @@ class TeacherUpdate(tk.Frame):
                                                 x='412',
                                                 y='448')
 
-
         try:
             self.img_TeacherGoButton = tk.PhotoImage(file='Update_Go_button_img.png')
         except Exception as e:
@@ -1473,16 +1472,15 @@ class TeacherUpdate(tk.Frame):
 
         self.Update_Update_Go_button = tk.Button(self)
         self.Update_Update_Go_button.configure(background='#121212',
-                                                    activebackground='#121212',
-                                                    activeforeground='#121212',
-                                                    borderwidth='0',
-                                                    image=self.img_TeacherGoButton,
-                                                    relief='flat',
-                                                    command=self.clickGo)
+                                               activebackground='#121212',
+                                               activeforeground='#121212',
+                                               borderwidth='0',
+                                               image=self.img_TeacherGoButton,
+                                               relief='flat',
+                                               command=self.clickGo)
         self.Update_Update_Go_button.place(anchor='nw',
-                                                x='527',
-                                                y='95')
-                                                
+                                           x='527',
+                                           y='95')
 
         try:
             self.img_img4 = tk.PhotoImage(file='img4.png')
@@ -1558,10 +1556,10 @@ class TeacherUpdate(tk.Frame):
                        width='791')
         self.pack(fill='both',
                   side='top')
+
     def clickGo(self):
         pass
 
-    
     def changeTeacherUpdateTheme(self):
         try:
             self.img_DarkThemeimg = tk.PhotoImage(file='DarkThemeimg.png')
@@ -3236,7 +3234,7 @@ class TeacherView(tk.Frame):
                                                             foreground=DTeacherViewForegroundColor,
                                                             image=self.img_DarkThemeimg)
 
-                              
+
 # run_the_app_in_Hr_____VVVVVVVVVVV@
 if __name__ == "__main__":
     app = SchoolManegmentSystem()
