@@ -1558,7 +1558,45 @@ class TeacherUpdate(tk.Frame):
                   side='top')
 
     def clickGo(self):
-        pass
+        global changeId
+
+        changeId = self.Update_Id_entry.get()
+
+        if changeId == "":
+            messagebox.showerror("ID Name Error", "ID Need To Enter ID")
+        else:
+            try:
+                int(changeId)
+            except:
+                messagebox.showerror("ID Name Error", "ID Need To Enter Numbers")
+
+            self.conn = mysql.connector.connect(host="localhost",
+                                                user="root",
+                                                password="",
+                                                database="eduway_test_1")
+            self.connetc = self.conn.cursor()
+            try:
+                self.connetc.execute(
+                    "SELECT * FROM teacher WHERE id = {}".format(changeId))
+                self.IdRecode = self.connetc.fetchone()
+                self.Update_first_name_entry.delete(0, 'end')
+                self.Update_first_name_entry.insert(0, self.IdRecode[1])
+                self.Update_last_name_entry.delete(0, 'end')
+                self.Update_last_name_entry.insert(0, self.IdRecode[2])
+                self.Update_age_entry.delete(0, 'end')
+                self.Update_age_entry.insert(0, self.IdRecode[4])
+                self.Update_phone_number_entry.delete(0, 'end')
+                Update_phone_number_add_o = '0' + str(self.IdRecode[3])
+                self.Update_phone_number_entry.insert(0, Update_phone_number_add_o)
+                self.Update_gender_entry.delete(0, 'end')
+                self.Update_gender_entry.insert(0, self.IdRecode[5])
+                self.Update_subject_entry.delete(0, 'end')
+                self.Update_subject_entry.insert(0, self.IdRecode[6])
+            except:
+                messagebox.showerror("ID Name Error", "Invalid Id number Or No Id Number Finded")
+
+            self.connetc.close()
+            self.conn.close()
 
     def changeTeacherUpdateTheme(self):
         try:
@@ -1577,6 +1615,15 @@ class TeacherUpdate(tk.Frame):
             self.Update_teacherRegistationBGColor = "#ffffff"
             self.Update_teacherRegistationFGColor = "#000000"
             self.configure(background=self.Update_teacherRegistationBGColor)
+            self.Update_Id_bg_label.configure(background=self.Update_teacherRegistationBGColor,
+                                              foreground=self.Update_teacherRegistationFGColor)
+            self.Update_Id_label.configure(background=self.Update_teacherRegistationBGColor,
+                                           foreground=self.Update_teacherRegistationFGColor)
+
+            self.Update_Update_Go_button.configure(background=self.Update_teacherRegistationBGColor,
+                                                   foreground=self.Update_teacherRegistationFGColor,
+                                                   activebackground=self.Update_teacherRegistationBGColor,
+                                                   activeforeground=self.Update_teacherRegistationBGColor)
             self.Update_element_img_label.configure(background=self.Update_teacherRegistationBGColor,
                                                     foreground=self.Update_teacherRegistationFGColor)
             self.Update_First_name_Entry_bg_label.configure(background=self.Update_teacherRegistationBGColor,
@@ -1639,6 +1686,14 @@ class TeacherUpdate(tk.Frame):
             self.Update_DteacherRegistationBGColor = "#121212"
             self.Update_DteacherRegistationFGColor = "#ffffff"
             self.configure(background=self.Update_DteacherRegistationBGColor)
+            self.Update_Id_bg_label.configure(background=self.Update_DteacherRegistationBGColor,
+                                              foreground=self.Update_DteacherRegistationFGColor)
+            self.Update_Id_label.configure(background=self.Update_DteacherRegistationBGColor,
+                                           foreground=self.Update_DteacherRegistationFGColor)
+            self.Update_Update_Go_button.configure(background=self.Update_DteacherRegistationBGColor,
+                                                   foreground=self.Update_DteacherRegistationFGColor,
+                                                   activebackground=self.Update_DteacherRegistationBGColor,
+                                                   activeforeground=self.Update_DteacherRegistationBGColor)
             self.Update_element_img_label.configure(background=self.Update_DteacherRegistationBGColor,
                                                     foreground=self.Update_DteacherRegistationFGColor)
             self.Update_First_name_Entry_bg_label.configure(background=self.Update_DteacherRegistationBGColor,
@@ -1769,22 +1824,23 @@ class TeacherUpdate(tk.Frame):
                                             messagebox.showerror("Subject Error", "You Can Add Only Subjects ")
                                         else:
 
-                                            self.conn = mysql.connector.connect(host="localhost", user="root",
+                                            self.conn = mysql.connector.connect(host="localhost",
+                                                                                user="root",
                                                                                 password="",
                                                                                 database="eduway_test_1")
                                             int(Update_phone_number)
                                             int(Update_age)
                                             self.connetc = self.conn.cursor()
                                             self.connetc.execute(
-                                                "UPDATE teacher SET FirstName={Update_name}.,LAstName='value-3',PhoneNumber='0779012714',Age='14',Gender='m',Subjects='Sinhala' WHERE id=1")
+                                                f"UPDATE teacher SET FirstName='{Update_first_name}',LAstName='{Update_last_name}',PhoneNumber='{Update_phone_number}',Age='{Update_age}',Gender='{Update_gender}',Subjects='{Update_subjects}' WHERE id={changeId}")
+                                            # self.connetc.execute()
                                             self.conn.commit()
-
-                                            self.clearTeacherRegistation()
+                                            self.clearTeacherUpdate()
                                             self.connetc.close()
                                             self.conn.close()
                                             # self.master.switch_frame(TeacherView)
 
-    def clearTeacherRegistation(self):
+    def clearTeacherUpdate(self):
         self.Update_first_name_entry.delete(0, 'end')
         self.Update_subject_entry.delete(0, 'end')
         self.Update_last_name_entry.delete(0, 'end')
