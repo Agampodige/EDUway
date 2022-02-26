@@ -1961,9 +1961,9 @@ class TeacherRegistation(tk.Frame):
                                                        'Japan', 'japan', 'JAPAN',
                                                        'China', 'china', 'CHINA',
                                                        'Accounting', 'accounting', 'ACCOUNTING',
-                                                       'Latin', 'lathin', 'LATHIN',
+                                                       'Latin', 'latin', 'LATIN',
                                                        'Greek', 'greek', "GREEK",
-                                                       'Herbrew', 'HERBREW', "herbrew",
+                                                       'Hebrew', 'HEBREW', "hebrew",
                                                        'Zoology', "ZOOLOGY", "zoology",
                                                        ]
 
@@ -2004,6 +2004,36 @@ class TeacherRegistation(tk.Frame):
         self.phone_number_entry.delete(0, 'end')
 
         # ============================================Need to return the view page===============================================#
+
+class StudetnUpdate(tk.Frame):
+    def __init__(self, master):
+        tk.Frame.__init__(self, master)
+
+        self.onClickGo()
+
+        self.configure(background='#121212',
+                       height='515',
+                       takefocus=False,
+                       width='791')
+        self.place(anchor='nw',
+                   x='0',
+                   y='0')
+
+    def onClickGo(self):
+        self.conn = mysql.connector.connect(host="localhost", user="root",
+                                            password="",
+                                            database="eduway_test_1")
+
+        self.connetc = self.conn.cursor()
+        self.id = 1
+        self.connetc.execute(f"SELECT * FROM `teacher` WHERE id = {self.id}.")
+        self.recodes = self.connetc.fetchall()
+        print(self.recodes)
+        self.connetc.close()
+        self.conn.close()
+
+
+    
 
 
 class StudentView(tk.Frame):
