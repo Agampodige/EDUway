@@ -453,6 +453,8 @@ class Home(tk.Frame):
                    y="0")
 
 
+#this is the student home 
+#you can do all crud operations in this Student Home
 class StudeHome(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
@@ -734,16 +736,16 @@ class TeacherDelete(tk.Frame):
         self.teacher_Delete_theme_change_button.place(anchor='nw',
                                                            x='60',
                                                            y='10')
-        self.Delete_Student_label = tk.Label(self)
-        self.Delete_Student_label.configure(background='#121212',
+        self.Delete_Teacher_label = tk.Label(self)
+        self.Delete_Teacher_label.configure(background='#121212',
                                             borderwidth='0',
                                             font='{Poppins} 28 {bold}',
                                             foreground='#ffffff')
-        self.Delete_Student_label.configure(text='Delete Teacher')
-        self.Delete_Student_label.place(anchor='nw',
+        self.Delete_Teacher_label.configure(text='Delete Teacher')
+        self.Delete_Teacher_label.place(anchor='nw',
                                         x='274',
                                         y='28')
-        self.Delete_Student_back_page_img_button = tk.Button(self)
+        self.Delete_Teacher_back_page_img_button = tk.Button(self)
 
         try:
             self.img_BackPageIMG = tk.PhotoImage(file='BackPageIMG.png')
@@ -751,13 +753,13 @@ class TeacherDelete(tk.Frame):
             print(e)
             messagebox.showerror("File Missing", "BackPageIMG.png is missing")
 
-        self.Delete_Student_back_page_img_button.configure(activebackground='#121212',
+        self.Delete_Teacher_back_page_img_button.configure(activebackground='#121212',
                                                            activeforeground='#121212',
                                                            background='#121212',
                                                            borderwidth='0',
                                                            command=lambda: master.switch_frame(TeacherHome))
-        self.Delete_Student_back_page_img_button.configure(image=self.img_BackPageIMG)
-        self.Delete_Student_back_page_img_button.place(anchor='nw', x='15', y='15')
+        self.Delete_Teacher_back_page_img_button.configure(image=self.img_BackPageIMG)
+        self.Delete_Teacher_back_page_img_button.place(anchor='nw', x='15', y='15')
         self.Delete_Id_label = tk.Label(self)
         self.Delete_Id_label.configure(background='#121212',
                                        font='{Poppins} 17 {bold}',
@@ -1023,11 +1025,110 @@ class TeacherDelete(tk.Frame):
         if self["background"] == "#121212":
             self.TeacherDeleteBGColor = "#ffffff"
             self.TeacherDeleteFGColor = "#000000"
-            self.configure(background=self.StudentRegistationBGColor)
+            self.configure(background=self.TeacherDeleteBGColor)
+            self.teacher_Delete_theme_change_button.configure(background=self.TeacherDeleteBGColor,
+                                                              foreground=self.TeacherDeleteFGColor,
+                                                              activeforeground=self.TeacherDeleteBGColor,
+                                                              activebackground=self.TeacherDeleteBGColor,
+                                                              image=self.img_lightThemeimg)
+
+            self.Delete_Teacher_label.configure(background=self.TeacherDeleteBGColor,
+                                                foreground=self.TeacherDeleteFGColor)
+            self.Delete_Teacher_back_page_img_button.configure(background=self.TeacherDeleteBGColor,
+                                                              foreground=self.TeacherDeleteFGColor,
+                                                              activeforeground=self.TeacherDeleteBGColor,
+                                                              activebackground=self.TeacherDeleteBGColor)
+            self.Delete_Id_label.configure(background=self.TeacherDeleteBGColor,
+                                                foreground=self.TeacherDeleteFGColor)
+
+            self.Delete_Go_button.configure(background=self.TeacherDeleteBGColor,
+                                                              foreground=self.TeacherDeleteFGColor,
+                                                              activeforeground=self.TeacherDeleteBGColor,
+                                                              activebackground=self.TeacherDeleteBGColor)
+            self.Delete_Id_bg_label.configure(background=self.TeacherDeleteBGColor,
+                                                foreground=self.TeacherDeleteFGColor)
+
+            self.Delete_Teacher_ID_label.configure(background=self.TeacherDeleteBGColor,
+                                                foreground=self.TeacherDeleteFGColor)
+            
+            self.Delete_Teacher_First_Name_label.configure(background=self.TeacherDeleteBGColor,
+                                                foreground=self.TeacherDeleteFGColor)
+            self.Delete_Teacher_Second_Name_label.configure(background=self.TeacherDeleteBGColor,
+                                                foreground=self.TeacherDeleteFGColor)
+            self.Delete_Teacher_Age_label.configure(background=self.TeacherDeleteBGColor,
+                                                foreground=self.TeacherDeleteFGColor)
+            self.Delete_Teacher_Phone_Number_label.configure(background=self.TeacherDeleteBGColor,
+                                                foreground=self.TeacherDeleteFGColor)
+            self.Delete_Teacher_Gender_label.configure(background=self.TeacherDeleteBGColor,
+                                                foreground=self.TeacherDeleteFGColor)
+
+            self.Delete_Teacher_Main_Subject_label.configure(background=self.TeacherDeleteBGColor,
+                                                foreground=self.TeacherDeleteFGColor)
+            
+            self.Delete_teachet_button.configure(background=self.TeacherDeleteBGColor,
+                                                              foreground=self.TeacherDeleteFGColor,
+                                                              activeforeground=self.TeacherDeleteBGColor,
+                                                              activebackground=self.TeacherDeleteBGColor)
+
+            self.Delete_Teacher_recodes.tag_configure("oneColorStudent", background="#ffffff",
+                                               font='{Poppins} 8 {bold}',
+                                               foreground="#000000")
+        else:
+            self.DTeacherDeleteBGColor = "#121212"
+            self.DTeacherDeleteFGColor = "#ffffff"
+            self.configure(background=self.DTeacherDeleteBGColor)
+            self.teacher_Delete_theme_change_button.configure(background=self.DTeacherDeleteBGColor,
+                                                              foreground=self.DTeacherDeleteFGColor,
+                                                              activeforeground=self.DTeacherDeleteBGColor,
+                                                              activebackground=self.DTeacherDeleteBGColor,
+                                                              image=self.img_DarkThemeimg)
+
+            self.Delete_Teacher_label.configure(background=self.DTeacherDeleteBGColor,
+                                                foreground=self.DTeacherDeleteFGColor)
+            self.Delete_Teacher_back_page_img_button.configure(background=self.DTeacherDeleteBGColor,
+                                                              foreground=self.DTeacherDeleteFGColor,
+                                                              activeforeground=self.DTeacherDeleteBGColor,
+                                                              activebackground=self.DTeacherDeleteBGColor)
+            self.Delete_Id_label.configure(background=self.DTeacherDeleteBGColor,
+                                                foreground=self.DTeacherDeleteFGColor)
+
+            self.Delete_Go_button.configure(background=self.DTeacherDeleteBGColor,
+                                                              foreground=self.DTeacherDeleteFGColor,
+                                                              activeforeground=self.DTeacherDeleteBGColor,
+                                                              activebackground=self.DTeacherDeleteBGColor)
+            self.Delete_Id_bg_label.configure(background=self.DTeacherDeleteBGColor,
+                                                foreground=self.DTeacherDeleteFGColor)
+
+            self.Delete_Teacher_ID_label.configure(background=self.DTeacherDeleteBGColor,
+                                                foreground=self.DTeacherDeleteFGColor)
+            
+            self.Delete_Teacher_First_Name_label.configure(background=self.DTeacherDeleteBGColor,
+                                                foreground=self.DTeacherDeleteFGColor)
+            self.Delete_Teacher_Second_Name_label.configure(background=self.DTeacherDeleteBGColor,
+                                                foreground=self.DTeacherDeleteFGColor)
+            self.Delete_Teacher_Age_label.configure(background=self.DTeacherDeleteBGColor,
+                                                foreground=self.DTeacherDeleteFGColor)
+            self.Delete_Teacher_Phone_Number_label.configure(background=self.DTeacherDeleteBGColor,
+                                                foreground=self.DTeacherDeleteFGColor)
+            self.Delete_Teacher_Gender_label.configure(background=self.DTeacherDeleteBGColor,
+                                                foreground=self.DTeacherDeleteFGColor)
+
+            self.Delete_Teacher_Main_Subject_label.configure(background=self.DTeacherDeleteBGColor,
+                                                foreground=self.DTeacherDeleteFGColor)
+            
+            self.Delete_teachet_button.configure(background=self.DTeacherDeleteBGColor,
+                                                              foreground=self.DTeacherDeleteFGColor,
+                                                              activeforeground=self.DTeacherDeleteBGColor,
+                                                              activebackground=self.DTeacherDeleteBGColor)
+
+            self.Delete_Teacher_recodes.tag_configure("oneColorStudent", background="#121212",
+                                               font='{Poppins} 8 {bold}',
+                                               foreground="#ffffff")
+            
 
 
-
-
+#this is the student register Window
+#you can register student in hear
 class StudentRegistation(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
@@ -1536,6 +1637,9 @@ class StudentRegistation(tk.Frame):
         self.Student_phone_number_entry.delete(0, 'end')
 
 
+
+#this is the update window
+#You can update all data in this fields
 class TeacherUpdate(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
@@ -2164,6 +2268,9 @@ class TeacherUpdate(tk.Frame):
         self.Update_phone_number_entry.delete(0, 'end')
 
 
+
+#this is the Teacher Home 
+#You can do all crud operations in hear
 class TeacherHome(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
@@ -2951,7 +3058,7 @@ class TeacherRegistation(tk.Frame):
         # ============================================Need to return the view page===============================================#
 
 
-class StudetnUpdate(tk.Frame):
+
     def __init__(self, master):
         tk.Frame.__init__(self, master)
 
@@ -2979,6 +3086,8 @@ class StudetnUpdate(tk.Frame):
         self.conn.close()
 
 
+#this is the Student View 
+# You can watch all Deatail About All Student
 class StudentView(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
