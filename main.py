@@ -1,6 +1,6 @@
-from ast import Global
+
 import sys
-from tkinter import RIGHT, Y, Scrollbar, messagebox
+from tkinter import  messagebox
 import tkinter.ttk as ttk
 
 if sys.version_info[0] == 2:
@@ -21,7 +21,7 @@ class SchoolManegmentSystem(tk.Tk):
     def __init__(self):
         tk.Tk.__init__(self)
         self._frame = None
-        self.switch_frame(SplashScreen)
+        self.switch_frame(TeacherDelete)
 
     # this_funtion_is_for_change
     # the frame == window of the app
@@ -716,6 +716,106 @@ class StudeHome(tk.Frame):
 class TeacherDelete(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
+        self.Delete_Student_label = tk.Label(self)
+        self.Delete_Student_label.configure(background='#121212',
+                                            borderwidth='0',
+                                            font='{Poppins} 28 {bold}',
+                                            foreground='#ffffff')
+        self.Delete_Student_label.configure(text='Delete Teacher')
+        self.Delete_Student_label.place(anchor='nw',
+                                        x='274',
+                                        y='28')
+        self.Delete_Student_back_page_img_button = tk.Button(self)
+
+        try:
+            self.img_BackPageIMG = tk.PhotoImage(file='BackPageIMG.png')
+        except Exception as e:
+            print(e)
+            messagebox.showerror("File Missing", "BackPageIMG.png is missing")
+
+        self.Delete_Student_back_page_img_button.configure(activebackground='#121212',
+                                                           activeforeground='#121212',
+                                                           background='#121212',
+                                                           borderwidth='0',
+                                                           command=lambda: master.switch_frame(TeacherHome))
+        self.Delete_Student_back_page_img_button.configure(image=self.img_BackPageIMG)
+        self.Delete_Student_back_page_img_button.place(anchor='nw', x='15', y='15')
+        self.Delete_Id_label = tk.Label(self)
+        self.Delete_Id_label.configure(background='#121212',
+                                       font='{Poppins} 17 {bold}',
+                                       foreground='#ffffff',
+                                       text='Delete ID')
+        self.Delete_Id_label.place(anchor='nw',
+                                   x='166',
+                                   y='306')
+
+        try:
+            self.img_TeacherGoButton = tk.PhotoImage(file='Update_Go_button_img.png')
+        except Exception as e:
+            messagebox.showerror("Update_Go_button_img.png Missing")
+            print(e)
+
+        self.Delete_Go_button = tk.Button(self)
+        self.Delete_Go_button.configure(background='#121212',
+                                        activebackground='#121212',
+                                        activeforeground='#121212',
+                                        borderwidth='0',
+                                        image=self.img_TeacherGoButton,
+                                        relief='flat',
+                                        command=self.DeleteGo)
+        self.Delete_Go_button.place(anchor='nw',
+                                    x='527',
+                                    y='305')
+
+        self.Delete_Id_bg_label = tk.Label(self)
+
+        try:
+            self.img_TeacheridbgEntery = tk.PhotoImage(file='Update_id_bg_IMG.png')
+        except Exception as e:
+            messagebox.showerror("TeacherAddButton.png Missing")
+            print(e)
+
+        self.Delete_Id_bg_label.configure(background='#121212',
+                                          borderwidth='0',
+                                          image=self.img_TeacheridbgEntery)
+        self.Delete_Id_bg_label.place(anchor='nw',
+                                      x='386',
+                                      y='310')
+
+        self.Delete_Id_entry = tk.Entry(self)
+        self.Delete_Id_entry.configure(borderwidth='0')
+        self.Delete_Id_entry.configure(font='{Poppins} 10 {bold}',
+                                       insertwidth='1',
+                                       relief='flat')
+        self.Delete_Id_entry.place(anchor='nw',
+                                   height='24',
+                                   width='120',
+                                   x='395',
+                                   y='313')
+
+        self.Deletesty = ttk.Style()
+        self.Deletesty.configure('Treeview', rowheight=46, fieldbackground="#000000")
+        self.Deletesty.map('Treeview', background=[('selected', '#3B3B3B'), ('focus', '#212121')])
+
+        self.columns = ('ID',
+                        'First name',
+                        'Last name',
+                        'Age',
+                        'Phone Number',
+                        'AdmissionNo',
+                        'Subjects')
+
+        self.Delete_Teacher_recodes = ttk.Treeview(height=1, columns=self.columns, show="tree")
+
+        self.Delete_Teacher_recodes.column("ID", width=50)
+        self.Delete_Teacher_recodes.column("First name", width=150)
+        self.Delete_Teacher_recodes.column("Last name", width=130)
+        self.Delete_Teacher_recodes.column("Age", width=50)
+        self.Delete_Teacher_recodes.column("Phone Number", width=130)
+        self.Delete_Teacher_recodes.column("AdmissionNo", width=100)
+        self.Delete_Teacher_recodes.column("Subjects", width=220)
+
+        
 
         self.configure(background='#121212',
                        height='515',
@@ -725,6 +825,81 @@ class TeacherDelete(tk.Frame):
                    x='0',
                    y='0')
 
+    def DeleteGo(self):
+        global DeleteId
+
+        DeleteId = self.Delete_Id_entry.get()
+
+        try:
+            int(DeleteId)
+        except:
+            messagebox.showerror("Type Error", "You Can Only Type Numbers For ID ")
+
+        if DeleteId == "":
+            messagebox.showerror("Type Error", "You Need To Type ID ")
+        else:
+            try:
+                int(DeleteId)
+            except:
+                messagebox.showerror("Type Error", "You Can Only Type Numbers For ID ")
+                self.Delete_Id_entry.delete(0,'end')
+                DeleteId = ""
+            self.conn = mysql.connector.connect( user="root",
+                                                password="",
+                                                database="eduway")
+            self.connetc = self.conn.cursor()
+
+            self.connetc.execute(f"SELECT * FROM teacher WHERE id = {DeleteId}")
+            self.deleteRecode = self.connetc.fetchall()
+
+            self.conn.commit()
+
+            if self.deleteRecode == []:
+                messagebox.showerror("Search Error", "ID You Entered is Already Deleted or Cannot Find That Id ")
+
+
+            self.Delete_Teacher_recodes.tag_configure("oneColorStudent", background="#121212",
+                                               font='{Poppins} 8 {bold}',
+                                               foreground="#c2c2c2")
+            global count
+            self.deleteRecodes()
+            for record in self.deleteRecode:
+                self.Delete_Teacher_recodes.insert(parent="", index='end', iid=0, values=(
+                    record[0], record[1], record[2], record[4], "0" + str(record[3]), record[5], record[6]),
+                                                   tags=("oneColorStudent"))
+
+            self.Delete_Id_label.place(anchor='nw',
+                                       x='166',
+                                       y='206')
+            self.Delete_Go_button.place(anchor='nw',
+                                        x='527',
+                                        y='205')
+            self.Delete_Id_bg_label.place(anchor='nw',
+                                          x='386',
+                                          y='210')
+            self.Delete_Id_entry.place(anchor='nw',
+                                   height='24',
+                                   width='120',
+                                   x='395',
+                                   y='213')
+            self.Delete_Teacher_recodes.place(anchor='nw', x='0', y='300', relx="-0.24", bordermode='ignore')
+            self.Delete_Id_entry.delete(0, "end")
+            self.connetc.close()
+            self.conn.close()
+
+    def deleteRecodes(self):
+        for item in self.Delete_Teacher_recodes.get_children():
+            self.Delete_Teacher_recodes.delete(item)
+
+    def onClickDeleteRecodes(self):
+        self.conn = mysql.connector.connect(user="root",
+                                            password="",
+                                            database="eduway")
+        self.connetc = self.conn.cursor()
+        self.connetc.execute(f"DELETE FROM teacher WHERE id = {DeleteId}")
+        self.conn.commit()
+        self.connetc.close()
+        self.conn.close()
 
 class StudentRegistation(tk.Frame):
     def __init__(self, master):
@@ -1203,9 +1378,9 @@ class StudentRegistation(tk.Frame):
                                     messagebox.showerror("Age Error", "You Can Only Type Two Numbers For Age ")
                                 else:
 
-                                    self.conn = mysql.connector.connect(host="localhost", user="root",
+                                    self.conn = mysql.connector.connect( user="root",
                                                                         password="",
-                                                                        database="eduway_test_1")
+                                                                        database="eduway")
                                     int(Student_phone_number)
                                     int(Student_age)
                                     self.connetc = self.conn.cursor()
@@ -1583,10 +1758,10 @@ class TeacherUpdate(tk.Frame):
             except:
                 messagebox.showerror("ID Name Error", "ID Need To Enter Numbers")
 
-            self.conn = mysql.connector.connect(host="localhost",
+            self.conn = mysql.connector.connect(
                                                 user="root",
                                                 password="",
-                                                database="eduway_test_1")
+                                                database="eduway")
             self.connetc = self.conn.cursor()
             try:
                 self.connetc.execute(
@@ -1837,10 +2012,10 @@ class TeacherUpdate(tk.Frame):
                                             messagebox.showerror("Subject Error", "You Can Add Only Subjects ")
                                         else:
 
-                                            self.conn = mysql.connector.connect(host="localhost",
+                                            self.conn = mysql.connector.connect(
                                                                                 user="root",
                                                                                 password="",
-                                                                                database="eduway_test_1")
+                                                                                database="eduway")
                                             int(Update_phone_number)
                                             int(Update_age)
                                             self.connetc = self.conn.cursor()
@@ -2617,9 +2792,9 @@ class TeacherRegistation(tk.Frame):
                                             messagebox.showerror("Subject Error", "You Can Add Only Subjects ")
                                         else:
 
-                                            self.conn = mysql.connector.connect(host="localhost", user="root",
+                                            self.conn = mysql.connector.connect( user="root",
                                                                                 password="",
-                                                                                database="eduway_test_1")
+                                                                                database="eduway")
                                             int(phone_number)
                                             int(age)
                                             self.connetc = self.conn.cursor()
@@ -2664,9 +2839,9 @@ class StudetnUpdate(tk.Frame):
                    y='0')
 
     def onClickGo(self):
-        self.conn = mysql.connector.connect(host="localhost", user="root",
+        self.conn = mysql.connector.connect( user="root",
                                             password="",
-                                            database="eduway_test_1")
+                                            database="eduway")
 
         self.connetc = self.conn.cursor()
         self.id = 1
@@ -2714,12 +2889,12 @@ class StudentView(tk.Frame):
         self.Student_recodes.column("Subjects", width=220)
 
         # Add data
-        self.conn = mysql.connector.connect(host="localhost", user="root",
+        self.conn = mysql.connector.connect( user="root",
                                             password="",
-                                            database="eduway_test_1")
+                                            database="eduway")
 
         self.connetc = self.conn.cursor()
-        self.connetc.execute("SELECT * FROM Student")
+            
         self.recodes = self.connetc.fetchall()
         global count
 
@@ -3029,9 +3204,9 @@ class TeacherView(tk.Frame):
         self.teacher_recodes.column("Subjects", width=220)
 
         # Add data
-        self.conn = mysql.connector.connect(host="localhost", user="root",
+        self.conn = mysql.connector.connect( user="root",
                                             password="",
-                                            database="eduway_test_1")
+                                            database="eduway")
 
         self.connetc = self.conn.cursor()
         self.connetc.execute("SELECT * FROM teacher")
