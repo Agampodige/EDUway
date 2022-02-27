@@ -854,6 +854,75 @@ class TeacherDelete(tk.Frame):
 
             self.conn.commit()
 
+            self.Delete_Teacher_ID_label = tk.Label(self)
+            self.Delete_Teacher_ID_label.configure(background='#121212',
+                                            borderwidth='0',
+                                            font='{Poppins} 10 {bold}',
+                                            foreground='#ffffff')
+            self.Delete_Teacher_ID_label.configure(text='ID')
+            self.Delete_Teacher_ID_label.place(anchor='nw',
+                                        x='16',
+                                        y='265')
+
+            self.Delete_Teacher_First_Name_label = tk.Label(self)
+            self.Delete_Teacher_First_Name_label.configure(background='#121212',
+                                                    borderwidth='0',
+                                                    font='{Poppins} 10 {bold}',
+                                                    foreground='#ffffff')
+            self.Delete_Teacher_First_Name_label.configure(text='First Name')
+            self.Delete_Teacher_First_Name_label.place(anchor='nw',
+                                                x='55',
+                                                y='265')
+
+            self.Delete_Teacher_Second_Name_label = tk.Label(self)
+            self.Delete_Teacher_Second_Name_label.configure(background='#121212',
+                                                     borderwidth='0',
+                                                     font='{Poppins} 10 {bold}',
+                                                     foreground='#ffffff')
+            self.Delete_Teacher_Second_Name_label.configure(text='Second Name')
+            self.Delete_Teacher_Second_Name_label.place(anchor='nw',
+                                                 x='180',
+                                                 y='265')
+
+            self.Delete_Teacher_Age_label = tk.Label(self)
+            self.Delete_Teacher_Age_label.configure(background='#121212',
+                                             borderwidth='0',
+                                             font='{Poppins} 10 {bold}',
+                                             foreground='#ffffff')
+            self.Delete_Teacher_Age_label.configure(text='Age')
+            self.Delete_Teacher_Age_label.place(anchor='nw',
+                                         x='340',
+                                         y='265')
+
+            self.Delete_Teacher_Phone_Number_label = tk.Label(self)
+            self.Delete_Teacher_Phone_Number_label.configure(background='#121212',
+                                                      borderwidth='0',
+                                                      font='{Poppins} 10 {bold}',
+                                                      foreground='#ffffff')
+            self.Delete_Teacher_Phone_Number_label.configure(text='Phone Number')
+            self.Delete_Teacher_Phone_Number_label.place(anchor='nw',
+                                                  x='390',
+                                                  y='265')
+
+            self.Delete_Teacher_Gender_label = tk.Label(self)
+            self.Delete_Teacher_Gender_label.configure(background='#121212',
+                                                borderwidth='0',
+                                                font='{Poppins} 10 {bold}',
+                                                foreground='#ffffff')
+            self.Delete_Teacher_Gender_label.configure(text='Gender')
+            self.Delete_Teacher_Gender_label.place(anchor='nw',
+                                            x='520',
+                                            y='265')
+
+            self.Delete_Teacher_Main_Subject_label = tk.Label(self)
+            self.Delete_Teacher_Main_Subject_label.configure(background='#121212',
+                                                      borderwidth='0',
+                                                      font='{Poppins} 10 {bold}',
+                                                      foreground='#ffffff')
+            self.Delete_Teacher_Main_Subject_label.configure(text='Main Subject')
+            self.Delete_Teacher_Main_Subject_label.place(anchor='nw',
+                                                  x='600',
+                                                  y='265')
             if self.deleteRecode == []:
                 messagebox.showerror("Search Error", "ID You Entered is Already Deleted or Cannot Find That Id ")
 
@@ -870,18 +939,18 @@ class TeacherDelete(tk.Frame):
 
             self.Delete_Id_label.place(anchor='nw',
                                        x='166',
-                                       y='206')
+                                       y='156')
             self.Delete_Go_button.place(anchor='nw',
                                         x='527',
-                                        y='205')
+                                        y='155')
             self.Delete_Id_bg_label.place(anchor='nw',
                                           x='386',
-                                          y='210')
+                                          y='160')
             self.Delete_Id_entry.place(anchor='nw',
                                    height='24',
                                    width='120',
                                    x='395',
-                                   y='213')
+                                   y='163')
             self.Delete_Teacher_recodes.place(anchor='nw', x='0', y='300', relx="-0.24", bordermode='ignore')
             self.Delete_Id_entry.delete(0, "end")
             self.connetc.close()
