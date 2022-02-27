@@ -1,7 +1,7 @@
 
 import sys
-from tkinter import  messagebox
 import tkinter.ttk as ttk
+from tkinter import messagebox
 
 if sys.version_info[0] == 2:
     import Tkinter as tk
@@ -716,6 +716,24 @@ class StudeHome(tk.Frame):
 class TeacherDelete(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
+        try:
+            self.img_DarkThemeimg = tk.PhotoImage(file='DarkThemeimg.png')
+        except Exception as e:
+            print(e)
+            messagebox.showerror("File Missing", "DarkThemeimg.png is missing")
+        self.teacher_Delete_theme_change_button = tk.Button(self)
+        self.teacher_Delete_theme_change_button.configure(activebackground='#121212',
+                                                               activeforeground='#121212',
+                                                               background='#121212',
+                                                               borderwidth='0',
+                                                               relief="flat",
+                                                               overrelief="flat",
+                                                               command=self.changeTeacherDeleteTheme)
+        self.teacher_Delete_theme_change_button.configure(image=self.img_DarkThemeimg,
+                                                               text='button2')
+        self.teacher_Delete_theme_change_button.place(anchor='nw',
+                                                           x='60',
+                                                           y='10')
         self.Delete_Student_label = tk.Label(self)
         self.Delete_Student_label.configure(background='#121212',
                                             borderwidth='0',
@@ -923,6 +941,24 @@ class TeacherDelete(tk.Frame):
             self.Delete_Teacher_Main_Subject_label.place(anchor='nw',
                                                   x='600',
                                                   y='265')
+            try:
+                self.img_TeacherAddButton = tk.PhotoImage(file='TeacherAddButton.png')
+            except Exception as e:
+                messagebox.showerror("TeacherAddButton.png Missing")
+                print(e)
+
+            self.Delete_teachet_button = tk.Button(self)
+            self.Delete_teachet_button.configure(background='#121212',
+                                              activebackground='#121212',
+                                              activeforeground='#121212',
+                                              borderwidth='0',
+                                              image=self.img_TeacherAddButton,
+                                              relief='flat',
+                                              command=self.onClickDeleteRecodes)
+
+            self.Delete_teachet_button.place(anchor='nw',
+                                          x='412',
+                                          y='448')
             if self.deleteRecode == []:
                 messagebox.showerror("Search Error", "ID You Entered is Already Deleted or Cannot Find That Id ")
 
@@ -969,6 +1005,25 @@ class TeacherDelete(tk.Frame):
         self.conn.commit()
         self.connetc.close()
         self.conn.close()
+
+
+    def changeTeacherDeleteTheme(self):
+        try:
+            self.img_DarkThemeimg = tk.PhotoImage(file='DarkThemeimg.png')
+        except Exception as e:
+            print(e)
+            messagebox.showerror("File Missing", "DarkThemeimg.png IS Missing")
+
+        try:
+            self.img_lightThemeimg = tk.PhotoImage(file='LightThemeimg.png')
+        except Exception as e:
+            print(e)
+            messagebox.showerror("File Missing", "LightThemeimg.png IS Missing")
+
+        if self.back_page_img_button["background"] == "#121212":
+            pass
+
+
 
 class StudentRegistation(tk.Frame):
     def __init__(self, master):
