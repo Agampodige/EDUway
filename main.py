@@ -1020,8 +1020,10 @@ class TeacherDelete(tk.Frame):
             print(e)
             messagebox.showerror("File Missing", "LightThemeimg.png IS Missing")
 
-        if self.back_page_img_button["background"] == "#121212":
-            pass
+        if self["background"] == "#121212":
+            self.TeacherDeleteBGColor = "#ffffff"
+            self.TeacherDeleteFGColor = "#000000"
+            self.configure(background=self.StudentRegistationBGColor)
 
 
 
