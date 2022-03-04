@@ -1,4 +1,5 @@
 import sys
+import time
 import tkinter.ttk as ttk
 from tkinter import messagebox
 
@@ -7,7 +8,7 @@ if sys.version_info[0] == 2:
 else:
     import tkinter as tk
 import mysql.connector
-
+from tkinter import *
 # This_is_the_back_ground_color_of_loging_page
 # from ctypes import windll
 
@@ -40,41 +41,52 @@ class SchoolManegmentSystem(tk.Tk):
 
 # this_is_the_Splash_Screen_of_this
 # App
-# I tried to create this as a normal lable
-# but the self.after(miliseconds,and the funtion) is gave a error
 class SplashScreen(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
         # this_is_the_splash_button
         # it_will_return_you_to_log_in_page
-        self.splash_button = tk.Button(self)
+
+        # self.splash_button = tk.Button(self)
+
         try:
             self.img_splash = tk.PhotoImage(file='splash.png')
         except Exception as e:
             print(e)
             messagebox.showerror("Image Missing", "splash.png is missing")
 
-        self.splash_button.configure(activebackground='#ffffff',
-                                     activeforeground='#ffffff',
-                                     background='#ffffff',
-                                     borderwidth='0')
-        self.splash_button.configure(cursor='wait',
-                                     disabledforeground='#ffffff',
-                                     foreground='#ffffff',
-                                     highlightbackground='#ffffff')
-        self.splash_button.configure(highlightcolor='#ffffff',
-                                     highlightthickness='0',
-                                     image=self.img_splash,
-                                     overrelief='flat')
-        ###################################################this_funtion_is_for_change_the_sopash_page_to_login_page
-        self.splash_button.configure(relief='flat',
-                                     text='button1',
-                                     command=lambda: master.switch_frame(LogInPage))
-        self.splash_button.pack(side='top')
-        self.configure(height='200',
-                       width='200')
-        self.pack(side='top')
+        # self.splash_button.configure(activebackground='#ffffff',
+        #                              activeforeground='#ffffff',
+        #                              background='#ffffff',
+        #                              borderwidth='0')
+        # self.splash_button.configure(cursor='wait',
+        #                              disabledforeground='#ffffff',
+        #                              foreground='#ffffff',
+        #                              highlightbackground='#ffffff')
+        # self.splash_button.configure(highlightcolor='#ffffff',
+        #                              highlightthickness='0',
+        #                              image=self.img_splash,
+        #                              overrelief='flat')
+        # ###################################################this_funtion_is_for_change_the_sopash_page_to_login_page
+        # self.splash_button.configure(relief='flat',
+        #                              text='button1',
+        #                              command=lambda: master.switch_frame(LogInPage))
+        # self.splash_button.pack(side='top')
 
+
+
+        self.configure(height='515',
+                       width='791',
+                       background="#090D10")
+        self.Splash_Bg_img = tk.Label()
+
+        self.Splash_Bg_img.configure(image=self.img_splash , borderwidth='0', relief='flat')
+        self.Splash_Bg_img.place(x='0', y='0')
+
+        self.after(5000, lambda : master.switch_frame(LogInPage))
+
+
+        self.place(x='0', y='0')
 
 class LogInPage(tk.Frame):
     def __init__(self, master):
