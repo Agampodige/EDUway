@@ -21,7 +21,7 @@ class SchoolManegmentSystem(tk.Tk):
     def __init__(self):
         tk.Tk.__init__(self)
         self._frame = None
-        self.switch_frame(TeacherDelete)
+        self.switch_frame(SplashScreen)
 
     # this_funtion_is_for_change
     # the frame == window of the app
@@ -372,9 +372,6 @@ class LogInPage(tk.Frame):
 # class PageTwo(tk.Frame):
 #     def __init__(self, master):
 #         tk.Frame.__init__(self, master)
-#         tk.Label(self, text="This is page two").pack(side="top", fill="x", pady=10)
-#         tk.Button(self, text="Return to start page",
-#                   command=lambda: master.switch_frame(StartPage)).pack()
 # remember_ths
 
 # this is the home page of 
@@ -451,6 +448,7 @@ class Home(tk.Frame):
                        width='791')
         self.place(x="0",
                    y="0")
+
 
 
 #this is the student home 
@@ -1549,6 +1547,7 @@ class StudentDelete(tk.Frame):
 
 #this is the student register Window
 #you can register student in hear
+#need to repair
 class StudentRegistation(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
@@ -2398,7 +2397,6 @@ class TeacherUpdate(tk.Frame):
 
     def clickGo(self):
         global changeId
-
         changeId = self.Update_Id_entry.get()
 
         if changeId == "":
@@ -2687,7 +2685,7 @@ class TeacherUpdate(tk.Frame):
         self.Update_age_entry.delete(0, 'end')
         self.Update_phone_number_entry.delete(0, 'end')
 
-
+#need to change 
 class StudentUpdate(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
@@ -3808,8 +3806,7 @@ class TeacherRegistation(tk.Frame):
                                                         highlightcolor='#121212')
         self.Teacher_registation_close_button.configure(highlightthickness='1',
                                                         image=self.img_img4,
-                                                        relief='flat',
-                                                        command=self.master.on_close)
+                                                        relief='flat')
         self.Teacher_registation_close_button.place(anchor='nw',
                                                     x='760',
                                                     y='8')
@@ -3864,8 +3861,9 @@ class TeacherRegistation(tk.Frame):
                        borderwidth='0',
                        height='515',
                        width='791')
-        self.pack(fill='both',
-                  side='top')
+        self.place(anchor='nw',
+                                                           x='0',
+                                                           y='0')
 
     def changeTeacherRegistationTheme(self):
         try:
@@ -4066,8 +4064,6 @@ class TeacherRegistation(tk.Frame):
                                                        'Hebrew', 'HEBREW', "hebrew",
                                                        'Zoology', "ZOOLOGY", "zoology",
                                                        ]
-
-                                        subject_list = subjects.split(",")
 
                                         checkSubject = all(item in AllSubjects for item in subjects.split(","))
                                         if checkSubject is False:
@@ -4451,7 +4447,8 @@ class StudentView(tk.Frame):
 
 # This Is The Teacher View
 # You Can Watch All Deatail About All Teachers
-class TeacherView(tk.Frame):
+#need to repair
+class TeacherView(tk.Frame): 
     def __init__(self, master):
         tk.Frame.__init__(self, master)
         self.sty = ttk.Style()
@@ -4764,6 +4761,32 @@ class TeacherView(tk.Frame):
                                                             image=self.img_DarkThemeimg)
 
 
+
+
+# Abiout me
+class AboutMe(tk.Frame):
+    def __init__(self, master):
+        tk.Frame.__init__(self, master)
+
+        try:
+            self.aboutmeimg = tk.PhotoImage(file='About_Me.png')
+        except Exception as e:
+            print(e)
+            messagebox.showerror("File Missing", "About_Me.png Is Missing")
+
+
+
+        self.about_bg_img  = tk.Label(self)
+        self.about_bg_img.configure(image=self.aboutmeimg , borderwidth='0')
+        self.about_bg_img.place(x='0',y="0")
+        self.configure(background='#121212',
+                       height='515',
+                       width='791')
+        self.place(x='0',y="0")
+
+
+
+#this is the About page this page have option watch about me 
 # run_the_app_in_Hr_____VVVVVVVVVVV@
 if __name__ == "__main__":
     app = SchoolManegmentSystem()
