@@ -1,4 +1,3 @@
-
 import sys
 import tkinter.ttk as ttk
 from tkinter import messagebox
@@ -450,9 +449,8 @@ class Home(tk.Frame):
                    y="0")
 
 
-
-#this is the student home 
-#you can do all crud operations in this Student Home
+# this is the student home
+# you can do all crud operations in this Student Home
 class StudentHome(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
@@ -725,17 +723,17 @@ class TeacherDelete(tk.Frame):
             messagebox.showerror("File Missing", "DarkThemeimg.png is missing")
         self.teacher_Delete_theme_change_button = tk.Button(self)
         self.teacher_Delete_theme_change_button.configure(activebackground='#121212',
-                                                               activeforeground='#121212',
-                                                               background='#121212',
-                                                               borderwidth='0',
-                                                               relief="flat",
-                                                               overrelief="flat",
-                                                               command=self.changeTeacherDeleteTheme)
+                                                          activeforeground='#121212',
+                                                          background='#121212',
+                                                          borderwidth='0',
+                                                          relief="flat",
+                                                          overrelief="flat",
+                                                          command=self.changeTeacherDeleteTheme)
         self.teacher_Delete_theme_change_button.configure(image=self.img_DarkThemeimg,
-                                                               text='button2')
+                                                          text='button2')
         self.teacher_Delete_theme_change_button.place(anchor='nw',
-                                                           x='60',
-                                                           y='10')
+                                                      x='60',
+                                                      y='10')
         self.Delete_Teacher_label = tk.Label(self)
         self.Delete_Teacher_label.configure(background='#121212',
                                             borderwidth='0',
@@ -836,8 +834,6 @@ class TeacherDelete(tk.Frame):
         self.Delete_Teacher_recodes.column("AdmissionNo", width=100)
         self.Delete_Teacher_recodes.column("Subjects", width=220)
 
-        
-
         self.configure(background='#121212',
                        height='515',
                        takefocus=False,
@@ -863,10 +859,10 @@ class TeacherDelete(tk.Frame):
                 int(DeleteId)
             except:
                 messagebox.showerror("Type Error", "You Can Only Type Numbers For ID ")
-                self.Delete_Id_entry.delete(0,'end')
+                self.Delete_Id_entry.delete(0, 'end')
                 self.Delete_Teacher_recodes.configure(height=0)
                 DeleteId = ""
-            self.conn = mysql.connector.connect( user="root",
+            self.conn = mysql.connector.connect(user="root",
                                                 password="",
                                                 database="eduway")
             self.connetc = self.conn.cursor()
@@ -878,73 +874,73 @@ class TeacherDelete(tk.Frame):
 
             self.Delete_Teacher_ID_label = tk.Label(self)
             self.Delete_Teacher_ID_label.configure(background='#121212',
-                                            borderwidth='0',
-                                            font='{Poppins} 10 {bold}',
-                                            foreground='#ffffff')
+                                                   borderwidth='0',
+                                                   font='{Poppins} 10 {bold}',
+                                                   foreground='#ffffff')
             self.Delete_Teacher_ID_label.configure(text='ID')
             self.Delete_Teacher_ID_label.place(anchor='nw',
-                                        x='16',
-                                        y='265')
+                                               x='16',
+                                               y='265')
 
             self.Delete_Teacher_First_Name_label = tk.Label(self)
             self.Delete_Teacher_First_Name_label.configure(background='#121212',
-                                                    borderwidth='0',
-                                                    font='{Poppins} 10 {bold}',
-                                                    foreground='#ffffff')
+                                                           borderwidth='0',
+                                                           font='{Poppins} 10 {bold}',
+                                                           foreground='#ffffff')
             self.Delete_Teacher_First_Name_label.configure(text='First Name')
             self.Delete_Teacher_First_Name_label.place(anchor='nw',
-                                                x='55',
-                                                y='265')
+                                                       x='55',
+                                                       y='265')
 
             self.Delete_Teacher_Second_Name_label = tk.Label(self)
             self.Delete_Teacher_Second_Name_label.configure(background='#121212',
-                                                     borderwidth='0',
-                                                     font='{Poppins} 10 {bold}',
-                                                     foreground='#ffffff')
+                                                            borderwidth='0',
+                                                            font='{Poppins} 10 {bold}',
+                                                            foreground='#ffffff')
             self.Delete_Teacher_Second_Name_label.configure(text='Second Name')
             self.Delete_Teacher_Second_Name_label.place(anchor='nw',
-                                                 x='180',
-                                                 y='265')
+                                                        x='180',
+                                                        y='265')
 
             self.Delete_Teacher_Age_label = tk.Label(self)
             self.Delete_Teacher_Age_label.configure(background='#121212',
-                                             borderwidth='0',
-                                             font='{Poppins} 10 {bold}',
-                                             foreground='#ffffff')
+                                                    borderwidth='0',
+                                                    font='{Poppins} 10 {bold}',
+                                                    foreground='#ffffff')
             self.Delete_Teacher_Age_label.configure(text='Age')
             self.Delete_Teacher_Age_label.place(anchor='nw',
-                                         x='340',
-                                         y='265')
+                                                x='340',
+                                                y='265')
 
             self.Delete_Teacher_Phone_Number_label = tk.Label(self)
             self.Delete_Teacher_Phone_Number_label.configure(background='#121212',
-                                                      borderwidth='0',
-                                                      font='{Poppins} 10 {bold}',
-                                                      foreground='#ffffff')
+                                                             borderwidth='0',
+                                                             font='{Poppins} 10 {bold}',
+                                                             foreground='#ffffff')
             self.Delete_Teacher_Phone_Number_label.configure(text='Phone Number')
             self.Delete_Teacher_Phone_Number_label.place(anchor='nw',
-                                                  x='390',
-                                                  y='265')
+                                                         x='390',
+                                                         y='265')
 
             self.Delete_Teacher_Gender_label = tk.Label(self)
             self.Delete_Teacher_Gender_label.configure(background='#121212',
-                                                borderwidth='0',
-                                                font='{Poppins} 10 {bold}',
-                                                foreground='#ffffff')
+                                                       borderwidth='0',
+                                                       font='{Poppins} 10 {bold}',
+                                                       foreground='#ffffff')
             self.Delete_Teacher_Gender_label.configure(text='Gender')
             self.Delete_Teacher_Gender_label.place(anchor='nw',
-                                            x='520',
-                                            y='265')
+                                                   x='520',
+                                                   y='265')
 
             self.Delete_Teacher_Main_Subject_label = tk.Label(self)
             self.Delete_Teacher_Main_Subject_label.configure(background='#121212',
-                                                      borderwidth='0',
-                                                      font='{Poppins} 10 {bold}',
-                                                      foreground='#ffffff')
+                                                             borderwidth='0',
+                                                             font='{Poppins} 10 {bold}',
+                                                             foreground='#ffffff')
             self.Delete_Teacher_Main_Subject_label.configure(text='Main Subject')
             self.Delete_Teacher_Main_Subject_label.place(anchor='nw',
-                                                  x='600',
-                                                  y='265')
+                                                         x='600',
+                                                         y='265')
             try:
                 self.img_TeacherAddButton = tk.PhotoImage(file='TeacherAddButton.png')
             except Exception as e:
@@ -953,23 +949,22 @@ class TeacherDelete(tk.Frame):
 
             self.Delete_teachet_button = tk.Button(self)
             self.Delete_teachet_button.configure(background='#121212',
-                                              activebackground='#121212',
-                                              activeforeground='#121212',
-                                              borderwidth='0',
-                                              image=self.img_TeacherAddButton,
-                                              relief='flat',
-                                              command=self.onClickDeleteRecodes)
+                                                 activebackground='#121212',
+                                                 activeforeground='#121212',
+                                                 borderwidth='0',
+                                                 image=self.img_TeacherAddButton,
+                                                 relief='flat',
+                                                 command=self.onClickDeleteRecodes)
 
             self.Delete_teachet_button.place(anchor='nw',
-                                          x='412',
-                                          y='448')
+                                             x='412',
+                                             y='448')
             if self.deleteRecode == []:
                 messagebox.showerror("Search Error", "ID You Entered is Already Deleted or Cannot Find That Id ")
 
-
             self.Delete_Teacher_recodes.tag_configure("oneColorStudent", background="#121212",
-                                               font='{Poppins} 8 {bold}',
-                                               foreground="#c2c2c2")
+                                                      font='{Poppins} 8 {bold}',
+                                                      foreground="#c2c2c2")
             self.Delete_Teacher_recodes.configure(height=1)
             global count
             self.deleteRecodes()
@@ -988,10 +983,10 @@ class TeacherDelete(tk.Frame):
                                           x='386',
                                           y='160')
             self.Delete_Id_entry.place(anchor='nw',
-                                   height='24',
-                                   width='120',
-                                   x='395',
-                                   y='163')
+                                       height='24',
+                                       width='120',
+                                       x='395',
+                                       y='163')
             self.Delete_Teacher_recodes.place(anchor='nw', x='0', y='300', relx="-0.24", bordermode='ignore')
             self.Delete_Id_entry.delete(0, "end")
             self.connetc.close()
@@ -1010,7 +1005,6 @@ class TeacherDelete(tk.Frame):
         self.conn.commit()
         self.connetc.close()
         self.conn.close()
-
 
     def changeTeacherDeleteTheme(self):
         try:
@@ -1038,44 +1032,44 @@ class TeacherDelete(tk.Frame):
             self.Delete_Teacher_label.configure(background=self.TeacherDeleteBGColor,
                                                 foreground=self.TeacherDeleteFGColor)
             self.Delete_Teacher_back_page_img_button.configure(background=self.TeacherDeleteBGColor,
-                                                              foreground=self.TeacherDeleteFGColor,
-                                                              activeforeground=self.TeacherDeleteBGColor,
-                                                              activebackground=self.TeacherDeleteBGColor)
+                                                               foreground=self.TeacherDeleteFGColor,
+                                                               activeforeground=self.TeacherDeleteBGColor,
+                                                               activebackground=self.TeacherDeleteBGColor)
             self.Delete_Id_label.configure(background=self.TeacherDeleteBGColor,
-                                                foreground=self.TeacherDeleteFGColor)
+                                           foreground=self.TeacherDeleteFGColor)
 
             self.Delete_Go_button.configure(background=self.TeacherDeleteBGColor,
-                                                              foreground=self.TeacherDeleteFGColor,
-                                                              activeforeground=self.TeacherDeleteBGColor,
-                                                              activebackground=self.TeacherDeleteBGColor)
+                                            foreground=self.TeacherDeleteFGColor,
+                                            activeforeground=self.TeacherDeleteBGColor,
+                                            activebackground=self.TeacherDeleteBGColor)
             self.Delete_Id_bg_label.configure(background=self.TeacherDeleteBGColor,
-                                                foreground=self.TeacherDeleteFGColor)
+                                              foreground=self.TeacherDeleteFGColor)
 
             self.Delete_Teacher_ID_label.configure(background=self.TeacherDeleteBGColor,
-                                                foreground=self.TeacherDeleteFGColor)
-            
+                                                   foreground=self.TeacherDeleteFGColor)
+
             self.Delete_Teacher_First_Name_label.configure(background=self.TeacherDeleteBGColor,
-                                                foreground=self.TeacherDeleteFGColor)
+                                                           foreground=self.TeacherDeleteFGColor)
             self.Delete_Teacher_Second_Name_label.configure(background=self.TeacherDeleteBGColor,
-                                                foreground=self.TeacherDeleteFGColor)
+                                                            foreground=self.TeacherDeleteFGColor)
             self.Delete_Teacher_Age_label.configure(background=self.TeacherDeleteBGColor,
-                                                foreground=self.TeacherDeleteFGColor)
+                                                    foreground=self.TeacherDeleteFGColor)
             self.Delete_Teacher_Phone_Number_label.configure(background=self.TeacherDeleteBGColor,
-                                                foreground=self.TeacherDeleteFGColor)
+                                                             foreground=self.TeacherDeleteFGColor)
             self.Delete_Teacher_Gender_label.configure(background=self.TeacherDeleteBGColor,
-                                                foreground=self.TeacherDeleteFGColor)
+                                                       foreground=self.TeacherDeleteFGColor)
 
             self.Delete_Teacher_Main_Subject_label.configure(background=self.TeacherDeleteBGColor,
-                                                foreground=self.TeacherDeleteFGColor)
-            
+                                                             foreground=self.TeacherDeleteFGColor)
+
             self.Delete_teachet_button.configure(background=self.TeacherDeleteBGColor,
-                                                              foreground=self.TeacherDeleteFGColor,
-                                                              activeforeground=self.TeacherDeleteBGColor,
-                                                              activebackground=self.TeacherDeleteBGColor)
+                                                 foreground=self.TeacherDeleteFGColor,
+                                                 activeforeground=self.TeacherDeleteBGColor,
+                                                 activebackground=self.TeacherDeleteBGColor)
 
             self.Delete_Teacher_recodes.tag_configure("oneColorStudent", background="#ffffff",
-                                               font='{Poppins} 8 {bold}',
-                                               foreground="#000000")
+                                                      font='{Poppins} 8 {bold}',
+                                                      foreground="#000000")
         else:
             self.DTeacherDeleteBGColor = "#121212"
             self.DTeacherDeleteFGColor = "#ffffff"
@@ -1089,45 +1083,44 @@ class TeacherDelete(tk.Frame):
             self.Delete_Teacher_label.configure(background=self.DTeacherDeleteBGColor,
                                                 foreground=self.DTeacherDeleteFGColor)
             self.Delete_Teacher_back_page_img_button.configure(background=self.DTeacherDeleteBGColor,
-                                                              foreground=self.DTeacherDeleteFGColor,
-                                                              activeforeground=self.DTeacherDeleteBGColor,
-                                                              activebackground=self.DTeacherDeleteBGColor)
+                                                               foreground=self.DTeacherDeleteFGColor,
+                                                               activeforeground=self.DTeacherDeleteBGColor,
+                                                               activebackground=self.DTeacherDeleteBGColor)
             self.Delete_Id_label.configure(background=self.DTeacherDeleteBGColor,
-                                                foreground=self.DTeacherDeleteFGColor)
+                                           foreground=self.DTeacherDeleteFGColor)
 
             self.Delete_Go_button.configure(background=self.DTeacherDeleteBGColor,
-                                                              foreground=self.DTeacherDeleteFGColor,
-                                                              activeforeground=self.DTeacherDeleteBGColor,
-                                                              activebackground=self.DTeacherDeleteBGColor)
+                                            foreground=self.DTeacherDeleteFGColor,
+                                            activeforeground=self.DTeacherDeleteBGColor,
+                                            activebackground=self.DTeacherDeleteBGColor)
             self.Delete_Id_bg_label.configure(background=self.DTeacherDeleteBGColor,
-                                                foreground=self.DTeacherDeleteFGColor)
+                                              foreground=self.DTeacherDeleteFGColor)
 
             self.Delete_Teacher_ID_label.configure(background=self.DTeacherDeleteBGColor,
-                                                foreground=self.DTeacherDeleteFGColor)
-            
+                                                   foreground=self.DTeacherDeleteFGColor)
+
             self.Delete_Teacher_First_Name_label.configure(background=self.DTeacherDeleteBGColor,
-                                                foreground=self.DTeacherDeleteFGColor)
+                                                           foreground=self.DTeacherDeleteFGColor)
             self.Delete_Teacher_Second_Name_label.configure(background=self.DTeacherDeleteBGColor,
-                                                foreground=self.DTeacherDeleteFGColor)
+                                                            foreground=self.DTeacherDeleteFGColor)
             self.Delete_Teacher_Age_label.configure(background=self.DTeacherDeleteBGColor,
-                                                foreground=self.DTeacherDeleteFGColor)
+                                                    foreground=self.DTeacherDeleteFGColor)
             self.Delete_Teacher_Phone_Number_label.configure(background=self.DTeacherDeleteBGColor,
-                                                foreground=self.DTeacherDeleteFGColor)
+                                                             foreground=self.DTeacherDeleteFGColor)
             self.Delete_Teacher_Gender_label.configure(background=self.DTeacherDeleteBGColor,
-                                                foreground=self.DTeacherDeleteFGColor)
+                                                       foreground=self.DTeacherDeleteFGColor)
 
             self.Delete_Teacher_Main_Subject_label.configure(background=self.DTeacherDeleteBGColor,
-                                                foreground=self.DTeacherDeleteFGColor)
-            
+                                                             foreground=self.DTeacherDeleteFGColor)
+
             self.Delete_teachet_button.configure(background=self.DTeacherDeleteBGColor,
-                                                              foreground=self.DTeacherDeleteFGColor,
-                                                              activeforeground=self.DTeacherDeleteBGColor,
-                                                              activebackground=self.DTeacherDeleteBGColor)
+                                                 foreground=self.DTeacherDeleteFGColor,
+                                                 activeforeground=self.DTeacherDeleteBGColor,
+                                                 activebackground=self.DTeacherDeleteBGColor)
 
             self.Delete_Teacher_recodes.tag_configure("oneColorStudent", background="#121212",
-                                               font='{Poppins} 8 {bold}',
-                                               foreground="#ffffff")
-
+                                                      font='{Poppins} 8 {bold}',
+                                                      foreground="#ffffff")
 
 
 class StudentDelete(tk.Frame):
@@ -1140,17 +1133,17 @@ class StudentDelete(tk.Frame):
             messagebox.showerror("File Missing", "DarkThemeimg.png is missing")
         self.Student_Delete_theme_change_button = tk.Button(self)
         self.Student_Delete_theme_change_button.configure(activebackground='#121212',
-                                                               activeforeground='#121212',
-                                                               background='#121212',
-                                                               borderwidth='0',
-                                                               relief="flat",
-                                                               overrelief="flat",
-                                                               command=self.changeTeacherDeleteTheme)
+                                                          activeforeground='#121212',
+                                                          background='#121212',
+                                                          borderwidth='0',
+                                                          relief="flat",
+                                                          overrelief="flat",
+                                                          command=self.changeTeacherDeleteTheme)
         self.Student_Delete_theme_change_button.configure(image=self.img_DarkThemeimg,
-                                                               text='button2')
+                                                          text='button2')
         self.Student_Delete_theme_change_button.place(anchor='nw',
-                                                           x='60',
-                                                           y='10')
+                                                      x='60',
+                                                      y='10')
         self.Delete_Student_label = tk.Label(self)
         self.Delete_Student_label.configure(background='#121212',
                                             borderwidth='0',
@@ -1177,12 +1170,12 @@ class StudentDelete(tk.Frame):
         self.Delete_Student_back_page_img_button.place(anchor='nw', x='15', y='15')
         self.Student_Delete_Id_label = tk.Label(self)
         self.Student_Delete_Id_label.configure(background='#121212',
-                                       font='{Poppins} 17 {bold}',
-                                       foreground='#ffffff',
-                                       text='Delete ID')
+                                               font='{Poppins} 17 {bold}',
+                                               foreground='#ffffff',
+                                               text='Delete ID')
         self.Student_Delete_Id_label.place(anchor='nw',
-                                   x='166',
-                                   y='306')
+                                           x='166',
+                                           y='306')
 
         try:
             self.img_TeacherGoButton = tk.PhotoImage(file='Update_Go_button_img.png')
@@ -1192,15 +1185,15 @@ class StudentDelete(tk.Frame):
 
         self.Student_Delete_Go_button = tk.Button(self)
         self.Student_Delete_Go_button.configure(background='#121212',
-                                        activebackground='#121212',
-                                        activeforeground='#121212',
-                                        borderwidth='0',
-                                        image=self.img_TeacherGoButton,
-                                        relief='flat',
-                                        command=self.DeleteGo)
+                                                activebackground='#121212',
+                                                activeforeground='#121212',
+                                                borderwidth='0',
+                                                image=self.img_TeacherGoButton,
+                                                relief='flat',
+                                                command=self.DeleteGo)
         self.Student_Delete_Go_button.place(anchor='nw',
-                                    x='527',
-                                    y='305')
+                                            x='527',
+                                            y='305')
 
         self.Student_Delete_Id_bg_label = tk.Label(self)
 
@@ -1211,22 +1204,22 @@ class StudentDelete(tk.Frame):
             print(e)
 
         self.Student_Delete_Id_bg_label.configure(background='#121212',
-                                          borderwidth='0',
-                                          image=self.img_TeacheridbgEntery)
+                                                  borderwidth='0',
+                                                  image=self.img_TeacheridbgEntery)
         self.Student_Delete_Id_bg_label.place(anchor='nw',
-                                      x='386',
-                                      y='310')
+                                              x='386',
+                                              y='310')
 
         self.Student_Delete_Id_entry = tk.Entry(self)
         self.Student_Delete_Id_entry.configure(borderwidth='0')
         self.Student_Delete_Id_entry.configure(font='{Poppins} 10 {bold}',
-                                       insertwidth='1',
-                                       relief='flat')
+                                               insertwidth='1',
+                                               relief='flat')
         self.Student_Delete_Id_entry.place(anchor='nw',
-                                   height='24',
-                                   width='120',
-                                   x='395',
-                                   y='313')
+                                           height='24',
+                                           width='120',
+                                           x='395',
+                                           y='313')
 
         self.Deletesty = ttk.Style()
         self.Deletesty.configure('Treeview', rowheight=46, fieldbackground="#000000")
@@ -1250,8 +1243,6 @@ class StudentDelete(tk.Frame):
         self.Delete_Student_recodes.column("Phone Number", width=130)
         self.Delete_Student_recodes.column("AdmissionNo", width=100)
         self.Delete_Student_recodes.column("Subjects", width=220)
-
-        
 
         self.configure(background='#121212',
                        height='515',
@@ -1278,10 +1269,10 @@ class StudentDelete(tk.Frame):
                 int(StudentDeleteId)
             except:
                 messagebox.showerror("Type Error", "You Can Only Type Numbers For ID ")
-                self.Student_Delete_Id_entry.delete(0,'end')
+                self.Student_Delete_Id_entry.delete(0, 'end')
                 self.Delete_Student_recodes.configure(height=0)
                 StudentDeleteId = ""
-            self.conn = mysql.connector.connect( user="root",
+            self.conn = mysql.connector.connect(user="root",
                                                 password="",
                                                 database="eduway")
             self.connetc = self.conn.cursor()
@@ -1293,73 +1284,73 @@ class StudentDelete(tk.Frame):
 
             self.Delete_Teacher_ID_label = tk.Label(self)
             self.Delete_Teacher_ID_label.configure(background='#121212',
-                                            borderwidth='0',
-                                            font='{Poppins} 10 {bold}',
-                                            foreground='#ffffff')
+                                                   borderwidth='0',
+                                                   font='{Poppins} 10 {bold}',
+                                                   foreground='#ffffff')
             self.Delete_Teacher_ID_label.configure(text='ID')
             self.Delete_Teacher_ID_label.place(anchor='nw',
-                                        x='16',
-                                        y='265')
+                                               x='16',
+                                               y='265')
 
             self.Delete_Teacher_First_Name_label = tk.Label(self)
             self.Delete_Teacher_First_Name_label.configure(background='#121212',
-                                                    borderwidth='0',
-                                                    font='{Poppins} 10 {bold}',
-                                                    foreground='#ffffff')
+                                                           borderwidth='0',
+                                                           font='{Poppins} 10 {bold}',
+                                                           foreground='#ffffff')
             self.Delete_Teacher_First_Name_label.configure(text='First Name')
             self.Delete_Teacher_First_Name_label.place(anchor='nw',
-                                                x='55',
-                                                y='265')
+                                                       x='55',
+                                                       y='265')
 
             self.Delete_Teacher_Second_Name_label = tk.Label(self)
             self.Delete_Teacher_Second_Name_label.configure(background='#121212',
-                                                     borderwidth='0',
-                                                     font='{Poppins} 10 {bold}',
-                                                     foreground='#ffffff')
+                                                            borderwidth='0',
+                                                            font='{Poppins} 10 {bold}',
+                                                            foreground='#ffffff')
             self.Delete_Teacher_Second_Name_label.configure(text='Second Name')
             self.Delete_Teacher_Second_Name_label.place(anchor='nw',
-                                                 x='180',
-                                                 y='265')
+                                                        x='180',
+                                                        y='265')
 
             self.Delete_Teacher_Age_label = tk.Label(self)
             self.Delete_Teacher_Age_label.configure(background='#121212',
-                                             borderwidth='0',
-                                             font='{Poppins} 10 {bold}',
-                                             foreground='#ffffff')
+                                                    borderwidth='0',
+                                                    font='{Poppins} 10 {bold}',
+                                                    foreground='#ffffff')
             self.Delete_Teacher_Age_label.configure(text='Age')
             self.Delete_Teacher_Age_label.place(anchor='nw',
-                                         x='340',
-                                         y='265')
+                                                x='340',
+                                                y='265')
 
             self.Delete_Teacher_Phone_Number_label = tk.Label(self)
             self.Delete_Teacher_Phone_Number_label.configure(background='#121212',
-                                                      borderwidth='0',
-                                                      font='{Poppins} 10 {bold}',
-                                                      foreground='#ffffff')
+                                                             borderwidth='0',
+                                                             font='{Poppins} 10 {bold}',
+                                                             foreground='#ffffff')
             self.Delete_Teacher_Phone_Number_label.configure(text='Phone Number')
             self.Delete_Teacher_Phone_Number_label.place(anchor='nw',
-                                                  x='390',
-                                                  y='265')
+                                                         x='390',
+                                                         y='265')
 
             self.Delete_Teacher_Gender_label = tk.Label(self)
             self.Delete_Teacher_Gender_label.configure(background='#121212',
-                                                borderwidth='0',
-                                                font='{Poppins} 10 {bold}',
-                                                foreground='#ffffff')
+                                                       borderwidth='0',
+                                                       font='{Poppins} 10 {bold}',
+                                                       foreground='#ffffff')
             self.Delete_Teacher_Gender_label.configure(text='Gender')
             self.Delete_Teacher_Gender_label.place(anchor='nw',
-                                            x='520',
-                                            y='265')
+                                                   x='520',
+                                                   y='265')
 
             self.Delete_Teacher_Main_Subject_label = tk.Label(self)
             self.Delete_Teacher_Main_Subject_label.configure(background='#121212',
-                                                      borderwidth='0',
-                                                      font='{Poppins} 10 {bold}',
-                                                      foreground='#ffffff')
+                                                             borderwidth='0',
+                                                             font='{Poppins} 10 {bold}',
+                                                             foreground='#ffffff')
             self.Delete_Teacher_Main_Subject_label.configure(text='Main Subject')
             self.Delete_Teacher_Main_Subject_label.place(anchor='nw',
-                                                  x='600',
-                                                  y='265')
+                                                         x='600',
+                                                         y='265')
             try:
                 self.img_TeacherAddButton = tk.PhotoImage(file='TeacherAddButton.png')
             except Exception as e:
@@ -1368,23 +1359,22 @@ class StudentDelete(tk.Frame):
 
             self.Delete_teachet_button = tk.Button(self)
             self.Delete_teachet_button.configure(background='#121212',
-                                              activebackground='#121212',
-                                              activeforeground='#121212',
-                                              borderwidth='0',
-                                              image=self.img_TeacherAddButton,
-                                              relief='flat',
-                                              command=self.onClickDeleteRecodes)
+                                                 activebackground='#121212',
+                                                 activeforeground='#121212',
+                                                 borderwidth='0',
+                                                 image=self.img_TeacherAddButton,
+                                                 relief='flat',
+                                                 command=self.onClickDeleteRecodes)
 
             self.Delete_teachet_button.place(anchor='nw',
-                                          x='412',
-                                          y='448')
+                                             x='412',
+                                             y='448')
             if self.deleteRecode == []:
                 messagebox.showerror("Search Error", "ID You Entered is Already Deleted or Cannot Find That Id ")
 
-
             self.Delete_Student_recodes.tag_configure("oneColorStudent", background="#121212",
-                                               font='{Poppins} 8 {bold}',
-                                               foreground="#c2c2c2")
+                                                      font='{Poppins} 8 {bold}',
+                                                      foreground="#c2c2c2")
             self.Delete_Student_recodes.configure(height=1)
             global count
             self.deleteRecodes()
@@ -1394,19 +1384,19 @@ class StudentDelete(tk.Frame):
                                                    tags=("oneColorStudent"))
 
             self.Student_Delete_Id_label.place(anchor='nw',
-                                       x='166',
-                                       y='156')
+                                               x='166',
+                                               y='156')
             self.Student_Delete_Go_button.place(anchor='nw',
-                                        x='527',
-                                        y='155')
+                                                x='527',
+                                                y='155')
             self.Student_Delete_Id_bg_label.place(anchor='nw',
-                                          x='386',
-                                          y='160')
+                                                  x='386',
+                                                  y='160')
             self.Student_Delete_Id_entry.place(anchor='nw',
-                                   height='24',
-                                   width='120',
-                                   x='395',
-                                   y='163')
+                                               height='24',
+                                               width='120',
+                                               x='395',
+                                               y='163')
             self.Delete_Student_recodes.place(anchor='nw', x='0', y='300', relx="-0.24", bordermode='ignore')
             self.Student_Delete_Id_entry.delete(0, "end")
             self.connetc.close()
@@ -1425,7 +1415,6 @@ class StudentDelete(tk.Frame):
         self.conn.commit()
         self.connetc.close()
         self.conn.close()
-
 
     def changeTeacherDeleteTheme(self):
         try:
@@ -1453,44 +1442,44 @@ class StudentDelete(tk.Frame):
             self.Delete_Student_label.configure(background=self.TeacherDeleteBGColor,
                                                 foreground=self.TeacherDeleteFGColor)
             self.Delete_Student_back_page_img_button.configure(background=self.TeacherDeleteBGColor,
-                                                              foreground=self.TeacherDeleteFGColor,
-                                                              activeforeground=self.TeacherDeleteBGColor,
-                                                              activebackground=self.TeacherDeleteBGColor)
+                                                               foreground=self.TeacherDeleteFGColor,
+                                                               activeforeground=self.TeacherDeleteBGColor,
+                                                               activebackground=self.TeacherDeleteBGColor)
             self.Student_Delete_Id_label.configure(background=self.TeacherDeleteBGColor,
-                                                foreground=self.TeacherDeleteFGColor)
+                                                   foreground=self.TeacherDeleteFGColor)
 
             self.Student_Delete_Go_button.configure(background=self.TeacherDeleteBGColor,
-                                                              foreground=self.TeacherDeleteFGColor,
-                                                              activeforeground=self.TeacherDeleteBGColor,
-                                                              activebackground=self.TeacherDeleteBGColor)
+                                                    foreground=self.TeacherDeleteFGColor,
+                                                    activeforeground=self.TeacherDeleteBGColor,
+                                                    activebackground=self.TeacherDeleteBGColor)
             self.Student_Delete_Id_bg_label.configure(background=self.TeacherDeleteBGColor,
-                                                foreground=self.TeacherDeleteFGColor)
+                                                      foreground=self.TeacherDeleteFGColor)
 
             self.Delete_Teacher_ID_label.configure(background=self.TeacherDeleteBGColor,
-                                                foreground=self.TeacherDeleteFGColor)
-            
+                                                   foreground=self.TeacherDeleteFGColor)
+
             self.Delete_Teacher_First_Name_label.configure(background=self.TeacherDeleteBGColor,
-                                                foreground=self.TeacherDeleteFGColor)
+                                                           foreground=self.TeacherDeleteFGColor)
             self.Delete_Teacher_Second_Name_label.configure(background=self.TeacherDeleteBGColor,
-                                                foreground=self.TeacherDeleteFGColor)
+                                                            foreground=self.TeacherDeleteFGColor)
             self.Delete_Teacher_Age_label.configure(background=self.TeacherDeleteBGColor,
-                                                foreground=self.TeacherDeleteFGColor)
+                                                    foreground=self.TeacherDeleteFGColor)
             self.Delete_Teacher_Phone_Number_label.configure(background=self.TeacherDeleteBGColor,
-                                                foreground=self.TeacherDeleteFGColor)
+                                                             foreground=self.TeacherDeleteFGColor)
             self.Delete_Teacher_Gender_label.configure(background=self.TeacherDeleteBGColor,
-                                                foreground=self.TeacherDeleteFGColor)
+                                                       foreground=self.TeacherDeleteFGColor)
 
             self.Delete_Teacher_Main_Subject_label.configure(background=self.TeacherDeleteBGColor,
-                                                foreground=self.TeacherDeleteFGColor)
-            
+                                                             foreground=self.TeacherDeleteFGColor)
+
             self.Delete_teachet_button.configure(background=self.TeacherDeleteBGColor,
-                                                              foreground=self.TeacherDeleteFGColor,
-                                                              activeforeground=self.TeacherDeleteBGColor,
-                                                              activebackground=self.TeacherDeleteBGColor)
+                                                 foreground=self.TeacherDeleteFGColor,
+                                                 activeforeground=self.TeacherDeleteBGColor,
+                                                 activebackground=self.TeacherDeleteBGColor)
 
             self.Delete_Student_recodes.tag_configure("oneColorStudent", background="#ffffff",
-                                               font='{Poppins} 8 {bold}',
-                                               foreground="#000000")
+                                                      font='{Poppins} 8 {bold}',
+                                                      foreground="#000000")
         else:
             self.DTeacherDeleteBGColor = "#121212"
             self.DTeacherDeleteFGColor = "#ffffff"
@@ -1504,50 +1493,49 @@ class StudentDelete(tk.Frame):
             self.Delete_Student_label.configure(background=self.DTeacherDeleteBGColor,
                                                 foreground=self.DTeacherDeleteFGColor)
             self.Delete_Student_back_page_img_button.configure(background=self.DTeacherDeleteBGColor,
-                                                              foreground=self.DTeacherDeleteFGColor,
-                                                              activeforeground=self.DTeacherDeleteBGColor,
-                                                              activebackground=self.DTeacherDeleteBGColor)
+                                                               foreground=self.DTeacherDeleteFGColor,
+                                                               activeforeground=self.DTeacherDeleteBGColor,
+                                                               activebackground=self.DTeacherDeleteBGColor)
             self.Student_Delete_Id_label.configure(background=self.DTeacherDeleteBGColor,
-                                                foreground=self.DTeacherDeleteFGColor)
+                                                   foreground=self.DTeacherDeleteFGColor)
 
             self.Student_Delete_Go_button.configure(background=self.DTeacherDeleteBGColor,
-                                                              foreground=self.DTeacherDeleteFGColor,
-                                                              activeforeground=self.DTeacherDeleteBGColor,
-                                                              activebackground=self.DTeacherDeleteBGColor)
+                                                    foreground=self.DTeacherDeleteFGColor,
+                                                    activeforeground=self.DTeacherDeleteBGColor,
+                                                    activebackground=self.DTeacherDeleteBGColor)
             self.Student_Delete_Id_bg_label.configure(background=self.DTeacherDeleteBGColor,
-                                                foreground=self.DTeacherDeleteFGColor)
+                                                      foreground=self.DTeacherDeleteFGColor)
 
             self.Delete_Teacher_ID_label.configure(background=self.DTeacherDeleteBGColor,
-                                                foreground=self.DTeacherDeleteFGColor)
-            
+                                                   foreground=self.DTeacherDeleteFGColor)
+
             self.Delete_Teacher_First_Name_label.configure(background=self.DTeacherDeleteBGColor,
-                                                foreground=self.DTeacherDeleteFGColor)
+                                                           foreground=self.DTeacherDeleteFGColor)
             self.Delete_Teacher_Second_Name_label.configure(background=self.DTeacherDeleteBGColor,
-                                                foreground=self.DTeacherDeleteFGColor)
+                                                            foreground=self.DTeacherDeleteFGColor)
             self.Delete_Teacher_Age_label.configure(background=self.DTeacherDeleteBGColor,
-                                                foreground=self.DTeacherDeleteFGColor)
+                                                    foreground=self.DTeacherDeleteFGColor)
             self.Delete_Teacher_Phone_Number_label.configure(background=self.DTeacherDeleteBGColor,
-                                                foreground=self.DTeacherDeleteFGColor)
+                                                             foreground=self.DTeacherDeleteFGColor)
             self.Delete_Teacher_Gender_label.configure(background=self.DTeacherDeleteBGColor,
-                                                foreground=self.DTeacherDeleteFGColor)
+                                                       foreground=self.DTeacherDeleteFGColor)
 
             self.Delete_Teacher_Main_Subject_label.configure(background=self.DTeacherDeleteBGColor,
-                                                foreground=self.DTeacherDeleteFGColor)
-            
+                                                             foreground=self.DTeacherDeleteFGColor)
+
             self.Delete_teachet_button.configure(background=self.DTeacherDeleteBGColor,
-                                                              foreground=self.DTeacherDeleteFGColor,
-                                                              activeforeground=self.DTeacherDeleteBGColor,
-                                                              activebackground=self.DTeacherDeleteBGColor)
+                                                 foreground=self.DTeacherDeleteFGColor,
+                                                 activeforeground=self.DTeacherDeleteBGColor,
+                                                 activebackground=self.DTeacherDeleteBGColor)
 
             self.Delete_Student_recodes.tag_configure("oneColorStudent", background="#121212",
-                                               font='{Poppins} 8 {bold}',
-                                               foreground="#ffffff")
-            
+                                                      font='{Poppins} 8 {bold}',
+                                                      foreground="#ffffff")
 
 
-#this is the student register Window
-#you can register student in hear
-#need to repair
+# this is the student register Window
+# you can register student in hear
+# need to repair
 class StudentRegistation(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
@@ -2025,7 +2013,7 @@ class StudentRegistation(tk.Frame):
                                     messagebox.showerror("Age Error", "You Can Only Type Two Numbers For Age ")
                                 else:
 
-                                    self.conn = mysql.connector.connect( user="root",
+                                    self.conn = mysql.connector.connect(user="root",
                                                                         password="",
                                                                         database="eduway")
                                     int(Student_phone_number)
@@ -2056,9 +2044,8 @@ class StudentRegistation(tk.Frame):
         self.Student_phone_number_entry.delete(0, 'end')
 
 
-
-#this is the update window
-#You can update all data in this fields
+# this is the update window
+# You can update all data in this fields
 class TeacherUpdate(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
@@ -2408,9 +2395,9 @@ class TeacherUpdate(tk.Frame):
                 messagebox.showerror("ID Name Error", "ID Need To Enter Numbers")
 
             self.conn = mysql.connector.connect(
-                                                user="root",
-                                                password="",
-                                                database="eduway")
+                user="root",
+                password="",
+                database="eduway")
             self.connetc = self.conn.cursor()
             try:
                 self.connetc.execute(
@@ -2662,9 +2649,9 @@ class TeacherUpdate(tk.Frame):
                                         else:
 
                                             self.conn = mysql.connector.connect(
-                                                                                user="root",
-                                                                                password="",
-                                                                                database="eduway")
+                                                user="root",
+                                                password="",
+                                                database="eduway")
                                             int(Update_phone_number)
                                             int(Update_age)
                                             self.connetc = self.conn.cursor()
@@ -2685,7 +2672,8 @@ class TeacherUpdate(tk.Frame):
         self.Update_age_entry.delete(0, 'end')
         self.Update_phone_number_entry.delete(0, 'end')
 
-#need to change 
+
+# need to change
 class StudentUpdate(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
@@ -2700,10 +2688,10 @@ class StudentUpdate(tk.Frame):
             print(e)
 
         self.Update_Student__element_img_label.configure(background='#121212',
-                                                image=self.img_Element_1_img_label)
+                                                         image=self.img_Element_1_img_label)
         self.Update_Student__element_img_label.place(anchor='nw',
-                                            x='431',
-                                            y='322')
+                                                     x='431',
+                                                     y='322')
 
         try:
             self.img_StudentRegiusterEntery = tk.PhotoImage(file='TeacherRegiusterEntery.png')
@@ -2718,198 +2706,198 @@ class StudentUpdate(tk.Frame):
             print(e)
 
         self.Update_Student__Id_bg_label.configure(background='#121212',
-                                          borderwidth='0',
-                                          image=self.img_StudentidbgEntery)
+                                                   borderwidth='0',
+                                                   image=self.img_StudentidbgEntery)
         self.Update_Student__Id_bg_label.place(anchor='nw',
-                                      x='386',
-                                      y='100')
+                                               x='386',
+                                               y='100')
 
         self.Update_Student_First_name_Entry_bg_label.configure(background='#121212',
-                                                        borderwidth='0',
-                                                        image=self.img_StudentRegiusterEntery)
+                                                                borderwidth='0',
+                                                                image=self.img_StudentRegiusterEntery)
         self.Update_Student_First_name_Entry_bg_label.place(anchor='nw',
-                                                    x='386',
-                                                    y='146')
+                                                            x='386',
+                                                            y='146')
 
         self.Update_Student_Last_name_Entry_bg_label = tk.Label(self)
         self.Update_Student_Last_name_Entry_bg_label.configure(background='#121212',
-                                                       borderwidth='0',
-                                                       image=self.img_StudentRegiusterEntery)
+                                                               borderwidth='0',
+                                                               image=self.img_StudentRegiusterEntery)
         self.Update_Student_Last_name_Entry_bg_label.place(anchor='nw',
-                                                   x='386',
-                                                   y='196')
+                                                           x='386',
+                                                           y='196')
 
         self.Update_Student_age_Entry_bg_label = tk.Label(self)
         self.Update_Student_age_Entry_bg_label.configure(background='#121212',
-                                                 borderwidth='0',
-                                                 image=self.img_StudentRegiusterEntery)
+                                                         borderwidth='0',
+                                                         image=self.img_StudentRegiusterEntery)
         self.Update_Student_age_Entry_bg_label.place(anchor='nw',
-                                             x='386',
-                                             y='246')
+                                                     x='386',
+                                                     y='246')
 
         self.Update_Student_phone_number_Entry_bg_label = tk.Label(self)
         self.Update_Student_phone_number_Entry_bg_label.configure(background='#121212',
-                                                          borderwidth='0',
-                                                          image=self.img_StudentRegiusterEntery)
+                                                                  borderwidth='0',
+                                                                  image=self.img_StudentRegiusterEntery)
         self.Update_Student_phone_number_Entry_bg_label.place(anchor='nw',
-                                                      x='386',
-                                                      y='290')
+                                                              x='386',
+                                                              y='290')
 
         self.Update_Student_gender_Entry_bg_label = tk.Label(self)
         self.Update_Student_gender_Entry_bg_label.configure(background='#121212',
-                                                    borderwidth='0',
-                                                    image=self.img_StudentRegiusterEntery)
+                                                            borderwidth='0',
+                                                            image=self.img_StudentRegiusterEntery)
         self.Update_Student_gender_Entry_bg_label.place(anchor='nw',
-                                                x='386',
-                                                y='340')
+                                                        x='386',
+                                                        y='340')
 
         self.Update_Student_subject_Entry_bg_label = tk.Label(self)
         self.Update_Student_subject_Entry_bg_label.configure(background='#121212',
-                                                     borderwidth='0',
-                                                     image=self.img_StudentRegiusterEntery)
+                                                             borderwidth='0',
+                                                             image=self.img_StudentRegiusterEntery)
         self.Update_Student_subject_Entry_bg_label.place(anchor='nw',
-                                                 x='386',
-                                                 y='390')
+                                                         x='386',
+                                                         y='390')
 
         self.Student_Update_Id_entry = tk.Entry(self)
         self.Student_Update_Id_entry.configure(borderwidth='0')
         self.Student_Update_Id_entry.configure(font='{Poppins} 10 {bold}',
-                                       insertwidth='1',
-                                       relief='flat')
+                                               insertwidth='1',
+                                               relief='flat')
         self.Student_Update_Id_entry.place(anchor='nw',
-                                   height='24',
-                                   width='120',
-                                   x='395',
-                                   y='103  ')
+                                           height='24',
+                                           width='120',
+                                           x='395',
+                                           y='103  ')
 
         self.Student_Update_Id_label = tk.Label(self)
         self.Student_Update_Id_label.configure(background='#121212',
-                                       font='{Poppins} 17 {bold}',
-                                       foreground='#ffffff',
-                                       text='ChangeID')
+                                               font='{Poppins} 17 {bold}',
+                                               foreground='#ffffff',
+                                               text='ChangeID')
         self.Student_Update_Id_label.place(anchor='nw',
-                                   x='166',
-                                   y='96')
+                                           x='166',
+                                           y='96')
 
         self.Student_Update_first_name_entry = tk.Entry(self)
         self.Student_Update_first_name_entry.configure(borderwidth='0')
         self.Student_Update_first_name_entry.configure(font='{Poppins} 10 {bold}',
-                                               insertwidth='1',
-                                               relief='flat')
+                                                       insertwidth='1',
+                                                       relief='flat')
         self.Student_Update_first_name_entry.place(anchor='nw',
-                                           height='24',
-                                           width='229',
-                                           x='395',
-                                           y='149')
+                                                   height='24',
+                                                   width='229',
+                                                   x='395',
+                                                   y='149')
 
         self.Student_Update_first_name_label = tk.Label(self)
         self.Student_Update_first_name_label.configure(background='#121212',
-                                               font='{Poppins} 17 {bold}',
-                                               foreground='#ffffff',
-                                               text='First Name')
+                                                       font='{Poppins} 17 {bold}',
+                                                       foreground='#ffffff',
+                                                       text='First Name')
         self.Student_Update_first_name_label.place(anchor='nw',
-                                           x='166',
-                                           y='146')
+                                                   x='166',
+                                                   y='146')
 
         self.Student_Update_last_name_entry = tk.Entry(self)
         self.Student_Update_last_name_entry.configure(borderwidth='0')
         self.Student_Update_last_name_entry.configure(font='{Poppins} 10 {bold}',
-                                              insertwidth='1',
-                                              relief='flat')
+                                                      insertwidth='1',
+                                                      relief='flat')
         self.Student_Update_last_name_entry.place(anchor='nw',
-                                          height='24',
-                                          width='229',
-                                          x='397',
-                                          y='199')
+                                                  height='24',
+                                                  width='229',
+                                                  x='397',
+                                                  y='199')
 
         self.Student_Update_last_name_label = tk.Label(self)
         self.Student_Update_last_name_label.configure(background='#121212',
-                                              font='{Poppins} 17 {bold}',
-                                              foreground='#ffffff',
-                                              text='Last Name')
+                                                      font='{Poppins} 17 {bold}',
+                                                      foreground='#ffffff',
+                                                      text='Last Name')
         self.Student_Update_last_name_label.place(anchor='nw',
-                                          x='166',
-                                          y='198')
+                                                  x='166',
+                                                  y='198')
 
         self.Student_Update_phone_number_entry = tk.Entry(self)
         self.Student_Update_phone_number_entry.configure(borderwidth='0')
         self.Student_Update_phone_number_entry.configure(font='{Poppins} 10 {bold}',
-                                                 insertwidth='1',
-                                                 relief='flat')
+                                                         insertwidth='1',
+                                                         relief='flat')
         self.Student_Update_phone_number_entry.place(anchor='nw',
-                                             height='24',
-                                             width='229',
-                                             x='397',
-                                             y='293')
+                                                     height='24',
+                                                     width='229',
+                                                     x='397',
+                                                     y='293')
 
         self.Student_Update_phone_number_label = tk.Label(self)
         self.Student_Update_phone_number_label.configure(background='#121212',
-                                                 font='{Poppins} 17 {bold}',
-                                                 foreground='#ffffff',
-                                                 text='Phone number')
+                                                         font='{Poppins} 17 {bold}',
+                                                         foreground='#ffffff',
+                                                         text='Phone number')
         self.Student_Update_phone_number_label.place(anchor='nw',
-                                             x='166',
-                                             y='289')
+                                                     x='166',
+                                                     y='289')
 
         self.Student_Update_age_entry = tk.Entry(self)
         self.Student_Update_age_entry.configure(borderwidth='0')
         self.Student_Update_age_entry.configure(font='{Poppins} 10 {bold}',
-                                        insertwidth='1',
-                                        relief='flat')
+                                                insertwidth='1',
+                                                relief='flat')
         self.Student_Update_age_entry.place(anchor='nw',
-                                    height='24',
-                                    width='229',
-                                    x='395',
-                                    y='249')
+                                            height='24',
+                                            width='229',
+                                            x='395',
+                                            y='249')
 
         self.Student_Update_age_label = tk.Label(self)
         self.Student_Update_age_label.configure(background='#121212',
-                                        font='{Poppins} 17 {bold}',
-                                        foreground='#ffffff',
-                                        text='Age')
+                                                font='{Poppins} 17 {bold}',
+                                                foreground='#ffffff',
+                                                text='Age')
         self.Student_Update_age_label.place(anchor='nw',
-                                    x='166',
-                                    y='239')
+                                            x='166',
+                                            y='239')
 
         self.Student_Update_gender_label = tk.Label(self)
         self.Student_Update_gender_label.configure(background='#121212',
-                                           font='{Poppins} 17 {bold}',
-                                           foreground='#ffffff',
-                                           text='Gender')
+                                                   font='{Poppins} 17 {bold}',
+                                                   foreground='#ffffff',
+                                                   text='Gender')
         self.Student_Update_gender_label.place(anchor='nw',
-                                       x='166',
-                                       y='331')
+                                               x='166',
+                                               y='331')
 
         self.Student_Update_gender_entry = tk.Entry(self)
         self.Student_Update_gender_entry.configure(borderwidth="0")
         self.Student_Update_gender_entry.configure(font='{Poppins} 10 {bold}',
-                                           insertwidth='1',
-                                           relief='flat')
+                                                   insertwidth='1',
+                                                   relief='flat')
         self.Student_Update_gender_entry.place(anchor='nw',
-                                       height='24',
-                                       width='229',
-                                       x='395',
-                                       y='343')
+                                               height='24',
+                                               width='229',
+                                               x='395',
+                                               y='343')
 
         self.Student_Update_subects_label = tk.Label(self)
         self.Student_Update_subects_label.configure(background='#121212',
-                                            font='{Poppins} 17 {bold}',
-                                            foreground='#ffffff',
-                                            text='MaIn Subject')
+                                                    font='{Poppins} 17 {bold}',
+                                                    foreground='#ffffff',
+                                                    text='MaIn Subject')
         self.Student_Update_subects_label.place(anchor='nw',
-                                        x='166',
-                                        y='389')
+                                                x='166',
+                                                y='389')
 
         self.Student_Update_subject_entry = tk.Entry(self)
         self.Student_Update_subject_entry.configure(borderwidth="0")
         self.Student_Update_subject_entry.configure(font='{Poppins} 10 {bold}',
-                                            insertwidth='1',
-                                            relief='flat')
+                                                    insertwidth='1',
+                                                    relief='flat')
         self.Student_Update_subject_entry.place(anchor='nw',
-                                        height='24',
-                                        width='229',
-                                        x='395',
-                                        y='393')
+                                                height='24',
+                                                width='229',
+                                                x='395',
+                                                y='393')
 
         try:
             self.img_StudentUpdateButton = tk.PhotoImage(file='Update_Teacher_Btn_img.png')
@@ -2919,15 +2907,15 @@ class StudentUpdate(tk.Frame):
 
         self.Student_Update_Update_teachet_button = tk.Button(self)
         self.Student_Update_Update_teachet_button.configure(background='#121212',
-                                                    activebackground='#121212',
-                                                    activeforeground='#121212',
-                                                    borderwidth='0',
-                                                    image=self.img_StudentUpdateButton,
-                                                    relief='flat',
-                                                    command=self.clickUpdate)
+                                                            activebackground='#121212',
+                                                            activeforeground='#121212',
+                                                            borderwidth='0',
+                                                            image=self.img_StudentUpdateButton,
+                                                            relief='flat',
+                                                            command=self.clickUpdate)
         self.Student_Update_Update_teachet_button.place(anchor='nw',
-                                                x='412',
-                                                y='448')
+                                                        x='412',
+                                                        y='448')
 
         try:
             self.img_StudentGoButton = tk.PhotoImage(file='Update_Go_button_img.png')
@@ -2937,15 +2925,15 @@ class StudentUpdate(tk.Frame):
 
         self.Student_Update_Update_Go_button = tk.Button(self)
         self.Student_Update_Update_Go_button.configure(background='#121212',
-                                               activebackground='#121212',
-                                               activeforeground='#121212',
-                                               borderwidth='0',
-                                               image=self.img_StudentGoButton,
-                                               relief='flat',
-                                               command=self.clickGo)
+                                                       activebackground='#121212',
+                                                       activeforeground='#121212',
+                                                       borderwidth='0',
+                                                       image=self.img_StudentGoButton,
+                                                       relief='flat',
+                                                       command=self.clickGo)
         self.Student_Update_Update_Go_button.place(anchor='nw',
-                                           x='527',
-                                           y='95')
+                                                   x='527',
+                                                   y='95')
 
         try:
             self.img_img4 = tk.PhotoImage(file='img4.png')
@@ -2954,20 +2942,20 @@ class StudentUpdate(tk.Frame):
             messagebox.showerror("File Missing", "img_img4.png is missing")
         self.Student_Update_Student_registation_close_button = tk.Button(self)
         self.Student_Update_Student_registation_close_button.configure(activebackground='#121212',
-                                                               activeforeground='#121212',
-                                                               background='#121212',
-                                                               borderwidth='0')
+                                                                       activeforeground='#121212',
+                                                                       background='#121212',
+                                                                       borderwidth='0')
         self.Student_Update_Student_registation_close_button.configure(cursor='hand2',
-                                                               foreground='#121212',
-                                                               highlightbackground='#121212',
-                                                               highlightcolor='#121212')
+                                                                       foreground='#121212',
+                                                                       highlightbackground='#121212',
+                                                                       highlightcolor='#121212')
         self.Student_Update_Student_registation_close_button.configure(highlightthickness='1',
-                                                               image=self.img_img4,
-                                                               relief='flat',
-                                                               command=self.master.on_close)
+                                                                       image=self.img_img4,
+                                                                       relief='flat',
+                                                                       command=self.master.on_close)
         self.Student_Update_Student_registation_close_button.place(anchor='nw',
-                                                           x='760',
-                                                           y='8')
+                                                                   x='760',
+                                                                   y='8')
 
         self.Update_Student_label = tk.Label(self)
         self.Update_Student_label.configure(background='#121212',
@@ -2988,10 +2976,10 @@ class StudentUpdate(tk.Frame):
             messagebox.showerror("File Missing", "BackPageIMG.png is missing")
 
         self.Student_Update_back_page_img_button.configure(activebackground='#121212',
-                                                   activeforeground='#121212',
-                                                   background='#121212',
-                                                   borderwidth='0',
-                                                   command=self.goBackToStudentHome)
+                                                           activeforeground='#121212',
+                                                           background='#121212',
+                                                           borderwidth='0',
+                                                           command=self.goBackToStudentHome)
         self.Student_Update_back_page_img_button.configure(image=self.img_BackPageIMG)
         self.Student_Update_back_page_img_button.place(anchor='nw', x='15', y='15')
 
@@ -3004,17 +2992,17 @@ class StudentUpdate(tk.Frame):
             messagebox.showerror("File Missing", "DarkThemeimg.png is missing")
 
         self.Student_Update_Student_registation_theme_change_button.configure(activebackground='#121212',
-                                                                      activeforeground='#121212',
-                                                                      background='#121212',
-                                                                      borderwidth='0',
-                                                                      relief="flat",
-                                                                      overrelief="flat",
-                                                                      command=self.changeStudentUpdateTheme)
+                                                                              activeforeground='#121212',
+                                                                              background='#121212',
+                                                                              borderwidth='0',
+                                                                              relief="flat",
+                                                                              overrelief="flat",
+                                                                              command=self.changeStudentUpdateTheme)
         self.Student_Update_Student_registation_theme_change_button.configure(image=self.img_DarkThemeimg,
-                                                                      text='button2')
+                                                                              text='button2')
         self.Student_Update_Student_registation_theme_change_button.place(anchor='nw',
-                                                                  x='60',
-                                                                  y='10')
+                                                                          x='60',
+                                                                          y='10')
         self.configure(background='#121212',
                        borderwidth='0',
                        height='515',
@@ -3036,9 +3024,9 @@ class StudentUpdate(tk.Frame):
                 messagebox.showerror("ID Name Error", "ID Need To Enter Numbers")
 
             self.conn = mysql.connector.connect(
-                                                user="root",
-                                                password="",
-                                                database="eduway")
+                user="root",
+                password="",
+                database="eduway")
             self.connetc = self.conn.cursor()
             try:
                 self.connetc.execute(
@@ -3081,66 +3069,67 @@ class StudentUpdate(tk.Frame):
             self.Update_StudentRegistationFGColor = "#000000"
             self.configure(background=self.Update_StudentRegistationBGColor)
             self.Update_Student__Id_bg_label.configure(background=self.Update_StudentRegistationBGColor,
-                                              foreground=self.Update_StudentRegistationFGColor)
+                                                       foreground=self.Update_StudentRegistationFGColor)
             self.Student_Update_Id_label.configure(background=self.Update_StudentRegistationBGColor,
-                                           foreground=self.Update_StudentRegistationFGColor)
+                                                   foreground=self.Update_StudentRegistationFGColor)
 
             self.Student_Update_Update_Go_button.configure(background=self.Update_StudentRegistationBGColor,
-                                                   foreground=self.Update_StudentRegistationFGColor,
-                                                   activebackground=self.Update_StudentRegistationBGColor,
-                                                   activeforeground=self.Update_StudentRegistationBGColor)
+                                                           foreground=self.Update_StudentRegistationFGColor,
+                                                           activebackground=self.Update_StudentRegistationBGColor,
+                                                           activeforeground=self.Update_StudentRegistationBGColor)
             self.Update_Student__element_img_label.configure(background=self.Update_StudentRegistationBGColor,
-                                                    foreground=self.Update_StudentRegistationFGColor)
+                                                             foreground=self.Update_StudentRegistationFGColor)
             self.Update_Student_First_name_Entry_bg_label.configure(background=self.Update_StudentRegistationBGColor,
-                                                            foreground=self.Update_StudentRegistationFGColor)
+                                                                    foreground=self.Update_StudentRegistationFGColor)
             self.Update_Student_Last_name_Entry_bg_label.configure(background=self.Update_StudentRegistationBGColor,
-                                                           foreground=self.Update_StudentRegistationFGColor)
-            self.Update_Student_age_Entry_bg_label.configure(background=self.Update_StudentRegistationBGColor,
-                                                     foreground=self.Update_StudentRegistationFGColor)
-            self.Update_Student_phone_number_Entry_bg_label.configure(background=self.Update_StudentRegistationBGColor,
-                                                              foreground=self.Update_StudentRegistationFGColor)
-            self.Update_Student_phone_number_Entry_bg_label.configure(background=self.Update_StudentRegistationBGColor,
-                                                              foreground=self.Update_StudentRegistationFGColor)
-            self.Update_Student_gender_Entry_bg_label.configure(background=self.Update_StudentRegistationBGColor,
-                                                        foreground=self.Update_StudentRegistationFGColor)
-            self.Update_Student_subject_Entry_bg_label.configure(background=self.Update_StudentRegistationBGColor,
-                                                         foreground=self.Update_StudentRegistationFGColor)
-            self.Student_Update_first_name_entry.configure(background=self.Update_StudentRegistationBGColor,
-                                                   foreground=self.Update_StudentRegistationFGColor)
-            self.Student_Update_first_name_label.configure(background=self.Update_StudentRegistationBGColor,
-                                                   foreground=self.Update_StudentRegistationFGColor)
-            self.Student_Update_last_name_entry.configure(background=self.Update_StudentRegistationBGColor,
-                                                  foreground=self.Update_StudentRegistationFGColor)
-            self.Student_Update_last_name_label.configure(background=self.Update_StudentRegistationBGColor,
-                                                  foreground=self.Update_StudentRegistationFGColor)
-            self.Student_Update_phone_number_entry.configure(background=self.Update_StudentRegistationBGColor,
-                                                     foreground=self.Update_StudentRegistationFGColor)
-            self.Student_Update_phone_number_label.configure(background=self.Update_StudentRegistationBGColor,
-                                                     foreground=self.Update_StudentRegistationFGColor)
-            self.Student_Update_age_entry.configure(background=self.Update_StudentRegistationBGColor,
-                                            foreground=self.Update_StudentRegistationFGColor)
-            self.Student_Update_age_label.configure(background=self.Update_StudentRegistationBGColor,
-                                            foreground=self.Update_StudentRegistationFGColor)
-            self.Student_Update_gender_entry.configure(background=self.Update_StudentRegistationBGColor,
-                                               foreground=self.Update_StudentRegistationFGColor)
-            self.Student_Update_gender_label.configure(background=self.Update_StudentRegistationBGColor,
-                                               foreground=self.Update_StudentRegistationFGColor)
-            self.Student_Update_subject_entry.configure(background=self.Update_StudentRegistationBGColor,
-                                                foreground=self.Update_StudentRegistationFGColor)
-            self.Student_Update_subects_label.configure(background=self.Update_StudentRegistationBGColor,
-                                                foreground=self.Update_StudentRegistationFGColor)
-            self.Student_Update_Update_teachet_button.configure(background=self.Update_StudentRegistationBGColor,
-                                                        foreground=self.Update_StudentRegistationFGColor,
-                                                        activebackground=self.Update_StudentRegistationBGColor,
-                                                        activeforeground=self.Update_StudentRegistationBGColor)
-            self.Student_Update_Student_registation_close_button.configure(background=self.Update_StudentRegistationBGColor,
                                                                    foreground=self.Update_StudentRegistationFGColor)
+            self.Update_Student_age_Entry_bg_label.configure(background=self.Update_StudentRegistationBGColor,
+                                                             foreground=self.Update_StudentRegistationFGColor)
+            self.Update_Student_phone_number_Entry_bg_label.configure(background=self.Update_StudentRegistationBGColor,
+                                                                      foreground=self.Update_StudentRegistationFGColor)
+            self.Update_Student_phone_number_Entry_bg_label.configure(background=self.Update_StudentRegistationBGColor,
+                                                                      foreground=self.Update_StudentRegistationFGColor)
+            self.Update_Student_gender_Entry_bg_label.configure(background=self.Update_StudentRegistationBGColor,
+                                                                foreground=self.Update_StudentRegistationFGColor)
+            self.Update_Student_subject_Entry_bg_label.configure(background=self.Update_StudentRegistationBGColor,
+                                                                 foreground=self.Update_StudentRegistationFGColor)
+            self.Student_Update_first_name_entry.configure(background=self.Update_StudentRegistationBGColor,
+                                                           foreground=self.Update_StudentRegistationFGColor)
+            self.Student_Update_first_name_label.configure(background=self.Update_StudentRegistationBGColor,
+                                                           foreground=self.Update_StudentRegistationFGColor)
+            self.Student_Update_last_name_entry.configure(background=self.Update_StudentRegistationBGColor,
+                                                          foreground=self.Update_StudentRegistationFGColor)
+            self.Student_Update_last_name_label.configure(background=self.Update_StudentRegistationBGColor,
+                                                          foreground=self.Update_StudentRegistationFGColor)
+            self.Student_Update_phone_number_entry.configure(background=self.Update_StudentRegistationBGColor,
+                                                             foreground=self.Update_StudentRegistationFGColor)
+            self.Student_Update_phone_number_label.configure(background=self.Update_StudentRegistationBGColor,
+                                                             foreground=self.Update_StudentRegistationFGColor)
+            self.Student_Update_age_entry.configure(background=self.Update_StudentRegistationBGColor,
+                                                    foreground=self.Update_StudentRegistationFGColor)
+            self.Student_Update_age_label.configure(background=self.Update_StudentRegistationBGColor,
+                                                    foreground=self.Update_StudentRegistationFGColor)
+            self.Student_Update_gender_entry.configure(background=self.Update_StudentRegistationBGColor,
+                                                       foreground=self.Update_StudentRegistationFGColor)
+            self.Student_Update_gender_label.configure(background=self.Update_StudentRegistationBGColor,
+                                                       foreground=self.Update_StudentRegistationFGColor)
+            self.Student_Update_subject_entry.configure(background=self.Update_StudentRegistationBGColor,
+                                                        foreground=self.Update_StudentRegistationFGColor)
+            self.Student_Update_subects_label.configure(background=self.Update_StudentRegistationBGColor,
+                                                        foreground=self.Update_StudentRegistationFGColor)
+            self.Student_Update_Update_teachet_button.configure(background=self.Update_StudentRegistationBGColor,
+                                                                foreground=self.Update_StudentRegistationFGColor,
+                                                                activebackground=self.Update_StudentRegistationBGColor,
+                                                                activeforeground=self.Update_StudentRegistationBGColor)
+            self.Student_Update_Student_registation_close_button.configure(
+                background=self.Update_StudentRegistationBGColor,
+                foreground=self.Update_StudentRegistationFGColor)
             self.Update_Student_label.configure(background=self.Update_StudentRegistationBGColor,
                                                 foreground=self.Update_StudentRegistationFGColor)
             self.Student_Update_back_page_img_button.configure(background=self.Update_StudentRegistationBGColor,
-                                                       foreground=self.Update_StudentRegistationFGColor,
-                                                       activebackground=self.Update_StudentRegistationBGColor,
-                                                       activeforeground=self.Update_StudentRegistationBGColor)
+                                                               foreground=self.Update_StudentRegistationFGColor,
+                                                               activebackground=self.Update_StudentRegistationBGColor,
+                                                               activeforeground=self.Update_StudentRegistationBGColor)
             self.Student_Update_Student_registation_theme_change_button.configure(
                 background=self.Update_StudentRegistationBGColor,
                 foreground=self.Update_StudentRegistationFGColor,
@@ -3152,51 +3141,52 @@ class StudentUpdate(tk.Frame):
             self.Update_DStudentRegistationFGColor = "#ffffff"
             self.configure(background=self.Update_DStudentRegistationBGColor)
             self.Update_Student__Id_bg_label.configure(background=self.Update_DStudentRegistationBGColor,
-                                              foreground=self.Update_DStudentRegistationFGColor)
+                                                       foreground=self.Update_DStudentRegistationFGColor)
             self.Student_Update_Id_label.configure(background=self.Update_DStudentRegistationBGColor,
-                                           foreground=self.Update_DStudentRegistationFGColor)
-            self.Student_Update_Update_Go_button.configure(background=self.Update_DStudentRegistationBGColor,
-                                                   foreground=self.Update_DStudentRegistationFGColor,
-                                                   activebackground=self.Update_DStudentRegistationBGColor,
-                                                   activeforeground=self.Update_DStudentRegistationBGColor)
-            self.Update_Student__element_img_label.configure(background=self.Update_DStudentRegistationBGColor,
-                                                    foreground=self.Update_DStudentRegistationFGColor)
-            self.Update_Student_First_name_Entry_bg_label.configure(background=self.Update_DStudentRegistationBGColor,
-                                                            foreground=self.Update_DStudentRegistationFGColor)
-            self.Update_Student_Last_name_Entry_bg_label.configure(background=self.Update_DStudentRegistationBGColor,
-                                                           foreground=self.Update_DStudentRegistationFGColor)
-            self.Update_Student_age_Entry_bg_label.configure(background=self.Update_DStudentRegistationBGColor,
-                                                     foreground=self.Update_DStudentRegistationFGColor)
-            self.Update_Student_phone_number_Entry_bg_label.configure(background=self.Update_DStudentRegistationBGColor,
-                                                              foreground=self.Update_DStudentRegistationFGColor)
-            self.Update_Student_phone_number_Entry_bg_label.configure(background=self.Update_DStudentRegistationBGColor,
-                                                              foreground=self.Update_DStudentRegistationFGColor)
-            self.Update_Student_gender_Entry_bg_label.configure(background=self.Update_DStudentRegistationBGColor,
-                                                        foreground=self.Update_DStudentRegistationFGColor)
-            self.Update_Student_subject_Entry_bg_label.configure(background=self.Update_DStudentRegistationBGColor,
-                                                         foreground=self.Update_DStudentRegistationFGColor)
-            self.Student_Update_first_name_label.configure(background=self.Update_DStudentRegistationBGColor,
                                                    foreground=self.Update_DStudentRegistationFGColor)
-            self.Student_Update_last_name_label.configure(background=self.Update_DStudentRegistationBGColor,
-                                                  foreground=self.Update_DStudentRegistationFGColor)
-            self.Student_Update_phone_number_label.configure(background=self.Update_DStudentRegistationBGColor,
-                                                     foreground=self.Update_DStudentRegistationFGColor)
-            self.Student_Update_age_label.configure(background=self.Update_DStudentRegistationBGColor,
-                                            foreground=self.Update_DStudentRegistationFGColor)
-            self.Student_Update_gender_label.configure(background=self.Update_DStudentRegistationBGColor,
-                                               foreground=self.Update_DStudentRegistationFGColor)
-            self.Student_Update_subects_label.configure(background=self.Update_DStudentRegistationBGColor,
-                                                foreground=self.Update_DStudentRegistationFGColor)
-            self.Student_Update_Update_teachet_button.configure(background=self.Update_DStudentRegistationBGColor,
-                                                        foreground=self.Update_DStudentRegistationFGColor,
-                                                        activebackground=self.Update_DStudentRegistationBGColor,
-                                                        activeforeground=self.Update_DStudentRegistationBGColor)
-            self.Student_Update_Student_registation_close_button.configure(background=self.Update_DStudentRegistationBGColor,
+            self.Student_Update_Update_Go_button.configure(background=self.Update_DStudentRegistationBGColor,
+                                                           foreground=self.Update_DStudentRegistationFGColor,
+                                                           activebackground=self.Update_DStudentRegistationBGColor,
+                                                           activeforeground=self.Update_DStudentRegistationBGColor)
+            self.Update_Student__element_img_label.configure(background=self.Update_DStudentRegistationBGColor,
+                                                             foreground=self.Update_DStudentRegistationFGColor)
+            self.Update_Student_First_name_Entry_bg_label.configure(background=self.Update_DStudentRegistationBGColor,
+                                                                    foreground=self.Update_DStudentRegistationFGColor)
+            self.Update_Student_Last_name_Entry_bg_label.configure(background=self.Update_DStudentRegistationBGColor,
                                                                    foreground=self.Update_DStudentRegistationFGColor)
+            self.Update_Student_age_Entry_bg_label.configure(background=self.Update_DStudentRegistationBGColor,
+                                                             foreground=self.Update_DStudentRegistationFGColor)
+            self.Update_Student_phone_number_Entry_bg_label.configure(background=self.Update_DStudentRegistationBGColor,
+                                                                      foreground=self.Update_DStudentRegistationFGColor)
+            self.Update_Student_phone_number_Entry_bg_label.configure(background=self.Update_DStudentRegistationBGColor,
+                                                                      foreground=self.Update_DStudentRegistationFGColor)
+            self.Update_Student_gender_Entry_bg_label.configure(background=self.Update_DStudentRegistationBGColor,
+                                                                foreground=self.Update_DStudentRegistationFGColor)
+            self.Update_Student_subject_Entry_bg_label.configure(background=self.Update_DStudentRegistationBGColor,
+                                                                 foreground=self.Update_DStudentRegistationFGColor)
+            self.Student_Update_first_name_label.configure(background=self.Update_DStudentRegistationBGColor,
+                                                           foreground=self.Update_DStudentRegistationFGColor)
+            self.Student_Update_last_name_label.configure(background=self.Update_DStudentRegistationBGColor,
+                                                          foreground=self.Update_DStudentRegistationFGColor)
+            self.Student_Update_phone_number_label.configure(background=self.Update_DStudentRegistationBGColor,
+                                                             foreground=self.Update_DStudentRegistationFGColor)
+            self.Student_Update_age_label.configure(background=self.Update_DStudentRegistationBGColor,
+                                                    foreground=self.Update_DStudentRegistationFGColor)
+            self.Student_Update_gender_label.configure(background=self.Update_DStudentRegistationBGColor,
+                                                       foreground=self.Update_DStudentRegistationFGColor)
+            self.Student_Update_subects_label.configure(background=self.Update_DStudentRegistationBGColor,
+                                                        foreground=self.Update_DStudentRegistationFGColor)
+            self.Student_Update_Update_teachet_button.configure(background=self.Update_DStudentRegistationBGColor,
+                                                                foreground=self.Update_DStudentRegistationFGColor,
+                                                                activebackground=self.Update_DStudentRegistationBGColor,
+                                                                activeforeground=self.Update_DStudentRegistationBGColor)
+            self.Student_Update_Student_registation_close_button.configure(
+                background=self.Update_DStudentRegistationBGColor,
+                foreground=self.Update_DStudentRegistationFGColor)
             self.Update_Student_label.configure(background=self.Update_DStudentRegistationBGColor,
                                                 foreground=self.Update_DStudentRegistationFGColor)
             self.Student_Update_back_page_img_button.configure(background=self.Update_DStudentRegistationBGColor,
-                                                       foreground=self.Update_DStudentRegistationFGColor)
+                                                               foreground=self.Update_DStudentRegistationFGColor)
             self.Student_Update_Student_registation_theme_change_button.configure(
                 background=self.Update_DStudentRegistationBGColor,
                 foreground=self.Update_DStudentRegistationFGColor,
@@ -3284,15 +3274,16 @@ class StudentUpdate(tk.Frame):
 
                                         subject_list = Student_Update_subjects.split(",")
 
-                                        checkSubject = all(item in AllSubjects for item in Student_Update_subjects.split(","))
+                                        checkSubject = all(
+                                            item in AllSubjects for item in Student_Update_subjects.split(","))
                                         if checkSubject is False:
                                             messagebox.showerror("Subject Error", "You Can Add Only Subjects ")
                                         else:
 
                                             self.conn = mysql.connector.connect(
-                                                                                user="root",
-                                                                                password="",
-                                                                                database="eduway")
+                                                user="root",
+                                                password="",
+                                                database="eduway")
                                             int(Student_Update_phone_number)
                                             int(Student_Update_age)
                                             self.connetc = self.conn.cursor()
@@ -3314,9 +3305,8 @@ class StudentUpdate(tk.Frame):
         self.Student_Update_phone_number_entry.delete(0, 'end')
 
 
-
-#this is the Teacher Home 
-#You can do all crud operations in hear
+# this is the Teacher Home
+# You can do all crud operations in hear
 class TeacherHome(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
@@ -3862,8 +3852,8 @@ class TeacherRegistation(tk.Frame):
                        height='515',
                        width='791')
         self.place(anchor='nw',
-                                                           x='0',
-                                                           y='0')
+                   x='0',
+                   y='0')
 
     def changeTeacherRegistationTheme(self):
         try:
@@ -4070,7 +4060,7 @@ class TeacherRegistation(tk.Frame):
                                             messagebox.showerror("Subject Error", "You Can Add Only Subjects ")
                                         else:
 
-                                            self.conn = mysql.connector.connect( user="root",
+                                            self.conn = mysql.connector.connect(user="root",
                                                                                 password="",
                                                                                 database="eduway")
                                             int(phone_number)
@@ -4101,8 +4091,6 @@ class TeacherRegistation(tk.Frame):
 
         # ============================================Need to return the view page===============================================#
 
-
-
     def __init__(self, master):
         tk.Frame.__init__(self, master)
 
@@ -4117,7 +4105,7 @@ class TeacherRegistation(tk.Frame):
                    y='0')
 
     def onClickGo(self):
-        self.conn = mysql.connector.connect( user="root",
+        self.conn = mysql.connector.connect(user="root",
                                             password="",
                                             database="eduway")
 
@@ -4130,7 +4118,7 @@ class TeacherRegistation(tk.Frame):
         self.conn.close()
 
 
-#this is the Student View 
+# this is the Student View
 # You can watch all Deatail About All Student
 class StudentView(tk.Frame):
     def __init__(self, master):
@@ -4169,7 +4157,7 @@ class StudentView(tk.Frame):
         self.Student_recodes.column("Subjects", width=220)
 
         # Add data
-        self.conn = mysql.connector.connect( user="root",
+        self.conn = mysql.connector.connect(user="root",
                                             password="",
                                             database="eduway")
 
@@ -4447,8 +4435,8 @@ class StudentView(tk.Frame):
 
 # This Is The Teacher View
 # You Can Watch All Deatail About All Teachers
-#need to repair
-class TeacherView(tk.Frame): 
+# need to repair
+class TeacherView(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
         self.sty = ttk.Style()
@@ -4485,7 +4473,7 @@ class TeacherView(tk.Frame):
         self.teacher_recodes.column("Subjects", width=220)
 
         # Add data
-        self.conn = mysql.connector.connect( user="root",
+        self.conn = mysql.connector.connect(user="root",
                                             password="",
                                             database="eduway")
 
@@ -4761,8 +4749,6 @@ class TeacherView(tk.Frame):
                                                             image=self.img_DarkThemeimg)
 
 
-
-
 # Abiout me
 class AboutMe(tk.Frame):
     def __init__(self, master):
@@ -4774,19 +4760,16 @@ class AboutMe(tk.Frame):
             print(e)
             messagebox.showerror("File Missing", "About_Me.png Is Missing")
 
-
-
-        self.about_bg_img  = tk.Label(self)
-        self.about_bg_img.configure(image=self.aboutmeimg , borderwidth='0')
-        self.about_bg_img.place(x='0',y="0")
+        self.about_bg_img = tk.Label(self)
+        self.about_bg_img.configure(image=self.aboutmeimg, borderwidth='0')
+        self.about_bg_img.place(x='0', y="0")
         self.configure(background='#121212',
                        height='515',
                        width='791')
-        self.place(x='0',y="0")
+        self.place(x='0', y="0")
 
 
-
-#this is the About page this page have option watch about me 
+# this is the About page this page have option watch about me
 # run_the_app_in_Hr_____VVVVVVVVVVV@
 if __name__ == "__main__":
     app = SchoolManegmentSystem()
