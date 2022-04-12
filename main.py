@@ -304,6 +304,7 @@ class LogInPage(tk.Frame):
                                 x='730',
                                 y='15')
 
+
         # this_clear_button_is_for_clear_All_input_fields
         self.clear_btton = tk.Button(self)
         try:
