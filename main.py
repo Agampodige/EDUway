@@ -63,7 +63,7 @@ class SchoolManegmentSystem(tk.Tk):
         self._frame = None
 
 ####################################### this is the page first load#################################################
-        self.switch_frame(StudentUpdate)
+        self.switch_frame(TeacherRegistation)
 
 
 
@@ -2103,6 +2103,7 @@ class StudentRegistation(tk.Frame):
 
 #####################################################Clear#######################################################
         self.Clearerrors()
+        self.ClearCommited()
 ####################################################Clear########################################################
 
 #*******************************************************************************************************************
@@ -2311,20 +2312,25 @@ class StudentRegistation(tk.Frame):
                                                        ]
                                         
                                         checkSubject = all(item in AllSubjects for item in Student_subjects.split(","))
+                                        ##########################Clear Error###############################
+                                        self.ClearSubjectError()
+                                        ###################################################################
                                         if checkSubject is False:
-                                            messagebox.showerror("Subject Error", "You Can Add Only Subjects ")
+                                            ########################Subject Error############################
+                                            self.SubjectError()
+                                            ################################################################
                                         else:
                                             # try:
                                             #     self.AgeNoError()
                                             # except:
                                             #     pass
-                                            try:  
-                                                self.conn = mysql.connector.connect(user="root",
-                                                                                password="",
-                                                                                database="eduway")
+                                            try: 
+                                                ##################Chekc db######################### 
+                                                self.connectDB()
+                                                ###################################################
                                             except:
                                                 #AddDB ERROR
-                                                print("DatabaseError")
+                                                self.DatabaseNotConnectedError()
 
                                             int(Student_phone_number)
                                             int(Student_age)
@@ -2344,6 +2350,7 @@ class StudentRegistation(tk.Frame):
                                             self.Clearerrors()
                                             self.connetc.close()
                                             self.conn.close()
+                                            self.Commited()
                                             # self.master.switch_frame(TeacherView)
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 
@@ -2476,6 +2483,7 @@ class StudentRegistation(tk.Frame):
         self.Studetn_Last_Name_No_error_label.place(anchor='nw',
                                                     x='610',
                                                     y='174')
+
     def NoDuplicateNameError(self):
         self.Studetn_Duplicate_Name_No_error_label = tk.Label(self)
         self.Studetn_Duplicate_Name_No_error_label.configure(background='#121212',
@@ -2688,7 +2696,92 @@ class StudentRegistation(tk.Frame):
             self.Studetn_Duplicate_Name_No_error_label.destroy()
         except:
             pass
-                   
+    
+
+    def DatabaseNotConnectedError(self):
+        ###############AGE Error##################################
+        try:
+            self.Database_not_Connected_error_label = tk.Label(self)
+            self.Database_not_Connected_error_label.configure(background='#121212',
+                                                                            borderwidth='0',
+                                                                            font='{Poppins} 8 {}',
+                                                                            foreground='#ff0f15')
+            self.Database_not_Connected_error_label.configure(text='Database Not Connected or Not Found')
+            self.Database_not_Connected_error_label.place(anchor='nw',
+                                                                        x='400',
+                                                                        y='420')
+        except:
+            pass
+        ####################################################################
+
+
+    def ClearDarabaseNotConnectedError(self):
+        try:
+            self.Database_not_Connected_error_label.destroy()
+        except:
+            pass
+
+    def connectDB(self):
+        try:
+            ###############Clear Db Errors############
+            self.ClearDarabaseNotConnectedError()
+            ##########################################
+
+            #################Conect Db#####################
+            self.conn = mysql.connector.connect(
+                    user="root",
+                    password="",
+                    database="eduway")
+            ############################################
+        except:
+            ##############################DB ERROR#######################
+            self.DatabaseNotConnectedError()
+            ##############################################################
+
+    def SubjectError(self):
+                ############### Error##################################
+        try:
+            self.Studetn_Subject_error_label = tk.Label(self)
+            self.Studetn_Subject_error_label.configure(background='#121212',
+                                                                            borderwidth='0',
+                                                                            font='{Poppins} 7 {}',
+                                                                            foreground='#ff0f15')
+            self.Studetn_Subject_error_label.configure(text='invalid Subject Check Again')
+            self.Studetn_Subject_error_label.place(anchor='nw',
+                                                                        x='500',
+                                                                        y='370')
+        except:
+            pass
+        ####################################################################
+
+    def ClearSubjectError(self):
+        try:
+            self.Studetn_Subject_error_label.destroy()
+        except:
+            pass
+
+    def Commited(self):
+        ###############AGE Error##################################
+        try:
+            self.Comited_label = tk.Label(self)
+            self.Comited_label.configure(background='#121212',
+                                                                            borderwidth='0',
+                                                                            font='{Poppins} 8 {}',
+                                                                            foreground='#2bff00')
+            self.Comited_label.configure(text='Student Added')
+            self.Comited_label.place(anchor='nw',
+                                                                        x='400',
+                                                                        y='420')
+        except:
+            pass
+        ####################################################################
+
+    def ClearCommited(self):
+        try:
+            self.Comited_label.destroy()
+        except:
+            pass
+
 # this is the update window
 # You can update all data in this fields
 class TeacherUpdate(tk.Frame):
@@ -4012,16 +4105,40 @@ class TeacherRegistation(tk.Frame):
     def goBackToTeacherHome(self):
         self.master.switch_frame(TeacherHome)
 
+
+##################################################Click Add Button##########################################################################
     def clickAdd(self):
+        ####################################################Clear###########################################################
+        self.Clearerrors()
+        self.ClearCommited()
+        ######################################################################################################################
+        #***********************************************************************************************************************#
+
+        ##############################################Create variabals##########################################################
         global Teacher_first_name, Teacher_last_name, Teacher_phone_number, Teacher_age, Teacher_Admission_Number, Teacher_subjects
+         #^^^^^^This is All variabels
+
         Teacher_first_name = self.Teacher_first_name_entry.get()
+
         Teacher_last_name = self.Teacher_last_name_entry.get()
+
         Teacher_phone_number = self.Teacher_phone_number_entry.get()
+
         Teacher_age = self.Teacher_age_entry.get()
+
         Teacher_Admission_Number = self.Teacher_Admission_Number_entry.get()
+
         Teacher_subjects = self.Teacher_subject_entry.get()
+
         Update_gender = Teacher_Admission_Number
+
         Update_subjects = Teacher_subjects
+
+
+        #*******************************************************************************************************************
+
+#*******************************************************************************************************************
+###############################################Check All Fields Are Empty###########################################
         if Teacher_first_name == "" or Teacher_last_name == "" or Teacher_phone_number == "" or Teacher_age == "" or Update_gender == "" or Update_subjects == "":
             ##############################Clear All Erorr##################################
             try:
@@ -4068,11 +4185,6 @@ class TeacherRegistation(tk.Frame):
 
                     Teacher_last_name.capitalize()                              
                     if Teacher_first_name.capitalize() == Teacher_last_name.capitalize():
-                        ###############################Clear LAST NAME#######################
-                        try:
-                            self.ClearNoLastNameError()
-                        except:
-                            pass
                         ################################Add Duplicated Error#################
                         try:
                             self.NameDuplicatedErorr()
@@ -4165,8 +4277,17 @@ class TeacherRegistation(tk.Frame):
                                         pass
                                     
                                     if len(Teacher_age) > 2:
-                                        messagebox.showerror("Age Error", "You Can Only Type Two Numbers For Age ")
+                                        # messagebox.showerror("Age Error", "You Can Only Type Two Numbers For Age ")
+                                        ################################NEW AGE #######################################
+                                        self.AgeError()
+                                        ###############################################################################
                                     else:
+                                        #############################Clear Age Error#####################################
+                                        try:
+                                            self.ClearAgeError()
+                                        except:
+                                            pass
+                                        #################################################################################
                                         genderIndex = ['male', "Male", "female", "Female", "m", "M", "F", "f"]
                                         if Update_gender not in genderIndex:
                                             messagebox.showerror("Age Error", "You Can Add Only Type Male or Female ")
@@ -4175,6 +4296,8 @@ class TeacherRegistation(tk.Frame):
                                                 Update_gender = "Male"
                                             else:
                                                 Update_gender = "Female"
+
+                                            
                                             AllSubjects = ['Sinhala', 'SINHALA', 'Sin', 'sin',
                                                         'Tamil', 'tamil', 'tam', 'Tam',
                                                         'English', 'english', "En", 'en',
@@ -4207,15 +4330,30 @@ class TeacherRegistation(tk.Frame):
                                             subject_list = Update_subjects.split(",")
 
                                             checkSubject = all(item in AllSubjects for item in Update_subjects.split(","))
+                                            ##########################Clear Error###############################
+                                            self.ClearSubjectError()
+                                            ###################################################################
                                             if checkSubject is False:
-                                                messagebox.showerror("Subject Error", "You Can Add Only Subjects ")
+                                                # messagebox.showerror("Subject Error", "You Can Add Only Subjects ")
+                                                ########################Subject Error############################
+                                                self.SubjectError()
+                                                ################################################################
                                             else:
+                                                  # try:
+                                                #     self.AgeNoError()
+                                                # except:
+                                                #     pass
+                                                try: 
+                                                    ##################Chekc db######################### 
+                                                    self.connectDB()
+                                                    ###################################################
+                                                except:
+                                                    #AddDB ERROR
+                                                    self.DatabaseNotConnectedError()
 
-                                                self.conn = mysql.connector.connect(
-                                                    user="root",
-                                                    password="",
-                                                    database="eduway")
                                                 self.connetc = self.conn.cursor()
+                                                self.connetc.execute(
+                                                "CREATE TABLE IF NOT EXISTS teacher (id INT AUTO_INCREMENT PRIMARY KEY, FirstName VARCHAR(50), LAstName VARCHAR(50), PhoneNumber INT(50), Age INT(2), Gender VARCHAR(10) ,Subjects VARCHAR(255) )")
                                                 self.connetc.execute(
                                                     "INSERT INTO  teacher (FirstName, LAstName, PhoneNumber, Age, Gender, Subjects) VALUES (%s,%s,%s,%s,%s,%s)",
                                                     (str(Teacher_first_name.capitalize()), str(Teacher_last_name.capitalize()),
@@ -4228,6 +4366,8 @@ class TeacherRegistation(tk.Frame):
                                                 self.connetc.close()
                                                 self.conn.close()
                                                 # self.master.switch_frame(TeacherView)
+                                                self.Commited()
+#################################################################################################################                                
 
     def clearTeacherRegistation(self):
         self.Teacher_first_name_entry.delete(0, 'end')
@@ -4253,7 +4393,7 @@ class TeacherRegistation(tk.Frame):
             self.Studetn_int_Phone_Number_No_error_label.destroy()
         except:
             pass
- 
+    
 ######################################################All Fields Required#########################################
 
     def AllFildsRequiredErorr(self):
@@ -4319,6 +4459,7 @@ class TeacherRegistation(tk.Frame):
                                                 x='610',
                                                 y='123')
 
+
 ############################################################Last Name################################################
     def LastNameError(self):
         try:
@@ -4353,7 +4494,7 @@ class TeacherRegistation(tk.Frame):
         self.Studetn_Last_Name_No_error_label.place(anchor='nw',
                                                     x='610',
                                                     y='174')
-                                                    
+
     def NoDuplicateNameError(self):
         self.Studetn_Duplicate_Name_No_error_label = tk.Label(self)
         self.Studetn_Duplicate_Name_No_error_label.configure(background='#121212',
@@ -4566,7 +4707,91 @@ class TeacherRegistation(tk.Frame):
             self.Studetn_Duplicate_Name_No_error_label.destroy()
         except:
             pass
-  
+    
+
+    def DatabaseNotConnectedError(self):
+        ###############AGE Error##################################
+        try:
+            self.Database_not_Connected_error_label = tk.Label(self)
+            self.Database_not_Connected_error_label.configure(background='#121212',
+                                                                            borderwidth='0',
+                                                                            font='{Poppins} 8 {}',
+                                                                            foreground='#ff0f15')
+            self.Database_not_Connected_error_label.configure(text='Database Not Connected or Not Found')
+            self.Database_not_Connected_error_label.place(anchor='nw',
+                                                                        x='400',
+                                                                        y='420')
+        except:
+            pass
+        ####################################################################
+
+
+    def ClearDarabaseNotConnectedError(self):
+        try:
+            self.Database_not_Connected_error_label.destroy()
+        except:
+            pass
+
+    def connectDB(self):
+        try:
+            ###############Clear Db Errors############
+            self.ClearDarabaseNotConnectedError()
+            ##########################################
+
+            #################Conect Db#####################
+            self.conn = mysql.connector.connect(
+                    user="root",
+                    password="",
+                    database="eduway")
+            ############################################
+        except:
+            ##############################DB ERROR#######################
+            self.DatabaseNotConnectedError()
+            ##############################################################
+
+    def SubjectError(self):
+                ############### Error##################################
+        try:
+            self.Studetn_Subject_error_label = tk.Label(self)
+            self.Studetn_Subject_error_label.configure(background='#121212',
+                                                                            borderwidth='0',
+                                                                            font='{Poppins} 7 {}',
+                                                                            foreground='#ff0f15')
+            self.Studetn_Subject_error_label.configure(text='invalid Subject Check Again')
+            self.Studetn_Subject_error_label.place(anchor='nw',
+                                                                        x='500',
+                                                                        y='370')
+        except:
+            pass
+        ####################################################################
+
+    def ClearSubjectError(self):
+        try:
+            self.Studetn_Subject_error_label.destroy()
+        except:
+            pass
+
+    def Commited(self):
+        ###############AGE Error##################################
+        try:
+            self.Comited_label = tk.Label(self)
+            self.Comited_label.configure(background='#121212',
+                                                                            borderwidth='0',
+                                                                            font='{Poppins} 8 {}',
+                                                                            foreground='#2bff00')
+            self.Comited_label.configure(text='Student Added')
+            self.Comited_label.place(anchor='nw',
+                                                                        x='400',
+                                                                        y='420')
+        except:
+            pass
+        ####################################################################
+
+    def ClearCommited(self):
+        try:
+            self.Comited_label.destroy()
+        except:
+            pass
     
 
 
