@@ -4143,6 +4143,338 @@ class TeacherRegistation(tk.Frame):
         self.Teacher_age_entry.delete(0, 'end')
         self.Teacher_phone_number_entry.delete(0, 'end')
 
+    def Clearerrors(self):
+        try:
+            self.Studetn_All_Fields_Required_error_label.destroy()
+            self.Studetn_First_Name_No_error_label.destroy()
+            self.Studetn_Last_Name_No_error_label.destroy()
+            self.Studetn_Last_Name_error_label.destroy()
+            self.Studetn_Duplicate_Name_error_label.destroy()
+            self.Studetn_Last_Name_No_error_label.destroy()
+            self.Studetn_lenth_Phone_Number_No_error_label.destroy()
+            self.Studetn_lenth_Phone_number_error_label.destroy()
+            self.Studetn_0_Phone_number_error_label.destroy()
+            self.Studetn_int_Phone_number_error_label.destroy()
+            self.Studetn_0_Phone_Number_No_error_label.destroy()
+            self.Studetn_int_Phone_Number_No_error_label.destroy()
+        except:
+            pass
+ 
+######################################################All Fields Required#########################################
+
+    def AllFildsRequiredErorr(self):
+        try:
+                self.Studetn_First_Name_error_label.destroy()
+                self.Studetn_First_Name_No_error_label.destroy()
+        except:
+            pass
+
+
+            ################################Place Eror################################
+        self.Studetn_All_Fields_Required_error_label = tk.Label(self)
+        self.Studetn_All_Fields_Required_error_label.configure(background='#121212',
+                                                    borderwidth='0',
+                                                    font='{Poppins} 9 {}',
+                                                    foreground='#ff0f15')
+        self.Studetn_All_Fields_Required_error_label.configure(text='All Fields Are Required')
+        self.Studetn_All_Fields_Required_error_label.place(anchor='nw',
+                                                x='500',
+                                                y='123')
+
+    def AllFildsRequiredErorrDestroy(self):
+        try:
+            self.Studetn_All_Fields_Required_error_label.destroy()
+        except:
+            pass
+
+######################################################First Name###################################################
+
+    def FirstNameErorr(self):
+        try:
+            self.Studetn_First_Name_error_label.destroy()
+            self.Studetn_First_Name_No_error_label.destroy()
+        except:
+            pass
+                
+###################################################place Studetn_First_Name_error_label############################
+        self.Studetn_First_Name_error_label = tk.Label(self)
+        self.Studetn_First_Name_error_label.configure(background='#121212',
+                                                    borderwidth='0',
+                                                    font='{Poppins} 9 {}',
+                                                    foreground='#ff0f15')
+        self.Studetn_First_Name_error_label.configure(text='First Name Is Too Long')
+        self.Studetn_First_Name_error_label.place(anchor='nw',
+                                                x='500',
+                                                y='123')
+    
+    def FirstNameNoErorr(self):
+        try:
+ ##############################Distroy Studetn_First_Name_error_label#######################
+            self.Studetn_First_Name_error_label.destroy()
+        except:
+            pass
+
+                ####################################Place Studetn_First_Name_No_error_label######################
+            self.Studetn_First_Name_No_error_label = tk.Label(self)
+            self.Studetn_First_Name_No_error_label.configure(background='#121212',
+                                                    borderwidth='0',
+                                                    font='{Poppins} 9 {}',
+                                                    foreground='#09ff00')
+            self.Studetn_First_Name_No_error_label.configure(text=""+u'\u2713')
+            self.Studetn_First_Name_No_error_label.place(anchor='nw',
+                                                x='610',
+                                                y='123')
+
+
+############################################################Last Name################################################
+    def LastNameError(self):
+        try:
+            self.Studetn_Last_Name_No_error_label.destroy()
+        except:
+            pass
+                    
+        self.Studetn_Last_Name_error_label = tk.Label(self)
+        self.Studetn_Last_Name_error_label.configure(background='#121212',
+                                                        borderwidth='0',
+                                                        font='{Poppins} 8 {}',
+                                                        foreground='#ff0f15')
+        self.Studetn_Last_Name_error_label.configure(text='Last Name Is Too Long')
+        self.Studetn_Last_Name_error_label.place(anchor='nw',
+                                                    x='500',
+                                                    y='174')
+
+    def ClearLastNameError(self):
+        try:
+            self.Studetn_Last_Name_error_label.destroy()
+
+        except:
+            pass
+
+    def NoLastNameError(self):
+        self.Studetn_Last_Name_No_error_label = tk.Label(self)
+        self.Studetn_Last_Name_No_error_label.configure(background='#121212',
+                                                        borderwidth='0',
+                                                        font='{Poppins} 8 {}',
+                                                        foreground='#09ff00')
+        self.Studetn_Last_Name_No_error_label.configure(text=""+u'\u2713')
+        self.Studetn_Last_Name_No_error_label.place(anchor='nw',
+                                                    x='610',
+                                                    y='174')
+    def NoDuplicateNameError(self):
+        self.Studetn_Duplicate_Name_No_error_label = tk.Label(self)
+        self.Studetn_Duplicate_Name_No_error_label.configure(background='#121212',
+                                                        borderwidth='0',
+                                                        font='{Poppins} 8 {}',
+                                                        foreground='#09ff00')
+        self.Studetn_Duplicate_Name_No_error_label.configure(text=""+u'\u2713')
+        self.Studetn_Duplicate_Name_No_error_label.place(anchor='nw',
+                                                    x='610',
+                                                    y='174')
+
+    def ClearNoLastNameError(self):
+        try:
+            self.Studetn_Last_Name_No_error_label.destroy()
+        except:
+            pass
+        
+    def NameDuplicatedErorr(self):
+        self.Studetn_Duplicate_Name_error_label = tk.Label(self)
+        self.Studetn_Duplicate_Name_error_label.configure(background='#121212',
+                                                            borderwidth='0',
+                                                            font='{Poppins} 8 {}',
+                                                            foreground='#ff0f15')
+        self.Studetn_Duplicate_Name_error_label.configure(text='Name Duplicated')
+        self.Studetn_Duplicate_Name_error_label.place(anchor='nw',
+                                                        x='500',
+                                                        y='174')
+    
+    def ClearNameDuplicatedErorr(self):
+
+        try:
+            self.Studetn_Duplicate_Name_error_label.destroy()
+
+        except:
+            pass
+
+    def clearAllPhoneErors(self):
+
+        try:
+            self.ClearPhoneNumberLenthErorr()
+            self.ClearPhoneNumberTypeErorr()
+            self.ClearPhoneNumberZeroError()
+            self.Studetn_int_Phone_number_error_label.destroy()
+            self.Studetn_0_Phone_Number_No_error_label.destroy()
+            self.Studetn_int_Phone_Number_No_error_label.destroy()
+        except:
+            pass
+
+    def PhoneNumberLenthErorr(self):
+
+        #####################PHONE NUMBER LENTH ERROR ##########################
+        self.Studetn_lenth_Phone_number_error_label = tk.Label(self)
+        self.Studetn_lenth_Phone_number_error_label.configure(background='#121212',
+                                                                borderwidth='0',
+                                                                font='{Poppins} 7 {}',
+                                                                foreground='#ff0f15')
+        self.Studetn_lenth_Phone_number_error_label.configure(text='Not Phone Number')
+        self.Studetn_lenth_Phone_number_error_label.place(anchor='nw',
+                                                            x='500',
+                                                            y='274')
+        #########################################################################
+
+    def ClearPhoneNumberLenthErorr(self):
+
+        ##################DISTROY PHONE NUMBER ERROR###################
+        try:
+            self.Studetn_lenth_Phone_number_error_label.destroy()
+        except:
+            pass
+        ##############################################################
+
+    def PhoneNumberLenthNoErorr(self):
+
+        ####################NO ERROR PHONE NUMBER LENTH######################
+        self.Studetn_lenth_Phone_Number_No_error_label = tk.Label(self)
+        self.Studetn_lenth_Phone_Number_No_error_label.configure(background='#121212',
+                                                                borderwidth='0',
+                                                                font='{Poppins} 7 {}',
+                                                                foreground='#09ff00')
+        self.Studetn_lenth_Phone_Number_No_error_label.configure(text=""+u'\u2713')
+        self.Studetn_lenth_Phone_Number_No_error_label.place(anchor='nw',
+                                                            x='610',
+                                                            y='274')    
+        #####################################################################
+
+
+    def PhoneNumberTypeErorr(self):
+        ####################PHONE NUMBER TYPE ERORR########################
+        self.Studetn_int_Phone_number_error_label = tk.Label(self)
+        self.Studetn_int_Phone_number_error_label.configure(background='#121212',
+                                                                    borderwidth='0',
+                                                                    font='{Poppins} 7 {}',
+                                                                    foreground='#ff0f15')
+        self.Studetn_int_Phone_number_error_label.configure(text='Type Number')
+        self.Studetn_int_Phone_number_error_label.place(anchor='nw',
+                                                                x='500',
+                                                                y='274')
+        ########################################################################
+
+
+    def ClearPhoneNumberTypeErorr(self):
+        ###############PHONE NUMBER CLEAR#################
+        try:
+            self.Studetn_int_Phone_number_error_label.destroy()
+        except:
+            pass
+        ##################################################
+
+    def PhoneNumberNoTypeErorr(self):
+
+        #####################PHONE NUMBER TYPE ERROR##############
+        self.Studetn_int_Phone_Number_No_error_label = tk.Label(self)
+        self.Studetn_int_Phone_Number_No_error_label.configure(background='#121212',
+                                                                    borderwidth='0',
+                                                                    font='{Poppins} 7 {}',
+                                                                    foreground='#09ff00')
+        self.Studetn_int_Phone_Number_No_error_label.configure(text=""+u'\u2713')
+        self.Studetn_int_Phone_Number_No_error_label.place(anchor='nw',
+                                                                x='610',
+                                                                y='274')
+        ##########################################################
+
+    def PhoneNumberZeroError(self):
+
+        #####################PHONE NUMBER ZERO ERROR################
+        self.Studetn_0_Phone_number_error_label = tk.Label(self)
+        self.Studetn_0_Phone_number_error_label.configure(background='#121212',
+                                                                        borderwidth='0',
+                                                                        font='{Poppins} 7 {}',
+                                                                        foreground='#ff0f15')
+        self.Studetn_0_Phone_number_error_label.configure(text='Invalid Phone Number')
+        self.Studetn_0_Phone_number_error_label.place(anchor='nw',
+                                                                    x='500',
+                                                                    y='274')
+        ############################################################
+
+    def ClearPhoneNumberZeroError(self):
+        ##########CLEAR PHONE NUMBER###############################
+        try:
+            self.Studetn_0_Phone_number_error_label.configure(background='#121212',
+                                                                        borderwidth='0',
+                                                                        font='{Poppins} 0 {}',
+                                                                        foreground='#121212')
+            self.Studetn_0_Phone_number_error_label.destroy()
+        except:
+            pass
+        ##########################################################
+
+    def PhoneNumberNoZeroError(self):
+
+        #################PHONE NUMBER ZERO NO ERROR################################
+        self.Studetn_0_Phone_Number_No_error_label = tk.Label(self)
+        self.Studetn_0_Phone_Number_No_error_label.configure(background='#121212',
+                                                                        borderwidth='0',
+                                                                        font='{Poppins} 7 {}',
+                                                                        foreground='#09ff00')
+        self.Studetn_0_Phone_Number_No_error_label.configure(text=""+u'\u2713')
+        self.Studetn_0_Phone_Number_No_error_label.place(anchor='nw',
+                                                                    x='610',
+                                                                    y='274')   
+        ############################################################################
+
+    def AgeError(self):
+
+        ###############AGE Error##################################
+        try:
+            self.Studetn_Age_error_label = tk.Label(self)
+            self.Studetn_Age_error_label.configure(background='#121212',
+                                                                            borderwidth='0',
+                                                                            font='{Poppins} 7 {}',
+                                                                            foreground='#ff0f15')
+            self.Studetn_Age_error_label.configure(text='Number Too Long')
+            self.Studetn_Age_error_label.place(anchor='nw',
+                                                                        x='500',
+                                                                        y='225')
+        except:
+            pass
+        ####################################################################
+
+    def ClearAgeError(self):
+
+        ################CLEAR AGE ERROR#############
+        try:
+            self.Studetn_Age_error_label.destroy()
+        except:
+            pass
+        ###############################################################
+
+    def AgeNoError(self):
+
+        #################PHONE NUMBER ZERO NO ERROR################################
+        self.Studetn_Age_No_error_label = tk.Label(self)
+        self.Studetn_Age_No_error_label.configure(background='#121212',
+                                                                        borderwidth='0',
+                                                                        font='{Poppins} 7 {}',
+                                                                        foreground='#09ff00')
+        self.Studetn_Age_No_error_label.configure(text=""+u'\u2713')
+        self.Studetn_Age_No_error_label.place(anchor='nw',
+                                                                    x='610',
+                                                                    y='225')   
+        ############################################################################     
+
+    def ClearAllStuf(self):
+        ########################Clear No ERRORS###################################
+        try:
+            self.Studetn_First_Name_No_error_label.destroy()
+            self.Studetn_lenth_Phone_Number_No_error_label.destroy()
+            self.Studetn_int_Phone_Number_No_error_label.destroy()
+            self.Studetn_Age_No_error_label.destroy()
+            self.Studetn_Duplicate_Name_No_error_label.destroy()
+        except:
+            pass
+  
+    
+
 
 class StudentUpdate(tk.Frame):
     def __init__(self, master):
