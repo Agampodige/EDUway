@@ -2,6 +2,7 @@
 #################Copyrigh@Rashith Senishka De Silva#################################
 
 ##########################################Import Sys##################################
+from ast import Pass
 import sys
 
 ###################################Import Time For Splash Screen#############
@@ -63,7 +64,7 @@ class SchoolManegmentSystem(tk.Tk):
         self._frame = None
 
 ####################################### this is the page first load#################################################
-        self.switch_frame(TeacherRegistation)
+        self.switch_frame(StudentUpdate)
 
 
 
@@ -5135,6 +5136,11 @@ class StudentUpdate(tk.Frame):
                   side='top')
 
     def clickGo(self):
+#####################################################Clear#######################################################
+        self.Clearerrors()
+        self.ClearCommited()
+####################################################Clear########################################################
+
         global Student_changeId
 
         Student_changeId = self.Student_Update_Id_entry.get()
@@ -5145,6 +5151,12 @@ class StudentUpdate(tk.Frame):
             ##########################clear Error ########################################################
             try:
                 self.clearEmptyChangeIdError()
+                self.clearStudentUpdate()
+                        #####################################################Clear#######################################################
+                self.Clearerrors()
+                self.ClearCommited()
+        ####################################################Clear########################################################
+
             except:
                 pass
             #############################################################################################
@@ -5154,7 +5166,7 @@ class StudentUpdate(tk.Frame):
             ####################################################################################
         
         else:
-            
+            self.clearStudentUpdate()
             ##########################clear Error ########################################################
             try:
                 self.clearEmptyChangeIdError()
@@ -5192,6 +5204,9 @@ class StudentUpdate(tk.Frame):
             ##############################################################
             self.connetc.close()
             self.conn.close()
+            if Student_changeId =="":
+                self.EmptyChangeIdError()
+
 
     def changeStudentUpdateTheme(self):
         try:
@@ -5389,7 +5404,6 @@ class StudentUpdate(tk.Frame):
 
                     
                 else:
-                    Student_first_name.capitalize()
                     # self.FirstNameNoErorr()
                     
                     ############################Distroy First name Error##################################
@@ -5397,7 +5411,6 @@ class StudentUpdate(tk.Frame):
                         self.Studetn_First_Name_error_label.destroy()
                     except:
                         pass
-                    Student_Update_first_name.capitalize()
 
                     if len(Student_Update_last_name) > 50:
                         # messagebox.showerror("Second Name Error", "Your Name Is Too Long")
@@ -5441,24 +5454,68 @@ class StudentUpdate(tk.Frame):
 
                             if len(Student_Update_phone_number) != 10:
                                 # messagebox.showerror("Phone Number Error", "You Can Add Only 10 Digit number")
+                                    ##################################Distroy Number No Eror################# 
+                                try:                         
+                                    self.clearAllPhoneErors()
+                                except:
+                                    pass
+
+                                ##################################PHONE NUMBER LENTH ERROR#####################
+                                try:
+                                    self.PhoneNumberLenthErorr()
+                                except:
+                                    pass
+
+    ###################################################Distroy Studetn_lenth_Phone_number_error_label############
                             else:
+                                    ###############################Clear phone number lenth erorr####################
+                                try:
+                                    self.ClearPhoneNumberLenthErorr()
+                                except:
+                                    pass
+
                                 try:
                                     int(Student_Update_phone_number)
                                 except Exception as e:
-                                    messagebox.showerror("Type Error", "You Can Only Type Numbers For Phone Number ")
-                                    print(e)
+                                    pass
+
                                 if int(Student_Update_phone_number[0]) != 0:
-                                    messagebox.showerror("Type Error", "This is Not Phone Number")
+                                    # messagebox.showerror("Type Error", "This is Not Phone Number")
+                                        ######################################################Distroy All Error##################################
+                                    try:
+                                        self.clearAllPhoneErors()
+                                    except:
+                                        pass
+    #####################################################Place Studetn_int_Phone_number_error_label####################
+                                    try:
+                                        self.PhoneNumberTypeErorr()
+                                    except:
+                                        pass
                                 else:
+                                        
+    ####################################################Distroy Studetn_int_Phone_number_error_label ##################
+                                    try:
+                                        self.clearAllPhoneErors()
+                                    except:
+                                        pass
+    ##################################################Place  Studetn_int_Phone_Number_No_error_label####################
+                                    # self.PhoneNumberNoTypeErorr()
+    ################################
                                     try:
                                         self.Student_Admission_Number = int(Student_Update_gender)
                                     except:
-                                        messagebox.showerror("AdmissionNumber Error",
-                                                            "You Can Only Type  Numbers For AdmissionNumber ")
+                                        # messagebox.showerror("AdmissionNumber Error",
+                                        #                     "You Can Only Type  Numbers For AdmissionNumber ")
+                                        pass
 
                                     if len(Student_Update_age) > 2:
-                                        messagebox.showerror("Age Error", "You Can Only Type Two Numbers For Age ")
+                                        # messagebox.showerror("Age Error", "You Can Only Type Two Numbers For Age ")
+                                        self.AgeError()
                                     else:
+                                        try:
+                                            self.ClearAgeError()
+                                        except:
+                                            pass
                                         if isinstance(self.Student_Admission_Number, int):
 
                                             AllSubjects = ['Sinhala', 'SINHALA', 'Sin', 'sin', "sinhala",
@@ -5491,14 +5548,28 @@ class StudentUpdate(tk.Frame):
                                                         ]
 
                                             checkSubject = all(item in AllSubjects for item in Student_Update_subjects.split(","))
+                                                ##########################Clear Error###############################
+                                            self.ClearSubjectError()
+                                            ###################################################################
                                             if checkSubject is False:
-                                                messagebox.showerror("Subject Error", "You Can Add Only Subjects ")
+                                                # messagebox.showerror("Subject Error", "You Can Add Only Subjects ")
+                                                    ########################Subject Error############################
+                                                self.SubjectError()
+                                                ################################################################
                                             else:
-                                                
-                                                self.conn = mysql.connector.connect(
-                                                    user="root",
-                                                    password="",
-                                                    database="eduway")
+                                                    # try:
+                                                #     self.AgeNoError()
+                                                # except:
+                                                #     pass
+                                                try: 
+                                                    ##################Chekc db######################### 
+                                                    self.connectDB()
+                                                    ###################################################
+                                                except:
+                                                    #AddDB ERROR
+                                                    self.DatabaseNotConnectedError()
+
+
                                                 int(Student_Update_phone_number)
                                                 int(Student_Update_age)
                                                 self.connetc = self.conn.cursor()
@@ -5509,10 +5580,12 @@ class StudentUpdate(tk.Frame):
                                                 self.clearStudentUpdate()
                                                 self.connetc.close()
                                                 self.conn.close()
+                                                self.Commited()
                                                 # self.master.switch_frame(StudentView)
                                         else:
-                                            messagebox.showerror("AdmissionNumber Error",
-                                                                "You Can Only Type  Numbers For AdmissionNumber ")
+                                            # messagebox.showerror("AdmissionNumber Error",
+                                            #                     "You Can Only Type  Numbers For AdmissionNumber ")
+                                            pass
 
     def clearStudentUpdate(self):
         self.Student_Update_first_name_entry.delete(0, 'end')
@@ -5556,6 +5629,7 @@ class StudentUpdate(tk.Frame):
     def ChangeIdTypoeError(self):
         ###############AGE Error##################################
         try:
+            self.Clearerrors()
             self.Studetn_Change_id_type_error_label = tk.Label(self)
             self.Studetn_Change_id_type_error_label.configure(background='#121212',
                                                                             borderwidth='0',
@@ -5577,6 +5651,7 @@ class StudentUpdate(tk.Frame):
 
     def SelectChangedId(self):
         try:
+            self.Clearerrors()
             try:
                 self.clearChangeIdTypeError()
             except:
@@ -5600,6 +5675,7 @@ class StudentUpdate(tk.Frame):
         except:
             # messagebox.showerror("ID Name Error", "Invalid Id number Or No Id Number Finded")
             self.ChangeIdTypoeError()
+            self.Clearerrors()
 
     def DatabaseNotConnectedError(self):
         ###############AGE Error##################################
@@ -5690,6 +5766,9 @@ class StudentUpdate(tk.Frame):
 
     def Clearerrors(self):
         try:
+            self.clearAllPhoneErors()
+            self.clearChangeIdTypeError()
+            self.ClearAllStuf()
             self.Studetn_All_Fields_Required_error_label.destroy()
             self.Studetn_First_Name_No_error_label.destroy()
             self.Studetn_Last_Name_No_error_label.destroy()
@@ -5702,6 +5781,9 @@ class StudentUpdate(tk.Frame):
             self.Studetn_int_Phone_number_error_label.destroy()
             self.Studetn_0_Phone_Number_No_error_label.destroy()
             self.Studetn_int_Phone_Number_No_error_label.destroy()
+            self.Studetn_Age_error_label.destroy()
+            self.Studetn_Subject_error_label.destroy()
+
         except:
             pass
     
@@ -5746,12 +5828,12 @@ class StudentUpdate(tk.Frame):
         self.Studetn_First_Name_error_label = tk.Label(self)
         self.Studetn_First_Name_error_label.configure(background='#121212',
                                                     borderwidth='0',
-                                                    font='{Poppins} 9 {}',
+                                                    font='{Poppins} 7 {}',
                                                     foreground='#ff0f15')
         self.Studetn_First_Name_error_label.configure(text='First Name Is Too Long')
         self.Studetn_First_Name_error_label.place(anchor='nw',
                                                 x='500',
-                                                y='123')
+                                                y='130')
     
     def FirstNameNoErorr(self):
         try:
