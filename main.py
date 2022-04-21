@@ -5340,104 +5340,179 @@ class StudentUpdate(tk.Frame):
         self.master.switch_frame(StudentHome)
 
     def clickUpdate(self):
+        #####################################################Clear#######################################################
+        self.Clearerrors()
+        self.ClearCommited()
+####################################################Clear########################################################
+
+#*******************************************************************************************************************
+#########################################Create variabels###########################################################
         global Student_Update_first_name, Student_Update_last_name, Student_Update_phone_number, Student_Update_age, Student_Update_gender, Student_Update_subjects
+        #^^^^^^This is All variabels
+
         Student_Update_first_name = self.Student_Update_first_name_entry.get()
+        
         Student_Update_last_name = self.Student_Update_last_name_entry.get()
+        
         Student_Update_phone_number = self.Student_Update_phone_number_entry.get()
+        
         Student_Update_age = self.Student_Update_age_entry.get()
+        
         Student_Update_gender = self.Student_Update_gender_entry.get()
+        
         Student_Update_subjects = self.Student_Update_subject_entry.get()
-
-        if Student_Update_first_name == "" or Student_Update_last_name == "" or Student_Update_phone_number == "" or Student_Update_age == "" or Student_Update_gender == "" or Student_Update_subjects == "":
-            messagebox.showerror("insert status", "All Fields Are Required")
+        if self.Student_Update_Id_entry.get() == "":
+            self.clickGo()
         else:
-            if len(Student_Update_first_name) > 50:
-                messagebox.showerror("First Name Error", "Your Name Is Too Long")
+            if Student_Update_first_name == "" or Student_Update_last_name == "" or Student_Update_phone_number == "" or Student_Update_age == "" or Student_Update_gender == "" or Student_Update_subjects == "":
+                # messagebox.showerror("insert status", "All Fields Are Required")
+                ##############################Clear All Erorr##################################
+                try:
+                    self.Clearerrors()
+                except:
+                    pass
+                #################################Distroy Student First Name########################
+                #################################Place The Erorr###################################  
+                try:          
+                    self.AllFildsRequiredErorr()
+                except:
+                    pass
             else:
-                Student_Update_first_name.capitalize()
+                            ################################Distroy All Fields Erore#####################
+                self.AllFildsRequiredErorrDestroy()
+                 ##################################Student First Name Lenth Check#############
 
-                if len(Student_Update_last_name) > 50:
-                    messagebox.showerror("Second Name Error", "Your Name Is Too Long")
+                if len(Student_Update_first_name) > 50:
+                    # messagebox.showerror("First Name Error", "Your Name Is Too Long")
+                    ###################################Distroy Studetn_First_Name_No_error_label#####################
+                    self.FirstNameErorr()
+
+                    
                 else:
-                    Student_Update_last_name.capitalize()
-                    if Student_Update_first_name == Student_Update_last_name:
-                        messagebox.showerror("Copied Name Error", "Your First Name And Secont Name Is Duplicated")
+                    Student_first_name.capitalize()
+                    # self.FirstNameNoErorr()
+                    
+                    ############################Distroy First name Error##################################
+                    try:
+                        self.Studetn_First_Name_error_label.destroy()
+                    except:
+                        pass
+                    Student_Update_first_name.capitalize()
+
+                    if len(Student_Update_last_name) > 50:
+                        # messagebox.showerror("Second Name Error", "Your Name Is Too Long")
+                        #####################################Distroy Studetn_Last_Name_No_error_label###############
+                        try:
+                            self.LastNameError()
+                        except:
+                            pass
                     else:
-                        if len(Student_Update_phone_number) != 10:
-                            messagebox.showerror("Phone Number Error", "You Can Add Only 10 Digit number")
-                        else:
+                            ####################################Distroy Last Name Error#################################
+                        try:
+                            self.ClearLastNameError()
+                        except:
+                            pass
+                        # self.NoLastNameError()
+
+                        Student_Update_last_name.capitalize()
+                        if Student_Update_first_name == Student_Update_last_name:
+                            # messagebox.showerror("Copied Name Error", "Your First Name And Secont Name Is Duplicated")
+                            ###############################Clear LAST NAME#######################
                             try:
-                                int(Student_Update_phone_number)
-                            except Exception as e:
-                                messagebox.showerror("Type Error", "You Can Only Type Numbers For Phone Number ")
-                                print(e)
-                            if int(Student_Update_phone_number[0]) != 0:
-                                messagebox.showerror("Type Error", "This is Not Phone Number")
+                                self.ClearNoLastNameError()
+                            except:
+                                pass
+                            ################################Add Duplicated Error#################
+                            try:
+                                self.NameDuplicatedErorr()
+                            except:
+                                pass
+
+
+                        else:
+                                #############################Clear Duplicate error########################
+                            try: 
+                                self.ClearNameDuplicatedErorr()
+                            except:
+                                pass
+                            # self.NoDuplicateNameError()
+
+                                ################################Numeber Lenth Check########################################
+
+                            if len(Student_Update_phone_number) != 10:
+                                # messagebox.showerror("Phone Number Error", "You Can Add Only 10 Digit number")
                             else:
                                 try:
-                                    self.Student_Admission_Number = int(Student_Update_gender)
-                                except:
-                                    messagebox.showerror("AdmissionNumber Error",
-                                                         "You Can Only Type  Numbers For AdmissionNumber ")
-
-                                if len(Student_Update_age) > 2:
-                                    messagebox.showerror("Age Error", "You Can Only Type Two Numbers For Age ")
+                                    int(Student_Update_phone_number)
+                                except Exception as e:
+                                    messagebox.showerror("Type Error", "You Can Only Type Numbers For Phone Number ")
+                                    print(e)
+                                if int(Student_Update_phone_number[0]) != 0:
+                                    messagebox.showerror("Type Error", "This is Not Phone Number")
                                 else:
-                                    if isinstance(self.Student_Admission_Number, int):
-
-                                        AllSubjects = ['Sinhala', 'SINHALA', 'Sin', 'sin', "sinhala",
-                                                       'Tamil', 'tamil', 'tam', 'Tam', "TAMIL",
-                                                       'English', 'english', "En", 'en',
-                                                       'Mathematics', 'mathematics', "MATHEMATICS", "math", 'Math',
-                                                       'MATH',
-                                                       "Health", 'HEALTH', "HEAL", "health",
-                                                       "Geography", 'geography', 'GEOGRAPHY', 'geo', "Geo", "GEO",
-                                                       'French', "french", 'FRENCH',
-                                                       'Spanish', 'SPANISH', "spanish",
-                                                       'Computer Science', 'computer science', 'COMPUTER SCIENCE',
-                                                       'Art', 'ART', 'art',
-                                                       'Band', 'band', 'BAND',
-                                                       'Choir', "choir", 'CHOIR',
-                                                       'Drama', "drama", "DRAMA",
-                                                       "Sports", "SPORTS", "sports",
-                                                       'Science', 'science', "SCIENCE",
-                                                       'History', 'history', 'HISTORY',
-                                                       'Chess', 'CHESS', 'chess',
-                                                       "music", 'Music', 'MUSIC',
-                                                       "ict", 'ICT', "Ict",
-                                                       'Japan', 'japan', 'JAPAN',
-                                                       'China', 'china', 'CHINA',
-                                                       'Accounting', 'accounting', 'ACCOUNTING',
-                                                       'Latin', 'latin', 'LATIN',
-                                                       'Greek', 'greek', "GREEK",
-                                                       'Hebrew', 'HEBREW', "hebrew",
-                                                       'Zoology', "ZOOLOGY", "zoology",
-                                                       ]
-
-                                        checkSubject = all(
-                                            item in AllSubjects for item in Student_Update_subjects.split(","))
-                                        if checkSubject is False:
-                                            messagebox.showerror("Subject Error", "You Can Add Only Subjects ")
-                                        else:
-                                            
-                                            self.conn = mysql.connector.connect(
-                                                user="root",
-                                                password="",
-                                                database="eduway")
-                                            int(Student_Update_phone_number)
-                                            int(Student_Update_age)
-                                            self.connetc = self.conn.cursor()
-                                            self.connetc.execute(
-                                                f"UPDATE Student SET FirstName='{Student_Update_first_name}',LAstName='{Student_Update_last_name}',PhoneNumber='{Student_Update_phone_number}',Age='{Student_Update_age}',StudentAdmissionNumber='{(Student_Update_gender)}',Subjects='{Student_Update_subjects}' WHERE id={Student_changeId}")
-                                            # self.connetc.execute()
-                                            self.conn.commit()
-                                            self.clearStudentUpdate()
-                                            self.connetc.close()
-                                            self.conn.close()
-                                            # self.master.switch_frame(StudentView)
-                                    else:
+                                    try:
+                                        self.Student_Admission_Number = int(Student_Update_gender)
+                                    except:
                                         messagebox.showerror("AdmissionNumber Error",
-                                                             "You Can Only Type  Numbers For AdmissionNumber ")
+                                                            "You Can Only Type  Numbers For AdmissionNumber ")
+
+                                    if len(Student_Update_age) > 2:
+                                        messagebox.showerror("Age Error", "You Can Only Type Two Numbers For Age ")
+                                    else:
+                                        if isinstance(self.Student_Admission_Number, int):
+
+                                            AllSubjects = ['Sinhala', 'SINHALA', 'Sin', 'sin', "sinhala",
+                                                        'Tamil', 'tamil', 'tam', 'Tam', "TAMIL",
+                                                        'English', 'english', "En", 'en',
+                                                        'Mathematics', 'mathematics', "MATHEMATICS", "math", 'Math',
+                                                        'MATH',
+                                                        "Health", 'HEALTH', "HEAL", "health",
+                                                        "Geography", 'geography', 'GEOGRAPHY', 'geo', "Geo", "GEO",
+                                                        'French', "french", 'FRENCH',
+                                                        'Spanish', 'SPANISH', "spanish",
+                                                        'Computer Science', 'computer science', 'COMPUTER SCIENCE',
+                                                        'Art', 'ART', 'art',
+                                                        'Band', 'band', 'BAND',
+                                                        'Choir', "choir", 'CHOIR',
+                                                        'Drama', "drama", "DRAMA",
+                                                        "Sports", "SPORTS", "sports",
+                                                        'Science', 'science', "SCIENCE",
+                                                        'History', 'history', 'HISTORY',
+                                                        'Chess', 'CHESS', 'chess',
+                                                        "music", 'Music', 'MUSIC',
+                                                        "ict", 'ICT', "Ict",
+                                                        'Japan', 'japan', 'JAPAN',
+                                                        'China', 'china', 'CHINA',
+                                                        'Accounting', 'accounting', 'ACCOUNTING',
+                                                        'Latin', 'latin', 'LATIN',
+                                                        'Greek', 'greek', "GREEK",
+                                                        'Hebrew', 'HEBREW', "hebrew",
+                                                        'Zoology', "ZOOLOGY", "zoology",
+                                                        ]
+
+                                            checkSubject = all(item in AllSubjects for item in Student_Update_subjects.split(","))
+                                            if checkSubject is False:
+                                                messagebox.showerror("Subject Error", "You Can Add Only Subjects ")
+                                            else:
+                                                
+                                                self.conn = mysql.connector.connect(
+                                                    user="root",
+                                                    password="",
+                                                    database="eduway")
+                                                int(Student_Update_phone_number)
+                                                int(Student_Update_age)
+                                                self.connetc = self.conn.cursor()
+                                                self.connetc.execute(
+                                                    f"UPDATE Student SET FirstName='{Student_Update_first_name}',LAstName='{Student_Update_last_name}',PhoneNumber='{Student_Update_phone_number}',Age='{Student_Update_age}',Student_Admission_Number='{(Student_Update_gender)}',Subjects='{Student_Update_subjects}' WHERE id={Student_changeId}")
+                                                # self.connetc.execute()
+                                                self.conn.commit()
+                                                self.clearStudentUpdate()
+                                                self.connetc.close()
+                                                self.conn.close()
+                                                # self.master.switch_frame(StudentView)
+                                        else:
+                                            messagebox.showerror("AdmissionNumber Error",
+                                                                "You Can Only Type  Numbers For AdmissionNumber ")
 
     def clearStudentUpdate(self):
         self.Student_Update_first_name_entry.delete(0, 'end')
@@ -5542,6 +5617,12 @@ class StudentUpdate(tk.Frame):
             pass
         ####################################################################
 
+    def ClearCommited(self):
+        try:
+            self.Comited_label.destroy()
+        except:
+            pass
+
 
     def ClearDarabaseNotConnectedError(self):
         try:
@@ -5588,6 +5669,22 @@ class StudentUpdate(tk.Frame):
         except:
             pass
 
+    def Commited(self):
+        ###############AGE Error##################################
+        try:
+            self.Comited_label = tk.Label(self)
+            self.Comited_label.configure(background='#121212',
+                                                                            borderwidth='0',
+                                                                            font='{Poppins} 8 {}',
+                                                                            foreground='#2bff00')
+            self.Comited_label.configure(text='Student Added')
+            self.Comited_label.place(anchor='nw',
+                                                                        x='400',
+                                                                        y='420')
+        except:
+            pass
+        ####################################################################
+
 
 ##############################################################Clear error labales###################################
 
@@ -5623,12 +5720,12 @@ class StudentUpdate(tk.Frame):
         self.Studetn_All_Fields_Required_error_label = tk.Label(self)
         self.Studetn_All_Fields_Required_error_label.configure(background='#121212',
                                                     borderwidth='0',
-                                                    font='{Poppins} 9 {}',
+                                                    font='{Poppins} 7 {}',
                                                     foreground='#ff0f15')
         self.Studetn_All_Fields_Required_error_label.configure(text='All Fields Are Required')
         self.Studetn_All_Fields_Required_error_label.place(anchor='nw',
                                                 x='500',
-                                                y='123')
+                                                y='130')
 
     def AllFildsRequiredErorrDestroy(self):
         try:
