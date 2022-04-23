@@ -1958,95 +1958,324 @@ class StudentRegistation(tk.Frame):
         if self.Student_back_page_img_button["background"] == "#121212":
             self.StudentRegistationBGColor = "#ffffff"
             self.StudentRegistationFGColor = "#000000"
-            self.configure(background=self.StudentRegistationBGColor)
-            self.Student_element_img_label.configure(background=self.StudentRegistationBGColor,
-                                                     foreground=self.StudentRegistationFGColor)
-            self.Student_First_name_Entry_bg_label.configure(background=self.StudentRegistationBGColor,
-                                                             foreground=self.StudentRegistationFGColor)
-            self.Student_Last_name_Entry_bg_label.configure(background=self.StudentRegistationBGColor,
+            try:
+                self.configure(background=self.StudentRegistationBGColor)
+                self.Student_element_img_label.configure(background=self.StudentRegistationBGColor,
+                                                        foreground=self.StudentRegistationFGColor)
+                self.Student_First_name_Entry_bg_label.configure(background=self.StudentRegistationBGColor,
+                                                                foreground=self.StudentRegistationFGColor)
+                self.Student_Last_name_Entry_bg_label.configure(background=self.StudentRegistationBGColor,
+                                                                foreground=self.StudentRegistationFGColor)
+                self.Student_age_Entry_bg_label.configure(background=self.StudentRegistationBGColor,
+                                                        foreground=self.StudentRegistationFGColor)
+                self.Student_phone_number_Entry_bg_label.configure(background=self.StudentRegistationBGColor,
+                                                                foreground=self.StudentRegistationFGColor)
+                self.Student_phone_number_Entry_bg_label.configure(background=self.StudentRegistationBGColor,
+                                                                foreground=self.StudentRegistationFGColor)
+                self.Student_Admission_Number_label.configure(background=self.StudentRegistationBGColor,
                                                             foreground=self.StudentRegistationFGColor)
-            self.Student_age_Entry_bg_label.configure(background=self.StudentRegistationBGColor,
-                                                      foreground=self.StudentRegistationFGColor)
-            self.Student_phone_number_Entry_bg_label.configure(background=self.StudentRegistationBGColor,
-                                                               foreground=self.StudentRegistationFGColor)
-            self.Student_phone_number_Entry_bg_label.configure(background=self.StudentRegistationBGColor,
-                                                               foreground=self.StudentRegistationFGColor)
-            self.Student_Admission_Number_label.configure(background=self.StudentRegistationBGColor,
-                                                          foreground=self.StudentRegistationFGColor)
-            self.Student_subects_label.configure(background=self.StudentRegistationBGColor,
-                                                 foreground=self.StudentRegistationFGColor)
-            self.Student_first_name_entry.configure(background=self.StudentRegistationBGColor,
+                self.Student_subects_label.configure(background=self.StudentRegistationBGColor,
                                                     foreground=self.StudentRegistationFGColor)
-            self.Student_Admission_Number_Entry_bg_label.configure(background=self.StudentRegistationBGColor,
-                                                                   foreground=self.StudentRegistationFGColor)
-            self.Student_First_name_Entry_bg_label.configure(background=self.StudentRegistationBGColor,
-                                                             foreground=self.StudentRegistationFGColor)
-            self.Student_Last_name_Entry_bg_label.configure(background=self.StudentRegistationBGColor,
+                self.Student_first_name_entry.configure(background=self.StudentRegistationBGColor,
+                                                        foreground=self.StudentRegistationFGColor)
+                self.Student_Admission_Number_Entry_bg_label.configure(background=self.StudentRegistationBGColor,
+                                                                    foreground=self.StudentRegistationFGColor)
+                self.Student_First_name_Entry_bg_label.configure(background=self.StudentRegistationBGColor,
+                                                                foreground=self.StudentRegistationFGColor)
+                self.Student_Last_name_Entry_bg_label.configure(background=self.StudentRegistationBGColor,
+                                                                foreground=self.StudentRegistationFGColor)
+                self.Student_age_Entry_bg_label.configure(background=self.StudentRegistationBGColor,
+                                                        foreground=self.StudentRegistationFGColor)
+                self.Student_phone_number_Entry_bg_label.configure(background=self.StudentRegistationBGColor,
+                                                                foreground=self.StudentRegistationFGColor)
+                self.Student_Subject_Entry_bg_label.configure(background=self.StudentRegistationBGColor,
                                                             foreground=self.StudentRegistationFGColor)
-            self.Student_age_Entry_bg_label.configure(background=self.StudentRegistationBGColor,
-                                                      foreground=self.StudentRegistationFGColor)
-            self.Student_phone_number_Entry_bg_label.configure(background=self.StudentRegistationBGColor,
-                                                               foreground=self.StudentRegistationFGColor)
-            self.Student_Subject_Entry_bg_label.configure(background=self.StudentRegistationBGColor,
-                                                          foreground=self.StudentRegistationFGColor)
-            self.Student_first_name_label.configure(background=self.StudentRegistationBGColor,
+                self.Student_first_name_label.configure(background=self.StudentRegistationBGColor,
+                                                        foreground=self.StudentRegistationFGColor)
+                self.Student_last_name_entry.configure(background=self.StudentRegistationBGColor,
                                                     foreground=self.StudentRegistationFGColor)
-            self.Student_last_name_entry.configure(background=self.StudentRegistationBGColor,
-                                                   foreground=self.StudentRegistationFGColor)
-            self.Student_last_name_label.configure(background=self.StudentRegistationBGColor,
-                                                   foreground=self.StudentRegistationFGColor)
-            self.Student_phone_number_entry.configure(background=self.StudentRegistationBGColor,
-                                                      foreground=self.StudentRegistationFGColor)
-            self.Student_phone_number_label.configure(background=self.StudentRegistationBGColor,
-                                                      foreground=self.StudentRegistationFGColor)
-            self.Student_age_entry.configure(background=self.StudentRegistationBGColor,
-                                             foreground=self.StudentRegistationFGColor)
-            self.Student_age_label.configure(background=self.StudentRegistationBGColor,
-                                             foreground=self.StudentRegistationFGColor)
-            self.Student_Admission_Number_entry.configure(background=self.StudentRegistationBGColor,
-                                                          foreground=self.StudentRegistationFGColor)
-            self.Student_Admission_Number_label.configure(background=self.StudentRegistationBGColor,
-                                                          foreground=self.StudentRegistationFGColor)
-            self.Student_subject_entry.configure(background=self.StudentRegistationBGColor,
-                                                 foreground=self.StudentRegistationFGColor)
-            self.Student_subects_label.configure(background=self.StudentRegistationBGColor,
-                                                 foreground=self.StudentRegistationFGColor)
-            self.add_Student_button.configure(background=self.StudentRegistationBGColor,
-                                              foreground=self.StudentRegistationFGColor,
-                                              activebackground=self.StudentRegistationBGColor,
-                                              activeforeground=self.StudentRegistationBGColor)
-            self.Student_Subject_Entry_bg_label.configure(background=self.StudentRegistationBGColor,
-                                                          foreground=self.StudentRegistationFGColor)
-            self.Student_registation_close_button.configure(background=self.StudentRegistationBGColor,
+                self.Student_last_name_label.configure(background=self.StudentRegistationBGColor,
+                                                    foreground=self.StudentRegistationFGColor)
+                self.Student_phone_number_entry.configure(background=self.StudentRegistationBGColor,
+                                                        foreground=self.StudentRegistationFGColor)
+                self.Student_phone_number_label.configure(background=self.StudentRegistationBGColor,
+                                                        foreground=self.StudentRegistationFGColor)
+                self.Student_age_entry.configure(background=self.StudentRegistationBGColor,
+                                                foreground=self.StudentRegistationFGColor)
+                self.Student_age_label.configure(background=self.StudentRegistationBGColor,
+                                                foreground=self.StudentRegistationFGColor)
+                self.Student_Admission_Number_entry.configure(background=self.StudentRegistationBGColor,
                                                             foreground=self.StudentRegistationFGColor)
-            self.Student_phone_number_Entry_bg_label.configure(background=self.StudentRegistationBGColor,
-                                                               foreground=self.StudentRegistationFGColor)
-            self.Register_Student_label.configure(background=self.StudentRegistationBGColor,
-                                                  foreground=self.StudentRegistationFGColor)
-            self.Student_back_page_img_button.configure(background=self.StudentRegistationBGColor,
-                                                        foreground=self.StudentRegistationFGColor,
-                                                        activebackground=self.StudentRegistationBGColor,
-                                                        activeforeground=self.StudentRegistationBGColor)
-            self.Student_registation_theme_change_button.configure(background=self.StudentRegistationBGColor,
-                                                                   foreground=self.StudentRegistationFGColor,
-                                                                   activebackground=self.StudentRegistationBGColor,
-                                                                   activeforeground=self.StudentRegistationBGColor,
-                                                                   image=self.img_lightThemeimg)
+                self.Student_Admission_Number_label.configure(background=self.StudentRegistationBGColor,
+                                                            foreground=self.StudentRegistationFGColor)
+                self.Student_subject_entry.configure(background=self.StudentRegistationBGColor,
+                                                    foreground=self.StudentRegistationFGColor)
+                self.Student_subects_label.configure(background=self.StudentRegistationBGColor,
+                                                    foreground=self.StudentRegistationFGColor)
+                self.add_Student_button.configure(background=self.StudentRegistationBGColor,
+                                                foreground=self.StudentRegistationFGColor,
+                                                activebackground=self.StudentRegistationBGColor,
+                                                activeforeground=self.StudentRegistationBGColor)
+                self.Student_Subject_Entry_bg_label.configure(background=self.StudentRegistationBGColor,
+                                                            foreground=self.StudentRegistationFGColor)
+                self.Student_registation_close_button.configure(background=self.StudentRegistationBGColor,
+                                                                foreground=self.StudentRegistationFGColor)
+                self.Student_phone_number_Entry_bg_label.configure(background=self.StudentRegistationBGColor,
+                                                                foreground=self.StudentRegistationFGColor)
+                self.Register_Student_label.configure(background=self.StudentRegistationBGColor,
+                                                    foreground=self.StudentRegistationFGColor)
+                self.Student_back_page_img_button.configure(background=self.StudentRegistationBGColor,
+                                                            foreground=self.StudentRegistationFGColor,
+                                                            activebackground=self.StudentRegistationBGColor,
+                                                            activeforeground=self.StudentRegistationBGColor)
+                self.Student_registation_theme_change_button.configure(background=self.StudentRegistationBGColor,
+                                                                    foreground=self.StudentRegistationFGColor,
+                                                                    activebackground=self.StudentRegistationBGColor,
+                                                                    activeforeground=self.StudentRegistationBGColor,
+                                                                    image=self.img_lightThemeimg)
 
 
-            ####################################Errors ######################################################
-            self.Studetn_All_Fields_Required_error_label.configure(background=self.StudentRegistationBGColor)
-            self.Studetn_First_Name_error_label.configure(background=self.StudentRegistationBGColor)
-            self.Studetn_Last_Name_error_label.configure(background=self.StudentRegistationBGColor)
-            self.Studetn_Duplicate_Name_error_label.configure(background=self.StudentRegistationBGColor)
-            self.Studetn_lenth_Phone_number_error_label.configure(background=self.StudentRegistationBGColor)
-            self.Studetn_int_Phone_number_error_label.configure(background=self.StudentRegistationBGColor)
-            self.Studetn_0_Phone_number_error_label.configure(background=self.StudentRegistationBGColor)
-            self.Studetn_Age_error_label.configure(background=self.StudentRegistationBGColor)
-            self.Studetn_Subject_error_label.configure(background=self.StudentRegistationBGColor)
-            self.Database_not_Connected_error_label.configure(background=self.StudentRegistationBGColor)
-            ###################################Commited #################################################
-            self.Comited_label.configure(background=self.StudentRegistationBGColor)
+                ####################################Errors ######################################################
+                self.Studetn_All_Fields_Required_error_label.configure(background=self.StudentRegistationBGColor)
+                self.Studetn_First_Name_error_label.configure(background=self.StudentRegistationBGColor)
+                self.Studetn_Last_Name_error_label.configure(background=self.StudentRegistationBGColor)
+                self.Studetn_Duplicate_Name_error_label.configure(background=self.StudentRegistationBGColor)
+                self.Studetn_lenth_Phone_number_error_label.configure(background=self.StudentRegistationBGColor)
+                self.Studetn_int_Phone_number_error_label.configure(background=self.StudentRegistationBGColor)
+                self.Studetn_0_Phone_number_error_label.configure(background=self.StudentRegistationBGColor)
+                Student_age = self.Student_age_entry.get() #This is the Student error
+
+                
+                self.Studetn_Subject_error_label.configure(background=self.StudentRegistationBGColor)
+                self.Database_not_Connected_error_label.configure(background=self.StudentRegistationBGColor)
+                ###################################Commited #################################################
+                self.Comited_label.configure(background=self.StudentRegistationBGColor)
+            except:
+                pass
+            #*******************************************************************************************************************
+    #########################################Create variabels###########################################################
+            #^^^^^^This is All variabels
+
+            Student_first_name = self.Student_first_name_entry.get() #This Is Student First Name
+
+            Student_last_name = self.Student_last_name_entry.get() #This is student last name
+
+            Student_phone_number = self.Student_phone_number_entry.get() #this is student phone number
+            
+            Student_age = self.Student_age_entry.get() #This is the Student error
+
+            Student_Admission_Number = self.Student_Admission_Number_entry.get() #this is the student Admission number
+
+            Student_subjects = self.Student_subject_entry.get() #this is the student Subjects
+
+    #*******************************************************************************************************************
+
+            #*******************************************************************************************************************
+###############################################Check All Fields Are Empty###########################################
+            if Student_first_name == "" or Student_last_name == "" or Student_phone_number == "" or Student_age == "" or Student_Admission_Number == "" or Student_subjects == "":
+                
+                ##############################Clear All Erorr##################################
+                try:
+                    self.Clearerrors()
+                except:
+                    pass
+                #################################Distroy Student First Name########################
+                #################################Place The Erorr###################################  
+                try:          
+                    self.WAllFildsRequiredErorr()
+                except:
+                    pass
+
+            else:
+                ################################Distroy All Fields Erore#####################
+                self.AllFildsRequiredErorrDestroy()
+                
+                ##################################Student First Name Lenth Check#############
+                if len(Student_first_name) > 50:
+                    ###################################Distroy Studetn_First_Name_No_error_label#####################
+                    self.WFirstNameErorr()
+                else:
+                    Student_first_name.capitalize()
+                    # self.FirstNameNoErorr()
+                    
+                    ############################Distroy First name Error##################################
+                    try:
+                        self.WStudetn_First_Name_error_label.destroy()
+                    except:
+                        pass
+                    ##########################################Cehck Student Last name Lenth########################
+                    if len(Student_last_name) > 50:
+                        #####################################Distroy Studetn_Last_Name_No_error_label###############
+                        try:
+                            self.LastNameError()
+                        except:
+                            pass
+                    else:
+                        ####################################Distroy Last Name Error#################################
+                        try:
+                            self.ClearLastNameError()
+                        except:
+                            pass
+                        # self.NoLastNameError()
+
+
+                        Student_last_name.capitalize()
+                        if Student_first_name.capitalize() == Student_last_name.capitalize():
+                            ###############################Clear LAST NAME#######################
+                            try:
+                                self.ClearNoLastNameError()
+                            except:
+                                pass
+                            ################################Add Duplicated Error#################
+                            try:
+                                self.NameDuplicatedErorr()
+                            except:
+                                pass
+
+                        else:
+                            #############################Clear Duplicate error########################
+                            try: 
+                                self.ClearNameDuplicatedErorr()
+                            except:
+                                pass
+                            # self.NoDuplicateNameError()
+
+                                ################################Numeber Lenth Check########################################
+                            if len(Student_phone_number) != 10:
+
+                                ##################################Distroy Number No Eror################# 
+                                try:                         
+                                    self.clearAllPhoneErors()
+                                except:
+                                    pass
+
+                                ##################################PHONE NUMBER LENTH ERROR#####################
+                                try:
+                                    self.PhoneNumberLenthErorr()
+                                except:
+                                    pass
+
+    ###################################################Distroy Studetn_lenth_Phone_number_error_label############
+                            else:
+                                ###############################Clear phone number lenth erorr####################
+                                try:
+                                    self.ClearPhoneNumberLenthErorr()
+                                except:
+                                    pass
+
+
+
+    #******************************************************************************************************************#
+    ###################################################### place Studetn_Phone_Number_No_error_label####################
+                                # self.PhoneNumberLenthNoErorr()
+
+                                            ###############This  Place tick############## 
+    ######################################################Check Phone Number Error##########################
+    #******************************************************************************************************#
+                                try:
+                                    int(Student_phone_number)
+                                except:
+                                    pass
+                                if type(int(Student_phone_number)) != int:
+
+    ######################################################Distroy All Error##################################
+                                    try:
+                                        self.clearAllPhoneErors()
+                                    except:
+                                        pass
+    #####################################################Place Studetn_int_Phone_number_error_label####################
+                                    try:
+                                        self.PhoneNumberTypeErorr()
+                                    except:
+                                        pass
+                                else:
+    ####################################################Distroy Studetn_int_Phone_number_error_label ##################
+                                    try:
+                                        self.clearAllPhoneErors()
+                                    except:
+                                        pass
+    ##################################################Place  Studetn_int_Phone_Number_No_error_label####################
+                                    # self.PhoneNumberNoTypeErorr()
+    ################################
+                                    if int(Student_phone_number[0]) != 0:
+    #*************************************************************************************************************#
+    ###############################################Distroy Phone Nimbers###########################################
+                                        try:
+                                            self.clearAllPhoneErors()
+                                        except:
+                                            pass
+    ##############################################Place Error##############################################
+                                        try:                                    
+                                            self.PhoneNumberZeroError()
+                                        except:
+                                            pass
+    #######################################################################################################                                    
+                                    else:
+                                        ##################Clear Zero Errors###############################
+                                        try:
+                                            self.ClearPhoneNumberZeroError()
+                                        except:
+                                            pass
+
+                                        
+                                        if len(Student_age) > 2:
+                                            self.AgeError()
+                                        else:
+                                            
+                                            try:
+                                                self.ClearAgeError()
+                                            except:
+                                                pass
+                                            
+                                            AllSubjects = ['Sinhala','sinhala', 'SINHALA', 'Sin', 'sin',
+                                                        'Tamil', 'tamil', 'tam', 'Tam',
+                                                        'English', 'english', "En", 'en',
+                                                        'Mathematics', 'mathematics', "MATHEMATICS", "math", 'Math',
+                                                        'MATH',
+                                                        "Health", 'HEALTH', "HEAL", "health",
+                                                        "Geography", 'geography', 'GEOGRAPHY', 'geo', "Geo", "GEO",
+                                                        'French', "french", 'FRENCH',
+                                                        'Spanish', 'SPANISH', "spanish",
+                                                        'Computer Science', 'computer science', 'COMPUTER SCIENCE',
+                                                        'Art', 'ART', 'art',
+                                                        'Band', 'band', 'BAND',
+                                                        'Choir', "choir", 'CHOIR',
+                                                        'Drama', "drama", "DRAMA",
+                                                        "Sports", "SPORTS", "sports",
+                                                        'Science', 'science', "SCIENCE",
+                                                        'History', 'history', 'HISTORY',
+                                                        'Chess', 'CHESS', 'chess',
+                                                        "music", 'Music', 'MUSIC',
+                                                        "ict", 'ICT', "Ict",
+                                                        'Japan', 'japan', 'JAPAN',
+                                                        'China', 'china', 'CHINA',
+                                                        'Accounting', 'accounting', 'ACCOUNTING',
+                                                        'Latin', 'latin', 'LATIN',
+                                                        'Greek', 'greek', "GREEK",
+                                                        'Hebrew', 'HEBREW', "hebrew",
+                                                        'Zoology', "ZOOLOGY", "zoology",
+                                                        ]
+                                            
+                                            checkSubject = all(item in AllSubjects for item in Student_subjects.split(","))
+                                            ##########################Clear Error###############################
+                                            self.ClearSubjectError()
+                                            ###################################################################
+                                            if checkSubject is False:
+                                                ########################Subject Error############################
+                                                self.SubjectError()
+                                                ################################################################
+                                            else:
+                                                # try:
+                                                #     self.AgeNoError()
+                                                # except:
+                                                #     pass
+                                                try: 
+                                                    ##################Chekc db######################### 
+                                                    self.connectDB()
+                                                    ###################################################
+                                                except:
+                                                    #AddDB ERROR
+                                                    self.DatabaseNotConnectedError()
         else:
             self.DStudentRegistationBGColor = "#121212"
             self.DStudentRegistationFGColor = "#ffffff"
@@ -2102,7 +2331,230 @@ class StudentRegistation(tk.Frame):
                                                                    activebackground=self.DStudentRegistationBGColor,
                                                                    activeforeground=self.DStudentRegistationBGColor,
                                                                    image=self.img_DarkThemeimg)
+############################Age Error#################################################
+            Student_age = self.Student_age_entry.get() #This is the Student error
 
+            Student_first_name = self.Student_first_name_entry.get() #This Is Student First Name
+
+            Student_last_name = self.Student_last_name_entry.get() #This is student last name
+
+            Student_phone_number = self.Student_phone_number_entry.get() #this is student phone number
+            
+            Student_age = self.Student_age_entry.get() #This is the Student error
+
+            Student_Admission_Number = self.Student_Admission_Number_entry.get() #this is the student Admission number
+
+            Student_subjects = self.Student_subject_entry.get() #this is the student Subjects
+
+    #*******************************************************************************************************************
+
+    #*******************************************************************************************************************
+    ###############################################Check All Fields Are Empty###########################################
+            if Student_first_name == "" or Student_last_name == "" or Student_phone_number == "" or Student_age == "" or Student_Admission_Number == "" or Student_subjects == "":
+                
+                ##############################Clear All Erorr##################################
+                try:
+                    self.Clearerrors()
+                except:
+                    pass
+                #################################Distroy Student First Name########################
+                #################################Place The Erorr###################################  
+                try:          
+                    self.AllFildsRequiredErorr()
+                except:
+                    pass
+
+            else:
+                ################################Distroy All Fields Erore#####################
+                self.AllFildsRequiredErorrDestroy()
+                
+                ##################################Student First Name Lenth Check#############
+                if len(Student_first_name) > 50:
+                    ###################################Distroy Studetn_First_Name_No_error_label#####################
+                    self.FirstNameErorr()
+                else:
+                    Student_first_name.capitalize()
+                    # self.FirstNameNoErorr()
+                    
+                    ############################Distroy First name Error##################################
+                    try:
+                        self.Studetn_First_Name_error_label.destroy()
+                    except:
+                        pass
+                    ##########################################Cehck Student Last name Lenth########################
+                    if len(Student_last_name) > 50:
+                        #####################################Distroy Studetn_Last_Name_No_error_label###############
+                        try:
+                            self.LastNameError()
+                        except:
+                            pass
+                    else:
+                        ####################################Distroy Last Name Error#################################
+                        try:
+                            self.ClearLastNameError()
+                        except:
+                            pass
+                        # self.NoLastNameError()
+
+
+                        Student_last_name.capitalize()
+                        if Student_first_name.capitalize() == Student_last_name.capitalize():
+                            ###############################Clear LAST NAME#######################
+                            try:
+                                self.ClearNoLastNameError()
+                            except:
+                                pass
+                            ################################Add Duplicated Error#################
+                            try:
+                                self.NameDuplicatedErorr()
+                            except:
+                                pass
+
+                        else:
+                            #############################Clear Duplicate error########################
+                            try: 
+                                self.ClearNameDuplicatedErorr()
+                            except:
+                                pass
+                            # self.NoDuplicateNameError()
+
+                                ################################Numeber Lenth Check########################################
+                            if len(Student_phone_number) != 10:
+
+                                ##################################Distroy Number No Eror################# 
+                                try:                         
+                                    self.clearAllPhoneErors()
+                                except:
+                                    pass
+
+                                ##################################PHONE NUMBER LENTH ERROR#####################
+                                try:
+                                    self.PhoneNumberLenthErorr()
+                                except:
+                                    pass
+
+    ###################################################Distroy Studetn_lenth_Phone_number_error_label############
+                            else:
+                                ###############################Clear phone number lenth erorr####################
+                                try:
+                                    self.ClearPhoneNumberLenthErorr()
+                                except:
+                                    pass
+
+
+
+    #******************************************************************************************************************#
+    ###################################################### place Studetn_Phone_Number_No_error_label####################
+                                # self.PhoneNumberLenthNoErorr()
+
+                                            ###############This  Place tick############## 
+    ######################################################Check Phone Number Error##########################
+    #******************************************************************************************************#
+                                try:
+                                    int(Student_phone_number)
+                                except:
+                                    pass
+                                if type(int(Student_phone_number)) != int:
+
+    ######################################################Distroy All Error##################################
+                                    try:
+                                        self.clearAllPhoneErors()
+                                    except:
+                                        pass
+    #####################################################Place Studetn_int_Phone_number_error_label####################
+                                    try:
+                                        self.PhoneNumberTypeErorr()
+                                    except:
+                                        pass
+                                else:
+    ####################################################Distroy Studetn_int_Phone_number_error_label ##################
+                                    try:
+                                        self.clearAllPhoneErors()
+                                    except:
+                                        pass
+    ##################################################Place  Studetn_int_Phone_Number_No_error_label####################
+                                    # self.PhoneNumberNoTypeErorr()
+    ################################
+                                    if int(Student_phone_number[0]) != 0:
+    #*************************************************************************************************************#
+    ###############################################Distroy Phone Nimbers###########################################
+                                        try:
+                                            self.clearAllPhoneErors()
+                                        except:
+                                            pass
+    ##############################################Place Error##############################################
+                                        try:                                    
+                                            self.PhoneNumberZeroError()
+                                        except:
+                                            pass
+    #######################################################################################################                                    
+                                    else:
+                                        ##################Clear Zero Errors###############################
+                                        try:
+                                            self.ClearPhoneNumberZeroError()
+                                        except:
+                                            pass
+
+                                        
+                                        if len(Student_age) > 2:
+                                            self.AgeError()
+                                        else:
+                                            
+                                            try:
+                                                self.ClearAgeError()
+                                            except:
+                                                pass
+                                            
+                                            AllSubjects = ['Sinhala','sinhala', 'SINHALA', 'Sin', 'sin',
+                                                        'Tamil', 'tamil', 'tam', 'Tam',
+                                                        'English', 'english', "En", 'en',
+                                                        'Mathematics', 'mathematics', "MATHEMATICS", "math", 'Math',
+                                                        'MATH',
+                                                        "Health", 'HEALTH', "HEAL", "health",
+                                                        "Geography", 'geography', 'GEOGRAPHY', 'geo', "Geo", "GEO",
+                                                        'French', "french", 'FRENCH',
+                                                        'Spanish', 'SPANISH', "spanish",
+                                                        'Computer Science', 'computer science', 'COMPUTER SCIENCE',
+                                                        'Art', 'ART', 'art',
+                                                        'Band', 'band', 'BAND',
+                                                        'Choir', "choir", 'CHOIR',
+                                                        'Drama', "drama", "DRAMA",
+                                                        "Sports", "SPORTS", "sports",
+                                                        'Science', 'science', "SCIENCE",
+                                                        'History', 'history', 'HISTORY',
+                                                        'Chess', 'CHESS', 'chess',
+                                                        "music", 'Music', 'MUSIC',
+                                                        "ict", 'ICT', "Ict",
+                                                        'Japan', 'japan', 'JAPAN',
+                                                        'China', 'china', 'CHINA',
+                                                        'Accounting', 'accounting', 'ACCOUNTING',
+                                                        'Latin', 'latin', 'LATIN',
+                                                        'Greek', 'greek', "GREEK",
+                                                        'Hebrew', 'HEBREW', "hebrew",
+                                                        'Zoology', "ZOOLOGY", "zoology",
+                                                        ]
+                                            
+                                            checkSubject = all(item in AllSubjects for item in Student_subjects.split(","))
+                                            ##########################Clear Error###############################
+                                            self.ClearSubjectError()
+                                            ###################################################################
+                                            if checkSubject is False:
+                                                ########################Subject Error############################
+                                                self.SubjectError()
+                                                ################################################################
+                                            else:
+                                                # try:
+                                                #     self.AgeNoError()
+                                                # except:
+                                                #     pass
+                                                try: 
+                                                    ##################Chekc db######################### 
+                                                    self.connectDB()
+                                                    ###################################################
+                                                except:
+                                                    #AddDB ERROR
+                                                    self.DatabaseNotConnectedError()
+                
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 ###########################################################Go Back To Student Home#################################
@@ -2395,6 +2847,7 @@ class StudentRegistation(tk.Frame):
             self.Studetn_int_Phone_number_error_label.destroy()
             self.Studetn_0_Phone_Number_No_error_label.destroy()
             self.Studetn_int_Phone_Number_No_error_label.destroy()
+            self.ClearAgeError()
         except:
             pass
     
@@ -2419,10 +2872,31 @@ class StudentRegistation(tk.Frame):
         self.Studetn_All_Fields_Required_error_label.place(anchor='nw',
                                                 x='500',
                                                 y='123')
+    def WAllFildsRequiredErorr(self):
+        try:
+                self.WStudetn_First_Name_error_label.destroy()
+                self.WStudetn_First_Name_No_error_label.destroy()
+                self.Studetn_First_Name_error_label.destroy()
+                self.Studetn_First_Name_No_error_label.destroy()
+        except:
+            pass
+
+
+            ################################Place Eror################################
+        self.WStudetn_All_Fields_Required_error_label = tk.Label(self)
+        self.WStudetn_All_Fields_Required_error_label.configure(background='#ffffff',
+                                                    borderwidth='0',
+                                                    font='{Poppins} 9 {}',
+                                                    foreground='#ff0f15')
+        self.WStudetn_All_Fields_Required_error_label.configure(text='All Fields Are Required')
+        self.WStudetn_All_Fields_Required_error_label.place(anchor='nw',
+                                                x='500',
+                                                y='123')
 
     def AllFildsRequiredErorrDestroy(self):
         try:
             self.Studetn_All_Fields_Required_error_label.destroy()
+            self.WStudetn_All_Fields_Required_error_label.destroy()
         except:
             pass
 
@@ -2432,6 +2906,8 @@ class StudentRegistation(tk.Frame):
         try:
             self.Studetn_First_Name_error_label.destroy()
             self.Studetn_First_Name_No_error_label.destroy()
+            self.WStudetn_First_Name_error_label.destroy()
+            self.WStudetn_First_Name_No_error_label.destroy()
         except:
             pass
                 
@@ -2445,29 +2921,30 @@ class StudentRegistation(tk.Frame):
         self.Studetn_First_Name_error_label.place(anchor='nw',
                                                 x='500',
                                                 y='123')
-    
-    def FirstNameNoErorr(self):
+    def WFirstNameErorr(self):
         try:
- ##############################Distroy Studetn_First_Name_error_label#######################
             self.Studetn_First_Name_error_label.destroy()
+            self.WStudetn_First_Name_error_label.destroy()
         except:
             pass
-
-                ####################################Place Studetn_First_Name_No_error_label######################
-            self.Studetn_First_Name_No_error_label = tk.Label(self)
-            self.Studetn_First_Name_No_error_label.configure(background='#121212',
+                
+###################################################place Studetn_First_Name_error_label############################
+        self.WStudetn_First_Name_error_label = tk.Label(self)
+        self.WStudetn_First_Name_error_label.configure(background='#ffffff',
                                                     borderwidth='0',
                                                     font='{Poppins} 9 {}',
-                                                    foreground='#09ff00')
-            self.Studetn_First_Name_No_error_label.configure(text=""+u'\u2713')
-            self.Studetn_First_Name_No_error_label.place(anchor='nw',
-                                                x='610',
+                                                    foreground='#ff0f15')
+        self.WStudetn_First_Name_error_label.configure(text='First Name Is Too Long')
+        self.WStudetn_First_Name_error_label.place(anchor='nw',
+                                                x='500',
                                                 y='123')
 
 
 ############################################################Last Name################################################
     def LastNameError(self):
         try:
+            self.Studetn_First_Name_error_label.destroy()
+            self.WStudetn_First_Name_error_label.destroy()
             self.Studetn_Last_Name_No_error_label.destroy()
         except:
             pass
@@ -2674,16 +3151,33 @@ class StudentRegistation(tk.Frame):
             self.Studetn_Age_error_label.configure(text='Number Too Long')
             self.Studetn_Age_error_label.place(anchor='nw',
                                                                         x='500',
-                                                                        y='225')
+                                                                        y='227')
         except:
             pass
         ####################################################################
 
+    def WAgeError(self):
+
+        ###############AGE Error##################################
+        try:
+            self.wStudetn_Age_error_label = tk.Label(self)
+            self.wStudetn_Age_error_label.configure(background='#ffffff',
+                                                                            borderwidth='0',
+                                                                            font='{Poppins} 7 {}',
+                                                                            foreground='#ff0f15')
+            self.wStudetn_Age_error_label.configure(text='Number Too Long')
+            self.wStudetn_Age_error_label.place(anchor='nw',
+                                                                        x='500',
+                                                                        y='227')
+        except:
+            pass
+        ####################################################################
     def ClearAgeError(self):
 
         ################CLEAR AGE ERROR#############
         try:
             self.Studetn_Age_error_label.destroy()
+            self.wStudetn_Age_error_label.destroy()
         except:
             pass
         ###############################################################
