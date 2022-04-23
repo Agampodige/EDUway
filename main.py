@@ -2501,7 +2501,7 @@ class StudentRegistation(tk.Frame):
                                         if len(Student_age) > 2:
                                             self.ClearAgeError()
                                             self.AgeError()
-                                        else:
+                                        else:  
                                             
                                             try:
                                                 self.ClearAgeError()
