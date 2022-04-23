@@ -64,7 +64,7 @@ class SchoolManegmentSystem(tk.Tk):
         self._frame = None
 
 ####################################### this is the page first load#################################################
-        self.switch_frame(StudentUpdate)
+        self.switch_frame(SplashScreen)
 
 
 
@@ -2107,7 +2107,7 @@ class StudentRegistation(tk.Frame):
                     if len(Student_last_name) > 50:
                         #####################################Distroy Studetn_Last_Name_No_error_label###############
                         try:
-                            self.LastNameError()
+                            self.WLastNameError()
                         except:
                             pass
                     else:
@@ -2945,7 +2945,7 @@ class StudentRegistation(tk.Frame):
         try:
             self.Studetn_First_Name_error_label.destroy()
             self.WStudetn_First_Name_error_label.destroy()
-            self.Studetn_Last_Name_No_error_label.destroy()
+            self.WStudetn_Last_Name_error_label.destroy()
         except:
             pass
                     
@@ -2958,11 +2958,27 @@ class StudentRegistation(tk.Frame):
         self.Studetn_Last_Name_error_label.place(anchor='nw',
                                                     x='500',
                                                     y='174')
-
+    def WLastNameError(self):
+        try:
+            self.Studetn_First_Name_error_label.destroy()
+            self.WStudetn_First_Name_error_label.destroy()
+            self.WStudetn_Last_Name_error_label.destroy()
+        except:
+            pass
+                    
+        self.WStudetn_Last_Name_error_label = tk.Label(self)
+        self.WStudetn_Last_Name_error_label.configure(background='#ffffff',
+                                                        borderwidth='0',
+                                                        font='{Poppins} 8 {}',
+                                                        foreground='#ff0f15')
+        self.WStudetn_Last_Name_error_label.configure(text='Last Name Is Too Long')
+        self.WStudetn_Last_Name_error_label.place(anchor='nw',
+                                                    x='500',
+                                                    y='174')
     def ClearLastNameError(self):
         try:
             self.Studetn_Last_Name_error_label.destroy()
-
+            self.WStudetn_Last_Name_error_label.destroy()
         except:
             pass
 
