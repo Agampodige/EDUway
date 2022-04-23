@@ -133,7 +133,7 @@ class SplashScreen(tk.Frame):
         self.Splash_Bg_img.configure(image=self.img_splash, borderwidth='0', relief='flat')
         self.Splash_Bg_img.place(x='0', y='0')
 
-        self.after(3000, lambda: master.switch_frame(LogInPage))
+        self.after(3000, lambda: master.switch_frame(StudentRegistation))
 
         self.place(x='0', y='0')
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
@@ -2080,6 +2080,10 @@ class StudentRegistation(tk.Frame):
                     self.Clearerrors()
                 except:
                     pass
+                try:
+                    self.AllFildsRequiredErorrDestroy()
+                except:
+                    pass
                 #################################Distroy Student First Name########################
                 #################################Place The Erorr###################################  
                 try:          
@@ -2089,9 +2093,13 @@ class StudentRegistation(tk.Frame):
 
             else:
                 ################################Distroy All Fields Erore#####################
-                self.AllFildsRequiredErorrDestroy()
-                
-                ##################################Student First Name Lenth Check#############
+                try:
+                    self.AllFildsRequiredErorrDestroy()
+                    self.WStudetn_First_Name_error_label.destroy()
+                    self.Studetn_First_Name_error_label.destroy()
+                except:
+                    pass 
+                    ##################################Student First Name Lenth Check#############
                 if len(Student_first_name) > 50:
                     ###################################Distroy Studetn_First_Name_No_error_label#####################
                     self.WFirstNameErorr()
@@ -2125,6 +2133,7 @@ class StudentRegistation(tk.Frame):
                             ###############################Clear LAST NAME#######################
                             try:
                                 self.ClearNoLastNameError()
+                                self.ClearNameDuplicatedErorr
                             except:
                                 pass
                             ################################Add Duplicated Error#################
@@ -2267,6 +2276,7 @@ class StudentRegistation(tk.Frame):
                                                 self.WSubjectError()
                                                 ################################################################
                                             else:
+                                                self.ClearSubjectError()
                                                 # try:
                                                 #     self.AgeNoError()
                                                 # except:
@@ -2605,6 +2615,10 @@ class StudentRegistation(tk.Frame):
                 self.Clearerrors()
             except:
                 pass
+            try:
+                self.AllFildsRequiredErorrDestroy()
+            except:
+                pass
             #################################Distroy Student First Name########################
             #################################Place The Erorr###################################  
             try:          
@@ -2614,8 +2628,12 @@ class StudentRegistation(tk.Frame):
 
         else:
             ################################Distroy All Fields Erore#####################
-            self.AllFildsRequiredErorrDestroy()
-            
+            try:
+                self.AllFildsRequiredErorrDestroy()
+                self.WStudetn_First_Name_error_label.destroy()
+                self.Studetn_First_Name_error_label.destroy()
+            except:
+                pass 
             ##################################Student First Name Lenth Check#############
             if len(Student_first_name) > 50:
                 ###################################Distroy Studetn_First_Name_No_error_label#####################
@@ -2793,6 +2811,7 @@ class StudentRegistation(tk.Frame):
                                             self.SubjectError()
                                             ################################################################
                                         else:
+                                            self.ClearSubjectError()
                                             # try:
                                             #     self.AgeNoError()
                                             # except:
@@ -3370,6 +3389,7 @@ class StudentRegistation(tk.Frame):
     def ClearSubjectError(self):
         try:
             self.Studetn_Subject_error_label.destroy()
+            self.WStudetn_Subject_error_label.destroy()
         except:
             pass
 
