@@ -2032,6 +2032,21 @@ class StudentRegistation(tk.Frame):
                                                                    activebackground=self.StudentRegistationBGColor,
                                                                    activeforeground=self.StudentRegistationBGColor,
                                                                    image=self.img_lightThemeimg)
+
+
+            ####################################Errors ######################################################
+            self.Studetn_All_Fields_Required_error_label.configure(background=self.StudentRegistationBGColor)
+            self.Studetn_First_Name_error_label.configure(background=self.StudentRegistationBGColor)
+            self.Studetn_Last_Name_error_label.configure(background=self.StudentRegistationBGColor)
+            self.Studetn_Duplicate_Name_error_label.configure(background=self.StudentRegistationBGColor)
+            self.Studetn_lenth_Phone_number_error_label.configure(background=self.StudentRegistationBGColor)
+            self.Studetn_int_Phone_number_error_label.configure(background=self.StudentRegistationBGColor)
+            self.Studetn_0_Phone_number_error_label.configure(background=self.StudentRegistationBGColor)
+            self.Studetn_Age_error_label.configure(background=self.StudentRegistationBGColor)
+            self.Studetn_Subject_error_label.configure(background=self.StudentRegistationBGColor)
+            self.Database_not_Connected_error_label.configure(background=self.StudentRegistationBGColor)
+            ###################################Commited #################################################
+            self.Comited_label.configure(background=self.StudentRegistationBGColor)
         else:
             self.DStudentRegistationBGColor = "#121212"
             self.DStudentRegistationFGColor = "#ffffff"
