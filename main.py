@@ -30,10 +30,11 @@ import mysql.connector
 
 
 
+
             #############################
             ################################
             ##################################
-            ########               ############
+            ########              ############
             ########               ############
             ########               ###########
             ########              ###########
@@ -44,7 +45,7 @@ import mysql.connector
             ########    #########      
             ########     #########
             ########         ########
-            ########            #######
+            ########           #######
             ########            ######
 
 
@@ -2128,7 +2129,7 @@ class StudentRegistation(tk.Frame):
                                 pass
                             ################################Add Duplicated Error#################
                             try:
-                                self.NameDuplicatedErorr()
+                                self.WNameDuplicatedErorr()
                             except:
                                 pass
 
@@ -2151,7 +2152,7 @@ class StudentRegistation(tk.Frame):
 
                                 ##################################PHONE NUMBER LENTH ERROR#####################
                                 try:
-                                    self.PhoneNumberLenthErorr()
+                                    self.WPhoneNumberLenthErorr()
                                 except:
                                     pass
 
@@ -2185,7 +2186,7 @@ class StudentRegistation(tk.Frame):
                                         pass
     #####################################################Place Studetn_int_Phone_number_error_label####################
                                     try:
-                                        self.PhoneNumberTypeErorr()
+                                        self.WPhoneNumberTypeErorr()
                                     except:
                                         pass
                                 else:
@@ -2206,7 +2207,7 @@ class StudentRegistation(tk.Frame):
                                             pass
     ##############################################Place Error##############################################
                                         try:                                    
-                                            self.PhoneNumberZeroError()
+                                            self.WPhoneNumberZeroError()
                                         except:
                                             pass
     #######################################################################################################                                    
@@ -2219,7 +2220,8 @@ class StudentRegistation(tk.Frame):
 
                                         
                                         if len(Student_age) > 2:
-                                            self.AgeError()
+                                            self.ClearAgeError()
+                                            self.WAgeError()
                                         else:
                                             
                                             try:
@@ -2262,7 +2264,7 @@ class StudentRegistation(tk.Frame):
                                             ###################################################################
                                             if checkSubject is False:
                                                 ########################Subject Error############################
-                                                self.SubjectError()
+                                                self.WSubjectError()
                                                 ################################################################
                                             else:
                                                 # try:
@@ -2275,7 +2277,7 @@ class StudentRegistation(tk.Frame):
                                                     ###################################################
                                                 except:
                                                     #AddDB ERROR
-                                                    self.DatabaseNotConnectedError()
+                                                    self.WDatabaseNotConnectedError()
         else:
             self.DStudentRegistationBGColor = "#121212"
             self.DStudentRegistationFGColor = "#ffffff"
@@ -2497,6 +2499,7 @@ class StudentRegistation(tk.Frame):
 
                                         
                                         if len(Student_age) > 2:
+                                            self.ClearAgeError()
                                             self.AgeError()
                                         else:
                                             
@@ -2624,6 +2627,7 @@ class StudentRegistation(tk.Frame):
                 ############################Distroy First name Error##################################
                 try:
                     self.Studetn_First_Name_error_label.destroy()
+                    self.WStudetn_First_Name_error_label.destroy
                 except:
                     pass
                 ##########################################Cehck Student Last name Lenth########################
@@ -2742,6 +2746,7 @@ class StudentRegistation(tk.Frame):
 
                                     
                                     if len(Student_age) > 2:
+                                        self.ClearAgeError()
                                         self.AgeError()
                                     else:
                                         
@@ -2871,7 +2876,7 @@ class StudentRegistation(tk.Frame):
         self.Studetn_All_Fields_Required_error_label.configure(text='All Fields Are Required')
         self.Studetn_All_Fields_Required_error_label.place(anchor='nw',
                                                 x='500',
-                                                y='123')
+                                                y='121')
     def WAllFildsRequiredErorr(self):
         try:
                 self.WStudetn_First_Name_error_label.destroy()
@@ -2891,7 +2896,7 @@ class StudentRegistation(tk.Frame):
         self.WStudetn_All_Fields_Required_error_label.configure(text='All Fields Are Required')
         self.WStudetn_All_Fields_Required_error_label.place(anchor='nw',
                                                 x='500',
-                                                y='123')
+                                                y='121')
 
     def AllFildsRequiredErorrDestroy(self):
         try:
@@ -3020,12 +3025,21 @@ class StudentRegistation(tk.Frame):
         self.Studetn_Duplicate_Name_error_label.place(anchor='nw',
                                                         x='500',
                                                         y='174')
-    
+    def WNameDuplicatedErorr(self):
+        self.WStudetn_Duplicate_Name_error_label = tk.Label(self)
+        self.WStudetn_Duplicate_Name_error_label.configure(background='#ffffff',
+                                                            borderwidth='0',
+                                                            font='{Poppins} 8 {}',
+                                                            foreground='#ff0f15')
+        self.WStudetn_Duplicate_Name_error_label.configure(text='Name Duplicated')
+        self.WStudetn_Duplicate_Name_error_label.place(anchor='nw',
+                                                        x='500',
+                                                        y='174')
     def ClearNameDuplicatedErorr(self):
 
         try:
             self.Studetn_Duplicate_Name_error_label.destroy()
-
+            self.WStudetn_Duplicate_Name_error_label.destroy()
         except:
             pass
 
@@ -3054,12 +3068,27 @@ class StudentRegistation(tk.Frame):
                                                             x='500',
                                                             y='274')
         #########################################################################
+    
+    def WPhoneNumberLenthErorr(self):
+
+        #####################PHONE NUMBER LENTH ERROR ##########################
+        self.WStudetn_lenth_Phone_number_error_label = tk.Label(self)
+        self.WStudetn_lenth_Phone_number_error_label.configure(background='#ffffff',
+                                                                borderwidth='0',
+                                                                font='{Poppins} 7 {}',
+                                                                foreground='#ff0f15')
+        self.WStudetn_lenth_Phone_number_error_label.configure(text='Not Phone Number')
+        self.WStudetn_lenth_Phone_number_error_label.place(anchor='nw',
+                                                            x='500',
+                                                            y='274')
+        #########################################################################
 
     def ClearPhoneNumberLenthErorr(self):
 
         ##################DISTROY PHONE NUMBER ERROR###################
         try:
             self.Studetn_lenth_Phone_number_error_label.destroy()
+            self.WStudetn_lenth_Phone_number_error_label.destroy()
         except:
             pass
         ##############################################################
@@ -3091,12 +3120,26 @@ class StudentRegistation(tk.Frame):
                                                                 x='500',
                                                                 y='274')
         ########################################################################
+    
+    def WPhoneNumberTypeErorr(self):
+        ####################PHONE NUMBER TYPE ERORR########################
+        self.WStudetn_int_Phone_number_error_label = tk.Label(self)
+        self.WStudetn_int_Phone_number_error_label.configure(background='#ffffff',
+                                                                    borderwidth='0',
+                                                                    font='{Poppins} 7 {}',
+                                                                    foreground='#ff0f15')
+        self.WStudetn_int_Phone_number_error_label.configure(text='Type Number')
+        self.WStudetn_int_Phone_number_error_label.place(anchor='nw',
+                                                                x='500',
+                                                                y='274')
+        ########################################################################
 
 
     def ClearPhoneNumberTypeErorr(self):
         ###############PHONE NUMBER CLEAR#################
         try:
             self.Studetn_int_Phone_number_error_label.destroy()
+            self.WStudetn_int_Phone_number_error_label.destroy()
         except:
             pass
         ##################################################
@@ -3115,6 +3158,20 @@ class StudentRegistation(tk.Frame):
                                                                 y='274')
         ##########################################################
 
+    def WPhoneNumberZeroError(self):
+
+        #####################PHONE NUMBER ZERO ERROR################
+        self.WStudetn_0_Phone_number_error_label = tk.Label(self)
+        self.WStudetn_0_Phone_number_error_label.configure(background='#ffffff',
+                                                                        borderwidth='0',
+                                                                        font='{Poppins} 7 {}',
+                                                                        foreground='#ff0f15')
+        self.WStudetn_0_Phone_number_error_label.configure(text='Invalid Phone Number')
+        self.WStudetn_0_Phone_number_error_label.place(anchor='nw',
+                                                                    x='500',
+                                                                    y='274')
+        ############################################################
+    
     def PhoneNumberZeroError(self):
 
         #####################PHONE NUMBER ZERO ERROR################
@@ -3132,10 +3189,7 @@ class StudentRegistation(tk.Frame):
     def ClearPhoneNumberZeroError(self):
         ##########CLEAR PHONE NUMBER###############################
         try:
-            self.Studetn_0_Phone_number_error_label.configure(background='#121212',
-                                                                        borderwidth='0',
-                                                                        font='{Poppins} 0 {}',
-                                                                        foreground='#121212')
+            self.WStudetn_0_Phone_number_error_label.destroy()
             self.Studetn_0_Phone_number_error_label.destroy()
         except:
             pass
@@ -3176,13 +3230,14 @@ class StudentRegistation(tk.Frame):
 
         ###############AGE Error##################################
         try:
-            self.wStudetn_Age_error_label = tk.Label(self)
-            self.wStudetn_Age_error_label.configure(background='#ffffff',
+            self.Studetn_Age_error_label.destroy()
+            self.WStudetn_Age_error_label = tk.Label(self)
+            self.WStudetn_Age_error_label.configure(background='#ffffff',
                                                                             borderwidth='0',
                                                                             font='{Poppins} 7 {}',
                                                                             foreground='#ff0f15')
-            self.wStudetn_Age_error_label.configure(text='Number Too Long')
-            self.wStudetn_Age_error_label.place(anchor='nw',
+            self.WStudetn_Age_error_label.configure(text='Number Too Long')
+            self.WStudetn_Age_error_label.place(anchor='nw',
                                                                         x='500',
                                                                         y='227')
         except:
@@ -3193,7 +3248,7 @@ class StudentRegistation(tk.Frame):
         ################CLEAR AGE ERROR#############
         try:
             self.Studetn_Age_error_label.destroy()
-            self.wStudetn_Age_error_label.destroy()
+            self.WStudetn_Age_error_label.destroy()
         except:
             pass
         ###############################################################
@@ -3215,7 +3270,6 @@ class StudentRegistation(tk.Frame):
     def ClearAllStuf(self):
         ########################Clear No ERRORS###################################
         try:
-            self.Studetn_First_Name_No_error_label.destroy()
             self.Studetn_lenth_Phone_Number_No_error_label.destroy()
             self.Studetn_int_Phone_Number_No_error_label.destroy()
             self.Studetn_Age_No_error_label.destroy()
@@ -3240,10 +3294,27 @@ class StudentRegistation(tk.Frame):
             pass
         ####################################################################
 
+    def WDatabaseNotConnectedError(self):
+        ###############AGE Error##################################
+        try:
+            self.Database_not_Connected_error_label.destroy()
+            self.WDatabase_not_Connected_error_label = tk.Label(self)
+            self.WDatabase_not_Connected_error_label.configure(background='#ffffff',
+                                                                            borderwidth='0',
+                                                                            font='{Poppins} 8 {}',
+                                                                            foreground='#ff0f15')
+            self.WDatabase_not_Connected_error_label.configure(text='Database Not Connected or Not Found')
+            self.WDatabase_not_Connected_error_label.place(anchor='nw',
+                                                                        x='400',
+                                                                        y='420')
+        except:
+            pass
+        ####################################################################
 
     def ClearDarabaseNotConnectedError(self):
         try:
             self.Database_not_Connected_error_label.destroy()
+            self.WDatabase_not_Connected_error_label.destroy()
         except:
             pass
 
@@ -3274,6 +3345,22 @@ class StudentRegistation(tk.Frame):
                                                                             foreground='#ff0f15')
             self.Studetn_Subject_error_label.configure(text='invalid Subject Check Again')
             self.Studetn_Subject_error_label.place(anchor='nw',
+                                                                        x='500',
+                                                                        y='370')
+        except:
+            pass
+        ####################################################################
+    
+    def WSubjectError(self):
+                ############### Error##################################
+        try:
+            self.WStudetn_Subject_error_label = tk.Label(self)
+            self.WStudetn_Subject_error_label.configure(background='#ffffff',
+                                                                            borderwidth='0',
+                                                                            font='{Poppins} 7 {}',
+                                                                            foreground='#ff0f15')
+            self.WStudetn_Subject_error_label.configure(text='invalid Subject Check Again')
+            self.WStudetn_Subject_error_label.place(anchor='nw',
                                                                         x='500',
                                                                         y='370')
         except:
