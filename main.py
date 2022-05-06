@@ -13,7 +13,7 @@ import tkinter.ttk as ttk
 
 ##################Import massage for errors
 from tkinter import messagebox
-from urllib.parse import parse_qs
+# from urllib.parse import parse_qs
 
 
 ###################Cheking Python vertion for import tkinter######################
@@ -133,7 +133,7 @@ class SplashScreen(tk.Frame):
         self.Splash_Bg_img.configure(image=self.img_splash, borderwidth='0', relief='flat')
         self.Splash_Bg_img.place(x='0', y='0')
 
-        self.after(3000, lambda: master.switch_frame(StudentRegistation))
+        self.after(3000, lambda: master.switch_frame(LogInPage))
 
         self.place(x='0', y='0')
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
@@ -2073,223 +2073,223 @@ class StudentRegistation(tk.Frame):
 
             #*******************************************************************************************************************
 ###############################################Check All Fields Are Empty###########################################
-            if Student_first_name == "" or Student_last_name == "" or Student_phone_number == "" or Student_age == "" or Student_Admission_Number == "" or Student_subjects == "":
+    #         if Student_first_name == "" or Student_last_name == "" or Student_phone_number == "" or Student_age == "" or Student_Admission_Number == "" or Student_subjects == "":
                 
-                ##############################Clear All Erorr##################################
-                try:
-                    self.Clearerrors()
-                except:
-                    pass
-                try:
-                    self.AllFildsRequiredErorrDestroy()
-                except:
-                    pass
-                #################################Distroy Student First Name########################
-                #################################Place The Erorr###################################  
-                try:          
-                    self.WAllFildsRequiredErorr()
-                except:
-                    pass
+    #             ##############################Clear All Erorr##################################
+    #             try:
+    #                 self.Clearerrors()
+    #             except:
+    #                 pass
+    #             try:
+    #                 self.AllFildsRequiredErorrDestroy()
+    #             except:
+    #                 pass
+    #             #################################Distroy Student First Name########################
+    #             #################################Place The Erorr###################################  
+    #             try:          
+    #                 self.WAllFildsRequiredErorr()
+    #             except:
+    #                 pass
 
-            else:
-                ################################Distroy All Fields Erore#####################
-                try:
-                    self.AllFildsRequiredErorrDestroy()
-                    self.WStudetn_First_Name_error_label.destroy()
-                    self.Studetn_First_Name_error_label.destroy()
-                except:
-                    pass 
-                    ##################################Student First Name Lenth Check#############
-                if len(Student_first_name) > 50:
-                    ###################################Distroy Studetn_First_Name_No_error_label#####################
-                    self.WFirstNameErorr()
-                else:
-                    Student_first_name.capitalize()
-                    # self.FirstNameNoErorr()
+    #         else:
+    #             ################################Distroy All Fields Erore#####################
+    #             try:
+    #                 self.AllFildsRequiredErorrDestroy()
+    #                 self.WStudetn_First_Name_error_label.destroy()
+    #                 self.Studetn_First_Name_error_label.destroy()
+    #             except:
+    #                 pass 
+    #                 ##################################Student First Name Lenth Check#############
+    #             if len(Student_first_name) > 50:
+    #                 ###################################Distroy Studetn_First_Name_No_error_label#####################
+    #                 self.WFirstNameErorr()
+    #             else:
+    #                 Student_first_name.capitalize()
+    #                 # self.FirstNameNoErorr()
                     
-                    ############################Distroy First name Error##################################
-                    try:
-                        self.WStudetn_First_Name_error_label.destroy()
-                    except:
-                        pass
-                    ##########################################Cehck Student Last name Lenth########################
-                    if len(Student_last_name) > 50:
-                        #####################################Distroy Studetn_Last_Name_No_error_label###############
-                        try:
-                            self.WLastNameError()
-                        except:
-                            pass
-                    else:
-                        ####################################Distroy Last Name Error#################################
-                        try:
-                            self.ClearLastNameError()
-                        except:
-                            pass
-                        # self.NoLastNameError()
+    #                 ############################Distroy First name Error##################################
+    #                 try:
+    #                     self.WStudetn_First_Name_error_label.destroy()
+    #                 except:
+    #                     pass
+    #                 ##########################################Cehck Student Last name Lenth########################
+    #                 if len(Student_last_name) > 50:
+    #                     #####################################Distroy Studetn_Last_Name_No_error_label###############
+    #                     try:
+    #                         self.WLastNameError()
+    #                     except:
+    #                         pass
+    #                 else:
+    #                     ####################################Distroy Last Name Error#################################
+    #                     try:
+    #                         self.ClearLastNameError()
+    #                     except:
+    #                         pass
+    #                     # self.NoLastNameError()
 
 
-                        Student_last_name.capitalize()
-                        if Student_first_name.capitalize() == Student_last_name.capitalize():
-                            ###############################Clear LAST NAME#######################
-                            try:
-                                self.ClearNoLastNameError()
-                                self.ClearNameDuplicatedErorr
-                            except:
-                                pass
-                            ################################Add Duplicated Error#################
-                            try:
-                                self.WNameDuplicatedErorr()
-                            except:
-                                pass
+    #                     Student_last_name.capitalize()
+    #                     if Student_first_name.capitalize() == Student_last_name.capitalize():
+    #                         ###############################Clear LAST NAME#######################
+    #                         try:
+    #                             self.ClearNoLastNameError()
+    #                             self.ClearNameDuplicatedErorr
+    #                         except:
+    #                             pass
+    #                         ################################Add Duplicated Error#################
+    #                         try:
+    #                             self.WNameDuplicatedErorr()
+    #                         except:
+    #                             pass
 
-                        else:
-                            #############################Clear Duplicate error########################
-                            try: 
-                                self.ClearNameDuplicatedErorr()
-                            except:
-                                pass
-                            # self.NoDuplicateNameError()
+    #                     else:
+    #                         #############################Clear Duplicate error########################
+    #                         try: 
+    #                             self.ClearNameDuplicatedErorr()
+    #                         except:
+    #                             pass
+    #                         # self.NoDuplicateNameError()
 
-                                ################################Numeber Lenth Check########################################
-                            if len(Student_phone_number) != 10:
+    #                             ################################Numeber Lenth Check########################################
+    #                         if len(Student_phone_number) != 10:
 
-                                ##################################Distroy Number No Eror################# 
-                                try:                         
-                                    self.clearAllPhoneErors()
-                                except:
-                                    pass
+    #                             ##################################Distroy Number No Eror################# 
+    #                             try:                         
+    #                                 self.clearAllPhoneErors()
+    #                             except:
+    #                                 pass
 
-                                ##################################PHONE NUMBER LENTH ERROR#####################
-                                try:
-                                    self.WPhoneNumberLenthErorr()
-                                except:
-                                    pass
+    #                             ##################################PHONE NUMBER LENTH ERROR#####################
+    #                             try:
+    #                                 self.WPhoneNumberLenthErorr()
+    #                             except:
+    #                                 pass
 
-    ###################################################Distroy Studetn_lenth_Phone_number_error_label############
-                            else:
-                                ###############################Clear phone number lenth erorr####################
-                                try:
-                                    self.ClearPhoneNumberLenthErorr()
-                                except:
-                                    pass
+    # ###################################################Distroy Studetn_lenth_Phone_number_error_label############
+    #                         else:
+    #                             ###############################Clear phone number lenth erorr####################
+    #                             try:
+    #                                 self.ClearPhoneNumberLenthErorr()
+    #                             except:
+    #                                 pass
 
 
 
-    #******************************************************************************************************************#
-    ###################################################### place Studetn_Phone_Number_No_error_label####################
-                                # self.PhoneNumberLenthNoErorr()
+    # #******************************************************************************************************************#
+    # ###################################################### place Studetn_Phone_Number_No_error_label####################
+    #                             # self.PhoneNumberLenthNoErorr()
 
-                                            ###############This  Place tick############## 
-    ######################################################Check Phone Number Error##########################
-    #******************************************************************************************************#
-                                try:
-                                    int(Student_phone_number)
-                                except:
-                                    pass
-                                if type(int(Student_phone_number)) != int:
+    #                                         ###############This  Place tick############## 
+    # ######################################################Check Phone Number Error##########################
+    # #******************************************************************************************************#
+    #                             try:
+    #                                 int(Student_phone_number)
+    #                             except:
+    #                                 pass
+    #                             if type(int(Student_phone_number)) != int:
 
-    ######################################################Distroy All Error##################################
-                                    try:
-                                        self.clearAllPhoneErors()
-                                    except:
-                                        pass
-    #####################################################Place Studetn_int_Phone_number_error_label####################
-                                    try:
-                                        self.WPhoneNumberTypeErorr()
-                                    except:
-                                        pass
-                                else:
-    ####################################################Distroy Studetn_int_Phone_number_error_label ##################
-                                    try:
-                                        self.clearAllPhoneErors()
-                                    except:
-                                        pass
-    ##################################################Place  Studetn_int_Phone_Number_No_error_label####################
-                                    # self.PhoneNumberNoTypeErorr()
-    ################################
-                                    if int(Student_phone_number[0]) != 0:
-    #*************************************************************************************************************#
-    ###############################################Distroy Phone Nimbers###########################################
-                                        try:
-                                            self.clearAllPhoneErors()
-                                        except:
-                                            pass
-    ##############################################Place Error##############################################
-                                        try:                                    
-                                            self.WPhoneNumberZeroError()
-                                        except:
-                                            pass
-    #######################################################################################################                                    
-                                    else:
-                                        ##################Clear Zero Errors###############################
-                                        try:
-                                            self.ClearPhoneNumberZeroError()
-                                        except:
-                                            pass
+    # ######################################################Distroy All Error##################################
+    #                                 try:
+    #                                     self.clearAllPhoneErors()
+    #                                 except:
+    #                                     pass
+    # #####################################################Place Studetn_int_Phone_number_error_label####################
+    #                                 try:
+    #                                     self.WPhoneNumberTypeErorr()
+    #                                 except:
+    #                                     pass
+    #                             else:
+    # ####################################################Distroy Studetn_int_Phone_number_error_label ##################
+    #                                 try:
+    #                                     self.clearAllPhoneErors()
+    #                                 except:
+    #                                     pass
+    # ##################################################Place  Studetn_int_Phone_Number_No_error_label####################
+    #                                 # self.PhoneNumberNoTypeErorr()
+    # ################################
+    #                                 if int(Student_phone_number[0]) != 0:
+    # #*************************************************************************************************************#
+    # ###############################################Distroy Phone Nimbers###########################################
+    #                                     try:
+    #                                         self.clearAllPhoneErors()
+    #                                     except:
+    #                                         pass
+    # ##############################################Place Error##############################################
+    #                                     try:                                    
+    #                                         self.WPhoneNumberZeroError()
+    #                                     except:
+    #                                         pass
+    # #######################################################################################################                                    
+    #                                 else:
+    #                                     ##################Clear Zero Errors###############################
+    #                                     try:
+    #                                         self.ClearPhoneNumberZeroError()
+    #                                     except:
+    #                                         pass
 
                                         
-                                        if len(Student_age) > 2:
-                                            self.ClearAgeError()
-                                            self.WAgeError()
-                                        else:
+    #                                     if len(Student_age) > 2:
+    #                                         self.ClearAgeError()
+    #                                         self.WAgeError()
+    #                                     else:
                                             
-                                            try:
-                                                self.ClearAgeError()
-                                            except:
-                                                pass
+    #                                         try:
+    #                                             self.ClearAgeError()
+    #                                         except:
+    #                                             pass
                                             
-                                            AllSubjects = ['Sinhala','sinhala', 'SINHALA', 'Sin', 'sin',
-                                                        'Tamil', 'tamil', 'tam', 'Tam',
-                                                        'English', 'english', "En", 'en',
-                                                        'Mathematics', 'mathematics', "MATHEMATICS", "math", 'Math',
-                                                        'MATH',
-                                                        "Health", 'HEALTH', "HEAL", "health",
-                                                        "Geography", 'geography', 'GEOGRAPHY', 'geo', "Geo", "GEO",
-                                                        'French', "french", 'FRENCH',
-                                                        'Spanish', 'SPANISH', "spanish",
-                                                        'Computer Science', 'computer science', 'COMPUTER SCIENCE',
-                                                        'Art', 'ART', 'art',
-                                                        'Band', 'band', 'BAND',
-                                                        'Choir', "choir", 'CHOIR',
-                                                        'Drama', "drama", "DRAMA",
-                                                        "Sports", "SPORTS", "sports",
-                                                        'Science', 'science', "SCIENCE",
-                                                        'History', 'history', 'HISTORY',
-                                                        'Chess', 'CHESS', 'chess',
-                                                        "music", 'Music', 'MUSIC',
-                                                        "ict", 'ICT', "Ict",
-                                                        'Japan', 'japan', 'JAPAN',
-                                                        'China', 'china', 'CHINA',
-                                                        'Accounting', 'accounting', 'ACCOUNTING',
-                                                        'Latin', 'latin', 'LATIN',
-                                                        'Greek', 'greek', "GREEK",
-                                                        'Hebrew', 'HEBREW', "hebrew",
-                                                        'Zoology', "ZOOLOGY", "zoology",
-                                                        ]
+    #                                         AllSubjects = ['Sinhala','sinhala', 'SINHALA', 'Sin', 'sin',
+    #                                                     'Tamil', 'tamil', 'tam', 'Tam',
+    #                                                     'English', 'english', "En", 'en',
+    #                                                     'Mathematics', 'mathematics', "MATHEMATICS", "math", 'Math',
+    #                                                     'MATH',
+    #                                                     "Health", 'HEALTH', "HEAL", "health",
+    #                                                     "Geography", 'geography', 'GEOGRAPHY', 'geo', "Geo", "GEO",
+    #                                                     'French', "french", 'FRENCH',
+    #                                                     'Spanish', 'SPANISH', "spanish",
+    #                                                     'Computer Science', 'computer science', 'COMPUTER SCIENCE',
+    #                                                     'Art', 'ART', 'art',
+    #                                                     'Band', 'band', 'BAND',
+    #                                                     'Choir', "choir", 'CHOIR',
+    #                                                     'Drama', "drama", "DRAMA",
+    #                                                     "Sports", "SPORTS", "sports",
+    #                                                     'Science', 'science', "SCIENCE",
+    #                                                     'History', 'history', 'HISTORY',
+    #                                                     'Chess', 'CHESS', 'chess',
+    #                                                     "music", 'Music', 'MUSIC',
+    #                                                     "ict", 'ICT', "Ict",
+    #                                                     'Japan', 'japan', 'JAPAN',
+    #                                                     'China', 'china', 'CHINA',
+    #                                                     'Accounting', 'accounting', 'ACCOUNTING',
+    #                                                     'Latin', 'latin', 'LATIN',
+    #                                                     'Greek', 'greek', "GREEK",
+    #                                                     'Hebrew', 'HEBREW', "hebrew",
+    #                                                     'Zoology', "ZOOLOGY", "zoology",
+    #                                                     ]
                                             
-                                            checkSubject = all(item in AllSubjects for item in Student_subjects.split(","))
-                                            ##########################Clear Error###############################
-                                            self.ClearSubjectError()
-                                            ###################################################################
-                                            if checkSubject is False:
-                                                ########################Subject Error############################
-                                                self.WSubjectError()
-                                                ################################################################
-                                            else:
-                                                self.ClearSubjectError()
-                                                # try:
-                                                #     self.AgeNoError()
-                                                # except:
-                                                #     pass
-                                                self.ClearDarabaseNotConnectedError()
-                                                try: 
-                                                    ##################Chekc db######################### 
-                                                    self.connectDB()
-                                                    ###################################################
-                                                except:
-                                                    #AddDB ERROR
-                                                    self.ClearDarabaseNotConnectedError()
-                                                    self.DatabaseNotConnectedError()
+    #                                         checkSubject = all(item in AllSubjects for item in Student_subjects.split(","))
+    #                                         ##########################Clear Error###############################
+    #                                         self.ClearSubjectError()
+    #                                         ###################################################################
+    #                                         if checkSubject is False:
+    #                                             ########################Subject Error############################
+    #                                             self.WSubjectError()
+    #                                             ################################################################
+    #                                         else:
+    #                                             self.ClearSubjectError()
+    #                                             # try:
+    #                                             #     self.AgeNoError()
+    #                                             # except:
+    #                                             #     pass
+    #                                             self.ClearDarabaseNotConnectedError()
+    #                                             try: 
+    #                                                 ##################Chekc db######################### 
+    #                                                 self.connectDB()
+    #                                                 ###################################################
+    #                                             except:
+    #                                                 #AddDB ERROR
+    #                                                 self.ClearDarabaseNotConnectedError()
+    #                                                 self.DatabaseNotConnectedError()
         else:
             self.DStudentRegistationBGColor = "#121212"
             self.DStudentRegistationFGColor = "#ffffff"
@@ -2364,211 +2364,211 @@ class StudentRegistation(tk.Frame):
 
     #*******************************************************************************************************************
     ###############################################Check All Fields Are Empty###########################################
-            if Student_first_name == "" or Student_last_name == "" or Student_phone_number == "" or Student_age == "" or Student_Admission_Number == "" or Student_subjects == "":
+    #         if Student_first_name == "" or Student_last_name == "" or Student_phone_number == "" or Student_age == "" or Student_Admission_Number == "" or Student_subjects == "":
                 
-                ##############################Clear All Erorr##################################
-                try:
-                    self.Clearerrors()
-                except:
-                    pass
-                #################################Distroy Student First Name########################
-                #################################Place The Erorr###################################  
-                try:          
-                    self.AllFildsRequiredErorr()
-                except:
-                    pass
+    #             ##############################Clear All Erorr##################################
+    #             try:
+    #                 self.Clearerrors()
+    #             except:
+    #                 pass
+    #             #################################Distroy Student First Name########################
+    #             #################################Place The Erorr###################################  
+    #             try:          
+    #                 self.AllFildsRequiredErorr()
+    #             except:
+    #                 pass
 
-            else:
-                ################################Distroy All Fields Erore#####################
-                self.AllFildsRequiredErorrDestroy()
+    #         else:
+    #             ################################Distroy All Fields Erore#####################
+    #             self.AllFildsRequiredErorrDestroy()
                 
-                ##################################Student First Name Lenth Check#############
-                if len(Student_first_name) > 50:
-                    ###################################Distroy Studetn_First_Name_No_error_label#####################
-                    self.FirstNameErorr()
-                else:
-                    Student_first_name.capitalize()
-                    # self.FirstNameNoErorr()
+    #             ##################################Student First Name Lenth Check#############
+    #             if len(Student_first_name) > 50:
+    #                 ###################################Distroy Studetn_First_Name_No_error_label#####################
+    #                 self.FirstNameErorr()
+    #             else:
+    #                 Student_first_name.capitalize()
+    #                 # self.FirstNameNoErorr()
                     
-                    ############################Distroy First name Error##################################
-                    try:
-                        self.Studetn_First_Name_error_label.destroy()
-                    except:
-                        pass
-                    ##########################################Cehck Student Last name Lenth########################
-                    if len(Student_last_name) > 50:
-                        #####################################Distroy Studetn_Last_Name_No_error_label###############
-                        try:
-                            self.LastNameError()
-                        except:
-                            pass
-                    else:
-                        ####################################Distroy Last Name Error#################################
-                        try:
-                            self.ClearLastNameError()
-                        except:
-                            pass
-                        # self.NoLastNameError()
+    #                 ############################Distroy First name Error##################################
+    #                 try:
+    #                     self.Studetn_First_Name_error_label.destroy()
+    #                 except:
+    #                     pass
+    #                 ##########################################Cehck Student Last name Lenth########################
+    #                 if len(Student_last_name) > 50:
+    #                     #####################################Distroy Studetn_Last_Name_No_error_label###############
+    #                     try:
+    #                         self.LastNameError()
+    #                     except:
+    #                         pass
+    #                 else:
+    #                     ####################################Distroy Last Name Error#################################
+    #                     try:
+    #                         self.ClearLastNameError()
+    #                     except:
+    #                         pass
+    #                     # self.NoLastNameError()
 
 
-                        Student_last_name.capitalize()
-                        if Student_first_name.capitalize() == Student_last_name.capitalize():
-                            ###############################Clear LAST NAME#######################
-                            try:
-                                self.ClearNoLastNameError()
-                            except:
-                                pass
-                            ################################Add Duplicated Error#################
-                            try:
-                                self.NameDuplicatedErorr()
-                            except:
-                                pass
+    #                     Student_last_name.capitalize()
+    #                     if Student_first_name.capitalize() == Student_last_name.capitalize():
+    #                         ###############################Clear LAST NAME#######################
+    #                         try:
+    #                             self.ClearNoLastNameError()
+    #                         except:
+    #                             pass
+    #                         ################################Add Duplicated Error#################
+    #                         try:
+    #                             self.NameDuplicatedErorr()
+    #                         except:
+    #                             pass
 
-                        else:
-                            #############################Clear Duplicate error########################
-                            try: 
-                                self.ClearNameDuplicatedErorr()
-                            except:
-                                pass
-                            # self.NoDuplicateNameError()
+    #                     else:
+    #                         #############################Clear Duplicate error########################
+    #                         try: 
+    #                             self.ClearNameDuplicatedErorr()
+    #                         except:
+    #                             pass
+    #                         # self.NoDuplicateNameError()
 
-                                ################################Numeber Lenth Check########################################
-                            if len(Student_phone_number) != 10:
+    #                             ################################Numeber Lenth Check########################################
+    #                         if len(Student_phone_number) != 10:
 
-                                ##################################Distroy Number No Eror################# 
-                                try:                         
-                                    self.clearAllPhoneErors()
-                                except:
-                                    pass
+    #                             ##################################Distroy Number No Eror################# 
+    #                             try:                         
+    #                                 self.clearAllPhoneErors()
+    #                             except:
+    #                                 pass
 
-                                ##################################PHONE NUMBER LENTH ERROR#####################
-                                try:
-                                    self.PhoneNumberLenthErorr()
-                                except:
-                                    pass
+    #                             ##################################PHONE NUMBER LENTH ERROR#####################
+    #                             try:
+    #                                 self.PhoneNumberLenthErorr()
+    #                             except:
+    #                                 pass
 
-    ###################################################Distroy Studetn_lenth_Phone_number_error_label############
-                            else:
-                                ###############################Clear phone number lenth erorr####################
-                                try:
-                                    self.ClearPhoneNumberLenthErorr()
-                                except:
-                                    pass
+    # ###################################################Distroy Studetn_lenth_Phone_number_error_label############
+    #                         else:
+    #                             ###############################Clear phone number lenth erorr####################
+    #                             try:
+    #                                 self.ClearPhoneNumberLenthErorr()
+    #                             except:
+    #                                 pass
 
 
 
-    #******************************************************************************************************************#
-    ###################################################### place Studetn_Phone_Number_No_error_label####################
-                                # self.PhoneNumberLenthNoErorr()
+    # #******************************************************************************************************************#
+    # ###################################################### place Studetn_Phone_Number_No_error_label####################
+    #                             # self.PhoneNumberLenthNoErorr()
 
-                                            ###############This  Place tick############## 
-    ######################################################Check Phone Number Error##########################
-    #******************************************************************************************************#
-                                try:
-                                    int(Student_phone_number)
-                                except:
-                                    pass
-                                if type(int(Student_phone_number)) != int:
+    #                                         ###############This  Place tick############## 
+    # ######################################################Check Phone Number Error##########################
+    # #******************************************************************************************************#
+    #                             try:
+    #                                 int(Student_phone_number)
+    #                             except:
+    #                                 pass
+    #                             if type(int(Student_phone_number)) != int:
 
-    ######################################################Distroy All Error##################################
-                                    try:
-                                        self.clearAllPhoneErors()
-                                    except:
-                                        pass
-    #####################################################Place Studetn_int_Phone_number_error_label####################
-                                    try:
-                                        self.PhoneNumberTypeErorr()
-                                    except:
-                                        pass
-                                else:
-    ####################################################Distroy Studetn_int_Phone_number_error_label ##################
-                                    try:
-                                        self.clearAllPhoneErors()
-                                    except:
-                                        pass
-    ##################################################Place  Studetn_int_Phone_Number_No_error_label####################
-                                    # self.PhoneNumberNoTypeErorr()
-    ################################
-                                    if int(Student_phone_number[0]) != 0:
-    #*************************************************************************************************************#
-    ###############################################Distroy Phone Nimbers###########################################
-                                        try:
-                                            self.clearAllPhoneErors()
-                                        except:
-                                            pass
-    ##############################################Place Error##############################################
-                                        try:                                    
-                                            self.PhoneNumberZeroError()
-                                        except:
-                                            pass
-    #######################################################################################################                                    
-                                    else:
-                                        ##################Clear Zero Errors###############################
-                                        try:
-                                            self.ClearPhoneNumberZeroError()
-                                        except:
-                                            pass
+    # ######################################################Distroy All Error##################################
+    #                                 try:
+    #                                     self.clearAllPhoneErors()
+    #                                 except:
+    #                                     pass
+    # #####################################################Place Studetn_int_Phone_number_error_label####################
+    #                                 try:
+    #                                     self.PhoneNumberTypeErorr()
+    #                                 except:
+    #                                     pass
+    #                             else:
+    # ####################################################Distroy Studetn_int_Phone_number_error_label ##################
+    #                                 try:
+    #                                     self.clearAllPhoneErors()
+    #                                 except:
+    #                                     pass
+    # ##################################################Place  Studetn_int_Phone_Number_No_error_label####################
+    #                                 # self.PhoneNumberNoTypeErorr()
+    # ################################
+    #                                 if int(Student_phone_number[0]) != 0:
+    # #*************************************************************************************************************#
+    # ###############################################Distroy Phone Nimbers###########################################
+    #                                     try:
+    #                                         self.clearAllPhoneErors()
+    #                                     except:
+    #                                         pass
+    # ##############################################Place Error##############################################
+    #                                     try:                                    
+    #                                         self.PhoneNumberZeroError()
+    #                                     except:
+    #                                         pass
+    # #######################################################################################################                                    
+    #                                 else:
+    #                                     ##################Clear Zero Errors###############################
+    #                                     try:
+    #                                         self.ClearPhoneNumberZeroError()
+    #                                     except:
+    #                                         pass
 
                                         
-                                        if len(Student_age) > 2:
-                                            self.ClearAgeError()
-                                            self.AgeError()
-                                        else:  
+    #                                     if len(Student_age) > 2:
+    #                                         self.ClearAgeError()
+    #                                         self.AgeError()
+    #                                     else:  
                                             
-                                            try:
-                                                self.ClearAgeError()
-                                            except:
-                                                pass
+    #                                         try:
+    #                                             self.ClearAgeError()
+    #                                         except:
+    #                                             pass
                                             
-                                            AllSubjects = ['Sinhala','sinhala', 'SINHALA', 'Sin', 'sin',
-                                                        'Tamil', 'tamil', 'tam', 'Tam',
-                                                        'English', 'english', "En", 'en',
-                                                        'Mathematics', 'mathematics', "MATHEMATICS", "math", 'Math',
-                                                        'MATH',
-                                                        "Health", 'HEALTH', "HEAL", "health",
-                                                        "Geography", 'geography', 'GEOGRAPHY', 'geo', "Geo", "GEO",
-                                                        'French', "french", 'FRENCH',
-                                                        'Spanish', 'SPANISH', "spanish",
-                                                        'Computer Science', 'computer science', 'COMPUTER SCIENCE',
-                                                        'Art', 'ART', 'art',
-                                                        'Band', 'band', 'BAND',
-                                                        'Choir', "choir", 'CHOIR',
-                                                        'Drama', "drama", "DRAMA",
-                                                        "Sports", "SPORTS", "sports",
-                                                        'Science', 'science', "SCIENCE",
-                                                        'History', 'history', 'HISTORY',
-                                                        'Chess', 'CHESS', 'chess',
-                                                        "music", 'Music', 'MUSIC',
-                                                        "ict", 'ICT', "Ict",
-                                                        'Japan', 'japan', 'JAPAN',
-                                                        'China', 'china', 'CHINA',
-                                                        'Accounting', 'accounting', 'ACCOUNTING',
-                                                        'Latin', 'latin', 'LATIN',
-                                                        'Greek', 'greek', "GREEK",
-                                                        'Hebrew', 'HEBREW', "hebrew",
-                                                        'Zoology', "ZOOLOGY", "zoology",
-                                                        ]
+    #                                         AllSubjects = ['Sinhala','sinhala', 'SINHALA', 'Sin', 'sin',
+    #                                                     'Tamil', 'tamil', 'tam', 'Tam',
+    #                                                     'English', 'english', "En", 'en',
+    #                                                     'Mathematics', 'mathematics', "MATHEMATICS", "math", 'Math',
+    #                                                     'MATH',
+    #                                                     "Health", 'HEALTH', "HEAL", "health",
+    #                                                     "Geography", 'geography', 'GEOGRAPHY', 'geo', "Geo", "GEO",
+    #                                                     'French', "french", 'FRENCH',
+    #                                                     'Spanish', 'SPANISH', "spanish",
+    #                                                     'Computer Science', 'computer science', 'COMPUTER SCIENCE',
+    #                                                     'Art', 'ART', 'art',
+    #                                                     'Band', 'band', 'BAND',
+    #                                                     'Choir', "choir", 'CHOIR',
+    #                                                     'Drama', "drama", "DRAMA",
+    #                                                     "Sports", "SPORTS", "sports",
+    #                                                     'Science', 'science', "SCIENCE",
+    #                                                     'History', 'history', 'HISTORY',
+    #                                                     'Chess', 'CHESS', 'chess',
+    #                                                     "music", 'Music', 'MUSIC',
+    #                                                     "ict", 'ICT', "Ict",
+    #                                                     'Japan', 'japan', 'JAPAN',
+    #                                                     'China', 'china', 'CHINA',
+    #                                                     'Accounting', 'accounting', 'ACCOUNTING',
+    #                                                     'Latin', 'latin', 'LATIN',
+    #                                                     'Greek', 'greek', "GREEK",
+    #                                                     'Hebrew', 'HEBREW', "hebrew",
+    #                                                     'Zoology', "ZOOLOGY", "zoology",
+    #                                                     ]
                                             
-                                            checkSubject = all(item in AllSubjects for item in Student_subjects.split(","))
-                                            ##########################Clear Error###############################
-                                            self.ClearSubjectError()
-                                            ###################################################################
-                                            if checkSubject is False:
-                                                ########################Subject Error############################
-                                                self.SubjectError()
-                                                ################################################################
-                                            else:
-                                                # try:
-                                                #     self.AgeNoError()
-                                                # except:
-                                                #     pass
-                                                try: 
-                                                    ##################Chekc db######################### 
-                                                    self.connectDB()
-                                                    ###################################################
-                                                except:
-                                                    #AddDB ERROR
-                                                    self.DatabaseNotConnectedError()
+    #                                         checkSubject = all(item in AllSubjects for item in Student_subjects.split(","))
+    #                                         ##########################Clear Error###############################
+    #                                         self.ClearSubjectError()
+    #                                         ###################################################################
+    #                                         if checkSubject is False:
+    #                                             ########################Subject Error############################
+    #                                             self.SubjectError()
+    #                                             ################################################################
+    #                                         else:
+    #                                             # try:
+    #                                             #     self.AgeNoError()
+    #                                             # except:
+    #                                             #     pass
+    #                                             try: 
+    #                                                 ##################Chekc db######################### 
+    #                                                 self.connectDB()
+    #                                                 ###################################################
+    #                                             except:
+    #                                                 #AddDB ERROR
+    #                                                 self.DatabaseNotConnectedError()
                 
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
@@ -7714,18 +7714,18 @@ class TeacherView(tk.Frame):
                     record[0], record[1], record[2], record[4], "0" + str(record[3]), record[5], record[6]),
                                             tags=("oneColor"))
                 if count <=7:
-                    self.Student_recodes.configure(height=int(count))
+                    self.teacher_recodes.configure(height=int(count))
                 else:
-                    self.Student_recodes.configure(height="8")
+                    self.teacher_recodes.configure(height="8")
                     print("hi")
             else:
                 self.teacher_recodes.insert(parent="", index='end', iid=count, values=(
                     record[0], record[1], record[2], record[4], "0" + str(record[3]), record[5], record[6]),
                                             tags=("secondColor"))
                 if count <=7:
-                    self.Student_recodes.configure(height=int(count))
+                    self.teacher_recodes.configure(height=int(count))
                 else:
-                    self.Student_recodes.configure(height="8")
+                    self.teacher_recodes.configure(height="8")
                     print("hi")
                     
                                                 
@@ -8051,6 +8051,6 @@ if __name__ == "__main__":
     app.eval('tk::PlaceWindow . center')
     app.attributes('-topmost', True)
     app.resizable(False, False)
-    app.overrideredirect(False)
+    app.overrideredirect(True)
     app.mainloop()
 # @^^^^^^^  ^o^
