@@ -139,9 +139,6 @@ class SplashScreen(tk.Frame):
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 
 
-
-
-
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 #######################################################This is the login page######################################
 class LogInPage(tk.Frame):
@@ -561,7 +558,6 @@ class Home(tk.Frame):
                        width='791')
         self.place(x="0",
                    y="0")
-
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 
 # this is the student home
@@ -8051,6 +8047,6 @@ if __name__ == "__main__":
     app.eval('tk::PlaceWindow . center')
     app.attributes('-topmost', True)
     app.resizable(False, False)
-    app.overrideredirect(True)
+    app.overrideredirect(False)
     app.mainloop()
 # @^^^^^^^  ^o^
