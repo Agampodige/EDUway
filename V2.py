@@ -113,7 +113,7 @@ class SplashScreen(tk.Frame):
         self.place(x='0', y='0')
 #!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 
-#!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
+#?@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 #######################################################This is the login page######################################
 class LogInPage(tk.Frame):
     def __init__(self, master):
@@ -423,8 +423,9 @@ class LogInPage(tk.Frame):
                 messagebox.showerror("Image Missing", "DarkThemeimg.png is missing")
 
             self.theme_change_button.configure(image=self.img_img3)
-
 #?@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
+
+#!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 class DarkHome(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
@@ -498,9 +499,9 @@ class DarkHome(tk.Frame):
                        width='791')
         self.place(x="0",
                    y="0")
-#?@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
-
 #!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
+
+#?@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 class LightHome(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
@@ -564,7 +565,7 @@ class LightHome(tk.Frame):
                                             relief="flat",
                                             activebackground=self.bgcolor,
                                             activeforeground=self.bgcolor,
-                                            command=lambda: master.switch_frame(AboutMe))
+                                            command=lambda: master.switch_frame(LightAboutMe))
         self.home_About_Us_button.place(x="508",
                                         y="280")
 
@@ -574,8 +575,9 @@ class LightHome(tk.Frame):
                        width='791')
         self.place(x="0",
                    y="0")
-#!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
+#?@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 
+#!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 class DarkStudentHome(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
@@ -838,8 +840,9 @@ class DarkStudentHome(tk.Frame):
 
     def goHome(self):
         self.master.switch_frame(DarkHome)
-#?@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
+#!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 
+#?@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 class LightStudentHome(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
@@ -1104,6 +1107,7 @@ class LightStudentHome(tk.Frame):
         self.master.switch_frame(LightHome)
 #?@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 
+#!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 class DarkStudentRegistation(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
@@ -2863,8 +2867,9 @@ class DarkStudentRegistation(tk.Frame):
             self.Comited_label.destroy()
         except:
             pass
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
+#!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 
+#?@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 class LightStudentRegistation(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
@@ -4624,8 +4629,9 @@ class LightStudentRegistation(tk.Frame):
             self.Comited_label.destroy()
         except:
             pass
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
+#?@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 
+#!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 class DarkStudentDelete(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
@@ -5038,8 +5044,9 @@ class DarkStudentDelete(tk.Frame):
         #                                               foreground=self.fgcolor)
 
         self.master.switch_frame(LightStudentDelete)
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
+#!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 
+#?@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 class LightStudentDelete(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
@@ -5452,8 +5459,9 @@ class LightStudentDelete(tk.Frame):
         #                                               foreground=self.fgcolor)
 
         self.master.switch_frame(DarkStudentDelete)
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
+#?@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 
+#!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 class DarkStudentView(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
@@ -5779,8 +5787,9 @@ class DarkStudentView(tk.Frame):
         #                                                     image=self.img_DarkThemeimg)
 
         self.master.switch_frame(LightStudentView)
- #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
-       
+#!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
+
+#?@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#     
 class LightStudentView(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
@@ -6106,8 +6115,9 @@ class LightStudentView(tk.Frame):
         #                                                     image=self.img_DarkThemeimg)
 
         self.master.switch_frame(DarkStudentView)
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
+#?@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 
+#!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 class DarkStudentUpdate(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
@@ -7999,8 +8009,9 @@ class DarkStudentUpdate(tk.Frame):
                                                                         y='420')
         except:
             pass
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
+#!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 
+#?@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 class LightStudentUpdate(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
@@ -9892,8 +9903,9 @@ class LightStudentUpdate(tk.Frame):
                                                                         y='420')
         except:
             pass
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
+#?@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 
+#!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 class DarkTeacherHome(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
@@ -10157,8 +10169,9 @@ class DarkTeacherHome(tk.Frame):
 
     def goHome(self):
         self.master.switch_frame(DarkHome)
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
-        
+#!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
+
+#?@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#        
 class LightTeacherHome(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
@@ -10422,8 +10435,9 @@ class LightTeacherHome(tk.Frame):
 
     def goHome(self):
         self.master.switch_frame(LightHome)
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
+#?@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 
+#!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 class DarkTeacherRegistation(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
@@ -11573,8 +11587,9 @@ class DarkTeacherRegistation(tk.Frame):
             self.Gender_Error_label.destroy()
         except:
             pass
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
+#!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 
+#?@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 class LightTeacherRegistation(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
@@ -12725,8 +12740,9 @@ class LightTeacherRegistation(tk.Frame):
             self.Gender_Error_label.destroy()
         except:
             pass
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
+#?@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 
+#!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 class DarkTeacherDelete(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
@@ -13140,8 +13156,9 @@ class DarkTeacherDelete(tk.Frame):
         #                                               font='{Poppins} 8 {bold}',
         #                                               foreground=self.fgcolor)
         self.master.switch_frame(LightTeacherDelete)
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
+#!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 
+#?@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 class LightTeacherDelete(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
@@ -13550,8 +13567,9 @@ class LightTeacherDelete(tk.Frame):
         #                                               font='{Poppins} 8 {bold}',
         #                                               foreground=self.fgcolor)
         self.master.switch_frame(DarkTeacherDelete)
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
+#?@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 
+#!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 class DarkTeacherView(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
@@ -13880,8 +13898,9 @@ class DarkTeacherView(tk.Frame):
         #                                                     image=self.img_DarkThemeimg)
 
         self.master.switch_frame(LightTeacherView)
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
+#!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 
+#?@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 class LightTeacherView(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
@@ -14210,8 +14229,9 @@ class LightTeacherView(tk.Frame):
         #                                                     image=self.img_DarkThemeimg)
 
         self.master.switch_frame(DarkTeacherView)
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
+#?@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 
+#!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 class DarkTeacherUpdate(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
@@ -16137,8 +16157,9 @@ class DarkTeacherUpdate(tk.Frame):
             self.Studetn_Gender_error_label.destroy()
         except:
             pass
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
+#!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 
+#?@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 class LightTeacherUpdate(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
@@ -18065,12 +18086,14 @@ class LightTeacherUpdate(tk.Frame):
             self.Studetn_Gender_error_label.destroy()
         except:
             pass
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
+#?@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 
+
+#!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 class DarkAboutMe(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
-
+        self.bgcolor = "#121212"
         try:
             self.aboutmeimg = tk.PhotoImage(file='About_Me.png')
         except Exception as e:
@@ -18088,14 +18111,14 @@ class DarkAboutMe(tk.Frame):
             messagebox.showerror("File Missing", "img_img4.png is missing")
 
         self.About_Me_close_button = tk.Button(self)
-        self.About_Me_close_button.configure(activebackground='#121212',
-                                             activeforeground='#121212',
-                                             background='#121212',
+        self.About_Me_close_button.configure(activebackground=self.bgcolor,
+                                             activeforeground=self.bgcolor,
+                                             background=self.bgcolor,
                                              borderwidth='0')
         self.About_Me_close_button.configure(cursor='hand2',
-                                             foreground='#121212',
-                                             highlightbackground='#121212',
-                                             highlightcolor='#121212')
+                                             foreground=self.bgcolor,
+                                             highlightbackground=self.bgcolor,
+                                             highlightcolor=self.bgcolor)
         self.About_Me_close_button.configure(highlightthickness='1',
                                              image=self.img_img4,
                                              relief='flat',
@@ -18113,9 +18136,9 @@ class DarkAboutMe(tk.Frame):
             print(e)
             messagebox.showerror("File Missing", "BackPageIMG.png is missing")
 
-        self.About_Me_back_page_img_button.configure(activebackground='#121212',
-                                                     activeforeground='#121212',
-                                                     background='#121212',
+        self.About_Me_back_page_img_button.configure(activebackground=self.bgcolor,
+                                                     activeforeground=self.bgcolor,
+                                                     background=self.bgcolor,
                                                      borderwidth='0',
                                                      command=self.goAboutMeHome)
         self.About_Me_back_page_img_button.configure(image=self.img_BackPageIMG)
@@ -18143,7 +18166,7 @@ class DarkAboutMe(tk.Frame):
         self.Student_Update_Student_registation_theme_change_button.place(anchor='nw',
                                                                           x='60',
                                                                           y='10')
-        self.configure(background='#121212',
+        self.configure(background=self.bgcolor,
                        height='515',
                        width='791')
         self.place(x='0', y="0")
@@ -18153,8 +18176,100 @@ class DarkAboutMe(tk.Frame):
 
     def  changeAboutMeTheme(self):
         self.master.switch_frame(LightAboutMe)
+#!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 
 
+#?@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
+class LightAboutMe(tk.Frame):
+    def __init__(self, master):
+        tk.Frame.__init__(self, master)
+        self.bgcolor = "#ffffff"
+        try:
+            self.aboutmeimg = tk.PhotoImage(file='Light_About_Me.png')
+        except Exception as e:
+            print(e)
+            messagebox.showerror("File Missing", "About_Me.png Is Missing")
+
+        self.about_bg_img = tk.Label(self)
+        self.about_bg_img.configure(image=self.aboutmeimg, borderwidth='0')
+        self.about_bg_img.place(x='0', y="0")
+
+        try:
+            self.img_img4 = tk.PhotoImage(file='img4.png')
+        except Exception as e:
+            print(e)
+            messagebox.showerror("File Missing", "img_img4.png is missing")
+
+        self.About_Me_close_button = tk.Button(self)
+        self.About_Me_close_button.configure(activebackground=self.bgcolor,
+                                             activeforeground=self.bgcolor,
+                                             background=self.bgcolor,
+                                             borderwidth='0')
+        self.About_Me_close_button.configure(cursor='hand2',
+                                             foreground=self.bgcolor,
+                                             highlightbackground=self.bgcolor,
+                                             highlightcolor=self.bgcolor)
+        self.About_Me_close_button.configure(highlightthickness='1',
+                                             image=self.img_img4,
+                                             relief='flat',
+                                             command=self.master.on_close)
+
+        self.About_Me_close_button.place(anchor='nw',
+                                         x='760',
+                                         y='8')
+
+        self.About_Me_back_page_img_button = tk.Button(self)
+
+        try:
+            self.img_BackPageIMG = tk.PhotoImage(file='BackPageIMG.png')
+        except Exception as e:
+            print(e)
+            messagebox.showerror("File Missing", "BackPageIMG.png is missing")
+
+        self.About_Me_back_page_img_button.configure(activebackground=self.bgcolor,
+                                                     activeforeground=self.bgcolor,
+                                                     background=self.bgcolor,
+                                                     borderwidth='0',
+                                                     command=self.goAboutMeHome)
+        self.About_Me_back_page_img_button.configure(image=self.img_BackPageIMG)
+        self.About_Me_back_page_img_button.place(anchor='nw',
+                                                 x='15',
+                                                 y='15')
+
+        self.Student_Update_Student_registation_theme_change_button = tk.Button(self)
+
+        try:
+            self.img_DarkThemeimg = tk.PhotoImage(file='DarkThemeimg.png')
+        except Exception as e:
+            print(e)
+            messagebox.showerror("File Missing", "DarkThemeimg.png is missing")
+
+        self.Student_Update_Student_registation_theme_change_button.configure(activebackground=self.bgcolor,
+                                                                              activeforeground=self.bgcolor,
+                                                                              background=self.bgcolor,
+                                                                              borderwidth='0',
+                                                                              relief="flat",
+                                                                              overrelief="flat",
+                                                                              command=self.changeAboutMeTheme)
+        self.Student_Update_Student_registation_theme_change_button.configure(image=self.img_DarkThemeimg,
+                                                                              text='button2')
+        self.Student_Update_Student_registation_theme_change_button.place(anchor='nw',
+                                                                          x='60',
+                                                                          y='10')
+        self.configure(background=self.bgcolor,
+                       height='515',
+                       width='791')
+        self.place(x='0', y="0")
+
+    def goAboutMeHome(self):
+        self.master.switch_frame(LightHome)
+
+    def  changeAboutMeTheme(self):
+        self.master.switch_frame(DarkAboutMe)
+#?@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
+
+
+#!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 if __name__ == "__main__":
     app = SchoolManegmentSystem()
     app.title("EDUWAY     ")
@@ -18163,4 +18278,4 @@ if __name__ == "__main__":
     app.resizable(False, False)
     app.overrideredirect(False)
     app.mainloop()
-# @^^^^^^^  ^o^
+#!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
