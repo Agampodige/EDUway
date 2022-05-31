@@ -433,7 +433,7 @@ class DarkHome(tk.Frame):
                                            relief="flat",
                                            activebackground=self.bgcolor,
                                            activeforeground=self.bgcolor,
-                                           command=lambda: master.switch_frame(TeacherHome))
+                                           command=lambda: master.switch_frame(DarkTeacherHome))
         self.home_teacher_button.place(x="130",
                                        y="280")
 
@@ -9213,6 +9213,1188 @@ class LightStudentUpdate(tk.Frame):
             pass
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 
+class DarkStudentView(tk.Frame):
+    def __init__(self, master):
+        tk.Frame.__init__(self, master)
+        self.bgcolor = "#121212"
+        self.fgcolor = "#ffffff"
+        self.sty = ttk.Style()
+        self.sty.configure('Treeview', rowheight=46, fieldbackground="#000000")
+        self.sty.map('Treeview', background=[('selected', '#3B3B3B'), ('focus', '#212121')])
+        self.sty.configure("Vertical.TScrollbar",
+                           background="#000000", darkcolor="#000000", lightcolor="#000000",
+                           troughcolor="gray", bordercolor="gray", arrowcolor="#000000")
+        self.Student_recodes_scroll = ttk.Scrollbar(self)
+        self.columns = ('ID',
+                        'First name',
+                        'Last name',
+                        'Age',
+                        'Phone Number',
+                        'AdmissionNo',
+                        'Subjects')
+        self.Student_recodes = ttk.Treeview(height=8, columns=self.columns, show="tree",
+                                            yscrollcommand=self.Student_recodes_scroll.set)
+
+        # self.Student_recodes.heading("ID", text="ID")
+        # self.Student_recodes.heading("First name", text="First name")
+        # self.Student_recodes.heading("Last name", text="Last name")
+        # self.Student_recodes.heading("Age", text="Age")
+        # self.Student_recodes.heading("Phone Number", text="Phone Number")
+        # self.Student_recodes.heading("Gender", text="Gender")
+        # self.Student_recodes.heading("Subjects", text="Subjects")
+
+        self.Student_recodes.column("ID", width=50)
+        self.Student_recodes.column("First name", width=150)
+        self.Student_recodes.column("Last name", width=130)
+        self.Student_recodes.column("Age", width=50)
+        self.Student_recodes.column("Phone Number", width=130)
+        self.Student_recodes.column("AdmissionNo", width=100)
+        self.Student_recodes.column("Subjects", width=220)
+
+        # Add data
+        self.conn = mysql.connector.connect(user="root",
+                                            password="",
+                                            database="eduway")
+
+        self.connetc = self.conn.cursor()
+        self.connetc.execute("SELECT * FROM student")
+        self.recodes = self.connetc.fetchall()
+        global count
+
+        count = 0
+        self.Student_recodes.tag_configure("oneColorStudent", background=self.bgcolor,
+                                           font='{Poppins} 8 {bold}',
+                                           foreground="#c2c2c2")
+
+        self.Student_recodes.tag_configure("secondColorStudent", background="#0a0a0a",
+                                           font='{Poppins} 8 {bold}',
+                                           foreground="#c2c2c2")
+
+        for record in self.recodes:
+            if count % 2 == 0:
+                self.Student_recodes.insert(parent="", index='end', iid=count, values=(
+                    record[0], record[1], record[2], record[4], "0" + str(record[3]), record[5], record[6]),
+                                            tags=("oneColorStudent"))
+                if count <=7:
+                    self.Student_recodes.configure(height=int(count)+1)
+                else:
+                    self.Student_recodes.configure(height="8")
+                    print("hi")
+            else:
+                self.Student_recodes.insert(parent="", index='end', iid=count, values=(
+                    record[0], record[1], record[2], record[4], "0" + str(record[3]), record[5], record[6]),
+                                            tags=("secondColorStudent"))
+                if count <=7:
+                    self.Student_recodes.configure(height=int(count)+1)
+                else:
+                    self.Student_recodes.configure(height="8")
+                    print("hi")
+            count += 1
+            print(count)
+        
+        self.connetc.close()
+        self.conn.close()
+
+        # self.Student_recodes.insert()
+
+        self.Student_recodes.place(anchor='nw', x='0', y='146', relx="-0.24", bordermode='ignore')
+        self.Student_recodes_scroll.configure(command=self.Student_recodes.yview)
+        self.Student_recodes_scroll.configure(orient='vertical', )
+        self.Student_recodes_scroll.place(anchor='nw', height='0', x='0', y='0')
+
+        self.Student_view_theme_change_button = tk.Button(self)
+
+        try:
+            self.img_DarkThemeimg = tk.PhotoImage(file='DarkThemeimg.png')
+        except Exception as e:
+            print(e)
+            messagebox.showerror("File Missing", "DarkThemeimg.png is missing")
+
+        self.Student_view_theme_change_button.configure(activebackground=self.bgcolor,
+                                                        activeforeground=self.bgcolor,
+                                                        background=self.bgcolor,
+                                                        borderwidth='0',
+                                                        relief="flat",
+                                                        overrelief="flat")
+        self.Student_view_theme_change_button.configure(image=self.img_DarkThemeimg,
+                                                        text='button2',
+                                                        command=self.changeStudentViewTheme)
+        self.Student_view_theme_change_button.place(anchor='nw',
+                                                    x='60',
+                                                    y='10')
+
+        self.Student_home_back_page_img_button = tk.Button(self)
+
+        try:
+            self.img_BackPageIMG = tk.PhotoImage(file='BackPageIMG.png')
+        except Exception as e:
+            print(e)
+            messagebox.showerror("File Missing", "BackPageIMG.png is missing")
+
+        self.Student_home_back_page_img_button.configure(activebackground=self.bgcolor,
+                                                         activeforeground=self.bgcolor,
+                                                         background=self.bgcolor,
+                                                         borderwidth='0',
+                                                         command=self.goBackToStudentHome)
+        self.Student_home_back_page_img_button.configure(image=self.img_BackPageIMG)
+        self.Student_home_back_page_img_button.place(anchor='nw', x='15', y='15')
+
+        try:
+            self.img_img4 = tk.PhotoImage(file='img4.png')
+        except Exception as e:
+            print(e)
+            messagebox.showerror("File Missing", "img_img4.png is missing")
+        self.Student_view_close_button = tk.Button(self)
+        self.Student_view_close_button.configure(activebackground=self.bgcolor,
+                                                 activeforeground=self.bgcolor,
+                                                 background=self.bgcolor,
+                                                 borderwidth='0')
+        self.Student_view_close_button.configure(cursor='hand2',
+                                                 foreground=self.bgcolor,
+                                                 highlightbackground=self.bgcolor,
+                                                 highlightcolor=self.bgcolor)
+        self.Student_view_close_button.configure(highlightthickness='1',
+                                                 image=self.img_img4,
+                                                 relief='flat',
+                                                 command=self.master.on_close)
+        self.Student_view_close_button.place(anchor='nw',
+                                             x='760',
+                                             y='8')
+        self.View_Student_label = tk.Label(self)
+        self.View_Student_label.configure(background=self.bgcolor,
+                                          borderwidth='0',
+                                          font='{Poppins} 28 {bold}',
+                                          foreground=self.fgcolor)
+        self.View_Student_label.configure(text='View Student')
+        self.View_Student_label.place(anchor='nw',
+                                      x='274',
+                                      y='28')
+
+        self.Student_ID_label = tk.Label(self)
+        self.Student_ID_label.configure(background=self.bgcolor,
+                                        borderwidth='0',
+                                        font='{Poppins} 10 {bold}',
+                                        foreground=self.fgcolor)
+        self.Student_ID_label.configure(text='ID')
+        self.Student_ID_label.place(anchor='nw',
+                                    x='16',
+                                    y='115')
+
+        self.Student_First_Name_label = tk.Label(self)
+        self.Student_First_Name_label.configure(background=self.bgcolor,
+                                                borderwidth='0',
+                                                font='{Poppins} 10 {bold}',
+                                                foreground=self.fgcolor)
+        self.Student_First_Name_label.configure(text='First Name')
+        self.Student_First_Name_label.place(anchor='nw',
+                                            x='55',
+                                            y='115')
+
+        self.Student_Second_Name_label = tk.Label(self)
+        self.Student_Second_Name_label.configure(background=self.bgcolor,
+                                                 borderwidth='0',
+                                                 font='{Poppins} 10 {bold}',
+                                                 foreground=self.fgcolor)
+        self.Student_Second_Name_label.configure(text='Last Name')
+        self.Student_Second_Name_label.place(anchor='nw',
+                                             x='210',
+                                             y='115')
+
+        self.Student_Age_label = tk.Label(self)
+        self.Student_Age_label.configure(background=self.bgcolor,
+                                         borderwidth='0',
+                                         font='{Poppins} 10 {bold}',
+                                         foreground=self.fgcolor)
+        self.Student_Age_label.configure(text='Age')
+        self.Student_Age_label.place(anchor='nw',
+                                     x='340',
+                                     y='115')
+
+        self.Student_Phone_Number_label = tk.Label(self)
+        self.Student_Phone_Number_label.configure(background=self.bgcolor,
+                                                  borderwidth='0',
+                                                  font='{Poppins} 10 {bold}',
+                                                  foreground=self.fgcolor)
+        self.Student_Phone_Number_label.configure(text='Phone Number')
+        self.Student_Phone_Number_label.place(anchor='nw',
+                                              x='390',
+                                              y='115')
+
+        self.Student_Admission_Number_label = tk.Label(self)
+        self.Student_Admission_Number_label.configure(background=self.bgcolor,
+                                                      borderwidth='0',
+                                                      font='{Poppins} 10 {bold}',
+                                                      foreground=self.fgcolor)
+        self.Student_Admission_Number_label.configure(text='AdmissionNO')
+        self.Student_Admission_Number_label.place(anchor='nw',
+                                                  x='520',
+                                                  y='115')
+
+        self.Student_Main_Subject_label = tk.Label(self)
+        self.Student_Main_Subject_label.configure(background=self.bgcolor,
+                                                  borderwidth='0',
+                                                  font='{Poppins} 10 {bold}',
+                                                  foreground=self.fgcolor)
+        self.Student_Main_Subject_label.configure(text='Main Subject')
+        self.Student_Main_Subject_label.place(anchor='nw',
+                                              x='625',
+                                              y='115')
+
+        self.configure(background=self.bgcolor,
+                       height='515',
+                       width='791')
+
+        self.place(anchor='nw',
+                   x='0',
+                   y='0')
+
+    def goBackToStudentHome(self):
+        self.master.switch_frame(DarkStudentHome)
+
+    def changeStudentViewTheme(self):
+        # try:
+        #     self.img_DarkThemeimg = tk.PhotoImage(file='DarkThemeimg.png')
+        # except Exception as e:
+        #     print(e)
+        #     messagebox.showerror("File Missing", "DarkThemeimg.png IS Missing")
+
+        # try:
+        #     self.img_lightThemeimg = tk.PhotoImage(file='LightThemeimg.png')
+        # except Exception as e:
+        #     print(e)
+        #     messagebox.showerror("File Missing", "LightThemeimg.png IS Missing")
+
+        # if self["background"] == self.bgcolor:
+        #     StudentViewBackgroundColor = self.fgcolor
+        #     StudentViewForegroundColor = "#000000"
+
+        #     self.configure(background=StudentViewBackgroundColor)
+        #     self.sty.map('Treeview', background=[('selected', '#4d4d4d'), ('focus', '#212121')])
+        #     self.Student_recodes.tag_configure("secondColorStudent", background=StudentViewBackgroundColor,
+        #                                        font='{Poppins} 8 {bold}',
+        #                                        foreground=StudentViewForegroundColor)
+        #     self.Student_recodes.tag_configure("oneColorStudent", background="#e6e6e6",
+        #                                        font='{Poppins} 8 {bold}',
+        #                                        foreground=StudentViewForegroundColor)
+        #     # self.Student_view_theme_change_button  
+        #     self.Student_home_back_page_img_button.configure(background=StudentViewBackgroundColor,
+        #                                                      foreground=StudentViewForegroundColor)
+        #     self.Student_view_close_button.configure(background=StudentViewBackgroundColor,
+        #                                              foreground=StudentViewForegroundColor)
+        #     self.View_Student_label.configure(background=StudentViewBackgroundColor,
+        #                                       foreground=StudentViewForegroundColor)
+        #     self.Student_ID_label.configure(background=StudentViewBackgroundColor,
+        #                                     foreground=StudentViewForegroundColor)
+        #     self.Student_First_Name_label.configure(background=StudentViewBackgroundColor,
+        #                                             foreground=StudentViewForegroundColor)
+        #     self.Student_Second_Name_label.configure(background=StudentViewBackgroundColor,
+        #                                              foreground=StudentViewForegroundColor)
+        #     self.Student_Age_label.configure(background=StudentViewBackgroundColor,
+        #                                      foreground=StudentViewForegroundColor)
+        #     self.Student_Phone_Number_label.configure(background=StudentViewBackgroundColor,
+        #                                               foreground=StudentViewForegroundColor)
+        #     self.Student_Admission_Number_label.configure(background=StudentViewBackgroundColor,
+        #                                                   foreground=StudentViewForegroundColor)
+        #     self.Student_Main_Subject_label.configure(background=StudentViewBackgroundColor,
+        #                                               foreground=StudentViewForegroundColor)
+        #     self.Student_view_theme_change_button.configure(background=StudentViewBackgroundColor,
+        #                                                     foreground=StudentViewForegroundColor,
+        #                                                     image=self.img_lightThemeimg)
+        # else:
+        #     DStudentViewBackgroundColor = self.bgcolor
+        #     DStudentViewForegroundColor = self.fgcolor
+
+        #     self.configure(background=DStudentViewBackgroundColor)
+        #     self.sty.map('Treeview', background=[('selected', '#3B3B3B'), ('focus', '#212121')])
+        #     self.Student_recodes.tag_configure("secondColorStudent", background=DStudentViewBackgroundColor,
+        #                                        font='{Poppins} 8 {bold}',
+        #                                        foreground="#c2c2c2")
+        #     self.Student_recodes.tag_configure("oneColorStudent", background="#0a0a0a",
+        #                                        font='{Poppins} 8 {bold}',
+        #                                        foreground="#c2c2c2")
+        #     # self.Student_view_theme_change_button
+        #     self.Student_home_back_page_img_button.configure(background=DStudentViewBackgroundColor,
+        #                                                      foreground=DStudentViewForegroundColor)
+        #     self.Student_view_close_button.configure(background=DStudentViewBackgroundColor,
+        #                                              foreground=DStudentViewForegroundColor)
+        #     self.View_Student_label.configure(background=DStudentViewBackgroundColor,
+        #                                       foreground=DStudentViewForegroundColor)
+        #     self.Student_ID_label.configure(background=DStudentViewBackgroundColor,
+        #                                     foreground=DStudentViewForegroundColor)
+        #     self.Student_First_Name_label.configure(background=DStudentViewBackgroundColor,
+        #                                             foreground=DStudentViewForegroundColor)
+        #     self.Student_Second_Name_label.configure(background=DStudentViewBackgroundColor,
+        #                                              foreground=DStudentViewForegroundColor)
+        #     self.Student_Age_label.configure(background=DStudentViewBackgroundColor,
+        #                                      foreground=DStudentViewForegroundColor)
+        #     self.Student_Phone_Number_label.configure(background=DStudentViewBackgroundColor,
+        #                                               foreground=DStudentViewForegroundColor)
+        #     self.Student_Admission_Number_label.configure(background=DStudentViewBackgroundColor,
+        #                                                   foreground=DStudentViewForegroundColor)
+        #     self.Student_Main_Subject_label.configure(background=DStudentViewBackgroundColor,
+        #                                               foreground=DStudentViewForegroundColor)
+        #     self.Student_view_theme_change_button.configure(background=DStudentViewBackgroundColor,
+        #                                                     foreground=DStudentViewForegroundColor,
+        #                                                     image=self.img_DarkThemeimg)
+
+        self.master.switch_frame(LightStudentView)
+ #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
+       
+class LightStudentView(tk.Frame):
+    def __init__(self, master):
+        tk.Frame.__init__(self, master)
+        self.bgcolor = "#ffffff"
+        self.fgcolor = "#121212"
+        self.sty = ttk.Style()
+        self.sty.configure('Treeview', rowheight=46, fieldbackground="#000000")
+        self.sty.map('Treeview', background=[('selected', '#b3b3b3'), ('focus', '#212121')])
+        self.sty.configure("Vertical.TScrollbar",
+                           background="#000000", darkcolor="#000000", lightcolor="#000000",
+                           troughcolor="gray", bordercolor="gray", arrowcolor="#000000")
+        self.Student_recodes_scroll = ttk.Scrollbar(self)
+        self.columns = ('ID',
+                        'First name',
+                        'Last name',
+                        'Age',
+                        'Phone Number',
+                        'AdmissionNo',
+                        'Subjects')
+        self.Student_recodes = ttk.Treeview(height=8, columns=self.columns, show="tree",
+                                            yscrollcommand=self.Student_recodes_scroll.set)
+
+        # self.Student_recodes.heading("ID", text="ID")
+        # self.Student_recodes.heading("First name", text="First name")
+        # self.Student_recodes.heading("Last name", text="Last name")
+        # self.Student_recodes.heading("Age", text="Age")
+        # self.Student_recodes.heading("Phone Number", text="Phone Number")
+        # self.Student_recodes.heading("Gender", text="Gender")
+        # self.Student_recodes.heading("Subjects", text="Subjects")
+
+        self.Student_recodes.column("ID", width=50)
+        self.Student_recodes.column("First name", width=150)
+        self.Student_recodes.column("Last name", width=130)
+        self.Student_recodes.column("Age", width=50)
+        self.Student_recodes.column("Phone Number", width=130)
+        self.Student_recodes.column("AdmissionNo", width=100)
+        self.Student_recodes.column("Subjects", width=220)
+
+        # Add data
+        self.conn = mysql.connector.connect(user="root",
+                                            password="",
+                                            database="eduway")
+
+        self.connetc = self.conn.cursor()
+        self.connetc.execute("SELECT * FROM student")
+        self.recodes = self.connetc.fetchall()
+        global count
+
+        count = 0
+        self.Student_recodes.tag_configure("oneColorStudent", background=self.bgcolor,
+                                           font='{Poppins} 8 {bold}',
+                                           foreground=self.fgcolor)
+
+        self.Student_recodes.tag_configure("secondColorStudent", background="#e6e6e6",
+                                           font='{Poppins} 8 {bold}',
+                                           foreground=self.fgcolor)
+
+        for record in self.recodes:
+            if count % 2 == 0:
+                self.Student_recodes.insert(parent="", index='end', iid=count, values=(
+                    record[0], record[1], record[2], record[4], "0" + str(record[3]), record[5], record[6]),
+                                            tags=("oneColorStudent"))
+                if count <=7:
+                    self.Student_recodes.configure(height=int(count)+1)
+                else:
+                    self.Student_recodes.configure(height="8")
+                    print("hi")
+            else:
+                self.Student_recodes.insert(parent="", index='end', iid=count, values=(
+                    record[0], record[1], record[2], record[4], "0" + str(record[3]), record[5], record[6]),
+                                            tags=("secondColorStudent"))
+                if count <=7:
+                    self.Student_recodes.configure(height=int(count)+1)
+                else:
+                    self.Student_recodes.configure(height="8")
+                    print("hi")
+            count += 1
+            print(count)
+        
+        self.connetc.close()
+        self.conn.close()
+
+        # self.Student_recodes.insert()
+
+        self.Student_recodes.place(anchor='nw', x='0', y='146', relx="-0.24", bordermode='ignore')
+        self.Student_recodes_scroll.configure(command=self.Student_recodes.yview)
+        self.Student_recodes_scroll.configure(orient='vertical', )
+        self.Student_recodes_scroll.place(anchor='nw', height='0', x='0', y='0')
+
+        self.Student_view_theme_change_button = tk.Button(self)
+
+        try:
+            self.img_DarkThemeimg = tk.PhotoImage(file='DarkThemeimg.png')
+        except Exception as e:
+            print(e)
+            messagebox.showerror("File Missing", "DarkThemeimg.png is missing")
+
+        self.Student_view_theme_change_button.configure(activebackground=self.bgcolor,
+                                                        activeforeground=self.bgcolor,
+                                                        background=self.bgcolor,
+                                                        borderwidth='0',
+                                                        relief="flat",
+                                                        overrelief="flat")
+        self.Student_view_theme_change_button.configure(image=self.img_DarkThemeimg,
+                                                        text='button2',
+                                                        command=self.changeStudentViewTheme)
+        self.Student_view_theme_change_button.place(anchor='nw',
+                                                    x='60',
+                                                    y='10')
+
+        self.Student_home_back_page_img_button = tk.Button(self)
+
+        try:
+            self.img_BackPageIMG = tk.PhotoImage(file='BackPageIMG.png')
+        except Exception as e:
+            print(e)
+            messagebox.showerror("File Missing", "BackPageIMG.png is missing")
+
+        self.Student_home_back_page_img_button.configure(activebackground=self.bgcolor,
+                                                         activeforeground=self.bgcolor,
+                                                         background=self.bgcolor,
+                                                         borderwidth='0',
+                                                         command=self.goBackToStudentHome)
+        self.Student_home_back_page_img_button.configure(image=self.img_BackPageIMG)
+        self.Student_home_back_page_img_button.place(anchor='nw', x='15', y='15')
+
+        try:
+            self.img_img4 = tk.PhotoImage(file='img4.png')
+        except Exception as e:
+            print(e)
+            messagebox.showerror("File Missing", "img_img4.png is missing")
+        self.Student_view_close_button = tk.Button(self)
+        self.Student_view_close_button.configure(activebackground=self.bgcolor,
+                                                 activeforeground=self.bgcolor,
+                                                 background=self.bgcolor,
+                                                 borderwidth='0')
+        self.Student_view_close_button.configure(cursor='hand2',
+                                                 foreground=self.bgcolor,
+                                                 highlightbackground=self.bgcolor,
+                                                 highlightcolor=self.bgcolor)
+        self.Student_view_close_button.configure(highlightthickness='1',
+                                                 image=self.img_img4,
+                                                 relief='flat',
+                                                 command=self.master.on_close)
+        self.Student_view_close_button.place(anchor='nw',
+                                             x='760',
+                                             y='8')
+        self.View_Student_label = tk.Label(self)
+        self.View_Student_label.configure(background=self.bgcolor,
+                                          borderwidth='0',
+                                          font='{Poppins} 28 {bold}',
+                                          foreground=self.fgcolor)
+        self.View_Student_label.configure(text='View Student')
+        self.View_Student_label.place(anchor='nw',
+                                      x='274',
+                                      y='28')
+
+        self.Student_ID_label = tk.Label(self)
+        self.Student_ID_label.configure(background=self.bgcolor,
+                                        borderwidth='0',
+                                        font='{Poppins} 10 {bold}',
+                                        foreground=self.fgcolor)
+        self.Student_ID_label.configure(text='ID')
+        self.Student_ID_label.place(anchor='nw',
+                                    x='16',
+                                    y='115')
+
+        self.Student_First_Name_label = tk.Label(self)
+        self.Student_First_Name_label.configure(background=self.bgcolor,
+                                                borderwidth='0',
+                                                font='{Poppins} 10 {bold}',
+                                                foreground=self.fgcolor)
+        self.Student_First_Name_label.configure(text='First Name')
+        self.Student_First_Name_label.place(anchor='nw',
+                                            x='55',
+                                            y='115')
+
+        self.Student_Second_Name_label = tk.Label(self)
+        self.Student_Second_Name_label.configure(background=self.bgcolor,
+                                                 borderwidth='0',
+                                                 font='{Poppins} 10 {bold}',
+                                                 foreground=self.fgcolor)
+        self.Student_Second_Name_label.configure(text='Last Name')
+        self.Student_Second_Name_label.place(anchor='nw',
+                                             x='210',
+                                             y='115')
+
+        self.Student_Age_label = tk.Label(self)
+        self.Student_Age_label.configure(background=self.bgcolor,
+                                         borderwidth='0',
+                                         font='{Poppins} 10 {bold}',
+                                         foreground=self.fgcolor)
+        self.Student_Age_label.configure(text='Age')
+        self.Student_Age_label.place(anchor='nw',
+                                     x='340',
+                                     y='115')
+
+        self.Student_Phone_Number_label = tk.Label(self)
+        self.Student_Phone_Number_label.configure(background=self.bgcolor,
+                                                  borderwidth='0',
+                                                  font='{Poppins} 10 {bold}',
+                                                  foreground=self.fgcolor)
+        self.Student_Phone_Number_label.configure(text='Phone Number')
+        self.Student_Phone_Number_label.place(anchor='nw',
+                                              x='390',
+                                              y='115')
+
+        self.Student_Admission_Number_label = tk.Label(self)
+        self.Student_Admission_Number_label.configure(background=self.bgcolor,
+                                                      borderwidth='0',
+                                                      font='{Poppins} 10 {bold}',
+                                                      foreground=self.fgcolor)
+        self.Student_Admission_Number_label.configure(text='AdmissionNO')
+        self.Student_Admission_Number_label.place(anchor='nw',
+                                                  x='520',
+                                                  y='115')
+
+        self.Student_Main_Subject_label = tk.Label(self)
+        self.Student_Main_Subject_label.configure(background=self.bgcolor,
+                                                  borderwidth='0',
+                                                  font='{Poppins} 10 {bold}',
+                                                  foreground=self.fgcolor)
+        self.Student_Main_Subject_label.configure(text='Main Subject')
+        self.Student_Main_Subject_label.place(anchor='nw',
+                                              x='625',
+                                              y='115')
+
+        self.configure(background=self.bgcolor,
+                       height='515',
+                       width='791')
+
+        self.place(anchor='nw',
+                   x='0',
+                   y='0')
+
+    def goBackToStudentHome(self):
+        self.master.switch_frame(LightStudentHome)
+
+    def changeStudentViewTheme(self):
+        # try:
+        #     self.img_DarkThemeimg = tk.PhotoImage(file='DarkThemeimg.png')
+        # except Exception as e:
+        #     print(e)
+        #     messagebox.showerror("File Missing", "DarkThemeimg.png IS Missing")
+
+        # try:
+        #     self.img_lightThemeimg = tk.PhotoImage(file='LightThemeimg.png')
+        # except Exception as e:
+        #     print(e)
+        #     messagebox.showerror("File Missing", "LightThemeimg.png IS Missing")
+
+        # if self["background"] == self.bgcolor:
+        #     StudentViewBackgroundColor = self.fgcolor
+        #     StudentViewForegroundColor = "#000000"
+
+        #     self.configure(background=StudentViewBackgroundColor)
+        #     self.sty.map('Treeview', background=[('selected', '#4d4d4d'), ('focus', '#212121')])
+        #     self.Student_recodes.tag_configure("secondColorStudent", background=StudentViewBackgroundColor,
+        #                                        font='{Poppins} 8 {bold}',
+        #                                        foreground=StudentViewForegroundColor)
+        #     self.Student_recodes.tag_configure("oneColorStudent", background="#e6e6e6",
+        #                                        font='{Poppins} 8 {bold}',
+        #                                        foreground=StudentViewForegroundColor)
+        #     # self.Student_view_theme_change_button  
+        #     self.Student_home_back_page_img_button.configure(background=StudentViewBackgroundColor,
+        #                                                      foreground=StudentViewForegroundColor)
+        #     self.Student_view_close_button.configure(background=StudentViewBackgroundColor,
+        #                                              foreground=StudentViewForegroundColor)
+        #     self.View_Student_label.configure(background=StudentViewBackgroundColor,
+        #                                       foreground=StudentViewForegroundColor)
+        #     self.Student_ID_label.configure(background=StudentViewBackgroundColor,
+        #                                     foreground=StudentViewForegroundColor)
+        #     self.Student_First_Name_label.configure(background=StudentViewBackgroundColor,
+        #                                             foreground=StudentViewForegroundColor)
+        #     self.Student_Second_Name_label.configure(background=StudentViewBackgroundColor,
+        #                                              foreground=StudentViewForegroundColor)
+        #     self.Student_Age_label.configure(background=StudentViewBackgroundColor,
+        #                                      foreground=StudentViewForegroundColor)
+        #     self.Student_Phone_Number_label.configure(background=StudentViewBackgroundColor,
+        #                                               foreground=StudentViewForegroundColor)
+        #     self.Student_Admission_Number_label.configure(background=StudentViewBackgroundColor,
+        #                                                   foreground=StudentViewForegroundColor)
+        #     self.Student_Main_Subject_label.configure(background=StudentViewBackgroundColor,
+        #                                               foreground=StudentViewForegroundColor)
+        #     self.Student_view_theme_change_button.configure(background=StudentViewBackgroundColor,
+        #                                                     foreground=StudentViewForegroundColor,
+        #                                                     image=self.img_lightThemeimg)
+        # else:
+        #     DStudentViewBackgroundColor = self.bgcolor
+        #     DStudentViewForegroundColor = self.fgcolor
+
+        #     self.configure(background=DStudentViewBackgroundColor)
+        #     self.sty.map('Treeview', background=[('selected', '#3B3B3B'), ('focus', '#212121')])
+        #     self.Student_recodes.tag_configure("secondColorStudent", background=DStudentViewBackgroundColor,
+        #                                        font='{Poppins} 8 {bold}',
+        #                                        foreground="#c2c2c2")
+        #     self.Student_recodes.tag_configure("oneColorStudent", background="#0a0a0a",
+        #                                        font='{Poppins} 8 {bold}',
+        #                                        foreground="#c2c2c2")
+        #     # self.Student_view_theme_change_button
+        #     self.Student_home_back_page_img_button.configure(background=DStudentViewBackgroundColor,
+        #                                                      foreground=DStudentViewForegroundColor)
+        #     self.Student_view_close_button.configure(background=DStudentViewBackgroundColor,
+        #                                              foreground=DStudentViewForegroundColor)
+        #     self.View_Student_label.configure(background=DStudentViewBackgroundColor,
+        #                                       foreground=DStudentViewForegroundColor)
+        #     self.Student_ID_label.configure(background=DStudentViewBackgroundColor,
+        #                                     foreground=DStudentViewForegroundColor)
+        #     self.Student_First_Name_label.configure(background=DStudentViewBackgroundColor,
+        #                                             foreground=DStudentViewForegroundColor)
+        #     self.Student_Second_Name_label.configure(background=DStudentViewBackgroundColor,
+        #                                              foreground=DStudentViewForegroundColor)
+        #     self.Student_Age_label.configure(background=DStudentViewBackgroundColor,
+        #                                      foreground=DStudentViewForegroundColor)
+        #     self.Student_Phone_Number_label.configure(background=DStudentViewBackgroundColor,
+        #                                               foreground=DStudentViewForegroundColor)
+        #     self.Student_Admission_Number_label.configure(background=DStudentViewBackgroundColor,
+        #                                                   foreground=DStudentViewForegroundColor)
+        #     self.Student_Main_Subject_label.configure(background=DStudentViewBackgroundColor,
+        #                                               foreground=DStudentViewForegroundColor)
+        #     self.Student_view_theme_change_button.configure(background=DStudentViewBackgroundColor,
+        #                                                     foreground=DStudentViewForegroundColor,
+        #                                                     image=self.img_DarkThemeimg)
+
+        self.master.switch_frame(DarkStudentView)
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
+
+class DarkTeacherHome(tk.Frame):
+    def __init__(self, master):
+        tk.Frame.__init__(self, master)
+        self.bgcolor = "#121212"
+        self.fgcolor = "#ffffff"
+        self.Element_2_IMG_label = tk.Label(self)
+
+        try:
+            self.img_ElementIMG2Label = tk.PhotoImage(file='ElementIMG2Label.png')
+        except Exception as e:
+            print(e)
+            messagebox.showerror("File Missing", "ElementIMG2Label.png is missing")
+
+        self.Element_2_IMG_label.configure(activebackground=self.bgcolor,
+                                           activeforeground=self.bgcolor,
+                                           background=self.bgcolor,
+                                           borderwidth='0')
+        self.Element_2_IMG_label.configure(image=self.img_ElementIMG2Label, text='label1')
+        self.Element_2_IMG_label.place(y='0', x='0')
+
+        try:
+            self.img_TeacherHomeAddButton = tk.PhotoImage(file='TeacherHomeAddButton.png')
+        except Exception as e:
+            print(e)
+            messagebox.showerror("File Missing", "TeacherHomeAddButton.png is missing")
+
+        self.register_button = tk.Button(self)
+        self.register_button.configure(borderwidth='0',
+                                       background=self.bgcolor,
+                                       activeforeground=self.bgcolor,
+                                       activebackground=self.bgcolor,
+                                       image=self.img_TeacherHomeAddButton,
+                                       command=lambda: master.switch_frame(DarkTeacherRegistation))
+        self.register_button.place(anchor='nw',
+                                   x='196',
+                                   y='111')
+
+        try:
+            self.img_TeacherHomeUpdateButton = tk.PhotoImage(file='TeacherHomeUpdateButton.png')
+        except Exception as e:
+            print(e)
+            messagebox.showerror("File Missing", "TeacherHomeView Button.png is missing")
+
+        self.update_button = tk.Button(self)
+        self.update_button.configure(borderwidth='0',
+                                     background=self.bgcolor,
+                                     activeforeground=self.bgcolor,
+                                     activebackground=self.bgcolor,
+                                     image=self.img_TeacherHomeUpdateButton,
+                                     command=lambda: master.switch_frame(DarkTeacherUpdate))
+        self.update_button.place(anchor='nw',
+                                 x='441',
+                                 y='111')
+
+        try:
+            self.img_TeacherHomeViewButton = tk.PhotoImage(file='TeacherHomeView Button.png')
+        except Exception as e:
+            print(e)
+            messagebox.showerror("File Missing", "TeacherHomeView Button.png is missing")
+
+        self.view_button = tk.Button(self)
+        self.view_button.configure(borderwidth='0',
+                                   activebackground=self.bgcolor,
+                                   activeforeground=self.bgcolor,
+                                   background=self.bgcolor,
+                                   image=self.img_TeacherHomeViewButton,
+                                   command=lambda: master.switch_frame(DarkTeacherView))
+        self.view_button.place(anchor='nw',
+                               x='196',
+                               y='317')
+
+        try:
+            self.img_TeacherHomeRemoveButton = tk.PhotoImage(file='TeacherHomeRemoveButton.png')
+        except Exception as e:
+            print(e)
+            messagebox.showerror("File Missing", "TeacherHomeRemoveButton.png is missing")
+
+        self.Delete_button = tk.Button(self)
+        self.Delete_button.configure(borderwidth='0',
+                                     image=self.img_TeacherHomeRemoveButton,
+                                     activeforeground=self.bgcolor,
+                                     activebackground=self.bgcolor,
+                                     background=self.bgcolor,
+                                     command=lambda: master.switch_frame(DarkTeacherDelete))
+        self.Delete_button.place(anchor='nw',
+                                 x='441',
+                                 y='317')
+
+        self.Manege_Teacher_label = tk.Label(self)
+        self.Manege_Teacher_label.configure(background=self.bgcolor,
+                                            borderwidth='0',
+                                            font='{Poppins} 28 {bold}',
+                                            foreground=self.fgcolor)
+        self.Manege_Teacher_label.configure(text='Manage Teacher')
+        self.Manege_Teacher_label.place(anchor='nw',
+                                        x='274',
+                                        y='28')
+        try:
+            self.img_img4 = tk.PhotoImage(file='img4.png')
+        except Exception as e:
+            print(e)
+            messagebox.showerror("File Missing", "img_img4.png is missing")
+
+        self.Teacher_Manege_close_button = tk.Button(self)
+        self.Teacher_Manege_close_button.configure(activebackground=self.bgcolor,
+                                                   activeforeground=self.bgcolor,
+                                                   background=self.bgcolor,
+                                                   borderwidth='0')
+        self.Teacher_Manege_close_button.configure(cursor='hand2',
+                                                   foreground=self.bgcolor,
+                                                   highlightbackground=self.bgcolor,
+                                                   highlightcolor=self.bgcolor)
+        self.Teacher_Manege_close_button.configure(highlightthickness='1',
+                                                   image=self.img_img4,
+                                                   relief='flat',
+                                                   command=self.master.on_close)
+
+        self.Teacher_Manege_close_button.place(anchor='nw',
+                                               x='760',
+                                               y='8')
+
+        self.teacher_Manege_theme_change_button = tk.Button(self)
+
+        try:
+            self.img_DarkThemeimg = tk.PhotoImage(file='DarkThemeimg.png')
+        except Exception as e:
+            messagebox.showerror("DarkThemeimg.png Missing")
+            print(e)
+
+        self.teacher_Manege_theme_change_button.configure(activebackground=self.bgcolor,
+                                                          activeforeground=self.bgcolor,
+                                                          background=self.bgcolor,
+                                                          borderwidth='0',
+                                                          command=self.changeTeacherHomeTheme)
+        self.teacher_Manege_theme_change_button.configure(image=self.img_DarkThemeimg)
+        self.teacher_Manege_theme_change_button.place(anchor='nw',
+                                                      x='60',
+                                                      y='10')
+
+        self.Teacher_home_back_page_img_button = tk.Button(self)
+
+        try:
+            self.img_BackPageIMG = tk.PhotoImage(file='BackPageIMG.png')
+        except Exception as e:
+            print(e)
+            messagebox.showerror("File Missing", "BackPageIMG.png is missing")
+
+        self.Teacher_home_back_page_img_button.configure(activebackground=self.bgcolor,
+                                                         activeforeground=self.bgcolor,
+                                                         background=self.bgcolor,
+                                                         borderwidth='0',
+                                                         command=self.goHome)
+        self.Teacher_home_back_page_img_button.configure(image=self.img_BackPageIMG)
+        self.Teacher_home_back_page_img_button.place(anchor='nw',
+                                                     x='15',
+                                                     y='15')
+
+        self.configure(background=self.bgcolor,
+                       height='515',
+                       takefocus=False,
+                       width='791')
+        self.place(anchor='nw',
+                   x='0',
+                   y='0')
+
+    def changeTeacherHomeTheme(self):
+        self.master.switch_frame(LightTeacherHome)
+
+        # if self["background"] == self.bgcolor:
+        #     TeacherHomeBGColor = self.fgcolor
+        #     TeacherHomeFGColor = "#000000"
+
+        #     try:
+        #         self.img_DarkThemeimg = tk.PhotoImage(file='DarkThemeimg.png')
+        #     except Exception as e:
+        #         print(e)
+        #         messagebox.showerror("File Missing", "DarkThemeimg.png IS Missing")
+
+        #     try:
+        #         self.img_lightThemeimg = tk.PhotoImage(file='LightThemeimg.png')
+        #     except Exception as e:
+        #         print(e)
+        #         messagebox.showerror("File Missing", "LightThemeimg.png IS Missing")
+
+        #     self.configure(background=TeacherHomeBGColor)
+        #     self.register_button.configure(background=TeacherHomeBGColor,
+        #                                    foreground=TeacherHomeBGColor,
+        #                                    activebackground=TeacherHomeBGColor,
+        #                                    activeforeground=TeacherHomeBGColor)
+        #     self.Element_2_IMG_label.configure(background=TeacherHomeBGColor,
+        #                                        foreground=TeacherHomeFGColor)
+        #     self.update_button.configure(background=TeacherHomeBGColor,
+        #                                  foreground=TeacherHomeBGColor,
+        #                                  activebackground=TeacherHomeBGColor,
+        #                                  activeforeground=TeacherHomeBGColor)
+        #     self.view_button.configure(background=TeacherHomeBGColor,
+        #                                foreground=TeacherHomeBGColor,
+        #                                activebackground=TeacherHomeBGColor,
+        #                                activeforeground=TeacherHomeBGColor)
+        #     self.Delete_button.configure(background=TeacherHomeBGColor,
+        #                                  foreground=TeacherHomeBGColor,
+        #                                  activebackground=TeacherHomeBGColor,
+        #                                  activeforeground=TeacherHomeBGColor)
+        #     self.Manege_Teacher_label.configure(background=TeacherHomeBGColor,
+        #                                         foreground=TeacherHomeFGColor,
+        #                                         activebackground=TeacherHomeBGColor,
+        #                                         activeforeground=TeacherHomeBGColor)
+        #     self.Teacher_Manege_close_button.configure(background=TeacherHomeBGColor,
+        #                                                foreground=TeacherHomeBGColor,
+        #                                                activebackground=TeacherHomeBGColor,
+        #                                                activeforeground=TeacherHomeBGColor)
+        #     self.teacher_Manege_theme_change_button.configure(background=TeacherHomeBGColor,
+        #                                                       foreground=TeacherHomeBGColor,
+        #                                                       activebackground=TeacherHomeBGColor,
+        #                                                       activeforeground=TeacherHomeBGColor,
+        #                                                       image=self.img_lightThemeimg)
+        #     self.Teacher_home_back_page_img_button.configure(background=TeacherHomeBGColor,
+        #                                                      foreground=TeacherHomeBGColor,
+        #                                                      activebackground=TeacherHomeBGColor,
+        #                                                      activeforeground=TeacherHomeBGColor, )
+        # else:
+        #     DTeacherHomeBGColor = self.bgcolor
+        #     DTeacherHomeFGColor = self.fgcolor
+
+        #     self.configure(background=DTeacherHomeBGColor)
+        #     self.register_button.configure(background=DTeacherHomeBGColor,
+        #                                    foreground=DTeacherHomeBGColor,
+        #                                    activebackground=DTeacherHomeBGColor,
+        #                                    activeforeground=DTeacherHomeBGColor)
+        #     self.Element_2_IMG_label.configure(background=DTeacherHomeBGColor,
+        #                                        foreground=DTeacherHomeFGColor)
+        #     self.update_button.configure(background=DTeacherHomeBGColor,
+        #                                  foreground=DTeacherHomeBGColor,
+        #                                  activebackground=DTeacherHomeBGColor,
+        #                                  activeforeground=DTeacherHomeBGColor)
+        #     self.view_button.configure(background=DTeacherHomeBGColor,
+        #                                foreground=DTeacherHomeBGColor,
+        #                                activebackground=DTeacherHomeBGColor,
+        #                                activeforeground=DTeacherHomeBGColor)
+        #     self.Delete_button.configure(background=DTeacherHomeBGColor,
+        #                                  foreground=DTeacherHomeBGColor,
+        #                                  activebackground=DTeacherHomeBGColor,
+        #                                  activeforeground=DTeacherHomeBGColor)
+        #     self.Manege_Teacher_label.configure(background=DTeacherHomeBGColor,
+        #                                         foreground=DTeacherHomeFGColor,
+        #                                         activebackground=DTeacherHomeBGColor,
+        #                                         activeforeground=DTeacherHomeBGColor)
+        #     self.Teacher_Manege_close_button.configure(background=DTeacherHomeBGColor,
+        #                                                foreground=DTeacherHomeBGColor,
+        #                                                activebackground=DTeacherHomeBGColor,
+        #                                                activeforeground=DTeacherHomeBGColor)
+        #     self.teacher_Manege_theme_change_button.configure(background=DTeacherHomeBGColor,
+        #                                                       foreground=DTeacherHomeBGColor,
+        #                                                       activebackground=DTeacherHomeBGColor,
+        #                                                       activeforeground=DTeacherHomeBGColor,
+        #                                                       image=self.img_DarkThemeimg)
+        #     self.Teacher_home_back_page_img_button.configure(background=DTeacherHomeBGColor,
+        #                                                      foreground=DTeacherHomeBGColor,
+        #                                                      activebackground=DTeacherHomeBGColor,
+        #                                                      activeforeground=DTeacherHomeBGColor, )
+
+    def goHome(self):
+        self.master.switch_frame(DarkHome)
+        
+class LightTeacherHome(tk.Frame):
+    def __init__(self, master):
+        tk.Frame.__init__(self, master)
+        self.bgcolor = "#ffffff"
+        self.fgcolor = "#121212"
+        self.Element_2_IMG_label = tk.Label(self)
+
+        try:
+            self.img_ElementIMG2Label = tk.PhotoImage(file='ElementIMG2Label.png')
+        except Exception as e:
+            print(e)
+            messagebox.showerror("File Missing", "ElementIMG2Label.png is missing")
+
+        self.Element_2_IMG_label.configure(activebackground=self.bgcolor,
+                                           activeforeground=self.bgcolor,
+                                           background=self.bgcolor,
+                                           borderwidth='0')
+        self.Element_2_IMG_label.configure(image=self.img_ElementIMG2Label, text='label1')
+        self.Element_2_IMG_label.place(y='0', x='0')
+
+        try:
+            self.img_TeacherHomeAddButton = tk.PhotoImage(file='TeacherHomeAddButton.png')
+        except Exception as e:
+            print(e)
+            messagebox.showerror("File Missing", "TeacherHomeAddButton.png is missing")
+
+        self.register_button = tk.Button(self)
+        self.register_button.configure(borderwidth='0',
+                                       background=self.bgcolor,
+                                       activeforeground=self.bgcolor,
+                                       activebackground=self.bgcolor,
+                                       image=self.img_TeacherHomeAddButton,
+                                       command=lambda: master.switch_frame(LightTeacherRegistation))
+        self.register_button.place(anchor='nw',
+                                   x='196',
+                                   y='111')
+
+        try:
+            self.img_TeacherHomeUpdateButton = tk.PhotoImage(file='TeacherHomeUpdateButton.png')
+        except Exception as e:
+            print(e)
+            messagebox.showerror("File Missing", "TeacherHomeView Button.png is missing")
+
+        self.update_button = tk.Button(self)
+        self.update_button.configure(borderwidth='0',
+                                     background=self.bgcolor,
+                                     activeforeground=self.bgcolor,
+                                     activebackground=self.bgcolor,
+                                     image=self.img_TeacherHomeUpdateButton,
+                                     command=lambda: master.switch_frame(LightTeacherUpdate))
+        self.update_button.place(anchor='nw',
+                                 x='441',
+                                 y='111')
+
+        try:
+            self.img_TeacherHomeViewButton = tk.PhotoImage(file='TeacherHomeView Button.png')
+        except Exception as e:
+            print(e)
+            messagebox.showerror("File Missing", "TeacherHomeView Button.png is missing")
+
+        self.view_button = tk.Button(self)
+        self.view_button.configure(borderwidth='0',
+                                   activebackground=self.bgcolor,
+                                   activeforeground=self.bgcolor,
+                                   background=self.bgcolor,
+                                   image=self.img_TeacherHomeViewButton,
+                                   command=lambda: master.switch_frame(LightTeacherView))
+        self.view_button.place(anchor='nw',
+                               x='196',
+                               y='317')
+
+        try:
+            self.img_TeacherHomeRemoveButton = tk.PhotoImage(file='TeacherHomeRemoveButton.png')
+        except Exception as e:
+            print(e)
+            messagebox.showerror("File Missing", "TeacherHomeRemoveButton.png is missing")
+
+        self.Delete_button = tk.Button(self)
+        self.Delete_button.configure(borderwidth='0',
+                                     image=self.img_TeacherHomeRemoveButton,
+                                     activeforeground=self.bgcolor,
+                                     activebackground=self.bgcolor,
+                                     background=self.bgcolor,
+                                     command=lambda: master.switch_frame(LightTeacherDelete))
+        self.Delete_button.place(anchor='nw',
+                                 x='441',
+                                 y='317')
+
+        self.Manege_Teacher_label = tk.Label(self)
+        self.Manege_Teacher_label.configure(background=self.bgcolor,
+                                            borderwidth='0',
+                                            font='{Poppins} 28 {bold}',
+                                            foreground=self.fgcolor)
+        self.Manege_Teacher_label.configure(text='Manage Teacher')
+        self.Manege_Teacher_label.place(anchor='nw',
+                                        x='274',
+                                        y='28')
+        try:
+            self.img_img4 = tk.PhotoImage(file='img4.png')
+        except Exception as e:
+            print(e)
+            messagebox.showerror("File Missing", "img_img4.png is missing")
+
+        self.Teacher_Manege_close_button = tk.Button(self)
+        self.Teacher_Manege_close_button.configure(activebackground=self.bgcolor,
+                                                   activeforeground=self.bgcolor,
+                                                   background=self.bgcolor,
+                                                   borderwidth='0')
+        self.Teacher_Manege_close_button.configure(cursor='hand2',
+                                                   foreground=self.bgcolor,
+                                                   highlightbackground=self.bgcolor,
+                                                   highlightcolor=self.bgcolor)
+        self.Teacher_Manege_close_button.configure(highlightthickness='1',
+                                                   image=self.img_img4,
+                                                   relief='flat',
+                                                   command=self.master.on_close)
+
+        self.Teacher_Manege_close_button.place(anchor='nw',
+                                               x='760',
+                                               y='8')
+
+        self.teacher_Manege_theme_change_button = tk.Button(self)
+
+        try:
+            self.img_DarkThemeimg = tk.PhotoImage(file='DarkThemeimg.png')
+        except Exception as e:
+            messagebox.showerror("DarkThemeimg.png Missing")
+            print(e)
+
+        self.teacher_Manege_theme_change_button.configure(activebackground=self.bgcolor,
+                                                          activeforeground=self.bgcolor,
+                                                          background=self.bgcolor,
+                                                          borderwidth='0',
+                                                          command=self.changeTeacherHomeTheme)
+        self.teacher_Manege_theme_change_button.configure(image=self.img_DarkThemeimg)
+        self.teacher_Manege_theme_change_button.place(anchor='nw',
+                                                      x='60',
+                                                      y='10')
+
+        self.Teacher_home_back_page_img_button = tk.Button(self)
+
+        try:
+            self.img_BackPageIMG = tk.PhotoImage(file='BackPageIMG.png')
+        except Exception as e:
+            print(e)
+            messagebox.showerror("File Missing", "BackPageIMG.png is missing")
+
+        self.Teacher_home_back_page_img_button.configure(activebackground=self.bgcolor,
+                                                         activeforeground=self.bgcolor,
+                                                         background=self.bgcolor,
+                                                         borderwidth='0',
+                                                         command=self.goHome)
+        self.Teacher_home_back_page_img_button.configure(image=self.img_BackPageIMG)
+        self.Teacher_home_back_page_img_button.place(anchor='nw',
+                                                     x='15',
+                                                     y='15')
+
+        self.configure(background=self.bgcolor,
+                       height='515',
+                       takefocus=False,
+                       width='791')
+        self.place(anchor='nw',
+                   x='0',
+                   y='0')
+
+    def changeTeacherHomeTheme(self):
+        self.master.switch_frame(LightTeacherHome)
+
+        # if self["background"] == self.bgcolor:
+        #     TeacherHomeBGColor = self.fgcolor
+        #     TeacherHomeFGColor = "#000000"
+
+        #     try:
+        #         self.img_DarkThemeimg = tk.PhotoImage(file='DarkThemeimg.png')
+        #     except Exception as e:
+        #         print(e)
+        #         messagebox.showerror("File Missing", "DarkThemeimg.png IS Missing")
+
+        #     try:
+        #         self.img_lightThemeimg = tk.PhotoImage(file='LightThemeimg.png')
+        #     except Exception as e:
+        #         print(e)
+        #         messagebox.showerror("File Missing", "LightThemeimg.png IS Missing")
+
+        #     self.configure(background=TeacherHomeBGColor)
+        #     self.register_button.configure(background=TeacherHomeBGColor,
+        #                                    foreground=TeacherHomeBGColor,
+        #                                    activebackground=TeacherHomeBGColor,
+        #                                    activeforeground=TeacherHomeBGColor)
+        #     self.Element_2_IMG_label.configure(background=TeacherHomeBGColor,
+        #                                        foreground=TeacherHomeFGColor)
+        #     self.update_button.configure(background=TeacherHomeBGColor,
+        #                                  foreground=TeacherHomeBGColor,
+        #                                  activebackground=TeacherHomeBGColor,
+        #                                  activeforeground=TeacherHomeBGColor)
+        #     self.view_button.configure(background=TeacherHomeBGColor,
+        #                                foreground=TeacherHomeBGColor,
+        #                                activebackground=TeacherHomeBGColor,
+        #                                activeforeground=TeacherHomeBGColor)
+        #     self.Delete_button.configure(background=TeacherHomeBGColor,
+        #                                  foreground=TeacherHomeBGColor,
+        #                                  activebackground=TeacherHomeBGColor,
+        #                                  activeforeground=TeacherHomeBGColor)
+        #     self.Manege_Teacher_label.configure(background=TeacherHomeBGColor,
+        #                                         foreground=TeacherHomeFGColor,
+        #                                         activebackground=TeacherHomeBGColor,
+        #                                         activeforeground=TeacherHomeBGColor)
+        #     self.Teacher_Manege_close_button.configure(background=TeacherHomeBGColor,
+        #                                                foreground=TeacherHomeBGColor,
+        #                                                activebackground=TeacherHomeBGColor,
+        #                                                activeforeground=TeacherHomeBGColor)
+        #     self.teacher_Manege_theme_change_button.configure(background=TeacherHomeBGColor,
+        #                                                       foreground=TeacherHomeBGColor,
+        #                                                       activebackground=TeacherHomeBGColor,
+        #                                                       activeforeground=TeacherHomeBGColor,
+        #                                                       image=self.img_lightThemeimg)
+        #     self.Teacher_home_back_page_img_button.configure(background=TeacherHomeBGColor,
+        #                                                      foreground=TeacherHomeBGColor,
+        #                                                      activebackground=TeacherHomeBGColor,
+        #                                                      activeforeground=TeacherHomeBGColor, )
+        # else:
+        #     DTeacherHomeBGColor = self.bgcolor
+        #     DTeacherHomeFGColor = self.fgcolor
+
+        #     self.configure(background=DTeacherHomeBGColor)
+        #     self.register_button.configure(background=DTeacherHomeBGColor,
+        #                                    foreground=DTeacherHomeBGColor,
+        #                                    activebackground=DTeacherHomeBGColor,
+        #                                    activeforeground=DTeacherHomeBGColor)
+        #     self.Element_2_IMG_label.configure(background=DTeacherHomeBGColor,
+        #                                        foreground=DTeacherHomeFGColor)
+        #     self.update_button.configure(background=DTeacherHomeBGColor,
+        #                                  foreground=DTeacherHomeBGColor,
+        #                                  activebackground=DTeacherHomeBGColor,
+        #                                  activeforeground=DTeacherHomeBGColor)
+        #     self.view_button.configure(background=DTeacherHomeBGColor,
+        #                                foreground=DTeacherHomeBGColor,
+        #                                activebackground=DTeacherHomeBGColor,
+        #                                activeforeground=DTeacherHomeBGColor)
+        #     self.Delete_button.configure(background=DTeacherHomeBGColor,
+        #                                  foreground=DTeacherHomeBGColor,
+        #                                  activebackground=DTeacherHomeBGColor,
+        #                                  activeforeground=DTeacherHomeBGColor)
+        #     self.Manege_Teacher_label.configure(background=DTeacherHomeBGColor,
+        #                                         foreground=DTeacherHomeFGColor,
+        #                                         activebackground=DTeacherHomeBGColor,
+        #                                         activeforeground=DTeacherHomeBGColor)
+        #     self.Teacher_Manege_close_button.configure(background=DTeacherHomeBGColor,
+        #                                                foreground=DTeacherHomeBGColor,
+        #                                                activebackground=DTeacherHomeBGColor,
+        #                                                activeforeground=DTeacherHomeBGColor)
+        #     self.teacher_Manege_theme_change_button.configure(background=DTeacherHomeBGColor,
+        #                                                       foreground=DTeacherHomeBGColor,
+        #                                                       activebackground=DTeacherHomeBGColor,
+        #                                                       activeforeground=DTeacherHomeBGColor,
+        #                                                       image=self.img_DarkThemeimg)
+        #     self.Teacher_home_back_page_img_button.configure(background=DTeacherHomeBGColor,
+        #                                                      foreground=DTeacherHomeBGColor,
+        #                                                      activebackground=DTeacherHomeBGColor,
+        #                                                      activeforeground=DTeacherHomeBGColor, )
+
+    def goHome(self):
+        self.master.switch_frame(DarkHome)
+ 
 
 if __name__ == "__main__":
     app = SchoolManegmentSystem()
