@@ -366,7 +366,7 @@ class LogInPage(tk.Frame):
                                                 y='232')
             else:
                 if password == "Admin":
-                    self.master.switch_frame(Home)
+                    self.master.switch_frame(DarkHome)
         else:
             try:
                 self.password_error_label.configure(foreground="#121212")
@@ -17450,6 +17450,7 @@ class LightTeacherUpdate(tk.Frame):
             self.connetc.execute(
                     "SELECT * FROM Student WHERE id = {}".format(Student_changeId))
             self.IdRecode = self.connetc.fetchone()
+            print(self.IdRecode)
             self.Student_Update_first_name_entry.delete(0, 'end')
             self.Student_Update_first_name_entry.insert(0, self.IdRecode[1])
             self.Student_Update_last_name_entry.delete(0, 'end')
@@ -18065,8 +18066,6 @@ class LightTeacherUpdate(tk.Frame):
         except:
             pass
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
-
-
 
 if __name__ == "__main__":
     app = SchoolManegmentSystem()
