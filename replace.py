@@ -10,7 +10,7 @@ class DarkTeacherRegistation(tk.Frame):
             messagebox.showerror("Element_1_img_label.png' Missing")
             print(e)
 
-        self.Teacher_element_img_label.configure(background='#121212',
+        self.Teacher_element_img_label.configure(background=self.bgcolor,
                                                  image=self.Teacher_img_Element_1_img_label)
         self.Teacher_element_img_label.place(anchor='nw',
                                              x='0',
@@ -23,14 +23,14 @@ class DarkTeacherRegistation(tk.Frame):
             print(e)
 
         self.Teacher_Admission_Number_Entry_bg_label = tk.Label(self)
-        self.Teacher_Admission_Number_Entry_bg_label.configure(background='#121212',
+        self.Teacher_Admission_Number_Entry_bg_label.configure(background=self.bgcolor,
                                                                borderwidth='0',
                                                                image=self.img_TeacherRegiusterEntery)
         self.Teacher_Admission_Number_Entry_bg_label.place(anchor='nw',
                                                            x='386',
                                                            y='340')
         self.Teacher_First_name_Entry_bg_label = tk.Label(self)
-        self.Teacher_First_name_Entry_bg_label.configure(background='#121212',
+        self.Teacher_First_name_Entry_bg_label.configure(background=self.bgcolor,
                                                          borderwidth='0',
                                                          image=self.img_TeacherRegiusterEntery)
         self.Teacher_First_name_Entry_bg_label.place(anchor='nw',
@@ -38,7 +38,7 @@ class DarkTeacherRegistation(tk.Frame):
                                                      y='146')
 
         self.Teacher_Last_name_Entry_bg_label = tk.Label(self)
-        self.Teacher_Last_name_Entry_bg_label.configure(background='#121212',
+        self.Teacher_Last_name_Entry_bg_label.configure(background=self.bgcolor,
                                                         borderwidth='0',
                                                         image=self.img_TeacherRegiusterEntery)
         self.Teacher_Last_name_Entry_bg_label.place(anchor='nw',
@@ -46,7 +46,7 @@ class DarkTeacherRegistation(tk.Frame):
                                                     y='196')
 
         self.Teacher_age_Entry_bg_label = tk.Label(self)
-        self.Teacher_age_Entry_bg_label.configure(background='#121212',
+        self.Teacher_age_Entry_bg_label.configure(background=self.bgcolor,
                                                   borderwidth='0',
                                                   image=self.img_TeacherRegiusterEntery)
         self.Teacher_age_Entry_bg_label.place(anchor='nw',
@@ -54,7 +54,7 @@ class DarkTeacherRegistation(tk.Frame):
                                               y='246')
 
         self.Teacher_phone_number_Entry_bg_label = tk.Label(self)
-        self.Teacher_phone_number_Entry_bg_label.configure(background='#121212',
+        self.Teacher_phone_number_Entry_bg_label.configure(background=self.bgcolor,
                                                            borderwidth='0',
                                                            image=self.img_TeacherRegiusterEntery)
         self.Teacher_phone_number_Entry_bg_label.place(anchor='nw',
@@ -62,7 +62,7 @@ class DarkTeacherRegistation(tk.Frame):
                                                        y='290')
 
         self.Teacher_Subject_Entry_bg_label = tk.Label(self)
-        self.Teacher_Subject_Entry_bg_label.configure(background='#121212',
+        self.Teacher_Subject_Entry_bg_label.configure(background=self.bgcolor,
                                                       borderwidth='0',
                                                       image=self.img_TeacherRegiusterEntery)
         self.Teacher_Subject_Entry_bg_label.place(anchor='nw',
@@ -81,9 +81,9 @@ class DarkTeacherRegistation(tk.Frame):
                                             y='149')
 
         self.Teacher_first_name_label = tk.Label(self)
-        self.Teacher_first_name_label.configure(background='#121212',
+        self.Teacher_first_name_label.configure(background=self.bgcolor,
                                                 font='{Poppins} 17 {bold}',
-                                                foreground='#ffffff',
+                                                foreground=self.fgcolor,
                                                 text='First Name')
         self.Teacher_first_name_label.place(anchor='nw',
                                             x='166',
@@ -101,9 +101,9 @@ class DarkTeacherRegistation(tk.Frame):
                                            y='199')
 
         self.Teacher_last_name_label = tk.Label(self)
-        self.Teacher_last_name_label.configure(background='#121212',
+        self.Teacher_last_name_label.configure(background=self.bgcolor,
                                                font='{Poppins} 17 {bold}',
-                                               foreground='#ffffff',
+                                               foreground=self.fgcolor,
                                                text='Last Name')
         self.Teacher_last_name_label.place(anchor='nw',
                                            x='166',
@@ -121,9 +121,9 @@ class DarkTeacherRegistation(tk.Frame):
                                               y='293')
 
         self.Teacher_phone_number_label = tk.Label(self)
-        self.Teacher_phone_number_label.configure(background='#121212',
+        self.Teacher_phone_number_label.configure(background=self.bgcolor,
                                                   font='{Poppins} 17 {bold}',
-                                                  foreground='#ffffff',
+                                                  foreground=self.fgcolor,
                                                   text='Phone number')
         self.Teacher_phone_number_label.place(anchor='nw',
                                               x='166',
@@ -141,18 +141,18 @@ class DarkTeacherRegistation(tk.Frame):
                                      y='249')
 
         self.Teacher_age_label = tk.Label(self)
-        self.Teacher_age_label.configure(background='#121212',
+        self.Teacher_age_label.configure(background=self.bgcolor,
                                          font='{Poppins} 17 {bold}',
-                                         foreground='#ffffff',
+                                         foreground=self.fgcolor,
                                          text='Age')
         self.Teacher_age_label.place(anchor='nw',
                                      x='166',
                                      y='239')
 
         self.Teacher_Admission_Number_label = tk.Label(self)
-        self.Teacher_Admission_Number_label.configure(background='#121212',
+        self.Teacher_Admission_Number_label.configure(background=self.bgcolor,
                                                       font='{Poppins} 17 {bold}',
-                                                      foreground='#ffffff',
+                                                      foreground=self.fgcolor,
                                                       text='Gender')
         self.Teacher_Admission_Number_label.place(anchor='nw',
                                                   x='166',
@@ -170,9 +170,9 @@ class DarkTeacherRegistation(tk.Frame):
                                                   y='343')
 
         self.Teacher_subects_label = tk.Label(self)
-        self.Teacher_subects_label.configure(background='#121212',
+        self.Teacher_subects_label.configure(background=self.bgcolor,
                                              font='{Poppins} 17 {bold}',
-                                             foreground='#ffffff',
+                                             foreground=self.fgcolor,
                                              text='Main Subject')
         self.Teacher_subects_label.place(anchor='nw',
                                          x='166',
@@ -196,9 +196,9 @@ class DarkTeacherRegistation(tk.Frame):
             print(e)
 
         self.add_Teacher_button = tk.Button(self)
-        self.add_Teacher_button.configure(background='#121212',
-                                          activebackground='#121212',
-                                          activeforeground='#121212',
+        self.add_Teacher_button.configure(background=self.bgcolor,
+                                          activebackground=self.bgcolor,
+                                          activeforeground=self.bgcolor,
                                           borderwidth='0',
                                           image=self.img_TeacherAddButton,
                                           relief='flat',
@@ -213,14 +213,14 @@ class DarkTeacherRegistation(tk.Frame):
             print(e)
             messagebox.showerror("File Missing", "img_img4.png is missing")
         self.Teacher_registation_close_button = tk.Button(self)
-        self.Teacher_registation_close_button.configure(activebackground='#121212',
-                                                        activeforeground='#121212',
-                                                        background='#121212',
+        self.Teacher_registation_close_button.configure(activebackground=self.bgcolor,
+                                                        activeforeground=self.bgcolor,
+                                                        background=self.bgcolor,
                                                         borderwidth='0')
         self.Teacher_registation_close_button.configure(cursor='hand2',
-                                                        foreground='#121212',
-                                                        highlightbackground='#121212',
-                                                        highlightcolor='#121212')
+                                                        foreground=self.bgcolor,
+                                                        highlightbackground=self.bgcolor,
+                                                        highlightcolor=self.bgcolor)
         self.Teacher_registation_close_button.configure(highlightthickness='1',
                                                         image=self.img_img4,
                                                         relief='flat',
@@ -230,10 +230,10 @@ class DarkTeacherRegistation(tk.Frame):
                                                     y='8')
 
         self.Register_Teacher_label = tk.Label(self)
-        self.Register_Teacher_label.configure(background='#121212',
+        self.Register_Teacher_label.configure(background=self.bgcolor,
                                               borderwidth='0',
                                               font='{Poppins} 28 {bold}',
-                                              foreground='#ffffff')
+                                              foreground=self.fgcolor)
         self.Register_Teacher_label.configure(text='Register Teacher')
         self.Register_Teacher_label.place(anchor='nw',
                                           x='274',
@@ -247,9 +247,9 @@ class DarkTeacherRegistation(tk.Frame):
             print(e)
             messagebox.showerror("File Missing", "BackPageIMG.png is missing")
 
-        self.Teacher_back_page_img_button.configure(activebackground='#121212',
-                                                    activeforeground='#121212',
-                                                    background='#121212',
+        self.Teacher_back_page_img_button.configure(activebackground=self.bgcolor,
+                                                    activeforeground=self.bgcolor,
+                                                    background=self.bgcolor,
                                                     borderwidth='0',
                                                     command=self.goBackToTeacherHome)
         self.Teacher_back_page_img_button.configure(image=self.Teacer_img_BackPageIMG)
@@ -263,9 +263,9 @@ class DarkTeacherRegistation(tk.Frame):
             print(e)
             messagebox.showerror("File Missing", "DarkThemeimg.png is missing")
 
-        self.Teacher_registation_theme_change_button.configure(activebackground='#121212',
-                                                               activeforeground='#121212',
-                                                               background='#121212',
+        self.Teacher_registation_theme_change_button.configure(activebackground=self.bgcolor,
+                                                               activeforeground=self.bgcolor,
+                                                               background=self.bgcolor,
                                                                borderwidth='0',
                                                                relief="flat",
                                                                overrelief="flat",
@@ -275,7 +275,7 @@ class DarkTeacherRegistation(tk.Frame):
         self.Teacher_registation_theme_change_button.place(anchor='nw',
                                                            x='60',
                                                            y='10')
-        self.configure(background='#121212',
+        self.configure(background=self.bgcolor,
                        borderwidth='0',
                        height='515',
                        width='791')
@@ -738,7 +738,7 @@ class DarkTeacherRegistation(tk.Frame):
 
             ################################Place Eror################################
         self.Studetn_All_Fields_Required_error_label = tk.Label(self)
-        self.Studetn_All_Fields_Required_error_label.configure(background='#121212',
+        self.Studetn_All_Fields_Required_error_label.configure(background=self.bgcolor,
                                                     borderwidth='0',
                                                     font='{Poppins} 9 {}',
                                                     foreground='#ff0f15')
@@ -764,7 +764,7 @@ class DarkTeacherRegistation(tk.Frame):
                 
 ###################################################place Studetn_First_Name_error_label############################
         self.Studetn_First_Name_error_label = tk.Label(self)
-        self.Studetn_First_Name_error_label.configure(background='#121212',
+        self.Studetn_First_Name_error_label.configure(background=self.bgcolor,
                                                     borderwidth='0',
                                                     font='{Poppins} 9 {}',
                                                     foreground='#ff0f15')
@@ -782,7 +782,7 @@ class DarkTeacherRegistation(tk.Frame):
 
                 ####################################Place Studetn_First_Name_No_error_label######################
             self.Studetn_First_Name_No_error_label = tk.Label(self)
-            self.Studetn_First_Name_No_error_label.configure(background='#121212',
+            self.Studetn_First_Name_No_error_label.configure(background=self.bgcolor,
                                                     borderwidth='0',
                                                     font='{Poppins} 9 {}',
                                                     foreground='#09ff00')
@@ -800,7 +800,7 @@ class DarkTeacherRegistation(tk.Frame):
             pass
                     
         self.Studetn_Last_Name_error_label = tk.Label(self)
-        self.Studetn_Last_Name_error_label.configure(background='#121212',
+        self.Studetn_Last_Name_error_label.configure(background=self.bgcolor,
                                                         borderwidth='0',
                                                         font='{Poppins} 8 {}',
                                                         foreground='#ff0f15')
@@ -818,7 +818,7 @@ class DarkTeacherRegistation(tk.Frame):
 
     def NoLastNameError(self):
         self.Studetn_Last_Name_No_error_label = tk.Label(self)
-        self.Studetn_Last_Name_No_error_label.configure(background='#121212',
+        self.Studetn_Last_Name_No_error_label.configure(background=self.bgcolor,
                                                         borderwidth='0',
                                                         font='{Poppins} 8 {}',
                                                         foreground='#09ff00')
@@ -829,7 +829,7 @@ class DarkTeacherRegistation(tk.Frame):
 
     def NoDuplicateNameError(self):
         self.Studetn_Duplicate_Name_No_error_label = tk.Label(self)
-        self.Studetn_Duplicate_Name_No_error_label.configure(background='#121212',
+        self.Studetn_Duplicate_Name_No_error_label.configure(background=self.bgcolor,
                                                         borderwidth='0',
                                                         font='{Poppins} 8 {}',
                                                         foreground='#09ff00')
@@ -846,7 +846,7 @@ class DarkTeacherRegistation(tk.Frame):
         
     def NameDuplicatedErorr(self):
         self.Studetn_Duplicate_Name_error_label = tk.Label(self)
-        self.Studetn_Duplicate_Name_error_label.configure(background='#121212',
+        self.Studetn_Duplicate_Name_error_label.configure(background=self.bgcolor,
                                                             borderwidth='0',
                                                             font='{Poppins} 8 {}',
                                                             foreground='#ff0f15')
@@ -879,7 +879,7 @@ class DarkTeacherRegistation(tk.Frame):
 
         #####################PHONE NUMBER LENTH ERROR ##########################
         self.Studetn_lenth_Phone_number_error_label = tk.Label(self)
-        self.Studetn_lenth_Phone_number_error_label.configure(background='#121212',
+        self.Studetn_lenth_Phone_number_error_label.configure(background=self.bgcolor,
                                                                 borderwidth='0',
                                                                 font='{Poppins} 7 {}',
                                                                 foreground='#ff0f15')
@@ -902,7 +902,7 @@ class DarkTeacherRegistation(tk.Frame):
 
         ####################NO ERROR PHONE NUMBER LENTH######################
         self.Studetn_lenth_Phone_Number_No_error_label = tk.Label(self)
-        self.Studetn_lenth_Phone_Number_No_error_label.configure(background='#121212',
+        self.Studetn_lenth_Phone_Number_No_error_label.configure(background=self.bgcolor,
                                                                 borderwidth='0',
                                                                 font='{Poppins} 7 {}',
                                                                 foreground='#09ff00')
@@ -916,7 +916,7 @@ class DarkTeacherRegistation(tk.Frame):
     def PhoneNumberTypeErorr(self):
         ####################PHONE NUMBER TYPE ERORR########################
         self.Studetn_int_Phone_number_error_label = tk.Label(self)
-        self.Studetn_int_Phone_number_error_label.configure(background='#121212',
+        self.Studetn_int_Phone_number_error_label.configure(background=self.bgcolor,
                                                                     borderwidth='0',
                                                                     font='{Poppins} 7 {}',
                                                                     foreground='#ff0f15')
@@ -939,7 +939,7 @@ class DarkTeacherRegistation(tk.Frame):
 
         #####################PHONE NUMBER TYPE ERROR##############
         self.Studetn_int_Phone_Number_No_error_label = tk.Label(self)
-        self.Studetn_int_Phone_Number_No_error_label.configure(background='#121212',
+        self.Studetn_int_Phone_Number_No_error_label.configure(background=self.bgcolor,
                                                                     borderwidth='0',
                                                                     font='{Poppins} 7 {}',
                                                                     foreground='#09ff00')
@@ -953,7 +953,7 @@ class DarkTeacherRegistation(tk.Frame):
 
         #####################PHONE NUMBER ZERO ERROR################
         self.Studetn_0_Phone_number_error_label = tk.Label(self)
-        self.Studetn_0_Phone_number_error_label.configure(background='#121212',
+        self.Studetn_0_Phone_number_error_label.configure(background=self.bgcolor,
                                                                         borderwidth='0',
                                                                         font='{Poppins} 7 {}',
                                                                         foreground='#ff0f15')
@@ -966,10 +966,10 @@ class DarkTeacherRegistation(tk.Frame):
     def ClearPhoneNumberZeroError(self):
         ##########CLEAR PHONE NUMBER###############################
         try:
-            self.Studetn_0_Phone_number_error_label.configure(background='#121212',
+            self.Studetn_0_Phone_number_error_label.configure(background=self.bgcolor,
                                                                         borderwidth='0',
                                                                         font='{Poppins} 0 {}',
-                                                                        foreground='#121212')
+                                                                        foreground=self.bgcolor)
             self.Studetn_0_Phone_number_error_label.destroy()
         except:
             pass
@@ -979,7 +979,7 @@ class DarkTeacherRegistation(tk.Frame):
 
         #################PHONE NUMBER ZERO NO ERROR################################
         self.Studetn_0_Phone_Number_No_error_label = tk.Label(self)
-        self.Studetn_0_Phone_Number_No_error_label.configure(background='#121212',
+        self.Studetn_0_Phone_Number_No_error_label.configure(background=self.bgcolor,
                                                                         borderwidth='0',
                                                                         font='{Poppins} 7 {}',
                                                                         foreground='#09ff00')
@@ -994,7 +994,7 @@ class DarkTeacherRegistation(tk.Frame):
         ###############AGE Error##################################
         try:
             self.Studetn_Age_error_label = tk.Label(self)
-            self.Studetn_Age_error_label.configure(background='#121212',
+            self.Studetn_Age_error_label.configure(background=self.bgcolor,
                                                                             borderwidth='0',
                                                                             font='{Poppins} 7 {}',
                                                                             foreground='#ff0f15')
@@ -1019,7 +1019,7 @@ class DarkTeacherRegistation(tk.Frame):
 
         #################PHONE NUMBER ZERO NO ERROR################################
         self.Studetn_Age_No_error_label = tk.Label(self)
-        self.Studetn_Age_No_error_label.configure(background='#121212',
+        self.Studetn_Age_No_error_label.configure(background=self.bgcolor,
                                                                         borderwidth='0',
                                                                         font='{Poppins} 7 {}',
                                                                         foreground='#09ff00')
@@ -1045,7 +1045,7 @@ class DarkTeacherRegistation(tk.Frame):
         ###############AGE Error##################################
         try:
             self.Database_not_Connected_error_label = tk.Label(self)
-            self.Database_not_Connected_error_label.configure(background='#121212',
+            self.Database_not_Connected_error_label.configure(background=self.bgcolor,
                                                                             borderwidth='0',
                                                                             font='{Poppins} 8 {}',
                                                                             foreground='#ff0f15')
@@ -1085,7 +1085,7 @@ class DarkTeacherRegistation(tk.Frame):
                 ############### Error##################################
         try:
             self.Studetn_Subject_error_label = tk.Label(self)
-            self.Studetn_Subject_error_label.configure(background='#121212',
+            self.Studetn_Subject_error_label.configure(background=self.bgcolor,
                                                                             borderwidth='0',
                                                                             font='{Poppins} 7 {}',
                                                                             foreground='#ff0f15')
@@ -1107,7 +1107,7 @@ class DarkTeacherRegistation(tk.Frame):
         ###############AGE Error##################################
         try:
             self.Comited_label = tk.Label(self)
-            self.Comited_label.configure(background='#121212',
+            self.Comited_label.configure(background=self.bgcolor,
                                                                             borderwidth='0',
                                                                             font='{Poppins} 8 {}',
                                                                             foreground='#2bff00')
@@ -1129,7 +1129,7 @@ class DarkTeacherRegistation(tk.Frame):
         ###############AGE Error##################################
         try:
             self.Gender_Error_label = tk.Label(self)
-            self.Gender_Error_label.configure(background='#121212',
+            self.Gender_Error_label.configure(background=self.bgcolor,
                                                                             borderwidth='0',
                                                                             font='{Poppins} 8 {}',
                                                                             foreground='#ff0f15')
