@@ -1,9 +1,12 @@
 class DarkTeacherView(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
+        self.bgcolor = "#121212"
+        self.fgcolor = "#ffffff"
+
         self.sty = ttk.Style()
         self.sty.configure('Treeview', rowheight=46, fieldbackground="#000000")
-        self.sty.map('Treeview', background=[('selected', '#3B3B3B'), ('focus', '#212121')])
+        self.sty.map('Treeview', background=[('selected', '#3B3B3B'), ('focus', self.bgcolor)])
         self.sty.configure("Vertical.TScrollbar",
                            background="#000000", darkcolor="#000000", lightcolor="#000000",
                            troughcolor="gray", bordercolor="gray", arrowcolor="#000000")
@@ -45,7 +48,7 @@ class DarkTeacherView(tk.Frame):
         global count
 
         count = 0
-        self.teacher_recodes.tag_configure("oneColor", background="#121212",
+        self.teacher_recodes.tag_configure("oneColor", background=self.bgcolor,
                                            font='{Poppins} 8 {bold}',
                                            foreground="#c2c2c2")
 
@@ -94,9 +97,9 @@ class DarkTeacherView(tk.Frame):
             print(e)
             messagebox.showerror("File Missing", "DarkThemeimg.png is missing")
 
-        self.teacher_view_theme_change_button.configure(activebackground='#121212',
-                                                        activeforeground='#121212',
-                                                        background='#121212',
+        self.teacher_view_theme_change_button.configure(activebackground=self.bgcolor,
+                                                        activeforeground=self.bgcolor,
+                                                        background=self.bgcolor,
                                                         borderwidth='0',
                                                         relief="flat",
                                                         overrelief="flat")
@@ -115,9 +118,9 @@ class DarkTeacherView(tk.Frame):
             print(e)
             messagebox.showerror("File Missing", "BackPageIMG.png is missing")
 
-        self.teacher_home_back_page_img_button.configure(activebackground='#121212',
-                                                         activeforeground='#121212',
-                                                         background='#121212',
+        self.teacher_home_back_page_img_button.configure(activebackground=self.bgcolor,
+                                                         activeforeground=self.bgcolor,
+                                                         background=self.bgcolor,
                                                          borderwidth='0',
                                                          command=self.goBackToTeacherHome)
         self.teacher_home_back_page_img_button.configure(image=self.img_BackPageIMG)
@@ -129,14 +132,14 @@ class DarkTeacherView(tk.Frame):
             print(e)
             messagebox.showerror("File Missing", "img_img4.png is missing")
         self.Teacher_view_close_button = tk.Button(self)
-        self.Teacher_view_close_button.configure(activebackground='#121212',
-                                                 activeforeground='#121212',
-                                                 background='#121212',
+        self.Teacher_view_close_button.configure(activebackground=self.bgcolor,
+                                                 activeforeground=self.bgcolor,
+                                                 background=self.bgcolor,
                                                  borderwidth='0')
         self.Teacher_view_close_button.configure(cursor='hand2',
-                                                 foreground='#121212',
-                                                 highlightbackground='#121212',
-                                                 highlightcolor='#121212')
+                                                 foreground=self.bgcolor,
+                                                 highlightbackground=self.bgcolor,
+                                                 highlightcolor=self.bgcolor)
         self.Teacher_view_close_button.configure(highlightthickness='1',
                                                  image=self.img_img4,
                                                  relief='flat',
@@ -145,86 +148,86 @@ class DarkTeacherView(tk.Frame):
                                              x='760',
                                              y='8')
         self.View_Teacher_label = tk.Label(self)
-        self.View_Teacher_label.configure(background='#121212',
+        self.View_Teacher_label.configure(background=self.bgcolor,
                                           borderwidth='0',
                                           font='{Poppins} 28 {bold}',
-                                          foreground='#ffffff')
+                                          foreground=self.fgcolor)
         self.View_Teacher_label.configure(text='View Teacher')
         self.View_Teacher_label.place(anchor='nw',
                                       x='274',
                                       y='28')
 
         self.Teacher_ID_label = tk.Label(self)
-        self.Teacher_ID_label.configure(background='#121212',
+        self.Teacher_ID_label.configure(background=self.bgcolor,
                                         borderwidth='0',
                                         font='{Poppins} 10 {bold}',
-                                        foreground='#ffffff')
+                                        foreground=self.fgcolor)
         self.Teacher_ID_label.configure(text='ID')
         self.Teacher_ID_label.place(anchor='nw',
                                     x='16',
                                     y='115')
 
         self.Teacher_First_Name_label = tk.Label(self)
-        self.Teacher_First_Name_label.configure(background='#121212',
+        self.Teacher_First_Name_label.configure(background=self.bgcolor,
                                                 borderwidth='0',
                                                 font='{Poppins} 10 {bold}',
-                                                foreground='#ffffff')
+                                                foreground=self.fgcolor)
         self.Teacher_First_Name_label.configure(text='First Name')
         self.Teacher_First_Name_label.place(anchor='nw',
                                             x='55',
                                             y='115')
 
         self.Teacher_Second_Name_label = tk.Label(self)
-        self.Teacher_Second_Name_label.configure(background='#121212',
+        self.Teacher_Second_Name_label.configure(background=self.bgcolor,
                                                  borderwidth='0',
                                                  font='{Poppins} 10 {bold}',
-                                                 foreground='#ffffff')
+                                                 foreground=self.fgcolor)
         self.Teacher_Second_Name_label.configure(text='Second Name')
         self.Teacher_Second_Name_label.place(anchor='nw',
                                              x='180',
                                              y='115')
 
         self.Teacher_Age_label = tk.Label(self)
-        self.Teacher_Age_label.configure(background='#121212',
+        self.Teacher_Age_label.configure(background=self.bgcolor,
                                          borderwidth='0',
                                          font='{Poppins} 10 {bold}',
-                                         foreground='#ffffff')
+                                         foreground=self.fgcolor)
         self.Teacher_Age_label.configure(text='Age')
         self.Teacher_Age_label.place(anchor='nw',
                                      x='340',
                                      y='115')
 
         self.Teacher_Phone_Number_label = tk.Label(self)
-        self.Teacher_Phone_Number_label.configure(background='#121212',
+        self.Teacher_Phone_Number_label.configure(background=self.bgcolor,
                                                   borderwidth='0',
                                                   font='{Poppins} 10 {bold}',
-                                                  foreground='#ffffff')
+                                                  foreground=self.fgcolor)
         self.Teacher_Phone_Number_label.configure(text='Phone Number')
         self.Teacher_Phone_Number_label.place(anchor='nw',
                                               x='390',
                                               y='115')
 
         self.Teacher_Gender_label = tk.Label(self)
-        self.Teacher_Gender_label.configure(background='#121212',
+        self.Teacher_Gender_label.configure(background=self.bgcolor,
                                             borderwidth='0',
                                             font='{Poppins} 10 {bold}',
-                                            foreground='#ffffff')
+                                            foreground=self.fgcolor)
         self.Teacher_Gender_label.configure(text='Gender')
         self.Teacher_Gender_label.place(anchor='nw',
                                         x='520',
                                         y='115')
 
         self.Teacher_Main_Subject_label = tk.Label(self)
-        self.Teacher_Main_Subject_label.configure(background='#121212',
+        self.Teacher_Main_Subject_label.configure(background=self.bgcolor,
                                                   borderwidth='0',
                                                   font='{Poppins} 10 {bold}',
-                                                  foreground='#ffffff')
+                                                  foreground=self.fgcolor)
         self.Teacher_Main_Subject_label.configure(text='Main Subject')
         self.Teacher_Main_Subject_label.place(anchor='nw',
                                               x='600',
                                               y='115')
 
-        self.configure(background='#121212',
+        self.configure(background=self.bgcolor,
                        height='515',
                        width='791')
 
@@ -249,12 +252,12 @@ class DarkTeacherView(tk.Frame):
             print(e)
             messagebox.showerror("File Missing", "LightThemeimg.png IS Missing")
 
-        if self["background"] == "#121212":
-            TeacherViewBackgroundColor = "#ffffff"
+        if self["background"] == self.bgcolor:
+            TeacherViewBackgroundColor = self.fgcolor
             TeacherViewForegroundColor = "#000000"
 
             self.configure(background=TeacherViewBackgroundColor)
-            self.sty.map('Treeview', background=[('selected', '#4d4d4d'), ('focus', '#212121')])
+            self.sty.map('Treeview', background=[('selected', '#4d4d4d'), ('focus', self.bgcolor)])
             self.teacher_recodes.tag_configure("secondColor", background=TeacherViewBackgroundColor,
                                                font='{Poppins} 8 {bold}',
                                                foreground=TeacherViewForegroundColor)
@@ -286,11 +289,11 @@ class DarkTeacherView(tk.Frame):
                                                             foreground=TeacherViewForegroundColor,
                                                             image=self.img_lightThemeimg)
         else:
-            DTeacherViewBackgroundColor = "#121212"
-            DTeacherViewForegroundColor = "#ffffff"
+            DTeacherViewBackgroundColor = self.bgcolor
+            DTeacherViewForegroundColor = self.fgcolor
 
             self.configure(background=DTeacherViewBackgroundColor)
-            self.sty.map('Treeview', background=[('selected', '#3B3B3B'), ('focus', '#212121')])
+            self.sty.map('Treeview', background=[('selected', '#3B3B3B'), ('focus', self.bgcolor)])
             self.teacher_recodes.tag_configure("secondColor", background=DTeacherViewBackgroundColor,
                                                font='{Poppins} 8 {bold}',
                                                foreground="#c2c2c2")
