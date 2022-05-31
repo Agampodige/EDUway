@@ -11014,8 +11014,13 @@ class DarkTeacherRegistation(tk.Frame):
                                         #################################################################################
                                         genderIndex = ['male', "Male", "female", "Female", "m", "M", "F", "f"]
                                         if Update_gender not in genderIndex:
-                                            messagebox.showerror("Age Error", "You Can Add Only Type Male or Female ")
+                                            # messagebox.showerror("Age Error", "You Can Add Only Type Male or Female ")
+                                            self.GenderError()
                                         else:
+                                            try:
+                                                self.ClearGenderError()
+                                            except:
+                                                pass
                                             if Update_gender == "m" or Update_gender == "male":
                                                 Update_gender = "Male"
                                             else:
@@ -11115,6 +11120,7 @@ class DarkTeacherRegistation(tk.Frame):
             self.Studetn_int_Phone_number_error_label.destroy()
             self.Studetn_0_Phone_Number_No_error_label.destroy()
             self.Studetn_int_Phone_Number_No_error_label.destroy()
+            ClearGenderError()
         except:
             pass
     
@@ -11516,7 +11522,30 @@ class DarkTeacherRegistation(tk.Frame):
             self.Comited_label.destroy()
         except:
             pass
-    b
+    
+    def GenderError(self):
+        ###############AGE Error##################################
+        try:
+            self.Gender_Error_label = tk.Label(self)
+            self.Gender_Error_label.configure(background='#121212',
+                                                                            borderwidth='0',
+                                                                            font='{Poppins} 8 {}',
+                                                                            foreground='#ff0f15')
+            self.Gender_Error_label.configure(text='invalid gender')
+            self.Gender_Error_label.place(anchor='nw',
+                                                                        x='500',
+                                                                        y='320')
+        except:
+            pass
+        ####################################################################
+
+    def ClearGenderError(self):
+        try:
+            self.Gender_Error_label.destroy()
+        except:
+            pass
+
+        
 if __name__ == "__main__":
     app = SchoolManegmentSystem()
     app.title("EDUWAY     ")
