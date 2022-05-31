@@ -11547,6 +11547,7 @@ class DarkTeacherRegistation(tk.Frame):
             self.Gender_Error_label.destroy()
         except:
             pass
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 
 class LightTeacherRegistation(tk.Frame):
     def __init__(self, master):
@@ -12698,6 +12699,7 @@ class LightTeacherRegistation(tk.Frame):
             self.Gender_Error_label.destroy()
         except:
             pass
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 
 
 
