@@ -509,7 +509,7 @@ class LightHome(tk.Frame):
                                            relief="flat",
                                            activebackground=self.bgcolor,
                                            activeforeground=self.bgcolor,
-                                           command=lambda: master.switch_frame(TeacherHome))
+                                           command=lambda: master.switch_frame(LightTeacherHome))
         self.home_teacher_button.place(x="130",
                                        y="280")
 
@@ -5062,7 +5062,7 @@ class LightStudentDelete(tk.Frame):
                                                            activeforeground=self.bgcolor,
                                                            background=self.bgcolor,
                                                            borderwidth='0',
-                                                           command=lambda: master.switch_frame(DarkStudentHome))
+                                                           command=lambda: master.switch_frame(LightStudentHome))
         self.Delete_Student_back_page_img_button.configure(image=self.img_BackPageIMG)
         self.Delete_Student_back_page_img_button.place(anchor='nw', x='15', y='15')
         self.Student_Delete_Id_label = tk.Label(self)
@@ -10130,6 +10130,7 @@ class DarkTeacherHome(tk.Frame):
 
     def goHome(self):
         self.master.switch_frame(DarkHome)
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
         
 class LightTeacherHome(tk.Frame):
     def __init__(self, master):
@@ -10297,7 +10298,7 @@ class LightTeacherHome(tk.Frame):
                    y='0')
 
     def changeTeacherHomeTheme(self):
-        self.master.switch_frame(LightTeacherHome)
+        self.master.switch_frame(DarkTeacherHome)
 
         # if self["background"] == self.bgcolor:
         #     TeacherHomeBGColor = self.fgcolor
@@ -10393,8 +10394,9 @@ class LightTeacherHome(tk.Frame):
         #                                                      activeforeground=DTeacherHomeBGColor, )
 
     def goHome(self):
-        self.master.switch_frame(DarkHome)
- 
+        self.master.switch_frame(LightHome)
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
+
 
 if __name__ == "__main__":
     app = SchoolManegmentSystem()
