@@ -11,3 +11,4 @@ I vividly remember the absolute grind for this thing. I spent about two months s
 Did it take me way longer than it should have? Yes. Is the code a complete mess? Absolutely. But I stuck with it because I just loved building stuff.
 
 Even though looking at this code now gives me minor emotional damage, it's really satisfying to look back on. It’s awesome to remember that energy and see exactly where I started out.
+<img width="700" height="455" alt="image" src="https://github.com/user-attachments/assets/564b3334-4e13-44c1-9b1d-544fe260efa8" />
